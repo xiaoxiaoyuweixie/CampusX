@@ -1,0 +1,179 @@
+<!-- 设置页面 -->
+<view class="settings-page">
+
+  <!-- 个人资料 -->
+  <view class="section-title">个人资料</view>
+  <view class="card group">
+    <view class="row row-avatar">
+      <view class="row-label">头像</view>
+      <view class="row-value avatar-value">
+        <image wx:if="{{profile.avatar}}" class="avatar avatar-image" src="{{profile.avatar}}" mode="aspectFill"></image>
+        <view wx:else class="avatar">{{profile.nickname[0] || 'X'}}</view>
+      </view>
+      <view class="arrow avatar-arrow">›</view>
+      <button class="avatar-trigger" open-type="chooseAvatar" bindchooseavatar="onChooseWechatAvatar"></button>
+    </view>
+    <view class="divider"></view>
+
+    <view class="row" data-field="nickname" data-label="昵称" bindtap="onEditField">
+      <view class="row-label">昵称</view>
+      <view class="row-value">
+        <text class="row-text">{{profile.nickname}}</text>
+        <view class="arrow">›</view>
+      </view>
+    </view>
+    <view class="divider"></view>
+
+    <view class="row" data-field="gender" data-label="性别" bindtap="onEditField">
+      <view class="row-label">性别</view>
+      <view class="row-value">
+        <text class="row-text">{{profile.gender}}</text>
+        <view class="arrow">›</view>
+      </view>
+    </view>
+    <view class="divider"></view>
+
+    <view class="row" data-field="bio" data-label="个人简介" bindtap="onEditField">
+      <view class="row-label">个人简介</view>
+      <view class="row-value">
+        <text class="row-text ellipsis">{{profile.bio}}</text>
+        <view class="arrow">›</view>
+      </view>
+    </view>
+    <view class="divider"></view>
+
+    <!--
+    <view class="row" data-field="school" data-label="所在学校" bindtap="onEditField">
+      <view class="row-label">所在学校</view>
+      <view class="row-value">
+        <text class="row-text">{{profile.school}}</text>
+        <view class="arrow">›</view>
+      </view>
+    </view>
+    -->
+  </view>
+
+  <!-- 账号与安全
+  <view class="section-title">账号与安全</view>
+  <view class="card group">
+    <view class="row" data-label="手机号" bindtap="onAccountTap">
+      <view class="row-label">
+        <view class="icon-wrap"><view class="i-phone"></view></view>
+        <text>手机号</text>
+      </view>
+      <view class="row-value">
+        <text class="row-text">{{account.phone}}</text>
+        <view class="arrow">›</view>
+      </view>
+    </view>
+    <view class="divider"></view>
+    <view class="row" data-label="账号安全" bindtap="onAccountTap">
+      <view class="row-label">
+        <view class="icon-wrap"><view class="i-shield"></view></view>
+        <text>账号安全</text>
+      </view>
+      <view class="row-value">
+        <text class="row-text safe">{{account.security}}</text>
+        <view class="arrow">›</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 通用设置 
+  <view class="section-title">通用</view>
+  <view class="card group">
+    <view class="row">
+      <view class="row-label">
+        <view class="icon-wrap"><view class="i-bell"></view></view>
+        <text>消息通知</text>
+      </view>
+      <view class="row-value">
+        <switch checked="{{settings.notification}}" color="#3B82F6" bindchange="onToggleNotification" />
+      </view>
+    </view>
+    <view class="divider"></view>
+
+    <view class="row">
+      <view class="row-label">
+        <view class="icon-wrap"><view class="i-moon"></view></view>
+        <text>深色模式</text>
+      </view>
+      <view class="row-value">
+        <switch checked="{{settings.darkMode}}" color="#3B82F6" bindchange="onToggleDarkMode" />
+      </view>
+    </view>
+    <view class="divider"></view>
+
+    <view class="row" bindtap="onClearCache">
+      <view class="row-label">
+        <view class="icon-wrap"><view class="i-trash"></view></view>
+        <text>清除缓存</text>
+      </view>
+      <view class="row-value">
+        <text class="row-text">{{settings.cacheSize}}</text>
+        <view class="arrow">›</view>
+      </view>
+    </view>
+    <view class="divider"></view>
+
+    <view class="row" bindtap="onFontSize">
+      <view class="row-label">
+        <view class="icon-wrap"><view class="i-text"></view></view>
+        <text>字体大小</text>
+      </view>
+      <view class="row-value">
+        <text class="row-text">{{settings.fontSize}}</text>
+        <view class="arrow">›</view>
+      </view>
+    </view>
+  </view>
+  -->
+
+  <!-- 其他 
+  <view class="section-title">其他</view>
+  <view class="card group">
+    <view class="row" data-label="帮助中心" bindtap="onLinkTap">
+      <view class="row-label">
+        <view class="icon-wrap"><view class="i-help"></view></view>
+        <text>帮助中心</text>
+      </view>
+      <view class="row-value"><view class="arrow">›</view></view>
+    </view>
+    <view class="divider"></view>
+    <view class="row" data-label="关于 CampusX" bindtap="onLinkTap">
+      <view class="row-label">
+        <view class="icon-wrap"><view class="i-info"></view></view>
+        <text>关于 CampusX</text>
+      </view>
+      <view class="row-value">
+        <text class="row-text">v0.1.0</text>
+        <view class="arrow">›</view>
+      </view>
+    </view>
+    <view class="divider"></view>
+    <view class="row" data-label="用户协议" bindtap="onLinkTap">
+      <view class="row-label">
+        <view class="icon-wrap"><view class="i-doc"></view></view>
+        <text>用户协议</text>
+      </view>
+      <view class="row-value"><view class="arrow">›</view></view>
+    </view>
+    <view class="divider"></view>
+    <view class="row" data-label="隐私政策" bindtap="onLinkTap">
+      <view class="row-label">
+        <view class="icon-wrap"><view class="i-lock"></view></view>
+        <text>隐私政策</text>
+      </view>
+      <view class="row-value"><view class="arrow">›</view></view>
+    </view>
+  </view>
+  -->
+
+  <!-- 退出登录 -->
+  <view class="logout-wrap">
+    <button class="logout-btn" bindtap="onLogout">退出登录</button>
+  </view>
+
+  <view class="footer-tip">CampusX · 校易通</view>
+
+</view>

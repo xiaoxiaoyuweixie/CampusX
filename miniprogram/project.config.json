@@ -2,7 +2,7 @@
   "miniprogramRoot": "./",
   "projectname": "campusx",
   "description": "CampusX 校易通 - 校园资源共享小程序 MVP",
-  "appid": "wx11caab3a80721519",
+  "appid": "wxe19e03b38fc719f1",
   "setting": {
     "urlCheck": false,
     "es6": true,
@@ -30,7 +30,7 @@
     }
   },
   "compileType": "miniprogram",
-  "libVersion": "3.4.0",
+  "libVersion": "3.16.1",
   "simulatorPluginLibVersion": {},
   "packOptions": {
     "ignore": [],
