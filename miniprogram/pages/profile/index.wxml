@@ -1,6 +1,7 @@
 <view class="page">
   <view class="header">
-    <view class="avatar">{{user.nickname[0] || 'X'}}</view>
+    <image wx:if="{{user.avatar}}" class="avatar avatar-image" src="{{user.avatar}}" mode="aspectFill"></image>
+    <view wx:else class="avatar">{{user.nickname[0] || 'X'}}</view>
     <view class="info">
       <view class="nickname">{{user.nickname}}</view>
       <view class="school">
