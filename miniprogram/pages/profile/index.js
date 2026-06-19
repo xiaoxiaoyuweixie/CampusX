@@ -22,6 +22,11 @@ Page({
   },
   onMenuTap(e) {
     const action = e.currentTarget.dataset.action;
+    if (action === 'published') {
+      wx.navigateTo({ url: '/pages/my-publish/index' });
+      return;
+    }
+
     if (action === 'settings') {
       wx.navigateTo({ url: '/pages/settings/index' });
       return;
