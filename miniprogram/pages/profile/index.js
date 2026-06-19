@@ -22,7 +22,6 @@ Page({
   },
   onMenuTap(e) {
     const action = e.currentTarget.dataset.action;
-
     if (action === 'settings') {
       wx.navigateTo({ url: '/pages/settings/index' });
       return;

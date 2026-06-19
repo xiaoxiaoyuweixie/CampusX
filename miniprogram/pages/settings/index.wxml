@@ -4,12 +4,14 @@
   <!-- 个人资料 -->
   <view class="section-title">个人资料</view>
   <view class="card group">
-    <view class="row row-avatar" data-field="avatar" data-label="头像" bindtap="onEditField">
+    <view class="row row-avatar">
       <view class="row-label">头像</view>
-      <view class="row-value">
-        <view class="avatar">{{profile.nickname[0] || 'X'}}</view>
-        <view class="arrow">›</view>
+      <view class="row-value avatar-value">
+        <image wx:if="{{profile.avatar}}" class="avatar avatar-image" src="{{profile.avatar}}" mode="aspectFill"></image>
+        <view wx:else class="avatar">{{profile.nickname[0] || 'X'}}</view>
       </view>
+      <view class="arrow avatar-arrow">›</view>
+      <button class="avatar-trigger" open-type="chooseAvatar" bindchooseavatar="onChooseWechatAvatar"></button>
     </view>
     <view class="divider"></view>
 
@@ -173,4 +175,5 @@
   </view>
 
   <view class="footer-tip">CampusX · 校易通</view>
+
 </view>

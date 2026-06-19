@@ -31,7 +31,45 @@
 }
 .row:active { background: #F3F4F6; }
 
-.row-avatar { min-height: 140rpx; }
+.row-avatar { min-height: 140rpx; position: relative; }
+.row-avatar .row-label {
+  color: #4B5563;
+  position: relative;
+  z-index: 1;
+}
+.row-avatar .row-value {
+  max-width: none;
+  position: relative;
+  z-index: 1;
+}
+.avatar-value {
+  margin-left: auto;
+  margin-right: 16rpx;
+}
+.row-avatar .avatar {
+  margin-right: 0;
+}
+.avatar-arrow {
+  margin-left: 0;
+  position: relative;
+  z-index: 1;
+}
+.avatar-trigger {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  z-index: 2;
+}
+.avatar-trigger::after {
+  border: none;
+}
+.avatar-trigger:active {
+  background: #F3F4F6;
+}
 
 .row-label {
   display: flex;
@@ -95,6 +133,10 @@
   margin-right: 8rpx;
 }
 
+.avatar-image {
+  background: #E5E7EB;
+}
+
 /* 退出登录 */
 .logout-wrap {
   margin-top: 60rpx;
@@ -121,6 +163,55 @@
   color: #C9CDD4;
   font-size: 22rpx;
   margin-top: 40rpx;
+}
+
+.mask {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.avatar-picker {
+  width: 560rpx;
+  padding: 28rpx;
+  border-radius: 16rpx;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.picker-title {
+  display: block;
+  font-size: 30rpx;
+  color: #111827;
+  margin-bottom: 20rpx;
+}
+
+.wechat-avatar-btn,
+.picker-cancel-btn {
+  width: 100%;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+}
+
+.wechat-avatar-btn {
+  margin-top: 8rpx;
+  background: #3B82F6;
+  color: #fff;
+}
+
+.wechat-avatar-btn::after,
+.picker-cancel-btn::after {
+  border: none;
+}
+
+.picker-cancel-btn {
+  margin-top: 16rpx;
+  background: #F3F4F6;
+  color: #374151;
 }
 
 /* ===== 线性图标（纯 CSS 绘制，灰色微信风格） ===== */
