@@ -1,0 +1,12 @@
+<view class="page">
+  <scroll-view class="list" scroll-y scroll-into-view="{{scrollToView}}" scroll-with-animation>
+    <view class="msg {{item.from === 'me' ? 'me' : 'other'}}" wx:for="{{messages}}" wx:key="id" id="{{item.id}}">
+      <view class="bubble">{{item.text}}</view>
+    </view>
+    <view wx:if="{{!messages.length}}" class="empty-hint">向 {{name}} 打个招呼吧～</view>
+  </scroll-view>
+  <view class="input-bar safe-bottom">
+    <input class="input" placeholder="说点什么..." value="{{input}}" bindinput="onInput" confirm-type="send" bindconfirm="onSend" />
+    <view class="send" bindtap="onSend">发送</view>
+  </view>
+</view>

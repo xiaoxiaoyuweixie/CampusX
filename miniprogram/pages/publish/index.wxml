@@ -1,0 +1,48 @@
+<view class="page">
+  <view class="card section">
+    <view class="label">图片（最多 9 张）</view>
+    <view class="img-list">
+      <view class="img-item" wx:for="{{images}}" wx:key="*this">
+        <image src="{{item}}" mode="aspectFill" />
+        <view class="img-del" data-index="{{index}}" catchtap="onRemoveImage">×</view>
+      </view>
+      <view class="img-add" bindtap="onChooseImage" wx:if="{{images.length < 9}}">
+        <view class="plus">+</view>
+        <view class="add-text">添加图片</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card section">
+    <view class="row">
+      <text class="row-label">标题</text>
+      <input class="row-input" placeholder="请输入标题，简明扼要" data-field="title" bindinput="onInput" value="{{title}}" maxlength="40" />
+    </view>
+    <view class="divider"></view>
+    <view class="row">
+      <text class="row-label">分类</text>
+      <picker class="row-input picker" range="{{categories}}" range-key="name" value="{{categoryIndex}}" bindchange="onCategoryChange">
+        <view>{{categories[categoryIndex].name}} ▾</view>
+      </picker>
+    </view>
+    <view class="divider"></view>
+    <view class="row">
+      <text class="row-label">价格</text>
+      <input class="row-input" type="digit" placeholder="￥" data-field="price" bindinput="onInput" value="{{price}}" />
+    </view>
+    <view class="divider"></view>
+    <view class="row">
+      <text class="row-label">面交</text>
+      <input class="row-input" placeholder="如：荣昌校区·E栋门口" data-field="location" bindinput="onInput" value="{{location}}" />
+    </view>
+  </view>
+
+  <view class="card section">
+    <view class="label">描述</view>
+    <textarea class="textarea" placeholder="说说成色、用法、转让原因～" maxlength="500" data-field="desc" bindinput="onInput" value="{{desc}}" />
+  </view>
+
+  <view class="footer safe-bottom">
+    <button class="btn-primary" bindtap="onSubmit">发布</button>
+  </view>
+</view>

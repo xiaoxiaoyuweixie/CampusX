@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "search-bar": "/components/search-bar/index",
+    "product-card": "/components/product-card/index"
+  },
+  "navigationBarTitleText": "校易通",
+  "enablePullDownRefresh": true
+}

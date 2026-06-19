@@ -1,0 +1,14 @@
+<view class="card product-card" bindtap="onTap" hover-class="card-hover">
+  <image class="cover" src="{{product.cover}}" mode="aspectFill" lazy-load="true" />
+  <view class="info">
+    <view class="title">{{product.title}}</view>
+    <view class="price-row">
+      <text class="text-price">¥{{product.price}}</text>
+      <text class="campus">{{product.campus}}</text>
+    </view>
+    <view class="meta">
+      <text class="seller">{{product.sellerName}}</text>
+      <text class="views">{{product.views}} 浏览</text>
+    </view>
+  </view>
+</view>

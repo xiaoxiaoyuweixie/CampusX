@@ -1,0 +1,4 @@
+<view class="search-bar">
+  <view class="icon">🔍</view>
+  <input class="input" placeholder="{{placeholder}}" value="{{value}}" bindinput="onInput" bindconfirm="onConfirm" confirm-type="search" />
+</view>

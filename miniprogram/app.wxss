@@ -1,0 +1,74 @@
+/* 全局样式 - CampusX */
+page {
+  --primary: #3B82F6;
+  --primary-light: #60A5FA;
+  --bg: #F8FAFC;
+  --text: #111827;
+  --text-sub: #6B7280;
+  --border: #E5E7EB;
+  --card: #FFFFFF;
+
+  background-color: var(--bg);
+  color: var(--text);
+  font-size: 28rpx;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+  line-height: 1.5;
+}
+
+view, text, image { box-sizing: border-box; }
+
+.container {
+  padding: 24rpx;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 12rpx rgba(17, 24, 39, 0.04);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  border-radius: 999rpx;
+  font-size: 30rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  border: none;
+}
+.btn-primary::after { border: none; }
+
+.btn-outline {
+  background: #fff;
+  color: var(--primary);
+  border: 2rpx solid var(--primary);
+  border-radius: 999rpx;
+  font-size: 30rpx;
+  height: 84rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+
+.text-sub { color: var(--text-sub); }
+.text-primary { color: var(--primary); }
+.text-price { color: #EF4444; font-weight: 600; }
+
+.tag {
+  display: inline-block;
+  padding: 4rpx 16rpx;
+  background: #EFF6FF;
+  color: var(--primary);
+  border-radius: 999rpx;
+  font-size: 22rpx;
+}
+
+.divider {
+  height: 1rpx;
+  background: var(--border);
+  margin: 16rpx 0;
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}

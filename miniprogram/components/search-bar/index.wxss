@@ -1,0 +1,11 @@
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 999rpx;
+  padding: 0 24rpx;
+  height: 72rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.04);
+}
+.icon { font-size: 28rpx; margin-right: 12rpx; }
+.input { flex: 1; font-size: 28rpx; color: #111827; }

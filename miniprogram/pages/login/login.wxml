@@ -1,0 +1,27 @@
+<view class="login-page">
+  <image class="login-page__bg" src="./background.svg" mode="aspectFill" />
+  <view class="login-page__overlay">
+    <view class="login-page__avatar-wrap">
+      <image class="login-page__avatar" src="./avatar.svg" mode="aspectFill" />
+    </view>
+
+    <view class="login-page__panel">
+      <view class="login-page__input-box">
+        <input class="login-page__input" placeholder="请输入账号" placeholder-class="login-page__placeholder" value="{{account}}" bindinput="onAccountInput" />
+      </view>
+
+      <view class="login-page__input-box login-page__input-box--password">
+        <input class="login-page__input" password placeholder="请输入密码" placeholder-class="login-page__placeholder" value="{{password}}" bindinput="onPasswordInput" />
+      </view>
+    </view>
+
+    <view class="login-page__agreement">
+      <view class="login-page__check"></view>
+      <text class="login-page__agreement-text">我已详细阅读并同意<text class="login-page__agreement-link">用户协议</text></text>
+    </view>
+
+    <button class="login-page__submit" bindtap="handleLogin">
+      <text class="login-page__submit-icon">›</text>
+    </button>
+  </view>
+</view>

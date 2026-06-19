@@ -1,0 +1,45 @@
+<view class="page" wx:if="{{product}}">
+  <swiper class="swiper" indicator-dots="{{false}}" autoplay="{{false}}" bindchange="onSwiperChange">
+    <swiper-item wx:for="{{product.images}}" wx:key="*this">
+      <image src="{{item}}" mode="aspectFill" class="swiper-img" />
+    </swiper-item>
+  </swiper>
+  <view class="indicator">{{current + 1}} / {{product.images.length}}</view>
+
+  <view class="card block">
+    <view class="price">¥{{product.price}}</view>
+    <view class="title">{{product.title}}</view>
+    <view class="meta">
+      <text class="tag">{{product.campus}}</text>
+      <text class="sub">{{product.publishedAt}} · {{product.views}} 浏览</text>
+    </view>
+  </view>
+
+  <view class="card block">
+    <view class="section-label">商品描述</view>
+    <view class="desc">{{product.desc}}</view>
+  </view>
+
+  <view class="card block">
+    <view class="section-label">面交信息</view>
+    <view class="info-row">📍 {{product.location}}</view>
+  </view>
+
+  <view class="card block seller">
+    <view class="avatar">{{product.sellerName[0]}}</view>
+    <view class="seller-info">
+      <view class="seller-name">{{product.sellerName}}</view>
+      <view class="sub">校园用户</view>
+    </view>
+  </view>
+
+  <view style="height: 160rpx;"></view>
+
+  <view class="bottom-bar safe-bottom">
+    <view class="fav" bindtap="onToggleFav">
+      <view class="fav-icon">{{favorited ? '★' : '☆'}}</view>
+      <view class="fav-text">收藏</view>
+    </view>
+    <button class="btn-primary contact-btn" bindtap="onContact">联系发布者</button>
+  </view>
+</view>
