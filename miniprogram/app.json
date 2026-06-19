@@ -9,7 +9,8 @@
     "pages/settings/index",
     "pages/favorites/index",
     "pages/detail/index",
-    "pages/chat/index"
+    "pages/chat/index",
+    "pages/my-publish/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

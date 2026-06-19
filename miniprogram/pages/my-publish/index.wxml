@@ -1,0 +1,86 @@
+<view class="page">
+  <!-- 顶部统计 -->
+  <view class="stat-card">
+    <view class="stat-header">
+      <view class="stat-title">我发布的资源</view>
+      <view class="stat-sub">管理你在 CampusX 发布的全部内容</view>
+    </view>
+    <view class="stat-row">
+      <view class="stat-item">
+        <view class="stat-num stat-num--primary">{{total}}</view>
+        <view class="stat-label">全部</view>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <view class="stat-num">{{onsaleCount}}</view>
+        <view class="stat-label">在售</view>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <view class="stat-num stat-num--muted">{{offlineCount}}</view>
+        <view class="stat-label">已下架</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- Tab -->
+  <view class="tabs">
+    <view
+      wx:for="{{tabs}}"
+      wx:key="key"
+      class="tab-item {{activeTab === item.key ? 'tab-item--active' : ''}}"
+      data-key="{{item.key}}"
+      bindtap="onTabTap"
+    >
+      {{item.name}}
+    </view>
+  </view>
+
+  <!-- 列表 -->
+  <view wx:if="{{list.length > 0}}" class="list">
+    <view
+      wx:for="{{list}}"
+      wx:key="id"
+      class="card"
+      data-id="{{item.id}}"
+      bindtap="onCardTap"
+    >
+      <image class="cover" src="{{item.cover}}" mode="aspectFill" />
+      <view class="info">
+        <view class="title-row">
+          <view class="title">{{item.title}}</view>
+          <view class="status-tag {{item.status === 'onsale' ? 'status-tag--on' : 'status-tag--off'}}">
+            {{item.status === 'onsale' ? '在售' : '已下架'}}
+          </view>
+        </view>
+        <view class="price">¥<text class="price-num">{{item.price}}</text></view>
+        <view class="meta">发布时间：{{item.publishedAt}}</view>
+        <view class="meta-row">
+          <text class="meta-item">浏览 {{item.views}}</text>
+          <text class="meta-dot">·</text>
+          <text class="meta-item">收藏 {{item.favorites}}</text>
+        </view>
+      </view>
+      <view class="actions">
+        <view class="action-btn" catchtap="onEdit" data-id="{{item.id}}">编辑</view>
+        <view
+          class="action-btn {{item.status === 'onsale' ? 'action-btn--danger' : 'action-btn--success'}}"
+          catchtap="onToggleStatus"
+          data-id="{{item.id}}"
+        >
+          {{item.status === 'onsale' ? '下架' : '恢复'}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view wx:else class="empty">
+    <view class="empty-art">
+      <view class="empty-icon">＋</view>
+    </view>
+    <view class="empty-title">暂无发布内容</view>
+    <view class="empty-sub">快去发布你的第一条校园资源吧</view>
+    <view class="empty-btn" bindtap="onGoPublish">立即发布</view>
+  </view>
+</view>
