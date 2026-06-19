@@ -22,6 +22,17 @@ Page({
   },
   onMenuTap(e) {
     const action = e.currentTarget.dataset.action;
+
+    if (action === 'settings') {
+      wx.navigateTo({ url: '/pages/settings/index' });
+      return;
+    }
+
+    if (action === 'favorites') {
+      wx.navigateTo({ url: '/pages/favorites/index' });
+      return;
+    }
+
     wx.showToast({ title: '功能开发中', icon: 'none' });
   },
 });

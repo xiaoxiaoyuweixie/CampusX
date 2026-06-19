@@ -6,6 +6,8 @@
     "pages/publish/index",
     "pages/message/index",
     "pages/profile/index",
+    "pages/settings/index",
+    "pages/favorites/index",
     "pages/detail/index",
     "pages/chat/index"
   ],
