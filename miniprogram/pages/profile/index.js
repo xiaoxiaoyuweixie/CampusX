@@ -1,4 +1,5 @@
 const storage = require('../../utils/storage.js');
+const { api } = require('../../api/index.js');
 
 Page({
   data: {
@@ -6,19 +7,20 @@ Page({
     publishedCount: 0,
     favoriteCount: 0,
   },
-  onShow() {
+  async onShow() {
     const user = storage.get('userInfo', {});
-    this.setData({
-      user,
-      publishedCount: storage.get('myPublished', []).length,
-      favoriteCount: storage.getFavorites().length,
-    });
+    this.setData({ user });
+    const res = await api.getDashboard();
+    const payload = res.result || {};
+    if (payload.code === 0) {
+      this.setData({
+        publishedCount: payload.data.publishedCount || 0,
+        favoriteCount: payload.data.favoriteCount || 0,
+      });
+    }
   },
   onLogin() {
-    const user = { ...this.data.user, logged: true, nickname: '校园用户', verified: true };
-    storage.set('userInfo', user);
-    this.setData({ user });
-    wx.showToast({ title: '登录成功', icon: 'success' });
+    wx.navigateTo({ url: '/pages/login/login' });
   },
   onMenuTap(e) {
     const action = e.currentTarget.dataset.action;

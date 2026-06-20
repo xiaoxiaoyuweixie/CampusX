@@ -1,0 +1,10 @@
+{
+  "name": "campusx-cloudbase-backend",
+  "private": true,
+  "version": "1.0.0",
+  "description": "CloudBase cloud functions for 校易通微信小程序",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+}

@@ -15,10 +15,15 @@
       </view>
     </view>
 
+<<<<<<< HEAD
     <view class="login-page__agreement">
       <view class="login-page__check {{agreed ? 'login-page__check--checked' : ''}}" bindtap="onToggleAgree">
         <text wx:if="{{agreed}}" class="login-page__check-icon">✓</text>
       </view>
+=======
+    <view class="login-page__agreement" bindtap="onToggleAgreed">
+      <view class="login-page__check {{agreed ? 'login-page__check--active' : ''}}"></view>
+>>>>>>> xiao
       <text class="login-page__agreement-text">我已详细阅读并同意<text class="login-page__agreement-link">用户协议</text></text>
     </view>
 

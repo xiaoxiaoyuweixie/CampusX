@@ -1,4 +1,3 @@
-// 简易 storage 封装
 function get(key, fallback) {
   try {
     const v = wx.getStorageSync(key);
@@ -13,14 +12,8 @@ function set(key, value) {
 function remove(key) {
   try { wx.removeStorageSync(key); } catch (e) {}
 }
-
-// 收藏相关
-function getFavorites() {
-  return get('favorites', []);
-}
-function isFavorite(id) {
-  return getFavorites().includes(id);
-}
+function getFavorites() { return get('favorites', []); }
+function isFavorite(id) { return getFavorites().includes(id); }
 function toggleFavorite(id) {
   const favs = getFavorites();
   const i = favs.indexOf(id);
@@ -28,5 +21,6 @@ function toggleFavorite(id) {
   set('favorites', favs);
   return favs.includes(id);
 }
+function getToken() { return get('token', ''); }
 
-module.exports = { get, set, remove, getFavorites, isFavorite, toggleFavorite };
+module.exports = { get, set, remove, getFavorites, isFavorite, toggleFavorite, getToken };
