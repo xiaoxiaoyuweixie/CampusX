@@ -4,7 +4,7 @@ Page({
   data: {
     account: 'admin',
     password: '123456',
-    agreed: true,
+    agreed: false,
   },
   onLoad(options) {
     this.redirect = (options && options.redirect) ? decodeURIComponent(options.redirect) : '/pages/home/index';
@@ -15,6 +15,9 @@ Page({
   onPasswordInput(e) {
     this.setData({ password: e.detail.value });
   },
+  onToggleAgree() {
+    this.setData({ agreed: !this.data.agreed });
+  },
   handleLogin() {
     const { account, password, agreed } = this.data;
     if (!account || !password) {
@@ -22,7 +25,7 @@ Page({
       return;
     }
     if (!agreed) {
-      wx.showToast({ title: '请先勾选用户协议', icon: 'none' });
+      wx.showToast({ title: '请先阅读用户协议', icon: 'none' });
       return;
     }
 
