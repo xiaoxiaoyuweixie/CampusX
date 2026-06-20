@@ -2,8 +2,8 @@
 function toDetail(id) {
   wx.navigateTo({ url: `/pages/detail/index?id=${id}` });
 }
-function toChat(userId, name) {
-  wx.navigateTo({ url: `/pages/chat/index?userId=${userId}&name=${encodeURIComponent(name || '')}` });
+function toChat(userId, name, productId = '') {
+  wx.navigateTo({ url: `/pages/chat/index?userId=${userId}&name=${encodeURIComponent(name || '')}&productId=${productId}` });
 }
 function toast(title, icon = 'none') {
   wx.showToast({ title, icon, duration: 1500 });

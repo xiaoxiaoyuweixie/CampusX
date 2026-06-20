@@ -1,15 +1,21 @@
-const { categories } = require('../../mock/products.js');
-const storage = require('../../utils/storage.js');
+const { api } = require('../../api/index.js');
+
+const FALLBACK_COVER = 'https://upload.wikimedia.org/wikipedia/commons/3/3f/Fronalpstock_big.jpg';
 
 Page({
   data: {
-    images: [],
+    images: [FALLBACK_COVER],
     title: '',
     desc: '',
     price: '',
     location: '',
-    categories,
+    categories: [],
     categoryIndex: 0,
+  },
+  async onLoad() {
+    const res = await api.getCategories();
+    const payload = res.result || {};
+    if (payload.code === 0) this.setData({ categories: payload.data || [] });
   },
   onChooseImage() {
     wx.chooseMedia({
@@ -34,30 +40,32 @@ Page({
   onCategoryChange(e) {
     this.setData({ categoryIndex: Number(e.detail.value) });
   },
-  onSubmit() {
+  async onSubmit() {
     const { title, desc, price, location, images, categoryIndex, categories } = this.data;
     if (!title.trim()) return wx.showToast({ title: '请输入标题', icon: 'none' });
     if (!price) return wx.showToast({ title: '请输入价格', icon: 'none' });
     if (!location.trim()) return wx.showToast({ title: '请输入面交地点', icon: 'none' });
+    if (!categories.length) return wx.showToast({ title: '分类加载中', icon: 'none' });
 
-    const newItem = {
-      id: Date.now(),
+    const imageList = [...images];
+    const cover = imageList[0] || FALLBACK_COVER;
+
+    const createRes = await api.createProduct({
       title,
       desc,
       price: Number(price),
       location,
       campus: location.split('·')[0] || location,
       category: categories[categoryIndex].id,
-      cover: images[0] || 'https://images.unsplash.com/photo-1513708927688-890fe41c2e99?w=600',
-      images: images.length ? images : ['https://images.unsplash.com/photo-1513708927688-890fe41c2e99?w=800'],
-      views: 0,
-      sellerName: '我',
-      sellerId: 'me',
-      publishedAt: '刚刚',
-    };
-    const mine = storage.get('myPublished', []);
-    mine.unshift(newItem);
-    storage.set('myPublished', mine);
+      images: imageList,
+      cover,
+      status: 'published',
+    });
+    const payload = createRes.result || {};
+    if (payload.code !== 0) {
+      wx.showToast({ title: payload.message || '发布失败', icon: 'none' });
+      return;
+    }
 
     wx.showToast({ title: '发布成功', icon: 'success' });
     setTimeout(() => {

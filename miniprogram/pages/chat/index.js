@@ -1,26 +1,40 @@
-const { chatHistory } = require('../../mock/messages.js');
+const { api } = require('../../api/index.js');
 
 Page({
   data: {
     name: '',
     userId: '',
+    sessionId: '',
     messages: [],
     input: '',
     scrollToView: '',
   },
-  onLoad(options) {
+  async onLoad(options) {
     const name = decodeURIComponent(options.name || '对方');
     const userId = options.userId || '';
+    const productId = options.productId || '';
     wx.setNavigationBarTitle({ title: name });
-    const messages = (chatHistory[userId] || []).map((m, i) => ({ ...m, id: 'm' + i }));
-    this.setData({ name, userId, messages, scrollToView: messages.length ? 'm' + (messages.length - 1) : '' });
+    const sessionRes = await api.createSession({ userA: userId, userB: (wx.getStorageSync('userInfo') || {}).openid || '', productId });
+    const sessionPayload = sessionRes.result || {};
+    const sessionId = sessionPayload.code === 0 && sessionPayload.data ? (sessionPayload.data._id || sessionPayload.data.id) : '';
+    if (sessionId) {
+      const msgRes = await api.getMessages(sessionId);
+      const msgPayload = msgRes.result || {};
+      this.setData({ name, userId, sessionId, messages: msgPayload.code === 0 ? (msgPayload.data || []) : [], scrollToView: '' });
+    } else {
+      this.setData({ name, userId, sessionId, messages: [] });
+    }
   },
   onInput(e) { this.setData({ input: e.detail.value }); },
-  onSend() {
+  async onSend() {
     const text = this.data.input.trim();
-    if (!text) return;
-    const id = 'm' + this.data.messages.length;
-    const messages = [...this.data.messages, { id, from: 'me', text, time: '刚刚' }];
-    this.setData({ messages, input: '', scrollToView: id });
+    if (!text || !this.data.sessionId) return;
+    const res = await api.sendMessage({ sessionId: this.data.sessionId, toUser: this.data.userId, text });
+    const payload = res.result || {};
+    if (payload.code === 0) {
+      const id = payload.data._id || `m${Date.now()}`;
+      const messages = [...this.data.messages, { id, fromUser: 'me', text, createdAt: '刚刚' }];
+      this.setData({ messages, input: '', scrollToView: id });
+    }
   },
 });

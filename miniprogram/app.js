@@ -1,7 +1,14 @@
 // 全局 App
 App({
   onLaunch() {
-    const userInfo = wx.getStorageSync('userInfo');
+    if (wx.cloud) {
+      wx.cloud.init({
+        env: 'cloud1-d6g5stkeb92288dee',
+        traceUser: true,
+      });
+    }
+
+    const userInfo = wx.getStorageSync('userInfo') || null;
     if (!userInfo) {
       wx.setStorageSync('userInfo', {
         nickname: '校园游客',
@@ -10,20 +17,13 @@ App({
         verified: false,
         logged: false,
       });
-      wx.reLaunch({ url: '/pages/login/login' });
-      return;
     }
-    if (!userInfo.logged) {
-      wx.reLaunch({ url: '/pages/login/login' });
-    }
-    if (!wx.getStorageSync('favorites')) {
-      wx.setStorageSync('favorites', []);
-    }
-    if (!wx.getStorageSync('myPublished')) {
-      wx.setStorageSync('myPublished', []);
+    if (!wx.getStorageSync('token')) {
+      wx.setStorageSync('token', '');
     }
   },
   globalData: {
     school: '西南大学',
+    envId: 'cloud1-d6g5stkeb92288dee',
   },
 });
