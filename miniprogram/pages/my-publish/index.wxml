@@ -1,5 +1,4 @@
 <view class="page">
-  <!-- 顶部统计 -->
   <view class="stat-card">
     <view class="stat-header">
       <view class="stat-title">我发布的资源</view>
@@ -23,7 +22,6 @@
     </view>
   </view>
 
-  <!-- Tab -->
   <view class="tabs">
     <view
       wx:for="{{tabs}}"
@@ -36,7 +34,6 @@
     </view>
   </view>
 
-  <!-- 列表 -->
   <view wx:if="{{list.length > 0}}" class="list">
     <view
       wx:for="{{list}}"
@@ -49,11 +46,11 @@
       <view class="info">
         <view class="title-row">
           <view class="title">{{item.title}}</view>
-          <view class="status-tag {{item.status === 'onsale' ? 'status-tag--on' : 'status-tag--off'}}">
-            {{item.status === 'onsale' ? '在售' : '已下架'}}
+          <view class="status-tag {{item.status === 'on_sale' ? 'status-tag--on' : 'status-tag--off'}}">
+            {{item.status === 'on_sale' ? '在售' : '已下架'}}
           </view>
         </view>
-        <view class="price">¥<text class="price-num">{{item.price}}</text></view>
+        <view class="price">￥<text class="price-num">{{item.price}}</text></view>
         <view class="meta">发布时间：{{item.publishedAt}}</view>
         <view class="meta-row">
           <text class="meta-item">浏览 {{item.views}}</text>
@@ -64,17 +61,16 @@
       <view class="actions">
         <view class="action-btn" catchtap="onEdit" data-id="{{item.id}}">编辑</view>
         <view
-          class="action-btn {{item.status === 'onsale' ? 'action-btn--danger' : 'action-btn--success'}}"
+          class="action-btn {{item.status === 'on_sale' ? 'action-btn--danger' : 'action-btn--success'}}"
           catchtap="onToggleStatus"
           data-id="{{item.id}}"
         >
-          {{item.status === 'onsale' ? '下架' : '恢复'}}
+          {{item.status === 'on_sale' ? '下架' : '恢复'}}
         </view>
       </view>
     </view>
   </view>
 
-  <!-- 空状态 -->
   <view wx:else class="empty">
     <view class="empty-art">
       <view class="empty-icon">＋</view>

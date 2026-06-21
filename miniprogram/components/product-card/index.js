@@ -4,7 +4,8 @@ Component({
   },
   methods: {
     onTap() {
-      this.triggerEvent('tap', { id: this.data.product.id });
+      const product = this.data.product || {};
+      this.triggerEvent('tap', { id: product._id || product.id });
     },
   },
 });

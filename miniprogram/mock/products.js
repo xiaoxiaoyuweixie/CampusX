@@ -109,4 +109,12 @@ const products = [
   },
 ];
 
-module.exports = { products, categories };
+const normalizedCategories = [
+  { id: 'digital', categoryId: 'digital', name: '数码电子', icon: '📱', sort: 1 },
+  { id: 'kaoyan', categoryId: 'kaoyan', name: '考研资料', icon: '📎', sort: 2 },
+  { id: 'book', categoryId: 'book', name: '教材书籍', icon: '📚', sort: 3 },
+  { id: 'skill', categoryId: 'skill', name: '技能服务', icon: '🤝', sort: 4 },
+  { id: 'dorm', categoryId: 'dorm', name: '宿舍用品', icon: '🛏️', sort: 5 },
+];
+
+module.exports = { products, categories: normalizedCategories };

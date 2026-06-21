@@ -3,11 +3,14 @@
     <image wx:if="{{user.avatar}}" class="avatar avatar-image" src="{{user.avatar}}" mode="aspectFill"></image>
     <view wx:else class="avatar">{{user.nickname[0] || 'X'}}</view>
     <view class="info">
-      <view class="nickname">{{user.nickname}}</view>
-      <view class="school">
-        🎓 {{user.school}}
-        <text class="verify {{user.verified ? 'ok' : ''}}">{{user.verified ? '已认证' : '未认证'}}</text>
+      <view class="identity-row">
+        <view class="nickname">{{user.nickname}}</view>
+        <view class="school">
+          🎓 {{user.school}}
+          <text class="verify {{user.verified ? 'ok' : ''}}">{{user.verified ? '已认证' : '未认证'}}</text>
+        </view>
       </view>
+      <view class="bio">{{user.bio || '这个人很低调，还没有填写简介'}}</view>
     </view>
     <view wx:if="{{!user.logged}}" class="login-btn" bindtap="onLogin">登录</view>
   </view>

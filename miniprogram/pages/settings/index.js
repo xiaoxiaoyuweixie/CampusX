@@ -160,17 +160,8 @@ Page({
     await this.saveProfile({ nickname });
   },
 
-  updateGender(gender) {
-    this.setData({ "profile.gender": gender });
-
-    const userInfo = wx.getStorageSync("userInfo") || {};
-    userInfo.gender = gender;
-    wx.setStorageSync("userInfo", userInfo);
-
-    wx.showToast({
-      title: "更新成功",
-      icon: "success"
-    });
+  async updateGender(gender) {
+    await this.saveProfile({ gender });
   },
 
   async updateBio(bio) {

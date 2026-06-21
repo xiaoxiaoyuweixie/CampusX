@@ -27,8 +27,8 @@
   align-items: center;
   gap: 8rpx;
 }
-.cat-icon { font-size: 44rpx; }
-.cat-name { font-size: 22rpx; color: #374151; }
+.cat-icon { font-size: 48rpx; }
+.cat-name { font-size: 26rpx; color: #374151; }
 
 .section-title {
   font-size: 30rpx;

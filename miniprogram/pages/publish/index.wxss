@@ -25,7 +25,7 @@
 .row { display: flex; align-items: center; padding: 18rpx 0; }
 .row-label { width: 120rpx; font-size: 28rpx; color: #111827; }
 .row-input { flex: 1; font-size: 28rpx; color: #111827; }
-.picker { color: #111827; }
+.picker { color: #111827; font-size: 30rpx; }
 .divider { height: 1rpx; background: #F1F5F9; }
 
 .textarea { width: 100%; min-height: 220rpx; font-size: 28rpx; }

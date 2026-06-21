@@ -43,3 +43,14 @@
   justify-content: center;
   line-height: 1;
 }
+.detail-empty {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #6B7280;
+  gap: 16rpx;
+}
+.empty-title { color: #111827; font-size: 32rpx; font-weight: 600; }
+.empty-desc { font-size: 26rpx; }

@@ -13,7 +13,10 @@ Page({
     const res = await api.getDashboard();
     const payload = res.result || {};
     if (payload.code === 0) {
+      const latestUser = payload.data.user ? { ...user, ...payload.data.user, logged: true } : user;
+      storage.set('userInfo', latestUser);
       this.setData({
+        user: latestUser,
         publishedCount: payload.data.publishedCount || 0,
         favoriteCount: payload.data.favoriteCount || 0,
       });
