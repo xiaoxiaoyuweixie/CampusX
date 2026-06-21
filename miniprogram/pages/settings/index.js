@@ -1,9 +1,6 @@
 const { api } = require("../../api/index.js");
 
 const DEFAULT_AVATAR = "";
-const storage = require('../../utils/storage.js');
-const { api } = require('../../api/index.js');
-const { uploadImage } = require('../../utils/upload.js');
 
 Page({
   data: {
@@ -87,7 +84,10 @@ Page({
         if (!res.confirm) return;
         const nickname = (res.content || "").trim();
         if (!nickname) {
-          wx.showToast({ title: "昵称不能为空", icon: "none" });
+          wx.showToast({
+            title: "昵称不能为空",
+            icon: "none"
+          });
           return;
         }
         this.updateNickname(nickname);
@@ -117,7 +117,10 @@ Page({
         if (!res.confirm) return;
         const bio = (res.content || "").trim();
         if (!bio) {
-          wx.showToast({ title: "个人简介不能为空", icon: "none" });
+          wx.showToast({
+            title: "个人简介不能为空",
+            icon: "none"
+          });
           return;
         }
         this.updateBio(bio);
@@ -125,16 +128,10 @@ Page({
     });
   },
 
-  async onChooseAvatar(e) {
+  onChooseWechatAvatar(e) {
     const { avatarUrl } = e.detail || {};
     if (!avatarUrl) return;
-    try {
-      const userInfo = wx.getStorageSync("userInfo") || {};
-      const result = await uploadImage({ filePath: avatarUrl, type: 'avatar', openid: userInfo.openid });
-      this.updateAvatar(result.fileID, result.url || avatarUrl);
-    } catch (error) {
-      wx.showToast({ title: error.message || '头像上传失败', icon: 'none' });
-    }
+    this.updateAvatar(avatarUrl);
   },
 
   async updateAvatar(avatarUrl) {
@@ -169,8 +166,6 @@ Page({
     const userInfo = wx.getStorageSync("userInfo") || {};
     userInfo.gender = gender;
     wx.setStorageSync("userInfo", userInfo);
-
-    api.updateUserInfo({ nickname, avatar: userInfo.avatarFileID || userInfo.avatar || '' }).catch(() => {});
 
     wx.showToast({
       title: "更新成功",

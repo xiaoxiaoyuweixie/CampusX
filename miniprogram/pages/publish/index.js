@@ -1,18 +1,16 @@
 const { api } = require('../../api/index.js');
-const { uploadImages } = require('../../utils/upload.js');
 
 const FALLBACK_COVER = 'https://upload.wikimedia.org/wikipedia/commons/3/3f/Fronalpstock_big.jpg';
 
 Page({
   data: {
-    images: [],
+    images: [FALLBACK_COVER],
     title: '',
     desc: '',
     price: '',
     location: '',
     categories: [],
     categoryIndex: 0,
-    uploading: false,
   },
   async onLoad() {
     const res = await api.getCategories();
@@ -48,40 +46,30 @@ Page({
     if (!price) return wx.showToast({ title: '请输入价格', icon: 'none' });
     if (!location.trim()) return wx.showToast({ title: '请输入面交地点', icon: 'none' });
     if (!categories.length) return wx.showToast({ title: '分类加载中', icon: 'none' });
-    if (!images.length) return wx.showToast({ title: '请至少上传一张图片', icon: 'none' });
 
-    this.setData({ uploading: true });
-    try {
-      const productId = `p_${Date.now()}`;
-      const uploadList = await uploadImages({ filePaths: images, type: 'product', productId });
-      const fileIds = uploadList.map(item => item.fileID);
-      const imageUrls = uploadList.map(item => item.url);
-      const cover = imageUrls[0] || FALLBACK_COVER;
+    const imageList = [...images];
+    const cover = imageList[0] || FALLBACK_COVER;
 
-      const createRes = await api.createProduct({
-        title,
-        desc,
-        price: Number(price),
-        location,
-        campus: location.split('·')[0] || location,
-        category: categories[categoryIndex].id,
-        images: fileIds,
-        imageUrls,
-        cover,
-        status: 'published',
-      });
-      const payload = createRes.result || {};
-      if (payload.code !== 0) {
-        wx.showToast({ title: payload.message || '发布失败', icon: 'none' });
-        return;
-      }
-
-      wx.showToast({ title: '发布成功', icon: 'success' });
-      setTimeout(() => {
-        wx.switchTab({ url: '/pages/home/index' });
-      }, 800);
-    } finally {
-      this.setData({ uploading: false });
+    const createRes = await api.createProduct({
+      title,
+      desc,
+      price: Number(price),
+      location,
+      campus: location.split('·')[0] || location,
+      category: categories[categoryIndex].id,
+      images: imageList,
+      cover,
+      status: 'published',
+    });
+    const payload = createRes.result || {};
+    if (payload.code !== 0) {
+      wx.showToast({ title: payload.message || '发布失败', icon: 'none' });
+      return;
     }
+
+    wx.showToast({ title: '发布成功', icon: 'success' });
+    setTimeout(() => {
+      wx.switchTab({ url: '/pages/home/index' });
+    }, 800);
   },
 });
