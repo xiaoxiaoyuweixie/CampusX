@@ -1,12 +1,22 @@
 <view class="page">
+  <view wx:if="{{session}}" class="product-strip">
+    <image wx:if="{{session.productCover}}" class="product-cover" src="{{session.productCover}}" mode="aspectFill"></image>
+    <view class="product-info">
+      <view class="product-title">{{session.productTitle}}</view>
+      <view class="product-sub">围绕该商品的沟通</view>
+    </view>
+  </view>
+
   <scroll-view class="list" scroll-y scroll-into-view="{{scrollToView}}" scroll-with-animation>
     <view class="msg {{item.from === 'me' ? 'me' : 'other'}}" wx:for="{{messages}}" wx:key="id" id="{{item.id}}">
       <view class="bubble">{{item.text}}</view>
     </view>
-    <view wx:if="{{!messages.length}}" class="empty-hint">向 {{name}} 打个招呼吧～</view>
+    <view wx:if="{{!messages.length && !loading}}" class="empty-hint">向 {{name}} 打个招呼吧</view>
+    <view wx:if="{{loading}}" class="empty-hint">消息加载中...</view>
   </scroll-view>
+
   <view class="input-bar safe-bottom">
     <input class="input" placeholder="说点什么..." value="{{input}}" bindinput="onInput" confirm-type="send" bindconfirm="onSend" />
-    <view class="send" bindtap="onSend">发送</view>
+    <button class="send" loading="{{sending}}" bindtap="onSend">发送</button>
   </view>
 </view>

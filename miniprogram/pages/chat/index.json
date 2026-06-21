@@ -1,1 +1,4 @@
-{ "usingComponents": {}, "navigationBarTitleText": "聊天" }
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "聊天"
+}

@@ -26,10 +26,15 @@ const api = {
   listFavorites: (data) => callFunction('favorite', { action: 'listFavorites', data }),
   checkFavorite: (productId) => callFunction('favorite', { action: 'checkFavorite', data: { productId } }),
 
-  createSession: (data) => callFunction('chat', { action: 'createSession', data }),
-  getSessionList: () => callFunction('chat', { action: 'getSessionList' }),
-  getMessages: (sessionId) => callFunction('chat', { action: 'getMessages', data: { sessionId } }),
-  sendMessage: (data) => callFunction('chat', { action: 'sendMessage', data }),
+  openChatSession: (productId) => callFunction('chatService', { action: 'openSession', data: { productId } }),
+  createSession: (data) => callFunction('chatService', { action: 'openSession', data }),
+  getSessionList: (data) => callFunction('chatService', { action: 'getSessionList', data }),
+  getMessages: (data) => {
+    const payload = typeof data === 'string' ? { sessionId: data } : data;
+    return callFunction('chatService', { action: 'getMessages', data: payload });
+  },
+  sendMessage: (data) => callFunction('chatService', { action: 'sendMessage', data }),
+  markRead: (sessionId) => callFunction('chatService', { action: 'markRead', data: { sessionId } }),
 
   systemNoticeList: () => callFunction('message', { action: 'systemNoticeList' }),
   unreadCount: () => callFunction('message', { action: 'unreadCount' }),

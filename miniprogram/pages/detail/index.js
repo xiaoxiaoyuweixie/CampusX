@@ -11,12 +11,13 @@ function normalizeProduct(raw) {
   const images = Array.isArray(raw.images) && raw.images.length ? raw.images : [cover];
   return {
     ...raw,
-    id: raw.id || raw._id,
+    id: raw.id || raw._id || raw.productId,
+    productId: raw.productId || raw.id || raw._id,
     cover,
     images,
     sellerName: raw.sellerName || raw.nickname || '发布者',
     userId: raw.userId || raw.sellerId || raw.openid || '',
-    views: raw.views || 0,
+    views: raw.views || raw.viewCount || 0,
   };
 }
 
@@ -26,7 +27,9 @@ Page({
     favorited: false,
     current: 0,
     loadFailed: false,
+    contacting: false,
   },
+
   async onLoad(options) {
     const id = options.id;
     if (!id || id === 'undefined') {
@@ -62,7 +65,11 @@ Page({
       this.setData({ favorited: storage.isFavorite(product.productId || product.id) });
     }
   },
-  onSwiperChange(e) { this.setData({ current: e.detail.current }); },
+
+  onSwiperChange(e) {
+    this.setData({ current: e.detail.current });
+  },
+
   async onToggleFav() {
     const { product, favorited } = this.data;
     if (!product) return;
@@ -74,8 +81,26 @@ Page({
       wx.showToast({ title: !favorited ? '已收藏' : '已取消', icon: 'none' });
     }
   },
-  onContact() {
-    const { userId, sellerName, _id, id } = this.data.product || {};
-    router.toChat(userId, sellerName, _id || id);
+
+  async onContact() {
+    const { product, contacting } = this.data;
+    if (!product || contacting) return;
+    const productId = product.productId || product._id || product.id;
+    this.setData({ contacting: true });
+    wx.showLoading({ title: '正在进入聊天' });
+    try {
+      const res = await api.openChatSession(productId);
+      const payload = res.result || {};
+      if (payload.code !== 0 || !payload.data || !payload.data.sessionId) {
+        wx.showToast({ title: payload.message || '暂时无法联系发布者', icon: 'none' });
+        return;
+      }
+      router.toChatSession(payload.data.sessionId);
+    } catch (err) {
+      wx.showToast({ title: '暂时无法联系发布者', icon: 'none' });
+    } finally {
+      wx.hideLoading();
+      this.setData({ contacting: false });
+    }
   },
 });
