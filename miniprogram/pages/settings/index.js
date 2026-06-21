@@ -1,3 +1,5 @@
+const { api } = require("../../api/index.js");
+
 const DEFAULT_AVATAR = "";
 
 Page({
@@ -21,8 +23,9 @@ Page({
     }
   },
 
-  onShow() {
+  async onShow() {
     this.syncProfileFromStorage();
+    await this.syncProfileFromCloud();
   },
 
   syncProfileFromStorage() {
@@ -34,6 +37,20 @@ Page({
       "profile.school": userInfo.school || this.data.profile.school,
       "profile.avatar": userInfo.avatar || DEFAULT_AVATAR
     });
+  },
+
+  async syncProfileFromCloud() {
+    const res = await api.getUserInfo();
+    const payload = res.result || {};
+    if (payload.code !== 0 || !payload.data) return;
+
+    const userInfo = {
+      ...(wx.getStorageSync("userInfo") || {}),
+      ...payload.data,
+      logged: true
+    };
+    wx.setStorageSync("userInfo", userInfo);
+    this.syncProfileFromStorage();
   },
 
   onEditField(e) {
@@ -117,30 +134,30 @@ Page({
     this.updateAvatar(avatarUrl);
   },
 
-  updateAvatar(avatarUrl) {
-    this.setData({ "profile.avatar": avatarUrl });
-
-    const userInfo = wx.getStorageSync("userInfo") || {};
-    userInfo.avatar = avatarUrl;
-    wx.setStorageSync("userInfo", userInfo);
-
-    wx.showToast({
-      title: "头像已更新",
-      icon: "success"
-    });
+  async updateAvatar(avatarUrl) {
+    wx.showLoading({ title: "上传中" });
+    try {
+      const userInfo = wx.getStorageSync("userInfo") || {};
+      const openid = userInfo.openid || userInfo.token || wx.getStorageSync("token") || "unknown";
+      const ext = this.getFileExt(avatarUrl);
+      const uploadRes = await this.uploadAvatar(avatarUrl, `avatar/${openid}-${Date.now()}.${ext}`);
+      await this.saveProfile({ avatar: uploadRes.fileID }, { silent: true });
+      wx.showToast({
+        title: "头像已更新",
+        icon: "success"
+      });
+    } catch (err) {
+      wx.showToast({
+        title: err.message || "头像更新失败",
+        icon: "none"
+      });
+    } finally {
+      wx.hideLoading();
+    }
   },
 
-  updateNickname(nickname) {
-    this.setData({ "profile.nickname": nickname });
-
-    const userInfo = wx.getStorageSync("userInfo") || {};
-    userInfo.nickname = nickname;
-    wx.setStorageSync("userInfo", userInfo);
-
-    wx.showToast({
-      title: "更新成功",
-      icon: "success"
-    });
+  async updateNickname(nickname) {
+    await this.saveProfile({ nickname });
   },
 
   updateGender(gender) {
@@ -156,17 +173,51 @@ Page({
     });
   },
 
-  updateBio(bio) {
-    this.setData({ "profile.bio": bio });
+  async updateBio(bio) {
+    await this.saveProfile({ bio });
+  },
 
-    const userInfo = wx.getStorageSync("userInfo") || {};
-    userInfo.bio = bio;
-    wx.setStorageSync("userInfo", userInfo);
+  getFileExt(filePath) {
+    const match = String(filePath || "").match(/\.([a-zA-Z0-9]+)(?:\?|$)/);
+    return match ? match[1].toLowerCase() : "png";
+  },
 
-    wx.showToast({
-      title: "更新成功",
-      icon: "success"
+  uploadAvatar(filePath, cloudPath) {
+    return new Promise((resolve, reject) => {
+      wx.cloud.uploadFile({
+        cloudPath,
+        filePath,
+        success: resolve,
+        fail: reject
+      });
     });
+  },
+
+  async saveProfile(data, options = {}) {
+    const res = await api.updateUserInfo(data);
+    const payload = res.result || {};
+    if (payload.code !== 0) {
+      wx.showToast({
+        title: payload.message || "更新失败",
+        icon: "none"
+      });
+      return;
+    }
+
+    const userInfo = {
+      ...(wx.getStorageSync("userInfo") || {}),
+      ...payload.data,
+      logged: true
+    };
+    wx.setStorageSync("userInfo", userInfo);
+    this.syncProfileFromStorage();
+
+    if (!options.silent) {
+      wx.showToast({
+        title: "更新成功",
+        icon: "success"
+      });
+    }
   },
 
   onLogout() {
