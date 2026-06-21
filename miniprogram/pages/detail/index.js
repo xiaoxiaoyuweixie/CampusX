@@ -55,18 +55,19 @@ Page({
     this.setData({ product, loadFailed: false });
 
     try {
-      const favRes = await api.checkFavorite(product._id || product.id);
+      const favRes = await api.checkFavorite(product.productId || product._id || product.id);
       const favPayload = favRes.result || {};
       this.setData({ favorited: favPayload.code === 0 ? !!favPayload.data.favorited : false });
     } catch (err) {
-      this.setData({ favorited: storage.isFavorite(product.id) });
+      this.setData({ favorited: storage.isFavorite(product.productId || product.id) });
     }
   },
   onSwiperChange(e) { this.setData({ current: e.detail.current }); },
   async onToggleFav() {
     const { product, favorited } = this.data;
     if (!product) return;
-    const res = favorited ? await api.removeFavorite(product._id || product.id) : await api.addFavorite(product._id || product.id);
+    const productId = product.productId || product._id || product.id;
+    const res = favorited ? await api.removeFavorite(productId) : await api.addFavorite(productId);
     const payload = res.result || {};
     if (payload.code === 0) {
       this.setData({ favorited: !favorited });

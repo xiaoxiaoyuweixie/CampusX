@@ -1,7 +1,10 @@
 <view class="page">
   <view class="header">
     <view class="school">📍 {{school}}</view>
-    <search-bar value="{{keyword}}" bind:input="onSearchInput" bind:confirm="onSearchConfirm" />
+    <view class="search-wrap">
+      <search-bar value="{{keyword}}" bind:input="onSearchInput" bind:confirm="onSearchConfirm" />
+    </view>
+    <view wx:if="{{keyword}}" class="cancel-btn" bindtap="onSearchCancel">取消</view>
   </view>
 
   <view class="banner">

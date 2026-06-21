@@ -97,7 +97,7 @@ exports.main = async (event) => {
 
     if (action === 'getDashboard') {
       const publishedCount = await safeCount('products', { openid, status: 'on_sale' });
-      const favoriteCount = await safeCount('favorites', { userId: openid });
+      const favoriteCount = await safeCount('favorites', { openid });
       return ok({
         user: normalizeUser(user),
         publishedCount,
