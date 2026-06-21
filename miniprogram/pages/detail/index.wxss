@@ -21,6 +21,7 @@
   color: #fff; font-size: 32rpx;
   display: flex; align-items: center; justify-content: center;
 }
+.avatar-image { background: #F1F5F9; }
 .seller-name { font-size: 30rpx; color: #111827; font-weight: 500; }
 
 .bottom-bar {

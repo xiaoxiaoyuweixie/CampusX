@@ -8,6 +8,7 @@ const _ = db.command;
 const PRODUCT_STATUS = {
   ON_SALE: 'on_sale',
   OFF_SHELF: 'off_shelf',
+  SOLD: 'sold',
 };
 
 function ok(data = null, message = 'success') {
@@ -219,7 +220,7 @@ exports.main = async (event = {}) => {
       if (!openid) return fail('请先登录', 40004);
       const productId = data.productId || data.id;
       const status = data.status;
-      if (![PRODUCT_STATUS.ON_SALE, PRODUCT_STATUS.OFF_SHELF].includes(status)) {
+      if (![PRODUCT_STATUS.ON_SALE, PRODUCT_STATUS.OFF_SHELF, PRODUCT_STATUS.SOLD].includes(status)) {
         return fail('商品状态不合法', 40001);
       }
       const product = await ensureOwner(openid, productId);

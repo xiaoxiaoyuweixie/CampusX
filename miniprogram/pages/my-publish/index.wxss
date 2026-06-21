@@ -39,6 +39,7 @@
 }
 .stat-num--primary { color: #3B82F6; }
 .stat-num--muted { color: #94A3B8; }
+.stat-num--sold { color: #16A34A; }
 .stat-label {
   margin-top: 10rpx;
   font-size: 24rpx;
@@ -139,6 +140,10 @@
 .status-tag--off {
   background: #F3F4F6;
   color: #6B7280;
+}
+.status-tag--sold {
+  background: #ECFDF5;
+  color: #16A34A;
 }
 .price {
   margin-top: 14rpx;

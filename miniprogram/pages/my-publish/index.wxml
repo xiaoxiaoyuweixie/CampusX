@@ -6,11 +6,6 @@
     </view>
     <view class="stat-row">
       <view class="stat-item">
-        <view class="stat-num stat-num--primary">{{total}}</view>
-        <view class="stat-label">全部</view>
-      </view>
-      <view class="stat-divider"></view>
-      <view class="stat-item">
         <view class="stat-num">{{onsaleCount}}</view>
         <view class="stat-label">在售</view>
       </view>
@@ -18,6 +13,11 @@
       <view class="stat-item">
         <view class="stat-num stat-num--muted">{{offlineCount}}</view>
         <view class="stat-label">已下架</view>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <view class="stat-num stat-num--sold">{{soldCount}}</view>
+        <view class="stat-label">已售出</view>
       </view>
     </view>
   </view>
@@ -46,8 +46,8 @@
       <view class="info">
         <view class="title-row">
           <view class="title">{{item.title}}</view>
-          <view class="status-tag {{item.status === 'on_sale' ? 'status-tag--on' : 'status-tag--off'}}">
-            {{item.status === 'on_sale' ? '在售' : '已下架'}}
+          <view class="status-tag {{item.status === 'on_sale' ? 'status-tag--on' : item.status === 'sold' ? 'status-tag--sold' : 'status-tag--off'}}">
+            {{item.status === 'on_sale' ? '在售' : item.status === 'sold' ? '已售出' : '已下架'}}
           </view>
         </view>
         <view class="price">￥<text class="price-num">{{item.price}}</text></view>
@@ -59,13 +59,21 @@
         </view>
       </view>
       <view class="actions">
-        <view class="action-btn" catchtap="onEdit" data-id="{{item.id}}">编辑</view>
         <view
+          wx:if="{{item.status !== 'sold'}}"
           class="action-btn {{item.status === 'on_sale' ? 'action-btn--danger' : 'action-btn--success'}}"
           catchtap="onToggleStatus"
           data-id="{{item.id}}"
         >
           {{item.status === 'on_sale' ? '下架' : '恢复'}}
+        </view>
+        <view
+          wx:if="{{item.status === 'on_sale'}}"
+          class="action-btn action-btn--success"
+          catchtap="onMarkSold"
+          data-id="{{item.id}}"
+        >
+          标记已售出
         </view>
       </view>
     </view>

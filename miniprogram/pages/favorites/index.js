@@ -1,7 +1,5 @@
-const storage = require('../../utils/storage.js');
-const { products } = require('../../mock/products.js');
+const { api } = require('../../api/index.js');
 
-// 分类 -> 收藏 Tab 类型
 const CATEGORY_TYPE = {
   digital: 'goods',
   dorm: 'goods',
@@ -30,15 +28,21 @@ Page({
     this.loadFavorites();
   },
 
-  loadFavorites() {
-    const favIds = storage.getFavorites();
-    const all = products
-      .filter(p => favIds.includes(p.id))
-      .map(p => ({
-        ...p,
-        type: CATEGORY_TYPE[p.category] || 'goods',
-      }));
-    this.setData({ allList: all, total: all.length });
+  async loadFavorites() {
+    const res = await api.listFavorites({ page: 1, pageSize: 50 });
+    const payload = res.result || {};
+    if (payload.code !== 0) {
+      wx.showToast({ title: payload.message || '加载失败', icon: 'none' });
+      return;
+    }
+
+    const all = (payload.data.list || []).map(item => ({
+      ...item,
+      id: item.productId || item.id || item._id,
+      cover: item.cover || (item.images && item.images[0]) || '',
+      type: CATEGORY_TYPE[item.categoryId || item.category] || 'goods',
+    }));
+    this.setData({ allList: all, total: payload.data.total || all.length });
     this.filterList(this.data.activeTab, all);
   },
 
@@ -65,12 +69,16 @@ Page({
       title: '提示',
       content: '确认取消收藏？',
       confirmColor: '#3B82F6',
-      success: (res) => {
-        if (res.confirm) {
-          storage.toggleFavorite(id);
-          wx.showToast({ title: '已取消收藏', icon: 'none' });
-          this.loadFavorites();
+      success: async (res) => {
+        if (!res.confirm) return;
+        const removeRes = await api.removeFavorite(id);
+        const payload = removeRes.result || {};
+        if (payload.code !== 0) {
+          wx.showToast({ title: payload.message || '取消失败', icon: 'none' });
+          return;
         }
+        wx.showToast({ title: '已取消收藏', icon: 'none' });
+        this.loadFavorites();
       },
     });
   },
