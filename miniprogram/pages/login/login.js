@@ -3,8 +3,8 @@ const { api } = require('../../api/index.js');
 
 Page({
   data: {
-    account: '',
-    password: '',
+    account: '222023603052106',
+    password: 'swu123456',
     agreed: false,
   },
   onLoad(options) {
