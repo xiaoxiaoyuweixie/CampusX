@@ -47,7 +47,12 @@ Page({
   onSearchInput(e) { this.setData({ keyword: e.detail.value }); },
   onSearchConfirm(e) {
     const kw = (e.detail.value || '').trim();
+    this.setData({ keyword: kw });
     this.loadProducts(kw);
+  },
+  onSearchCancel() {
+    this.setData({ keyword: '' });
+    this.loadProducts('');
   },
   onCategoryTap(e) {
     const id = e.currentTarget.dataset.id;

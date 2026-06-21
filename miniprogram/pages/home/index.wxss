@@ -1,6 +1,13 @@
 .page { padding: 24rpx 24rpx 40rpx; }
 .header { display: flex; align-items: center; gap: 16rpx; margin-bottom: 24rpx; }
 .school { font-size: 26rpx; color: #111827; font-weight: 500; }
+.search-wrap { flex: 1; min-width: 0; }
+.cancel-btn {
+  flex: 0 0 auto;
+  font-size: 28rpx;
+  color: #3B82F6;
+  padding: 12rpx 4rpx;
+}
 .banner {
   background: linear-gradient(135deg, #3B82F6, #60A5FA);
   color: #fff;

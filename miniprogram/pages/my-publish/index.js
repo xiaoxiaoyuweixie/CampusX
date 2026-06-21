@@ -1,20 +1,20 @@
 const { api } = require('../../api/index.js');
 
 const TABS = [
-  { key: 'all', name: '全部' },
   { key: 'on_sale', name: '在售' },
   { key: 'off_shelf', name: '已下架' },
+  { key: 'sold', name: '已售出' },
 ];
 
 Page({
   data: {
     tabs: TABS,
-    activeTab: 'all',
+    activeTab: 'on_sale',
     list: [],
     allList: [],
-    total: 0,
     onsaleCount: 0,
     offlineCount: 0,
+    soldCount: 0,
   },
 
   onShow() {
@@ -38,18 +38,19 @@ Page({
     }));
     const onsale = mine.filter(i => i.status === 'on_sale').length;
     const offline = mine.filter(i => i.status === 'off_shelf').length;
+    const sold = mine.filter(i => i.status === 'sold').length;
     this.setData({
       allList: mine,
-      total: mine.length,
       onsaleCount: onsale,
       offlineCount: offline,
+      soldCount: sold,
     });
     this.filterList(this.data.activeTab, mine);
   },
 
   filterList(key, source) {
     const all = source || this.data.allList;
-    const list = key === 'all' ? all : all.filter(i => i.status === key);
+    const list = all.filter(i => i.status === key);
     this.setData({ list, activeTab: key });
   },
 
@@ -64,14 +65,10 @@ Page({
     wx.navigateTo({ url: `/pages/detail/index?id=${id}` });
   },
 
-  onEdit() {
-    wx.showToast({ title: '编辑功能开发中', icon: 'none' });
-  },
-
   onToggleStatus(e) {
     const id = e.currentTarget.dataset.id;
     const item = this.data.allList.find((it) => it.id === id);
-    if (!item) return;
+    if (!item || item.status === 'sold') return;
 
     const isOnline = item.status === 'on_sale';
     const nextStatus = isOnline ? 'off_shelf' : 'on_sale';
@@ -82,16 +79,37 @@ Page({
       confirmColor: isOnline ? '#EF4444' : '#16A34A',
       success: async (res) => {
         if (!res.confirm) return;
-        const updateRes = await api.updateProductStatus({ productId: id, status: nextStatus });
-        const payload = updateRes.result || {};
-        if (payload.code !== 0) {
-          wx.showToast({ title: payload.message || '操作失败', icon: 'none' });
-          return;
-        }
-        wx.showToast({ title: isOnline ? '已下架' : '已恢复', icon: 'success' });
-        this.loadList();
+        await this.updateStatus(id, nextStatus, isOnline ? '已下架' : '已恢复');
       },
     });
+  },
+
+  onMarkSold(e) {
+    const id = e.currentTarget.dataset.id;
+    const item = this.data.allList.find((it) => it.id === id);
+    if (!item || item.status !== 'on_sale') return;
+
+    wx.showModal({
+      title: '提示',
+      content: '确认将该资源标记为已售出吗？',
+      confirmText: '确认售出',
+      confirmColor: '#16A34A',
+      success: async (res) => {
+        if (!res.confirm) return;
+        await this.updateStatus(id, 'sold', '已标记售出');
+      },
+    });
+  },
+
+  async updateStatus(productId, status, successText) {
+    const updateRes = await api.updateProductStatus({ productId, status });
+    const payload = updateRes.result || {};
+    if (payload.code !== 0) {
+      wx.showToast({ title: payload.message || '操作失败', icon: 'none' });
+      return;
+    }
+    wx.showToast({ title: successText, icon: 'success' });
+    this.loadList();
   },
 
   onGoPublish() {
