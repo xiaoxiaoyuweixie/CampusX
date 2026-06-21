@@ -43,3 +43,7 @@
     <button class="btn-primary contact-btn" bindtap="onContact">联系发布者</button>
   </view>
 </view>
+<view wx:else class="page detail-empty">
+  <view class="empty-title">{{loadFailed ? '商品信息加载失败' : '商品信息加载中'}}</view>
+  <view class="empty-desc">{{loadFailed ? '请返回后重新进入详情页' : '请稍候'}}</view>
+</view>

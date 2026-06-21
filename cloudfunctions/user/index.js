@@ -32,6 +32,7 @@ function normalizeUser(user) {
     avatar: user.avatar || DEFAULT_AVATAR,
     nickname: user.nickname || '',
     bio: user.bio || '',
+    gender: user.gender || '未知',
     school: user.school || '西南大学',
     verified: !!user.verified,
     logged: true,
@@ -78,6 +79,11 @@ exports.main = async (event) => {
         updates.nickname = nickname;
       }
       if (typeof data.bio === 'string') updates.bio = data.bio.trim();
+      if (typeof data.gender === 'string') {
+        const gender = data.gender.trim();
+        if (!gender) return fail('性别不能为空', 40001);
+        updates.gender = gender;
+      }
 
       if (!Object.keys(updates).length) {
         return fail('没有可更新的资料', 40001);
@@ -90,7 +96,7 @@ exports.main = async (event) => {
     }
 
     if (action === 'getDashboard') {
-      const publishedCount = await safeCount('products', { userId: openid, status: 'published' });
+      const publishedCount = await safeCount('products', { openid, status: 'on_sale' });
       const favoriteCount = await safeCount('favorites', { userId: openid });
       return ok({
         user: normalizeUser(user),
