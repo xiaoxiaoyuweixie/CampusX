@@ -74,6 +74,10 @@ function userSnapshot(user = {}) {
   };
 }
 
+function isDisabledUser(user) {
+  return user && user.status === 'disabled';
+}
+
 function getSessionKey(session = {}, fallback = '') {
   return session.sessionId || fallback || session._id || '';
 }
@@ -195,6 +199,10 @@ async function updateSession(session, data, fallbackSessionId = '') {
 }
 
 async function openSession(data, openid) {
+  const currentUser = await getCurrentUser(openid);
+  if (!currentUser) return fail('user_not_found', 40004);
+  if (isDisabledUser(currentUser)) return fail('账号已被禁用，请联系管理员', 40003);
+
   const product = await findProduct(data.productId);
   if (!product) return fail('product_not_found', 40400);
   if (!CONTACTABLE_PRODUCT_STATUS.includes(product.status)) {
@@ -219,7 +227,7 @@ async function openSession(data, openid) {
   }
 
   const [buyer, seller] = await Promise.all([
-    getCurrentUser(buyerOpenid),
+    Promise.resolve(currentUser),
     getCurrentUser(sellerOpenid),
   ]);
 
@@ -253,6 +261,10 @@ async function openSession(data, openid) {
 }
 
 async function sendMessage(data, openid) {
+  const currentUser = await getCurrentUser(openid);
+  if (!currentUser) return fail('user_not_found', 40004);
+  if (isDisabledUser(currentUser)) return fail('账号已被禁用，请联系管理员', 40003);
+
   const content = String(data.content || data.text || '').trim();
   if (!content) return fail('empty_content', 40001);
   if (content.length > 500) return fail('content_too_long', 40001);
@@ -313,6 +325,10 @@ async function sendMessage(data, openid) {
 }
 
 async function getMessages(data, openid) {
+  const currentUser = await getCurrentUser(openid);
+  if (!currentUser) return fail('user_not_found', 40004);
+  if (isDisabledUser(currentUser)) return fail('账号已被禁用，请联系管理员', 40003);
+
   const session = await findSessionById(data.sessionId);
   if (!session) return fail('session_not_found', 40400, { inputSessionId: data.sessionId || '' });
   if (!assertParticipant(session, openid)) return fail('not_session_participant', 40003);
@@ -341,6 +357,10 @@ async function getMessages(data, openid) {
 }
 
 async function getSessionList(data, openid) {
+  const currentUser = await getCurrentUser(openid);
+  if (!currentUser) return fail('user_not_found', 40004);
+  if (isDisabledUser(currentUser)) return fail('账号已被禁用，请联系管理员', 40003);
+
   const { page, pageSize, skip } = parsePagination(data);
   const query = { participants: _.all([openid]), status: SESSION_STATUS.ACTIVE };
   const total = (await db.collection('chat_sessions').where(query).count()).total;
@@ -360,6 +380,10 @@ async function getSessionList(data, openid) {
 }
 
 async function markRead(data, openid) {
+  const currentUser = await getCurrentUser(openid);
+  if (!currentUser) return fail('user_not_found', 40004);
+  if (isDisabledUser(currentUser)) return fail('账号已被禁用，请联系管理员', 40003);
+
   const session = await findSessionById(data.sessionId);
   if (!session) return fail('session_not_found', 40400, { inputSessionId: data.sessionId || '' });
   if (!assertParticipant(session, openid)) return fail('not_session_participant', 40003);

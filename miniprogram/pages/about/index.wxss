@@ -1,0 +1,63 @@
+.page {
+  min-height: 100vh;
+  background: #EEF2F7;
+  padding: 150rpx 26rpx 0;
+  box-sizing: border-box;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  margin-top:-60rpx;
+}
+
+.app-name {
+  margin-top: 28rpx;
+  font-size: 30rpx;
+  line-height: 40rpx;
+  color: #111827;
+  font-weight: 400;
+}
+
+.panel {
+  margin-top: 54rpx;
+  background: #fff;
+  border-radius: 24rpx;
+  overflow: hidden;
+  padding: 20rpx 10rpx;
+}
+
+.agreement-item {
+  height: 104rpx;
+  margin: 0 0 0 20rpx;
+  padding-right: 18rpx;
+  border-bottom: 1rpx solid #E5E7EB;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.agreement-item:last-child {
+  border-bottom: 0;
+}
+
+.agreement-title {
+  font-size: 30rpx;
+  color: #111827;
+  font-weight: 500;
+}
+
+.arrow {
+  font-size: 62rpx;
+  line-height: 1;
+  color: #C5CDD8;
+  font-weight: 300;
+}

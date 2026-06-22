@@ -52,6 +52,10 @@ async function getCurrentUser(openid) {
   return res.data[0] || null;
 }
 
+function isDisabledUser(user) {
+  return user && user.status === 'disabled';
+}
+
 function resolveCategory(data = {}) {
   return {
     categoryId: data.categoryId || data.category || '',
@@ -132,6 +136,7 @@ exports.main = async (event = {}) => {
       if (!openid) return fail('请先登录', 40004);
       const user = await getCurrentUser(openid);
       if (!user) return fail('用户不存在，请先登录', 40004);
+      if (isDisabledUser(user)) return fail('账号已被禁用，请联系管理员', 40003);
 
       const error = validateProductInput(data);
       if (error) return fail(error, 40001);
@@ -204,6 +209,10 @@ exports.main = async (event = {}) => {
 
     if (action === 'getMyProducts') {
       if (!openid) return fail('请先登录', 40004);
+      const user = await getCurrentUser(openid);
+      if (!user) return fail('用户不存在，请先登录', 40004);
+      if (isDisabledUser(user)) return fail('账号已被禁用，请联系管理员', 40003);
+
       const { page, pageSize, skip } = parsePagination(data);
       const query = { openid };
       if (data.status && data.status !== 'all') query.status = data.status;
@@ -218,6 +227,10 @@ exports.main = async (event = {}) => {
 
     if (action === 'updateProductStatus') {
       if (!openid) return fail('请先登录', 40004);
+      const user = await getCurrentUser(openid);
+      if (!user) return fail('用户不存在，请先登录', 40004);
+      if (isDisabledUser(user)) return fail('账号已被禁用，请联系管理员', 40003);
+
       const productId = data.productId || data.id;
       const status = data.status;
       if (![PRODUCT_STATUS.ON_SALE, PRODUCT_STATUS.OFF_SHELF, PRODUCT_STATUS.SOLD].includes(status)) {
@@ -231,6 +244,10 @@ exports.main = async (event = {}) => {
 
     if (action === 'deleteProduct') {
       if (!openid) return fail('请先登录', 40004);
+      const user = await getCurrentUser(openid);
+      if (!user) return fail('用户不存在，请先登录', 40004);
+      if (isDisabledUser(user)) return fail('账号已被禁用，请联系管理员', 40003);
+
       const productId = data.productId || data.id;
       const product = await ensureOwner(openid, productId);
       if (!product) return fail('商品不存在或无权限', 40003);

@@ -39,6 +39,7 @@ function normalizeUser(user) {
     bio: user.bio || '',
     gender: user.gender || '未知',
     school: user.school || '西南大学',
+    status: user.status || 'enabled',
     verified: !!user.verified,
     logged: true,
     createdAt: user.createdAt,
@@ -74,6 +75,9 @@ exports.main = async (event) => {
       if (existedByOpenid.account !== account) {
         return fail('当前微信用户已绑定其他账号', 40900);
       }
+      if (existedByOpenid.status === 'disabled') {
+        return fail('账号已被禁用，请联系管理员', 40003);
+      }
 
       await users.doc(existedByOpenid._id).update({
         data: { lastLoginAt: now() },
@@ -100,6 +104,7 @@ exports.main = async (event) => {
       bio: '',
       gender: '未知',
       school: data.school || '西南大学',
+      status: 'enabled',
       verified: false,
       createdAt: now(),
       updatedAt: now(),

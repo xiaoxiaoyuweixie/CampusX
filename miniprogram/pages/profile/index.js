@@ -7,6 +7,7 @@ Page({
     publishedCount: 0,
     favoriteCount: 0,
   },
+
   async onShow() {
     const user = storage.get('userInfo', {});
     this.setData({ user });
@@ -22,9 +23,11 @@ Page({
       });
     }
   },
+
   onLogin() {
     wx.navigateTo({ url: '/pages/login/login' });
   },
+
   onMenuTap(e) {
     const action = e.currentTarget.dataset.action;
     if (action === 'published') {
@@ -39,6 +42,11 @@ Page({
 
     if (action === 'favorites') {
       wx.navigateTo({ url: '/pages/favorites/index' });
+      return;
+    }
+
+    if (action === 'about') {
+      wx.navigateTo({ url: '/pages/about/index' });
       return;
     }
 
