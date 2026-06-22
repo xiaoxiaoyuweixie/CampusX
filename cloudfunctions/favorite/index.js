@@ -27,6 +27,11 @@ function parsePagination(data = {}) {
   return { page, pageSize, skip: (page - 1) * pageSize };
 }
 
+async function getCurrentUser(openid) {
+  const res = await db.collection('users').where({ openid }).limit(1).get();
+  return res.data[0] || null;
+}
+
 async function findProduct(productId) {
   if (!productId) return null;
   const res = await db.collection('products')
@@ -56,6 +61,10 @@ exports.main = async (event = {}) => {
     const { action, data = {} } = event;
     const openid = getOpenid();
     if (!openid) return fail('请先登录', 40004);
+
+    const user = await getCurrentUser(openid);
+    if (!user) return fail('用户不存在，请先登录', 40004);
+    if (user.status === 'disabled') return fail('账号已被禁用，请联系管理员', 40003);
 
     const favorites = db.collection('favorites');
     const products = db.collection('products');

@@ -1,0 +1,19 @@
+<view class="page">
+  <view class="brand">
+    <image class="logo" src="/images/logo.png" mode="aspectFit"></image>
+    <view class="app-name">CampusX</view>
+  </view>
+
+  <view class="panel">
+    <view
+      class="agreement-item"
+      wx:for="{{agreements}}"
+      wx:key="key"
+      data-title="{{item.title}}"
+      bindtap="onAgreementTap"
+    >
+      <text class="agreement-title">{{item.title}}</text>
+      <text class="arrow">›</text>
+    </view>
+  </view>
+</view>
