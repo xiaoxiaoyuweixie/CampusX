@@ -3,22 +3,27 @@ const { api } = require('../../api/index.js');
 
 Page({
   data: {
-    account: '222023603052106',
-    password: 'swu123456',
+    account: '',
+    password: '',
     agreed: false,
   },
+
   onLoad(options) {
     this.redirect = (options && options.redirect) ? decodeURIComponent(options.redirect) : '/pages/home/index';
   },
+
   onAccountInput(e) {
     this.setData({ account: e.detail.value });
   },
+
   onPasswordInput(e) {
     this.setData({ password: e.detail.value });
   },
+
   onToggleAgreed() {
     this.setData({ agreed: !this.data.agreed });
   },
+
   async handleLogin() {
     const { account, password, agreed } = this.data;
     if (!account || !password) {

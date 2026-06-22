@@ -10,12 +10,13 @@
     "pages/favorites/index",
     "pages/detail/index",
     "pages/chat/index",
-    "pages/my-publish/index"
+    "pages/my-publish/index",
+    "pages/about/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTitleText": "校易通",
+    "navigationBarTitleText": "校园通",
     "navigationBarTextStyle": "black",
     "backgroundColor": "#F8FAFC"
   },
@@ -25,11 +26,36 @@
     "backgroundColor": "#ffffff",
     "borderStyle": "white",
     "list": [
-      { "pagePath": "pages/home/index", "text": "首页", "iconPath": "images/tab-home.png", "selectedIconPath": "images/tab-home-active.png" },
-      { "pagePath": "pages/category/index", "text": "分类", "iconPath": "images/tab-category.png", "selectedIconPath": "images/tab-category-active.png" },
-      { "pagePath": "pages/publish/index", "text": "发布", "iconPath": "images/tab-publish.png", "selectedIconPath": "images/tab-publish-active.png" },
-      { "pagePath": "pages/message/index", "text": "消息", "iconPath": "images/tab-message.png", "selectedIconPath": "images/tab-message-active.png" },
-      { "pagePath": "pages/profile/index", "text": "我的", "iconPath": "images/tab-profile.png", "selectedIconPath": "images/tab-profile-active.png" }
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页",
+        "iconPath": "images/tab-home.png",
+        "selectedIconPath": "images/tab-home-active.png"
+      },
+      {
+        "pagePath": "pages/category/index",
+        "text": "分类",
+        "iconPath": "images/tab-category.png",
+        "selectedIconPath": "images/tab-category-active.png"
+      },
+      {
+        "pagePath": "pages/publish/index",
+        "text": "发布",
+        "iconPath": "images/tab-publish.png",
+        "selectedIconPath": "images/tab-publish-active.png"
+      },
+      {
+        "pagePath": "pages/message/index",
+        "text": "消息",
+        "iconPath": "images/tab-message.png",
+        "selectedIconPath": "images/tab-message-active.png"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "我的",
+        "iconPath": "images/tab-profile.png",
+        "selectedIconPath": "images/tab-profile-active.png"
+      }
     ]
   },
   "style": "v2",

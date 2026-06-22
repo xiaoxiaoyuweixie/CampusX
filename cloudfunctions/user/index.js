@@ -34,6 +34,7 @@ function normalizeUser(user) {
     bio: user.bio || '',
     gender: user.gender || '未知',
     school: user.school || '西南大学',
+    status: user.status || 'enabled',
     verified: !!user.verified,
     logged: true,
     createdAt: user.createdAt,
@@ -65,6 +66,7 @@ exports.main = async (event) => {
     const users = db.collection('users');
     const user = await getCurrentUser(openid);
     if (!user) return fail('用户不存在，请先登录', 40400);
+    if (user.status === 'disabled') return fail('账号已被禁用，请联系管理员', 40003);
 
     if (action === 'getUserInfo') {
       return ok(normalizeUser(user));
