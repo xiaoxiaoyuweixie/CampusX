@@ -93,8 +93,8 @@ function formatTime(value) {
 function normalizeProduct(product = {}, seller = null) {
   const images = Array.isArray(product.images) ? product.images : [];
   const cover = product.cover || images[0] || '';
-  const sellerName = product.sellerName || (seller && seller.nickname) || '发布者';
-  const sellerAvatar = product.sellerAvatar || (seller && seller.avatar) || '';
+  const sellerName = (seller && seller.nickname) || product.sellerName || '发布者';
+  const sellerAvatar = (seller && seller.avatar) || product.sellerAvatar || '';
   return {
     ...product,
     id: product.productId || product._id,
@@ -116,6 +116,21 @@ function normalizeProduct(product = {}, seller = null) {
     sellerAvatar,
     publishedAt: product.publishedAt || formatTime(product.createdAt),
   };
+}
+
+async function normalizeProductsWithLatestSellers(productList = []) {
+  const openids = [...new Set(productList.map(item => item.openid).filter(Boolean))];
+  if (!openids.length) return productList.map(item => normalizeProduct(item));
+
+  const sellerRes = await db.collection('users').where({
+    openid: _.in(openids),
+  }).get();
+  const sellerMap = {};
+  (sellerRes.data || []).forEach(seller => {
+    sellerMap[seller.openid] = seller;
+  });
+
+  return productList.map(item => normalizeProduct(item, sellerMap[item.openid] || null));
 }
 
 async function ensureOwner(openid, productId) {
@@ -184,8 +199,9 @@ exports.main = async (event = {}) => {
         .skip(skip)
         .limit(pageSize)
         .get();
+      const list = await normalizeProductsWithLatestSellers(listRes.data);
 
-      return ok({ list: listRes.data.map(item => normalizeProduct(item)), page, pageSize, total });
+      return ok({ list, page, pageSize, total });
     }
 
     if (action === 'getProductDetail') {
@@ -222,7 +238,7 @@ exports.main = async (event = {}) => {
         .skip(skip)
         .limit(pageSize)
         .get();
-      return ok({ list: listRes.data.map(item => normalizeProduct(item)), page, pageSize, total });
+      return ok({ list: listRes.data.map(item => normalizeProduct(item, user)), page, pageSize, total });
     }
 
     if (action === 'updateProductStatus') {
