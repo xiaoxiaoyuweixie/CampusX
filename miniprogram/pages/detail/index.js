@@ -5,6 +5,15 @@ const { products: mockProducts } = require('../../mock/products.js');
 
 const FALLBACK_COVER = 'https://upload.wikimedia.org/wikipedia/commons/3/3f/Fronalpstock_big.jpg';
 
+function decodeId(value) {
+  if (!value) return '';
+  try {
+    return decodeURIComponent(String(value));
+  } catch (err) {
+    return String(value);
+  }
+}
+
 function normalizeProduct(raw) {
   if (!raw) return null;
   const cover = raw.cover || (raw.images && raw.images[0]) || FALLBACK_COVER;
@@ -31,7 +40,8 @@ Page({
   },
 
   async onLoad(options) {
-    const id = options.id;
+    const rawId = options.id || options.productId;
+    const id = decodeId(rawId).trim();
     if (!id || id === 'undefined') {
       this.setData({ loadFailed: true });
       return;

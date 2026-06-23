@@ -15,7 +15,7 @@
     </view>
     <block wx:if="{{list.length}}">
       <view class="list">
-        <product-card wx:for="{{list}}" wx:key="id" product="{{item}}" bind:tap="onProductTap" />
+        <product-card wx:for="{{list}}" wx:key="id" product="{{item}}" bind:producttap="onProductTap" />
       </view>
     </block>
     <empty-state wx:else text="该分类暂无资源" emoji="📭" />

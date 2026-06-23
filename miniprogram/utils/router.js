@@ -1,6 +1,22 @@
-// 简易路由跳转辅助
+let detailNavigating = false;
+
 function toDetail(id) {
-  wx.navigateTo({ url: `/pages/detail/index?id=${id}` });
+  const safeId = id == null ? '' : String(id).trim();
+  if (!safeId || safeId === 'undefined' || safeId === 'null') {
+    wx.showToast({ title: '商品信息加载失败', icon: 'none' });
+    return;
+  }
+
+  if (detailNavigating) return;
+  detailNavigating = true;
+  wx.navigateTo({
+    url: `/pages/detail/index?id=${encodeURIComponent(safeId)}`,
+    complete: () => {
+      setTimeout(() => {
+        detailNavigating = false;
+      }, 500);
+    },
+  });
 }
 
 function toChat(userId, name, productId = '') {
