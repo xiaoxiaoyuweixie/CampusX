@@ -5,7 +5,9 @@ Component({
   methods: {
     onTap() {
       const product = this.data.product || {};
-      this.triggerEvent('tap', { id: product._id || product.id });
+      const id = product.productId || product._id || product.id;
+      if (!id) return;
+      this.triggerEvent('producttap', { id }, { bubbles: false, composed: false });
     },
   },
 });

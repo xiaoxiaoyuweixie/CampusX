@@ -56,6 +56,27 @@
   font-size: 30rpx;
   color: #1f2937;
 }
+.login-page__input--password {
+  flex: 1;
+  min-width: 0;
+}
+.login-page__password-toggle {
+  flex: none;
+  margin-left: 20rpx;
+  width: 72rpx;
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-page__eye-icon {
+  width: 58rpx;
+  height: 42rpx;
+  opacity: 0.98;
+}
+.login-page__password-toggle--active .login-page__eye-icon {
+  opacity: 1;
+}
 .login-page__placeholder {
   color: rgba(255, 255, 255, 0.82);
 }

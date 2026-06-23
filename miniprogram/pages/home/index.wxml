@@ -22,7 +22,7 @@
   <view class="section-title">推荐资源</view>
   <view class="grid">
     <view class="grid-col" wx:for="{{products}}" wx:key="id">
-      <product-card product="{{item}}" bind:tap="onProductTap" />
+      <product-card product="{{item}}" bind:producttap="onProductTap" />
     </view>
   </view>
 </view>

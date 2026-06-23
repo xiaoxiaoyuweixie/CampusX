@@ -6,6 +6,7 @@ Page({
     account: '',
     password: '',
     agreed: false,
+    showPassword: false,
   },
 
   onLoad(options) {
@@ -22,6 +23,10 @@ Page({
 
   onToggleAgreed() {
     this.setData({ agreed: !this.data.agreed });
+  },
+
+  onTogglePasswordVisible() {
+    this.setData({ showPassword: !this.data.showPassword });
   },
 
   async handleLogin() {
