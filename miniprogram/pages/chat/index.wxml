@@ -1,5 +1,5 @@
 <view class="page">
-  <view wx:if="{{session}}" class="product-strip">
+  <view wx:if="{{session}}" class="product-strip" bindtap="onProductTap" hover-class="product-strip--active">
     <image wx:if="{{session.productCover}}" class="product-cover" src="{{session.productCover}}" mode="aspectFill"></image>
     <view class="product-info">
       <view class="product-title">{{session.productTitle}}</view>

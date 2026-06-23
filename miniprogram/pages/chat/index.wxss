@@ -14,6 +14,10 @@
   border-bottom: 1rpx solid #EEF2F7;
 }
 
+.product-strip--active {
+  background: #F8FAFC;
+}
+
 .product-cover {
   width: 84rpx;
   height: 84rpx;
