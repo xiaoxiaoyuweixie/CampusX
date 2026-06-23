@@ -1,4 +1,4 @@
-<view class="card product-card" bindtap="onTap" hover-class="card-hover">
+<view class="card product-card" catchtap="onTap" hover-class="card-hover">
   <image class="cover" src="{{product.cover}}" mode="aspectFill" lazy-load="true" />
   <view class="info">
     <view class="title">{{product.title}}</view>

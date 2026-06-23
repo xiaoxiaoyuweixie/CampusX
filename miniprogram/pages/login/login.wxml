@@ -11,7 +11,10 @@
       </view>
 
       <view class="login-page__input-box login-page__input-box--password">
-        <input class="login-page__input" password placeholder="请输入密码" placeholder-class="login-page__placeholder" value="{{password}}" bindinput="onPasswordInput" />
+        <input class="login-page__input login-page__input--password" password="{{!showPassword}}" placeholder="请输入密码" placeholder-class="login-page__placeholder" value="{{password}}" bindinput="onPasswordInput" />
+        <view class="login-page__password-toggle {{showPassword ? 'login-page__password-toggle--active' : ''}}" bindtap="onTogglePasswordVisible" aria-label="{{showPassword ? '隐藏密码' : '显示密码'}}">
+          <image class="login-page__eye-icon" src="../../images/icon-eye.svg" mode="aspectFit" />
+        </view>
       </view>
     </view>
 

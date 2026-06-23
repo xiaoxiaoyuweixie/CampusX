@@ -1,4 +1,5 @@
 const { api } = require('../../api/index.js');
+const router = require('../../utils/router.js');
 
 const CATEGORY_TYPE = {
   digital: 'goods',
@@ -60,7 +61,7 @@ Page({
 
   onCardTap(e) {
     const id = e.currentTarget.dataset.id;
-    wx.navigateTo({ url: `/pages/detail/index?id=${id}` });
+    router.toDetail(id);
   },
 
   onUnfavorite(e) {
