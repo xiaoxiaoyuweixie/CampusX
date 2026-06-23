@@ -74,6 +74,13 @@ function userSnapshot(user = {}) {
   };
 }
 
+function latestUserSnapshot(user = {}) {
+  const snapshot = {};
+  if (user.nickname) snapshot.nickname = user.nickname;
+  if (user.avatar) snapshot.avatar = user.avatar;
+  return snapshot;
+}
+
 function isDisabledUser(user) {
   return user && user.status === 'disabled';
 }
@@ -101,6 +108,14 @@ function getPeerRole(role) {
   return role === 'buyer' ? 'seller' : 'buyer';
 }
 
+function getPeerOpenid(session = {}, openid) {
+  return session.buyerOpenid === openid ? session.sellerOpenid : session.buyerOpenid;
+}
+
+function getPeerSnapshot(session = {}, peerRole) {
+  return peerRole === 'buyer' ? session.buyerSnapshot : session.sellerSnapshot;
+}
+
 function normalizeMessage(message = {}, openid) {
   return {
     ...message,
@@ -111,10 +126,13 @@ function normalizeMessage(message = {}, openid) {
   };
 }
 
-function normalizeSession(session = {}, openid) {
+function normalizeSession(session = {}, openid, latestPeer = null) {
   const role = getRole(session, openid);
   const peerRole = getPeerRole(role);
-  const peerSnapshot = peerRole === 'buyer' ? session.buyerSnapshot : session.sellerSnapshot;
+  const peerSnapshot = {
+    ...(getPeerSnapshot(session, peerRole) || {}),
+    ...(latestPeer ? latestUserSnapshot(latestPeer) : {}),
+  };
   const unreadCount = normalizeUnreadCount(session.unreadCount);
   const unread = role === 'buyer' ? unreadCount.buyer : unreadCount.seller;
   const lastMessageText = session.lastMessage && session.lastMessage.content
@@ -143,6 +161,30 @@ function normalizeSession(session = {}, openid) {
 async function getCurrentUser(openid) {
   const res = await db.collection('users').where({ openid }).limit(1).get();
   return res.data[0] || null;
+}
+
+async function getUsersByOpenids(openids = []) {
+  const uniqueOpenids = [...new Set(openids.filter(Boolean))];
+  if (!uniqueOpenids.length) return {};
+
+  const res = await db.collection('users').where({
+    openid: _.in(uniqueOpenids),
+  }).get();
+
+  return (res.data || []).reduce((map, user) => {
+    if (user.openid) map[user.openid] = user;
+    return map;
+  }, {});
+}
+
+async function normalizeSessionsWithLatestUsers(sessionList = [], openid) {
+  const peerOpenids = sessionList.map(session => getPeerOpenid(session, openid));
+  const userMap = await getUsersByOpenids(peerOpenids);
+
+  return sessionList.map(session => {
+    const peerOpenid = getPeerOpenid(session, openid);
+    return normalizeSession(session, openid, userMap[peerOpenid] || null);
+  });
 }
 
 async function findProduct(productId) {
@@ -223,7 +265,8 @@ async function openSession(data, openid) {
     if (!session.sessionId && sessionId) {
       await updateSession(session, {}, sessionId);
     }
-    return ok({ session: normalizeSession({ ...session, sessionId }, openid), sessionId });
+    const normalizedList = await normalizeSessionsWithLatestUsers([{ ...session, sessionId }], openid);
+    return ok({ session: normalizedList[0], sessionId });
   }
 
   const [buyer, seller] = await Promise.all([
@@ -346,10 +389,12 @@ async function getMessages(data, openid) {
   const unreadCount = normalizeUnreadCount(session.unreadCount);
   unreadCount[role] = 0;
   await updateSession(session, { unreadCount }, data.sessionId);
+  const peerOpenid = getPeerOpenid(session, openid);
+  const userMap = await getUsersByOpenids([peerOpenid]);
 
   return ok({
     list: messageRes.data.reverse().map(item => normalizeMessage(item, openid)),
-    session: normalizeSession(session, openid),
+    session: normalizeSession(session, openid, userMap[peerOpenid] || null),
     page,
     pageSize,
     total,
@@ -370,9 +415,10 @@ async function getSessionList(data, openid) {
     .skip(skip)
     .limit(pageSize)
     .get();
+  const list = await normalizeSessionsWithLatestUsers(sessionRes.data, openid);
 
   return ok({
-    list: sessionRes.data.map(item => normalizeSession(item, openid)),
+    list,
     page,
     pageSize,
     total,
