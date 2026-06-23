@@ -1,23 +1,31 @@
 <view class="wrap">
   <view class="side">
-    <view wx:for="{{categories}}" wx:key="id"
+    <view
+      wx:for="{{categories}}"
+      wx:key="id"
       class="side-item {{item.id === activeId ? 'active' : ''}}"
-      data-id="{{item.id}}" bindtap="onCatTap">
+      data-id="{{item.id}}"
+      bindtap="onCatTap"
+    >
       <text class="emoji">{{item.icon}}</text>
       <text>{{item.name}}</text>
     </view>
   </view>
+
   <view class="main">
     <view class="sort">
       <view class="sort-item {{sort==='composite'?'active':''}}" data-sort="composite" bindtap="onSortTap">综合</view>
       <view class="sort-item {{sort==='newest'?'active':''}}" data-sort="newest" bindtap="onSortTap">最新</view>
       <view class="sort-item {{sort==='price'?'active':''}}" data-sort="price" bindtap="onSortTap">价格</view>
     </view>
-    <block wx:if="{{list.length}}">
-      <view class="list">
-        <product-card wx:for="{{list}}" wx:key="id" product="{{item}}" bind:producttap="onProductTap" />
-      </view>
-    </block>
-    <empty-state wx:else text="该分类暂无资源" emoji="📭" />
+
+    <scroll-view class="product-scroll" scroll-y enhanced show-scrollbar="{{false}}">
+      <block wx:if="{{list.length}}">
+        <view class="list">
+          <product-card wx:for="{{list}}" wx:key="id" product="{{item}}" bind:producttap="onProductTap" />
+        </view>
+      </block>
+      <empty-state wx:else text="该分类暂无资源" emoji="📭" />
+    </scroll-view>
   </view>
 </view>
