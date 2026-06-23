@@ -25,6 +25,7 @@ function normalizeProduct(raw) {
     cover,
     images,
     sellerName: raw.sellerName || raw.nickname || '发布者',
+    sellerAvatar: raw.sellerAvatar || raw.avatar || '',
     userId: raw.userId || raw.sellerId || raw.openid || '',
     views: raw.views || raw.viewCount || 0,
   };
