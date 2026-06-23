@@ -1,4 +1,4 @@
-.wrap { display: flex; height: 100vh; background: #F8FAFC; }
+.wrap { display: flex; height: 100vh; background: #F8FAFC; overflow: hidden; }
 .side {
   width: 180rpx;
   background: #fff;
@@ -23,7 +23,15 @@
   font-weight: 600;
 }
 .emoji { font-size: 32rpx; }
-.main { flex: 1; padding: 20rpx; overflow: hidden; }
+.main {
+  flex: 1;
+  min-width: 0;
+  height: 100vh;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
 .sort { display: flex; gap: 24rpx; padding: 8rpx 4rpx 20rpx; }
 .sort-item {
   font-size: 26rpx;
@@ -31,4 +39,13 @@
   padding: 8rpx 0;
 }
 .sort-item.active { color: #3B82F6; font-weight: 600; }
-.list { display: flex; flex-direction: column; gap: 16rpx; }
+.product-scroll {
+  flex: 1;
+  min-height: 0;
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+  padding-bottom: calc(32rpx + env(safe-area-inset-bottom));
+}
