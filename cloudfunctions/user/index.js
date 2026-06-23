@@ -57,6 +57,21 @@ async function safeCount(collectionName, query) {
   }
 }
 
+async function syncProductSellerSnapshot(openid, updates) {
+  const productUpdates = {};
+  if (Object.prototype.hasOwnProperty.call(updates, 'nickname')) {
+    productUpdates.sellerName = updates.nickname;
+  }
+  if (Object.prototype.hasOwnProperty.call(updates, 'avatar')) {
+    productUpdates.sellerAvatar = updates.avatar;
+  }
+
+  if (!Object.keys(productUpdates).length) return;
+  await db.collection('products').where({ openid }).update({
+    data: productUpdates,
+  });
+}
+
 exports.main = async (event) => {
   try {
     const { action, data = {} } = event || {};
@@ -93,6 +108,7 @@ exports.main = async (event) => {
 
       updates.updatedAt = now();
       await users.doc(user._id).update({ data: updates });
+      await syncProductSellerSnapshot(openid, updates);
       const latest = await users.doc(user._id).get();
       return ok(normalizeUser(latest.data));
     }
