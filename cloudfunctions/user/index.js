@@ -72,6 +72,34 @@ async function syncProductSellerSnapshot(openid, updates) {
   });
 }
 
+async function syncChatUserSnapshot(openid, updates) {
+  const buyerSnapshotUpdates = {};
+  const sellerSnapshotUpdates = {};
+
+  if (Object.prototype.hasOwnProperty.call(updates, 'nickname')) {
+    buyerSnapshotUpdates['buyerSnapshot.nickname'] = updates.nickname;
+    sellerSnapshotUpdates['sellerSnapshot.nickname'] = updates.nickname;
+  }
+  if (Object.prototype.hasOwnProperty.call(updates, 'avatar')) {
+    buyerSnapshotUpdates['buyerSnapshot.avatar'] = updates.avatar;
+    sellerSnapshotUpdates['sellerSnapshot.avatar'] = updates.avatar;
+  }
+
+  const tasks = [];
+  if (Object.keys(buyerSnapshotUpdates).length) {
+    tasks.push(db.collection('chat_sessions').where({ buyerOpenid: openid }).update({
+      data: buyerSnapshotUpdates,
+    }));
+  }
+  if (Object.keys(sellerSnapshotUpdates).length) {
+    tasks.push(db.collection('chat_sessions').where({ sellerOpenid: openid }).update({
+      data: sellerSnapshotUpdates,
+    }));
+  }
+
+  await Promise.all(tasks);
+}
+
 exports.main = async (event) => {
   try {
     const { action, data = {} } = event || {};
@@ -108,7 +136,10 @@ exports.main = async (event) => {
 
       updates.updatedAt = now();
       await users.doc(user._id).update({ data: updates });
-      await syncProductSellerSnapshot(openid, updates);
+      await Promise.all([
+        syncProductSellerSnapshot(openid, updates),
+        syncChatUserSnapshot(openid, updates),
+      ]);
       const latest = await users.doc(user._id).get();
       return ok(normalizeUser(latest.data));
     }
