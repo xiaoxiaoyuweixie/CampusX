@@ -57,6 +57,17 @@ Page({
     this.setData({ categoryIndex: Number(e.detail.value) });
   },
 
+  resetForm() {
+    this.setData({
+      images: [],
+      title: '',
+      desc: '',
+      price: '',
+      location: '',
+      categoryIndex: 0,
+    });
+  },
+
   getFileExt(filePath) {
     const match = String(filePath || '').match(/\.([a-zA-Z0-9]+)(?:\?|$)/);
     return match ? match[1].toLowerCase() : 'jpg';
@@ -137,6 +148,7 @@ Page({
       }
 
       wx.showToast({ title: '发布成功', icon: 'success' });
+      this.resetForm();
       setTimeout(() => {
         wx.switchTab({ url: '/pages/home/index' });
       }, 800);
