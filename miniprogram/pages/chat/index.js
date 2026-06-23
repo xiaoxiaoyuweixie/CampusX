@@ -1,4 +1,5 @@
 const { api } = require('../../api/index.js');
+const router = require('../../utils/router.js');
 
 Page({
   data: {
@@ -31,6 +32,11 @@ Page({
 
   onInput(e) {
     this.setData({ input: e.detail.value });
+  },
+
+  onProductTap() {
+    const session = this.data.session || {};
+    router.toDetail(session.productId);
   },
 
   startPolling() {
