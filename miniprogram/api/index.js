@@ -15,6 +15,7 @@ const api = {
 
   createProduct: (data) => callFunction('product', { action: 'createProduct', data }),
   listProducts: (data) => callFunction('product', { action: 'listProducts', data }),
+  getRecommendedProducts: (data) => callFunction('product', { action: 'getRecommendedProducts', data }),
   getProductDetail: (id) => callFunction('product', { action: 'getProductDetail', data: { id } }),
   updateProductStatus: (data) => callFunction('product', { action: 'updateProductStatus', data }),
   updateProduct: (data) => callFunction('product', { action: 'updateProduct', data }),

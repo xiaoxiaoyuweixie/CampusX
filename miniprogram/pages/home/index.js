@@ -30,7 +30,10 @@ Page({
     this.setData({ categories: fallbackCategories });
   },
   async loadProducts(keyword = '') {
-    const res = await api.listProducts({ keyword, page: 1, pageSize: 20, status: 'on_sale' });
+    const request = keyword
+      ? api.listProducts({ keyword, page: 1, pageSize: 20, status: 'on_sale' })
+      : api.getRecommendedProducts({ page: 1, pageSize: 20 });
+    const res = await request;
     const payload = res.result || {};
     if (payload.code === 0) {
       const list = (payload.data.list || []).map(item => ({
