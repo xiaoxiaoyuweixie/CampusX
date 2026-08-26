@@ -16,11 +16,11 @@ export async function callAdmin(action, data = {}) {
   try {
     payload = text ? JSON.parse(text) : null;
   } catch (err) {
-    throw new Error(`HTTP 响应不是 JSON：${text.slice(0, 120)}`);
+    throw new Error('管理端接口返回格式异常，请检查 adminService HTTP 访问地址');
   }
 
   if (!res.ok) {
-    throw new Error((payload && payload.message) || `HTTP ${res.status}`);
+    throw new Error((payload && payload.message) || `请求失败，请稍后重试（${res.status}）`);
   }
 
   return payload;

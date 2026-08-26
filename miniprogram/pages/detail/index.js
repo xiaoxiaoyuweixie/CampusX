@@ -1,4 +1,3 @@
-const storage = require('../../utils/storage.js');
 const router = require('../../utils/router.js');
 const { api } = require('../../api/index.js');
 const { products: mockProducts } = require('../../mock/products.js');
@@ -38,6 +37,7 @@ Page({
     current: 0,
     loadFailed: false,
     contacting: false,
+    favoriteSubmitting: false,
   },
 
   async onLoad(options) {
@@ -71,9 +71,13 @@ Page({
     try {
       const favRes = await api.checkFavorite(product.productId || product._id || product.id);
       const favPayload = favRes.result || {};
-      this.setData({ favorited: favPayload.code === 0 ? !!favPayload.data.favorited : false });
+      if (favPayload.code !== 0) {
+        wx.showToast({ title: favPayload.message || '收藏状态加载失败', icon: 'none' });
+        return;
+      }
+      this.setData({ favorited: !!(favPayload.data && favPayload.data.favorited) });
     } catch (err) {
-      this.setData({ favorited: storage.isFavorite(product.productId || product.id) });
+      wx.showToast({ title: '收藏状态加载失败', icon: 'none' });
     }
   },
 
@@ -82,14 +86,26 @@ Page({
   },
 
   async onToggleFav() {
-    const { product, favorited } = this.data;
-    if (!product) return;
+    const { product, favorited, favoriteSubmitting } = this.data;
+    if (!product || favoriteSubmitting) return;
     const productId = product.productId || product._id || product.id;
-    const res = favorited ? await api.removeFavorite(productId) : await api.addFavorite(productId);
-    const payload = res.result || {};
-    if (payload.code === 0) {
-      this.setData({ favorited: !favorited });
-      wx.showToast({ title: !favorited ? '已收藏' : '已取消', icon: 'none' });
+    this.setData({ favoriteSubmitting: true });
+    try {
+      const res = favorited ? await api.removeFavorite(productId) : await api.addFavorite(productId);
+      const payload = res.result || {};
+      if (payload.code !== 0) {
+        wx.showToast({ title: payload.message || '收藏操作失败', icon: 'none' });
+        return;
+      }
+      const nextFavorited = payload.data && typeof payload.data.favorited === 'boolean'
+        ? payload.data.favorited
+        : !favorited;
+      this.setData({ favorited: nextFavorited });
+      wx.showToast({ title: nextFavorited ? '已收藏' : '已取消', icon: 'none' });
+    } catch (err) {
+      wx.showToast({ title: '收藏操作失败', icon: 'none' });
+    } finally {
+      this.setData({ favoriteSubmitting: false });
     }
   },
 

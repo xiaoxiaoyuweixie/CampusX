@@ -57,7 +57,7 @@ exports.main = async (event) => {
     const password = String(data.password || '');
 
     if (!isValidAccount(account)) {
-      return fail('账号必须是以22开头的15位数字', 40001);
+      return fail('请输入学号', 40001);
     }
     if (password !== DEFAULT_PASSWORD) {
       return fail('账号或密码错误', 40001);

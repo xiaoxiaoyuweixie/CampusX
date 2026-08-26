@@ -39,7 +39,7 @@
   <view class="bottom-bar safe-bottom">
     <view class="fav" bindtap="onToggleFav">
       <view class="fav-icon">{{favorited ? '★' : '☆'}}</view>
-      <view class="fav-text">收藏</view>
+      <view class="fav-text">{{favoriteSubmitting ? '处理中' : '收藏'}}</view>
     </view>
     <button class="btn-primary contact-btn" loading="{{contacting}}" bindtap="onContact">联系发布者</button>
   </view>

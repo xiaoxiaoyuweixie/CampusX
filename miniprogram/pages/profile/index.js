@@ -25,7 +25,7 @@ Page({
   },
 
   onLogin() {
-    wx.navigateTo({ url: '/pages/login/login' });
+    wx.navigateTo({ url: '/pages/login/index' });
   },
 
   onMenuTap(e) {

@@ -5,7 +5,7 @@
     <view class="info">
       <view class="identity-row">
         <view class="nickname">{{user.nickname}}</view>
-        <view class="school">
+        <view wx:if="{{false}}" class="school">
           🎓 {{user.school}}
           <text class="verify {{user.verified ? 'ok' : ''}}">{{user.verified ? '已认证' : '未认证'}}</text>
         </view>

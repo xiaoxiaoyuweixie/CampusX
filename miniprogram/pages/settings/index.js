@@ -212,9 +212,22 @@ Page({
   },
 
   onLogout() {
+    wx.showModal({
+      title: "提示",
+      content: "确认退出登录？",
+      confirmText: "退出",
+      confirmColor: "#EF4444",
+      success: (res) => {
+        if (!res.confirm) return;
+        this.performLogout();
+      }
+    });
+  },
+
+  performLogout() {
     const userInfo = wx.getStorageSync("userInfo") || {};
     userInfo.logged = false;
     wx.setStorageSync("userInfo", userInfo);
-    wx.reLaunch({ url: "/pages/login/login" });
+    wx.reLaunch({ url: "/pages/login/index" });
   }
 });

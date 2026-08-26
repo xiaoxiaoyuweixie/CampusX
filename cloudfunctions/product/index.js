@@ -65,7 +65,8 @@ function resolveCategory(data = {}) {
 
 function validateProductInput(data = {}) {
   const title = String(data.title || '').trim();
-  const price = Number(data.price);
+  const priceText = String(data.price == null ? '' : data.price).trim();
+  const price = Number(priceText);
   const location = String(data.location || '').trim();
   const description = String(data.description || data.desc || '').trim();
   const images = Array.isArray(data.images) ? data.images.filter(Boolean) : [];
@@ -73,6 +74,7 @@ function validateProductInput(data = {}) {
 
   if (!title) return '请输入商品标题';
   if (!categoryId && !categoryName) return '请选择商品分类';
+  if (!priceText) return '请输入商品价格';
   if (!Number.isFinite(price) || price < 0) return '请输入正确的价格';
   if (!location) return '请输入交易地点';
   if (!images.length) return '请至少上传一张商品图片';

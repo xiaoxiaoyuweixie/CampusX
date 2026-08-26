@@ -100,11 +100,13 @@ Page({
   validateForm() {
     const { title, desc, price, location, images, categories } = this.data;
     const validImages = images.filter(Boolean);
-    const amount = Number(price);
+    const priceText = String(price || '').trim();
+    const amount = Number(priceText);
 
     if (!validImages.length) return '请至少上传一张商品图片';
     if (!title.trim()) return '请输入商品标题';
     if (!categories.length) return '请选择商品分类';
+    if (!priceText) return '请输入商品价格';
     if (!Number.isFinite(amount) || amount < 0) return '请输入正确的价格';
     if (!location.trim()) return '请输入交易地点';
     if ((desc || '').length > 1000) return '商品描述最多1000字';
@@ -133,7 +135,7 @@ Page({
         title,
         description: desc,
         desc,
-        price: Number(price),
+        price: Number(String(price || '').trim()),
         location,
         campus: location.split('路')[0] || location,
         categoryId: category.categoryId || category.id,
