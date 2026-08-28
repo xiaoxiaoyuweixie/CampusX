@@ -1,5 +1,5 @@
 <view class="login-page">
-  <image class="login-page__bg" src="./background.svg" mode="aspectFill" />
+  <image class="login-page__bg" src="./background-unified-blue-slogan-dot.jpg" mode="aspectFill" />
   <view class="login-page__overlay">
     <view class="login-page__avatar-wrap">
       <image class="login-page__avatar" src="./avatar.svg" mode="aspectFill" />

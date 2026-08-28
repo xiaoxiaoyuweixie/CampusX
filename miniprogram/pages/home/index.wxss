@@ -50,3 +50,143 @@
   gap: 20rpx;
 }
 .grid-col { width: 100%; }
+
+.assistant-float {
+  position: fixed;
+  z-index: 80;
+  width: 112rpx;
+  height: 112rpx;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: 0 10rpx 28rpx rgba(17, 24, 39, 0.22);
+  overflow: hidden;
+}
+
+.assistant-float-logo {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.assistant-overlay {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: flex-end;
+  background: rgba(17, 24, 39, 0.42);
+}
+
+.assistant-sheet {
+  width: 100%;
+  height: 70vh;
+  max-height: 920rpx;
+  display: flex;
+  flex-direction: column;
+  background: #F8FAFC;
+  border-radius: 20rpx 20rpx 0 0;
+  overflow: hidden;
+}
+
+.assistant-handle {
+  width: 72rpx;
+  height: 8rpx;
+  margin: 14rpx auto 10rpx;
+  border-radius: 999rpx;
+  background: #D1D5DB;
+}
+
+.assistant-message-list {
+  flex: 1;
+  min-height: 0;
+  padding: 28rpx 24rpx;
+  box-sizing: border-box;
+}
+
+.assistant-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 12rpx;
+  margin-bottom: 24rpx;
+}
+
+.assistant-message--user {
+  justify-content: flex-end;
+}
+
+.assistant-message-logo {
+  width: 52rpx;
+  height: 52rpx;
+  flex-shrink: 0;
+}
+
+.assistant-bubble {
+  max-width: 72%;
+  padding: 16rpx 20rpx;
+  border-radius: 16rpx;
+  font-size: 27rpx;
+  line-height: 1.55;
+  word-break: break-all;
+}
+
+.assistant-message--assistant .assistant-bubble {
+  color: #111827;
+  background: #FFFFFF;
+  border-top-left-radius: 4rpx;
+  box-shadow: 0 2rpx 8rpx rgba(17, 24, 39, 0.05);
+}
+
+.assistant-message--user .assistant-bubble {
+  color: #FFFFFF;
+  background: #3B82F6;
+  border-top-right-radius: 4rpx;
+}
+
+.assistant-bubble--typing {
+  color: #6B7280 !important;
+}
+
+.assistant-input-bar {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  padding: 16rpx 24rpx calc(16rpx + env(safe-area-inset-bottom));
+  background: #FFFFFF;
+  border-top: 1rpx solid #E5E7EB;
+}
+
+.assistant-input {
+  flex: 1;
+  min-width: 0;
+  height: 72rpx;
+  padding: 0 24rpx;
+  border-radius: 999rpx;
+  background: #F1F5F9;
+  font-size: 27rpx;
+  color: #111827;
+}
+
+.assistant-send {
+  width: 128rpx;
+  min-width: 128rpx;
+  height: 72rpx;
+  margin: 0;
+  padding: 0;
+  border-radius: 999rpx;
+  background: #3B82F6;
+  color: #FFFFFF;
+  font-size: 27rpx;
+  line-height: 72rpx;
+}
+
+.assistant-send[disabled] {
+  background: #BFDBFE;
+  color: #FFFFFF;
+}
+
+.assistant-send::after {
+  border: 0;
+}

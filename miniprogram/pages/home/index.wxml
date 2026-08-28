@@ -1,3 +1,5 @@
+<page-meta page-style="{{assistantOpen ? 'overflow: hidden;' : ''}}"></page-meta>
+
 <view class="page">
   <view class="header">
     <view class="school">📍 {{school}}</view>
@@ -23,6 +25,70 @@
   <view class="grid">
     <view class="grid-col" wx:for="{{products}}" wx:key="id">
       <product-card product="{{item}}" bind:producttap="onProductTap" />
+    </view>
+  </view>
+</view>
+
+<view
+  wx:if="{{assistantReady && !assistantOpen}}"
+  class="assistant-float"
+  style="left: {{assistantX}}px; top: {{assistantY}}px;"
+  role="button"
+  aria-label="打开 CampusX AI 助手"
+  catchtouchstart="onAssistantTouchStart"
+  catchtouchmove="onAssistantTouchMove"
+  catchtouchend="onAssistantTouchEnd"
+  catchtouchcancel="onAssistantTouchCancel"
+>
+  <image class="assistant-float-logo" src="/images/logo.png" mode="aspectFit"></image>
+</view>
+
+<view wx:if="{{assistantOpen}}" class="assistant-overlay" bindtap="onAssistantClose">
+  <view class="assistant-sheet" catchtap="onAssistantSheetTap">
+    <view class="assistant-handle"></view>
+
+    <scroll-view
+      class="assistant-message-list"
+      scroll-y
+      scroll-with-animation
+      scroll-into-view="{{assistantScrollIntoView}}"
+    >
+      <view
+        wx:for="{{assistantMessages}}"
+        wx:key="id"
+        id="{{item.id}}"
+        class="assistant-message assistant-message--{{item.role}}"
+      >
+        <image
+          wx:if="{{item.role === 'assistant'}}"
+          class="assistant-message-logo"
+          src="/images/logo.png"
+          mode="aspectFit"
+        ></image>
+        <view class="assistant-bubble">{{item.content}}</view>
+      </view>
+      <view wx:if="{{assistantReplying}}" id="assistant-replying" class="assistant-message assistant-message--assistant">
+        <image class="assistant-message-logo" src="/images/logo.png" mode="aspectFit"></image>
+        <view class="assistant-bubble assistant-bubble--typing">正在回复...</view>
+      </view>
+    </scroll-view>
+
+    <view class="assistant-input-bar">
+      <input
+        class="assistant-input"
+        placeholder="问问校园资源相关问题"
+        value="{{assistantInput}}"
+        maxlength="200"
+        confirm-type="send"
+        bindinput="onAssistantInput"
+        bindconfirm="onAssistantSend"
+      />
+      <button
+        class="assistant-send"
+        disabled="{{!assistantInput || assistantReplying}}"
+        loading="{{assistantReplying}}"
+        bindtap="onAssistantSend"
+      >发送</button>
     </view>
   </view>
 </view>
