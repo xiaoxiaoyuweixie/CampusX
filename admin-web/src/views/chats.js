@@ -34,7 +34,11 @@ function bindChatActions({ adminCall }) {
         ${(data.list || []).map(message => `
           <div class="message-item">
             <strong>${escapeHtml(message.senderRole || message.senderOpenid || '-')}</strong>
-            <p>${escapeHtml(message.content || '')}</p>
+            ${message.type === 'image'
+              ? (message.imageUrl && /^https:\/\//.test(message.imageUrl)
+                ? `<a href="${escapeHtml(message.imageUrl)}" target="_blank" rel="noopener noreferrer"><img src="${escapeHtml(message.imageUrl)}" alt="聊天图片" style="display:block;max-width:100%;width:240px;max-height:240px;object-fit:contain" /></a>`
+                : '<p>[图片暂时无法加载]</p>')
+              : `<p>${escapeHtml(message.content || '')}</p>`}
             <span>${formatDate(message.createdTimestamp || message.createdAt)}</span>
           </div>
         `).join('') || '<p class="empty">暂无消息</p>'}

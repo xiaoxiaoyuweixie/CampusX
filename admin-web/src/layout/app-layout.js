@@ -1,7 +1,7 @@
 import { getAdmin } from '../state/session.js';
 import { escapeHtml } from '../utils/format.js';
 
-export function renderLayout({ app, navItems, view, content = '', onNavigate, onRefresh, onLogout }) {
+export function renderLayout({ app, navItems, view, title = '', content = '', onNavigate, onRefresh, onLogout }) {
   const admin = getAdmin();
   app.innerHTML = `
     <div class="layout">
@@ -24,7 +24,7 @@ export function renderLayout({ app, navItems, view, content = '', onNavigate, on
       <main class="main">
         <header class="topbar">
           <div>
-            <h1>${navItems.find(item => item.key === view)?.label || ''}</h1>
+            <h1>${escapeHtml(title || navItems.find(item => item.key === view)?.label || '')}</h1>
             <p>云环境：cloud1-d6g5stkeb92288dee</p>
           </div>
           <div class="topbar-actions">

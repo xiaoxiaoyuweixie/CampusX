@@ -77,3 +77,18 @@ find cloudfunctions -name '*.js' -print -exec node --check {} \;
 - 对于 review 类任务，优先指出 bug、风险、回归或缺失测试。
 - 最终回复中说明验证结果。
 - 说明保持简洁、具体。
+
+## 上下文自动检查
+
+稳定规则 ID：`AGENT-CONTEXT-CHECK-001`。
+
+- 每轮最终回复前，在项目根目录执行 `node scripts/check-context.cjs`；长任务在完成大段源码阅读、实现或验证阶段后额外检查，不逐条工具调用检查。
+- 脚本通过 `CODEX_THREAD_ID` 定位当前会话，使用 `CODEX_HOME`（未设置时为 `~/.codex`）下的本地记录。只读取当前会话统计，不输出对话正文、不修改日志、不创建定时任务。
+- 占用比例使用最近一次请求的 `input_tokens / model_context_window`，不能使用累计 token 用量，也不能扣除缓存输入。该结果是最近一次已记录请求的近似占用，不是实时仪表盘，更不是账号剩余额度。
+- `level: normal`（低于 70%）：不主动向用户报告，用户明确询问时除外。
+- `level: warning`（达到 70%、低于 85%）：简短提醒上下文占用较高，但继续当前任务。
+- `level: high`（达到 85%）：建议在合适的任务边界整理交接摘要或新建会话，不仅因为阈值就中断未完成工作，也不擅自创建新会话。
+- 70% 和 85% 是本项目自定预警值，不是平台硬限制。脚本只读且无通知状态；助手结合本会话已发出的提醒，按 `notificationKey` 去重，同一压缩周期的同一阈值只主动提醒一次，升级到更高阈值时可再提醒；已提醒 85% 后不再补发 70% 提醒。自动压缩后按新统计重新判断。
+- `status: unavailable` 表示无法获取，不能当作 0% 或声称容量充足。同一问题只说明一次，不反复重试；若为 `awaiting_post_compaction_usage`，等待后续正常检查，不沿用压缩前的占用。
+- 本规则仅在助手处理任务时执行，不是后台常驻监控，不保证逐 token 预警，也不在无人交互时轮询。
+- 脚本改动后运行 `node --check scripts/check-context.cjs` 和 `node --test tests/context-check.test.js`。

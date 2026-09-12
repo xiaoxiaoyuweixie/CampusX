@@ -1,0 +1,572 @@
+[
+  {
+    "id": "PUBLISH-001",
+    "title": "允许发布的资源分类",
+    "category": "publish",
+    "keywords": ["发布", "分类", "数码电子", "教材书籍", "考研资料", "宿舍用品", "技能服务"],
+    "priority": 80,
+    "content": "CampusX 当前允许发布数码电子、教材书籍、考研资料、宿舍用品和技能服务。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "PUBLISH-002",
+    "title": "违规技能服务",
+    "category": "publish",
+    "keywords": ["技能服务", "代考", "替考", "替人考试", "代写", "论文代写", "刷课", "刷网课", "考试作弊"],
+    "priority": 100,
+    "content": "技能服务不得包含代考、代写、刷课等违规行为。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "PUBLISH-003",
+    "title": "禁止发布的内容",
+    "category": "publish",
+    "keywords": ["禁止发布", "违法物品", "管制器具", "管制刀具", "烟酒", "香烟", "卖烟", "烟草", "酒类", "卖酒", "药品", "感冒药", "卖药", "处方药", "假冒伪劣", "假货", "盗窃所得", "色情", "赌博", "账号交易", "卖账号", "账号能卖", "买卖账号", "出售账号", "卖号", "买号", "考试作弊", "虚假兼职", "金融借贷", "借贷", "贷款", "借钱"],
+    "priority": 100,
+    "content": "禁止发布违法物品、管制器具、烟酒、药品、假冒伪劣商品、盗窃所得、色情内容、赌博服务、账号交易、考试作弊服务、虚假兼职和金融借贷。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "PUBLISH-004",
+    "title": "商品标题字数限制",
+    "category": "publish",
+    "keywords": ["标题", "字数", "长度", "20字"],
+    "priority": 80,
+    "content": "商品标题最多 20 字。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "PUBLISH-005",
+    "title": "商品描述字数限制",
+    "category": "publish",
+    "keywords": ["描述", "字数", "长度", "100字"],
+    "priority": 80,
+    "content": "商品描述最多 100 字。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "PUBLISH-006",
+    "title": "商品图片数量",
+    "category": "publish",
+    "keywords": ["图片", "照片", "上传", "数量", "9张"],
+    "priority": 80,
+    "content": "每条发布内容必须上传 1 至 9 张图片。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "PUBLISH-007",
+    "title": "商品价格规则",
+    "category": "publish",
+    "keywords": ["价格", "金额", "负数", "0元", "免费", "赠送"],
+    "priority": 80,
+    "content": "商品价格不得为负数；价格为 0 元时表示免费赠送。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "PUBLISH-008",
+    "title": "发布必填信息",
+    "category": "publish",
+    "keywords": ["必填", "分类", "交易地点", "面交地点", "发布要求"],
+    "priority": 80,
+    "content": "发布时必须选择分类并填写交易地点。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "PUBLISH-009",
+    "title": "禁止重复刷屏",
+    "category": "publish",
+    "keywords": ["重复发布", "刷屏", "相同商品", "重复商品"],
+    "priority": 90,
+    "content": "禁止通过重复发布相同或高度相似内容进行刷屏。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "PUBLISH-010",
+    "title": "禁止纯广告",
+    "category": "publish",
+    "keywords": ["广告", "推广", "引流", "纯广告"],
+    "priority": 90,
+    "content": "禁止发布与校园资源交易无关的纯广告。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "PUBLISH-011",
+    "title": "商品描述中的联系方式",
+    "category": "publish",
+    "keywords": ["联系方式", "手机号", "微信号", "商品描述", "公开联系"],
+    "priority": 90,
+    "content": "联系方式应优先在聊天中交换，不得直接公开在商品描述中。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "STATUS-001",
+    "title": "在售状态",
+    "category": "product_status",
+    "keywords": ["在售", "商品状态", "正在出售", "联系卖家"],
+    "priority": 80,
+    "content": "在售表示商品正在公开展示，其他用户可以浏览并发起联系。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "STATUS-002",
+    "title": "已下架状态",
+    "category": "product_status",
+    "keywords": ["已下架", "下架", "不展示", "不能联系"],
+    "priority": 80,
+    "content": "已下架表示商品停止公开展示，其他用户不能针对该商品新建聊天。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "STATUS-003",
+    "title": "已售出状态",
+    "category": "product_status",
+    "keywords": ["已售出", "售出", "卖掉", "不能联系"],
+    "priority": 80,
+    "content": "已售出表示商品已经完成交易，其他用户不能针对该商品新建聊天。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "STATUS-004",
+    "title": "下架与恢复上架",
+    "category": "product_status",
+    "keywords": ["下架", "恢复上架", "重新上架", "在售", "已下架"],
+    "priority": 85,
+    "content": "发布者可以将在售商品下架，也可以将已下架商品恢复为在售。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "STATUS-005",
+    "title": "标记商品已售出",
+    "category": "product_status",
+    "keywords": ["标记售出", "已售出", "卖掉了", "完成交易"],
+    "priority": 85,
+    "content": "发布者可以将在售商品标记为已售出。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "STATUS-006",
+    "title": "已售出状态不可恢复",
+    "category": "product_status",
+    "keywords": ["已售出恢复", "恢复在售", "恢复下架", "撤销售出"],
+    "priority": 90,
+    "content": "商品标记为已售出后不能恢复为在售或已下架。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "STATUS-007",
+    "title": "商品永久删除",
+    "category": "product_status",
+    "keywords": ["删除商品", "永久删除", "移除商品", "不再展示"],
+    "priority": 80,
+    "content": "当前版本不提供永久删除商品功能；不再展示的商品应使用下架状态。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "STATUS-008",
+    "title": "非在售商品不能新建聊天",
+    "category": "product_status",
+    "keywords": ["下架后联系", "售出后联系", "新建聊天", "联系发布者"],
+    "priority": 90,
+    "content": "已下架和已售出商品不能新建聊天。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "STATUS-009",
+    "title": "状态变更前的已有聊天",
+    "category": "product_status",
+    "keywords": ["已有聊天", "继续聊天", "下架后聊天", "售出后聊天"],
+    "priority": 90,
+    "content": "商品变为已下架或已售出前已经建立的聊天可以继续。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "CHAT-001",
+    "title": "聊天沟通范围",
+    "category": "communication",
+    "keywords": ["聊天", "沟通", "商品信息", "交易时间", "交易地点", "售后确认"],
+    "priority": 70,
+    "content": "用户应围绕商品信息、交易时间、交易地点和必要的售后确认进行沟通。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "CHAT-002",
+    "title": "聊天中交换联系方式",
+    "category": "communication",
+    "keywords": ["联系方式", "手机号", "微信号", "交换联系", "核实身份"],
+    "priority": 85,
+    "content": "用户可以在聊天中自主交换完成交易所必需的联系方式，但应先核实对方身份。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "CHAT-003",
+    "title": "聊天敏感信息保护",
+    "category": "communication",
+    "keywords": ["验证码", "银行卡密码", "身份证照片", "敏感信息", "隐私"],
+    "priority": 100,
+    "content": "不得在聊天中发送验证码、银行卡密码、身份证照片等敏感信息。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "CHAT-004",
+    "title": "遇到骚扰或违规信息",
+    "category": "communication",
+    "keywords": ["骚扰", "可疑要求", "违规信息", "停止沟通", "保留证据"],
+    "priority": 100,
+    "content": "遇到骚扰、可疑要求或违规信息时，应立即停止沟通并保留聊天记录、转账凭证等证据。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "CHAT-005",
+    "title": "聊天与商品状态",
+    "category": "communication",
+    "keywords": ["下架商品聊天", "售出商品聊天", "新建聊天", "已有聊天"],
+    "priority": 90,
+    "content": "已下架和已售出商品不能新建聊天，但商品状态变更前已经建立的聊天可以继续。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "CHAT-006",
+    "title": "聊天举报入口",
+    "category": "communication",
+    "keywords": ["举报", "拉黑", "客服", "投诉入口", "反馈入口"],
+    "priority": 90,
+    "content": "用户可进入商品聊天，点击微信、电话旁的“举报”，举报当前会话对方；举报同时关联该会话与商品。空会话也允许举报，商品下架、售出或对方账号禁用不影响举报；本人须已登录且账号可用，并有该会话读取权限，关联会话、对方和商品记录须存在。CampusX 仍不提供拉黑或在线客服入口。",
+    "status": "enabled",
+    "version": 2
+  },
+  {
+    "id": "REPORT-001",
+    "title": "举报填写与截图要求",
+    "category": "communication",
+    "keywords": ["举报", "举报原因", "详细信息", "截图", "100字", "9张", "10MB"],
+    "priority": 100,
+    "content": "举报须单选原因并填写1至100字详细信息，包括选择“其他”时；不能仅填空白，空格和换行计入字数。截图选填，最多9张，每张不超过10MB，支持静态JPG/JPEG、PNG、WebP，可拍照或从相册选择。任一已选截图上传失败时，需重试或移除后再提交。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "REPORT-002",
+    "title": "举报草稿与重复提交",
+    "category": "communication",
+    "keywords": ["举报", "草稿", "提交失败", "重复提交", "待处理", "提交成功"],
+    "priority": 100,
+    "content": "未成功提交的举报在本机按账号和会话保留草稿。服务端确认成功后提示“提交成功”，2秒后返回原聊天并清除该举报草稿，聊天草稿不受影响。提交结果暂未确认时应重试核实原提交。同一用户在同一会话最多有一份待处理举报；该份结案后可提交新的举报。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "REPORT-003",
+    "title": "举报保密与提交后边界",
+    "category": "communication",
+    "keywords": ["举报", "保密", "通知", "对方知道", "我的举报", "查看进度", "撤回", "修改举报"],
+    "priority": 100,
+    "content": "举报完整资料和截图仅供启用的超级管理员核查，不向被举报人披露。当前没有“我的举报”、举报进度或处理结果查询入口，不发送举报或处理结果通知。成功提交后，举报人不能编辑、撤回或删除举报。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "REPORT-004",
+    "title": "举报人工处理与处罚边界",
+    "category": "communication",
+    "keywords": ["举报", "处理结果", "举报成立", "举报不成立", "封禁", "自动处罚", "下架"],
+    "priority": 100,
+    "content": "超级管理员人工核查举报并记录“举报成立”或“举报不成立”、处理备注及处理人和时间，结案后不能改判或重开。举报成立不自动禁用账号或下架商品；管理员如需处置，使用已有用户或商品管理操作。举报不保证处理时限或交易退款，AI助手不能查询实际处理结果。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "SAFETY-001",
+    "title": "选择安全交易地点",
+    "category": "transaction_safety",
+    "keywords": ["交易地点", "面交", "校园", "公共区域", "安全交易"],
+    "priority": 95,
+    "content": "建议双方在校园内人员较多、环境公开的区域当面交易。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "SAFETY-002",
+    "title": "验货后付款",
+    "category": "transaction_safety",
+    "keywords": ["验货", "付款", "商品实物", "功能", "数量", "描述"],
+    "priority": 95,
+    "content": "建议买方先核对商品实物、功能、数量和描述，再确认付款。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "SAFETY-003",
+    "title": "避免提前付款",
+    "category": "transaction_safety",
+    "keywords": ["定金", "预付款", "提前转账", "陌生账户", "付款风险"],
+    "priority": 100,
+    "content": "不建议在见到商品或确认服务前支付定金、预付款或向陌生账户转账。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "SAFETY-004",
+    "title": "交易前核实身份",
+    "category": "transaction_safety",
+    "keywords": ["核实身份", "联系方式", "收款信息", "转账", "交易内容"],
+    "priority": 95,
+    "content": "交换联系方式、收款信息或进行转账前，应谨慎核实对方身份和交易内容。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "SAFETY-005",
+    "title": "交易责任承担",
+    "category": "transaction_safety",
+    "keywords": ["交易责任", "纠纷", "质量问题", "财产损失", "双方协商"],
+    "priority": 90,
+    "content": "交易由双方自主协商并承担相应责任。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "SAFETY-006",
+    "title": "涉嫌诈骗或违法的处理",
+    "category": "transaction_safety",
+    "keywords": ["诈骗", "违法", "报警", "学校保卫", "公安机关", "保留证据"],
+    "priority": 100,
+    "content": "涉嫌诈骗或违法时，应保留商品页面、聊天记录、联系方式和转账凭证，并向学校保卫部门或公安机关求助。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "SAFETY-007",
+    "title": "严重违规账号处理",
+    "category": "transaction_safety",
+    "keywords": ["违规账号", "封禁", "严重违规", "账号处理"],
+    "priority": 100,
+    "content": "平台发现或经证据核实用户存在严重违规行为后，有权先行封禁相关账号。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "SAFETY-008",
+    "title": "依法协助调查",
+    "category": "transaction_safety",
+    "keywords": ["协助调查", "账号信息", "学校保卫", "公安机关", "诈骗", "违法犯罪"],
+    "priority": 100,
+    "content": "涉嫌诈骗或违法犯罪时，平台可依据合法要求提供必要账号信息，并协助学校保卫部门或公安机关调查。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "BOUNDARY-001",
+    "title": "CampusX 平台定位",
+    "category": "platform_boundary",
+    "keywords": ["CampusX是什么", "平台定位", "校园资源", "信息发布", "撮合平台"],
+    "priority": 90,
+    "content": "CampusX 是校园资源信息发布与撮合平台，帮助用户展示资源并建立联系。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "BOUNDARY-002",
+    "title": "当前不提供的交易服务",
+    "category": "platform_boundary",
+    "keywords": ["平台支付", "订单", "交易担保", "物流", "退款", "售后"],
+    "priority": 100,
+    "content": "CampusX 当前不提供平台支付、订单、交易担保、物流、退款或售后服务。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "BOUNDARY-008",
+    "title": "售后问题处理",
+    "category": "platform_boundary",
+    "keywords": ["售后规则", "售后问题", "售后处理", "质量问题", "退货", "退款"],
+    "priority": 100,
+    "content": "CampusX 不提供平台售后、退款或交易担保服务。商品质量、交付和售后问题由交易双方通过已有聊天自主协商处理。涉嫌诈骗或违法时，应停止沟通、保留相关证据，并向学校保卫部门或公安机关求助。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "BOUNDARY-003",
+    "title": "平台不经手交易资金",
+    "category": "platform_boundary",
+    "keywords": ["代收", "保管资金", "转账", "交易资金", "平台收款"],
+    "priority": 100,
+    "content": "CampusX 不代收、保管或划转用户交易资金。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "BOUNDARY-004",
+    "title": "交易内容由双方确认",
+    "category": "platform_boundary",
+    "keywords": ["商品价格", "商品质量", "交付方式", "交易结果", "双方确认"],
+    "priority": 90,
+    "content": "商品价格、质量、交付方式和交易结果由交易双方自主确认。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "BOUNDARY-005",
+    "title": "交易纠纷处理边界",
+    "category": "platform_boundary",
+    "keywords": ["交易纠纷", "协商解决", "诈骗", "违法", "公安机关"],
+    "priority": 95,
+    "content": "交易纠纷原则上由双方协商解决；涉嫌诈骗或违法时，应向学校保卫部门或公安机关求助。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "BOUNDARY-006",
+    "title": "当前未提供的管理功能",
+    "category": "platform_boundary",
+    "keywords": ["永久删除", "拉黑", "在线客服", "平台功能"],
+    "priority": 90,
+    "content": "当前版本不提供永久删除商品、拉黑或在线客服功能。用户可在商品聊天页使用举报功能。",
+    "status": "enabled",
+    "version": 2
+  },
+  {
+    "id": "BOUNDARY-007",
+    "title": "平台违规处置与调查协助",
+    "category": "platform_boundary",
+    "keywords": ["封禁账号", "违规处置", "协助调查", "平台责任"],
+    "priority": 100,
+    "content": "平台对严重违规账号有权采取封禁措施，并可依据合法要求协助学校保卫部门或公安机关调查。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "AI-001",
+    "title": "AI 助手服务范围",
+    "category": "ai_assistant",
+    "keywords": ["AI助手", "能做什么", "服务范围", "平台规则", "平台功能", "商品检索"],
+    "priority": 100,
+    "content": "CampusX AI 助手负责解释 CampusX 已提供的功能和本规则库中的内容，也可以查询当前在售商品。",
+    "status": "enabled",
+    "version": 2
+  },
+  {
+    "id": "AI-002",
+    "title": "AI 回答依据",
+    "category": "ai_assistant",
+    "keywords": ["回答依据", "规则库", "通用知识", "官方规则", "优先级"],
+    "priority": 100,
+    "content": "AI 助手必须优先依据 CampusX 规则库回答，不得将模型通用知识描述为 CampusX 官方规则。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "AI-003",
+    "title": "没有相关规则时的回答",
+    "category": "ai_assistant",
+    "keywords": ["没有规则", "不知道", "无法回答", "暂无相关规则"],
+    "priority": 100,
+    "content": "规则库没有相关依据时，AI 助手固定回答“暂无相关规则”。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "AI-004",
+    "title": "禁止编造平台信息",
+    "category": "ai_assistant",
+    "keywords": ["编造", "平台功能", "操作入口", "交易状态", "处理结果", "平台承诺"],
+    "priority": 100,
+    "content": "AI 助手不得编造平台功能、操作入口、交易状态、处理结果或平台承诺。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "AI-005",
+    "title": "AI 不执行用户操作",
+    "category": "ai_assistant",
+    "keywords": ["代替操作", "发布", "编辑", "下架", "恢复上架", "标记售出", "发送消息", "付款", "提交举报"],
+    "priority": 100,
+    "content": "AI 助手不能代替用户发布、编辑、下架、恢复上架、标记售出、发送聊天消息、提交举报、付款或完成交易。",
+    "status": "enabled",
+    "version": 2
+  },
+  {
+    "id": "AI-006",
+    "title": "高风险问题的安全提示",
+    "category": "ai_assistant",
+    "keywords": ["违法", "诈骗", "人身安全", "停止沟通", "保留证据", "求助"],
+    "priority": 100,
+    "content": "用户问题涉及违法、诈骗或人身安全风险时，AI 助手可以依据规则库给出停止沟通、保留证据和向有关部门求助的安全提示。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "AI-007",
+    "title": "AI 回答展示规则来源",
+    "category": "ai_assistant",
+    "keywords": ["规则来源", "引用", "依据", "规则标题"],
+    "priority": 90,
+    "content": "AI 助手回答规则问题时应返回所依据的规则标题，便于用户核对来源。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "AI-008",
+    "title": "AI 对话数据处理",
+    "category": "ai_assistant",
+    "keywords": ["对话记录", "保存聊天", "数据库", "DeepSeek", "数据处理"],
+    "priority": 100,
+    "content": "AI 对话暂不存入 CampusX 数据库，但用户输入会发送给 DeepSeek API 处理。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "AI-009",
+    "title": "不要向 AI 发送敏感信息",
+    "category": "ai_assistant",
+    "keywords": ["验证码", "银行卡密码", "身份证照片", "敏感信息", "AI隐私"],
+    "priority": 100,
+    "content": "用户不应向 AI 助手发送验证码、银行卡密码、身份证照片等敏感信息。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "AI-010",
+    "title": "AI 助手商品检索",
+    "category": "ai_assistant",
+    "keywords": ["商品检索", "查找商品", "搜索商品", "推荐商品", "在售商品", "商品卡片"],
+    "priority": 100,
+    "content": "CampusX AI 助手可以依据实时在售商品数据，按关键词、分类、价格区间和交易地点查找商品，每次最多返回 5 个商品卡片。",
+    "status": "enabled",
+    "version": 1
+  },
+  {
+    "id": "AI-011",
+    "title": "商品检索无结果",
+    "category": "ai_assistant",
+    "keywords": ["没有商品", "搜索不到", "没有结果", "暂未找到", "无在售商品"],
+    "priority": 100,
+    "content": "商品检索没有符合条件的在售商品时，AI 助手固定回答“暂未找到相关在售商品”。",
+    "status": "enabled",
+    "version": 1
+  }
+]

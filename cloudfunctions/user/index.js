@@ -48,6 +48,15 @@ async function getCurrentUser(openid) {
   return res.data[0] || null;
 }
 
+function normalizeContacts(user) {
+  const contacts = user.contacts || {};
+  const item = type => ({
+    value: typeof (contacts[type] || {}).value === 'string' ? contacts[type].value : '',
+    enabled: (contacts[type] || {}).enabled === true,
+  });
+  return { wechat: item('wechat'), phone: item('phone') };
+}
+
 async function safeCount(collectionName, query) {
   try {
     const res = await db.collection(collectionName).where(query).count();
@@ -115,6 +124,30 @@ exports.main = async (event) => {
       return ok(normalizeUser(user));
     }
 
+    if (action === 'getContacts') return ok(normalizeContacts(user));
+
+    if (action === 'saveContact' || action === 'setContactEnabled') {
+      if ((data.openid && data.openid !== openid) || (data.userId && data.userId !== user._id)
+        || (data.id && data.id !== user._id)) return fail('只能修改本人的联系方式', 40003);
+      if (!['wechat', 'phone'].includes(data.type)) return fail('请选择联系方式', 40001);
+      if (action === 'saveContact' && typeof data.value !== 'string') return fail('保存失败，请重试', 40001);
+      if (action === 'setContactEnabled' && typeof data.enabled !== 'boolean') return fail('操作失败，请重试', 40001);
+      const contacts = await db.runTransaction(async transaction => {
+        const ref = transaction.collection('users').doc(user._id);
+        const latest = (await ref.get()).data;
+        if (!latest || latest.openid !== openid || latest.status === 'disabled') throw new Error('CONTACT_PERMISSION_DENIED');
+        const updates = { updatedAt: now() };
+        updates[`contacts.${data.type}.enabled`] = action === 'saveContact' ? true : data.enabled;
+        if (action === 'saveContact') updates[`contacts.${data.type}.value`] = data.value;
+        await ref.update({ data: updates });
+        const result = normalizeContacts(latest);
+        result[data.type].enabled = action === 'saveContact' ? true : data.enabled;
+        if (action === 'saveContact') result[data.type].value = data.value;
+        return result;
+      });
+      return ok(contacts);
+    }
+
     if (action === 'updateUserInfo' || action === 'updateProfile') {
       const updates = {};
       if (typeof data.avatar === 'string') updates.avatar = data.avatar.trim();
@@ -156,6 +189,9 @@ exports.main = async (event) => {
 
     return fail('unsupported action', 40001);
   } catch (err) {
+    if (['getContacts', 'saveContact', 'setContactEnabled'].includes((event || {}).action)) {
+      return fail(err.message === 'CONTACT_PERMISSION_DENIED' ? '当前账号无法修改联系方式' : '操作失败，请重试');
+    }
     return fail(err.message || 'user service failed');
   }
 };

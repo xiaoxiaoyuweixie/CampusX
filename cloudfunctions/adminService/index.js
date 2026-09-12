@@ -5,11 +5,13 @@ const { listCategories, updateCategory } = require('./services/categories');
 const { listChatMessages, listChatSessions } = require('./services/chats');
 const { getDashboard } = require('./services/dashboard');
 const { listProducts, updateProductStatus } = require('./services/products');
-const { listUsers, updateUserStatus } = require('./services/users');
+const { listUsers, getUserDetail, updateUserStatus } = require('./services/users');
+const { listReports, getReportDetail, getReportEvidence, processReport } = require('./services/reports');
 
 const protectedActions = {
   getDashboard,
   listUsers,
+  getUserDetail,
   updateUserStatus,
   listProducts,
   updateProductStatus,
@@ -17,6 +19,10 @@ const protectedActions = {
   updateCategory,
   listChatSessions,
   listChatMessages,
+  listReports,
+  getReportDetail,
+  getReportEvidence,
+  processReport,
 };
 
 async function handleAction(event = {}) {
@@ -30,7 +36,7 @@ async function handleAction(event = {}) {
   if (!admin) return fail('登录已失效，请重新登录', 40004);
 
   const handler = protectedActions[action];
-  if (handler) return handler(data);
+  if (handler) return handler(data, admin);
 
   return fail('请求的操作暂不支持', 40001, { action });
 }

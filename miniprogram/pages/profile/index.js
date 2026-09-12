@@ -30,6 +30,10 @@ Page({
 
   onMenuTap(e) {
     const action = e.currentTarget.dataset.action;
+    if (action === 'contacts') {
+      wx.navigateTo({ url: this.data.user.logged ? '/pages/contacts/index' : '/pages/login/index' });
+      return;
+    }
     if (action === 'published') {
       wx.navigateTo({ url: '/pages/my-publish/index' });
       return;

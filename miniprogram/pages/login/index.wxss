@@ -61,6 +61,7 @@
   min-width: 0;
 }
 .login-page__password-toggle {
+  position: relative;
   flex: none;
   margin-left: 20rpx;
   width: 72rpx;
@@ -70,11 +71,15 @@
   justify-content: center;
 }
 .login-page__eye-icon {
+  position: absolute;
+  left: 7rpx;
+  top: 15rpx;
   width: 58rpx;
   height: 42rpx;
-  opacity: 0.98;
+  opacity: 0;
+  pointer-events: none;
 }
-.login-page__password-toggle--active .login-page__eye-icon {
+.login-page__eye-icon--visible {
   opacity: 1;
 }
 .login-page__placeholder {
@@ -127,6 +132,7 @@
   min-height: 102rpx;
   border-radius: 50%;
   background: #2f7ff5;
+  color: #fef7ff;
   border: 0;
   padding: 0;
   display: inline-flex;
@@ -134,6 +140,11 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+}
+.login-page__submit--loading,
+.login-page__submit--pressed {
+  background: #2f7ff5;
+  opacity: 1;
 }
 .login-page__submit::after {
   border: none;
@@ -146,5 +157,17 @@
   line-height: 1;
   text-align: center;
   display: block;
-  transform: translate(4rpx, -12rpx);
+  transform: translate(4rpx, -8rpx);
+}
+.login-page__submit-loading {
+  width: 34rpx;
+  height: 34rpx;
+  border: 4rpx solid rgba(255, 255, 255, 0.38);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: login-submit-loading 0.75s linear infinite;
+}
+@keyframes login-submit-loading {
+  to { transform: rotate(360deg); }
 }

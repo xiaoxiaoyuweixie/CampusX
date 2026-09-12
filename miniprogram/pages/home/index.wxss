@@ -123,8 +123,25 @@
   flex-shrink: 0;
 }
 
-.assistant-bubble {
+.assistant-message-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   max-width: 72%;
+  min-width: 0;
+}
+
+.assistant-message-content--products {
+  width: calc(100% - 64rpx);
+  max-width: calc(100% - 64rpx);
+}
+
+.assistant-message--user .assistant-message-content {
+  align-items: flex-end;
+}
+
+.assistant-bubble {
+  max-width: 100%;
   padding: 16rpx 20rpx;
   border-radius: 16rpx;
   font-size: 27rpx;
@@ -147,6 +164,88 @@
 
 .assistant-bubble--typing {
   color: #6B7280 !important;
+}
+
+.assistant-source {
+  margin-top: 8rpx;
+  padding: 0 4rpx;
+  color: #64748B;
+  font-size: 21rpx;
+  line-height: 1.45;
+  word-break: break-all;
+}
+
+.assistant-product-list {
+  width: 100%;
+  margin-top: 12rpx;
+}
+
+.assistant-product-card {
+  width: 100%;
+  min-height: 116rpx;
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  margin-bottom: 12rpx;
+  padding: 12rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1rpx solid #E2E8F0;
+  border-radius: 12rpx;
+  background: #FFFFFF;
+}
+
+.assistant-product-card:active {
+  background: #F1F5F9;
+}
+
+.assistant-product-cover {
+  width: 96rpx;
+  height: 96rpx;
+  flex: 0 0 96rpx;
+  border-radius: 8rpx;
+  background: #E5E7EB;
+}
+
+.assistant-product-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.assistant-product-title {
+  display: -webkit-box;
+  overflow: hidden;
+  color: #111827;
+  font-size: 26rpx;
+  line-height: 1.4;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.assistant-product-meta {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  margin-top: 8rpx;
+  min-width: 0;
+}
+
+.assistant-product-price {
+  flex-shrink: 0;
+  color: #DC2626;
+  font-size: 27rpx;
+  font-weight: 600;
+}
+
+.assistant-product-location {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  color: #64748B;
+  font-size: 22rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .assistant-input-bar {

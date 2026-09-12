@@ -6,6 +6,12 @@ const { now } = require('../lib/time');
 async function listProducts(data = {}) {
   const { page, pageSize, skip } = parsePagination(data);
   const query = {};
+  if (data.id !== undefined) {
+    if (typeof data.id !== 'string' || !data.id.trim()) return fail('请选择要查看的商品', 40001);
+    const id = await findProductDocId(data.id);
+    if (!id) return ok({ list: [], page, pageSize, total: 0 });
+    query._id = id;
+  }
   if (data.status) query.status = data.status;
   if (data.categoryId) query.categoryId = data.categoryId;
   if (data.keyword) query.title = db.RegExp({ regexp: String(data.keyword), options: 'i' });

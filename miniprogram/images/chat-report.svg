@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <title>举报</title>
+  <g id="report-triangle" stroke="#005CC1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path id="triangle-outline" d="M10.61 4.44C11.23 3.35 12.77 3.35 13.39 4.44L21.05 17.95C21.66 19.03 20.88 20.35 19.66 20.35H4.34C3.12 20.35 2.34 19.03 2.95 17.95Z"/>
+    <path id="alert-stem" d="M12 9V13.2"/>
+  </g>
+  <circle id="alert-dot" cx="12" cy="16.35" r="0.95" fill="#005CC1"/>
+</svg>

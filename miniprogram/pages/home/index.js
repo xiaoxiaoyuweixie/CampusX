@@ -1,7 +1,6 @@
 const router = require('../../utils/router.js');
 const { api } = require('../../api/index.js');
 const { categories: fallbackCategories } = require('../../mock/products.js');
-const { getMockAssistantReply } = require('../../mock/assistant.js');
 
 const FALLBACK_COVER = 'https://upload.wikimedia.org/wikipedia/commons/3/3f/Fronalpstock_big.jpg';
 const ASSISTANT_BUTTON_SIZE_RPX = 112;
@@ -31,7 +30,7 @@ Page({
       {
         id: 'assistant-welcome',
         role: 'assistant',
-        content: '你好，我是 CampusX AI 助手。可以问我如何搜索、发布或管理校园资源。',
+        content: '你好，我是 CampusX AI 助手。可以向我咨询平台规则，也可以让我查找在售校园资源。',
       },
     ],
     assistantReplying: false,
@@ -41,7 +40,7 @@ Page({
   assistantBounds: null,
   assistantDragStart: null,
   assistantDragMoved: false,
-  assistantReplyTimer: null,
+  assistantRequestId: 0,
 
   async onLoad() {
     this.setupAssistantPosition();
@@ -58,10 +57,7 @@ Page({
   },
   onUnload() {
     this.closeAssistant();
-    if (this.assistantReplyTimer) {
-      clearTimeout(this.assistantReplyTimer);
-      this.assistantReplyTimer = null;
-    }
+    this.assistantRequestId += 1;
   },
   async loadCategories() {
     try {
@@ -198,7 +194,7 @@ Page({
   onAssistantInput(e) {
     this.setData({ assistantInput: e.detail.value });
   },
-  onAssistantSend() {
+  async onAssistantSend() {
     const content = this.data.assistantInput.trim();
     if (!content || this.data.assistantReplying) return;
 
@@ -208,6 +204,7 @@ Page({
       content,
     };
     const messages = [...this.data.assistantMessages, userMessage];
+    const requestId = ++this.assistantRequestId;
     this.setData({
       assistantMessages: messages,
       assistantInput: '',
@@ -215,18 +212,58 @@ Page({
       assistantScrollIntoView: 'assistant-replying',
     });
 
-    this.assistantReplyTimer = setTimeout(() => {
+    try {
+      const res = await api.aiAssistantChat({
+        messages: messages.map(item => ({ role: item.role, content: item.content })),
+      });
+      if (requestId !== this.assistantRequestId) return;
+
+      const payload = res.result || {};
+      if (payload.code !== 0) {
+        const error = new Error(payload.message || 'AI助手暂时不可用，请稍后再试');
+        error.userMessage = payload.message;
+        throw error;
+      }
+
+      const data = payload.data || {};
+      const sources = Array.isArray(data.sources) ? data.sources : [];
+      const products = Array.isArray(data.products)
+        ? data.products
+          .map(product => ({
+            ...product,
+            id: product.id || product._id,
+            cover: product.cover || FALLBACK_COVER,
+          }))
+          .filter(product => product.id)
+        : [];
+      const sourceText = [...new Set(sources.map(item => item && item.title).filter(Boolean))].join('、');
       const assistantMessage = {
         id: `assistant-reply-${Date.now()}`,
         role: 'assistant',
-        content: getMockAssistantReply(content),
+        content: data.content || '暂无相关规则',
+        sourceText,
+        products,
       };
       this.setData({
         assistantMessages: [...this.data.assistantMessages, assistantMessage],
         assistantReplying: false,
         assistantScrollIntoView: assistantMessage.id,
       });
-      this.assistantReplyTimer = null;
-    }, 600);
+    } catch (error) {
+      if (requestId !== this.assistantRequestId) return;
+      const assistantMessage = {
+        id: `assistant-error-${Date.now()}`,
+        role: 'assistant',
+        content: error.userMessage || 'AI助手暂时不可用，请稍后再试',
+      };
+      this.setData({
+        assistantMessages: [...this.data.assistantMessages, assistantMessage],
+        assistantReplying: false,
+        assistantScrollIntoView: assistantMessage.id,
+      });
+    }
+  },
+  onAssistantProductTap(e) {
+    router.toDetail(e.currentTarget.dataset.id);
   },
 });

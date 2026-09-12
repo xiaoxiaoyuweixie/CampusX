@@ -65,11 +65,42 @@
           src="/images/logo.png"
           mode="aspectFit"
         ></image>
-        <view class="assistant-bubble">{{item.content}}</view>
+        <view class="assistant-message-content {{item.products && item.products.length ? 'assistant-message-content--products' : ''}}">
+          <view class="assistant-bubble">{{item.content}}</view>
+          <view wx:if="{{item.sourceText}}" class="assistant-source">依据：{{item.sourceText}}</view>
+          <view wx:if="{{item.products && item.products.length}}" class="assistant-product-list">
+            <view
+              wx:for="{{item.products}}"
+              wx:for-item="product"
+              wx:key="id"
+              class="assistant-product-card"
+              data-id="{{product.id}}"
+              role="button"
+              aria-label="查看商品 {{product.title}}"
+              bindtap="onAssistantProductTap"
+            >
+              <image
+                class="assistant-product-cover"
+                src="{{product.cover}}"
+                mode="aspectFill"
+                lazy-load
+              ></image>
+              <view class="assistant-product-info">
+                <view class="assistant-product-title">{{product.title}}</view>
+                <view class="assistant-product-meta">
+                  <text class="assistant-product-price">¥{{product.price}}</text>
+                  <text class="assistant-product-location">{{product.location || product.campus || '地点待确认'}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
       </view>
       <view wx:if="{{assistantReplying}}" id="assistant-replying" class="assistant-message assistant-message--assistant">
         <image class="assistant-message-logo" src="/images/logo.png" mode="aspectFit"></image>
-        <view class="assistant-bubble assistant-bubble--typing">正在回复...</view>
+        <view class="assistant-message-content">
+          <view class="assistant-bubble assistant-bubble--typing">正在回复...</view>
+        </view>
       </view>
     </scroll-view>
 

@@ -6,10 +6,12 @@
     "pages/publish/index",
     "pages/message/index",
     "pages/profile/index",
+    "pages/contacts/index",
     "pages/settings/index",
     "pages/favorites/index",
     "pages/detail/index",
     "pages/chat/index",
+    "pages/report/index",
     "pages/my-publish/index",
     "pages/about/index"
   ],

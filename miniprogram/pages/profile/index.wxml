@@ -37,6 +37,11 @@
       <text class="m-text">我的收藏</text>
       <text class="arrow">›</text>
     </view>
+    <view class="menu-item" data-action="contacts" bindtap="onMenuTap">
+      <text class="m-icon">☎</text>
+      <text class="m-text">联系方式</text>
+      <text class="arrow">›</text>
+    </view>
     <view class="menu-item" data-action="settings" bindtap="onMenuTap">
       <text class="m-icon">⚙️</text>
       <text class="m-text">设置</text>

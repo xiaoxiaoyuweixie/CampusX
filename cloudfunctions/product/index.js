@@ -299,7 +299,12 @@ exports.main = async (event = {}) => {
       }
 
       const normalized = normalizeProduct({ ...product, viewCount: (product.viewCount || 0) + 1 }, seller);
-      return ok({ ...normalized, product: normalized, seller });
+      // Only public seller fields may leave the product API.
+      const publicSeller = seller ? {
+        openid: seller.openid, nickname: seller.nickname || '', avatar: seller.avatar || '',
+        school: seller.school || '', verified: !!seller.verified, status: seller.status,
+      } : null;
+      return ok({ ...normalized, product: normalized, seller: publicSeller });
     }
 
     if (action === 'getMyProducts') {
