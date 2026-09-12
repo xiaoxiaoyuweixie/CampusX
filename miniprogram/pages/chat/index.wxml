@@ -1,22 +1,52 @@
-<view class="page">
+<view class="page" style="padding-bottom: {{keyboardHeight}}px;">
   <view wx:if="{{session}}" class="product-strip" bindtap="onProductTap" hover-class="product-strip--active">
-    <image wx:if="{{session.productCover}}" class="product-cover" src="{{session.productCover}}" mode="aspectFill"></image>
-    <view class="product-info">
-      <view class="product-title">{{session.productTitle}}</view>
-      <view class="product-sub">围绕该商品的沟通</view>
-    </view>
+    <image wx:if="{{session.productCover}}" class="product-cover" src="{{session.productCover}}" mode="aspectFill" />
+    <view class="product-info"><view class="product-title">{{session.productTitle}}</view><view class="product-sub">围绕该商品的沟通</view></view>
   </view>
-
-  <scroll-view class="list" scroll-y scroll-into-view="{{scrollToView}}" scroll-with-animation>
-    <view class="msg {{item.from === 'me' ? 'me' : 'other'}}" wx:for="{{messages}}" wx:key="id" id="{{item.id}}">
-      <view class="bubble">{{item.text}}</view>
+  <view wx:if="{{loadFailed}}" class="load-error" bindtap="onRetryLoad">消息加载失败，点击重试</view>
+  <scroll-view class="list" scroll-y scroll-into-view="{{scrollToView}}" scroll-with-animation bindscroll="onScroll" bindscrolltoupper="onLoadOlder">
+    <view wx:if="{{hasMore}}" class="load-more" bindtap="onLoadOlder">查看更早消息</view>
+    <view class="message-group" wx:for="{{messages}}" wx:key="id" id="msg-{{item.id}}">
+      <view wx:if="{{item.timeLabel}}" class="message-time">{{item.timeLabel}}</view>
+      <view class="msg {{item.from === 'me' ? 'me' : 'other'}}">
+        <image wx:if="{{avatars[item.from].url}}" class="message-avatar avatar-image" src="{{avatars[item.from].url}}" mode="aspectFill" data-from="{{item.from}}" data-url="{{avatars[item.from].url}}" binderror="onAvatarError" />
+        <view wx:else class="message-avatar">{{avatars[item.from].initial}}</view>
+        <view class="message-content">
+          <view wx:if="{{item.type === 'image'}}" class="image-bubble" style="{{(item.image.url || item.image.localPath) && !item.imageFailed ? item.imageStyle : ''}}" data-id="{{item.id}}" bindtap="onPreviewImage">
+            <image wx:if="{{(item.image.url || item.image.localPath) && !item.imageFailed}}" class="message-image" src="{{item.image.url || item.image.localPath}}" mode="aspectFit" data-id="{{item.id}}" bindload="onImageLoad" binderror="onImageError" />
+            <view wx:else class="image-placeholder">图片加载失败，点击重试</view>
+          </view>
+          <view wx:else class="bubble"><text selectable>{{item.text}}</text></view>
+          <view wx:if="{{item.status === 'sending'}}" class="message-state">发送中...</view>
+          <view wx:if="{{item.status === 'failed'}}" class="message-state failed">
+            <text>{{item.error || '发送失败'}}</text>
+            <button class="retry-message" data-id="{{item.clientMessageId}}" bindtap="onRetryMessage" aria-label="重新发送">重试</button>
+          </view>
+        </view>
+      </view>
     </view>
-    <view wx:if="{{!messages.length && !loading}}" class="empty-hint">向 {{name}} 打个招呼吧</view>
+    <view wx:if="{{!messages.length && !loading && !loadFailed}}" class="empty-hint">向 {{session.name || '对方'}} 打个招呼吧</view>
     <view wx:if="{{loading}}" class="empty-hint">消息加载中...</view>
   </scroll-view>
-
-  <view class="input-bar safe-bottom">
-    <input class="input" placeholder="说点什么..." value="{{input}}" bindinput="onInput" confirm-type="send" bindconfirm="onSend" />
-    <button class="send" loading="{{sending}}" bindtap="onSend">发送</button>
+  <view class="composer {{keyboardHeight ? 'keyboard-open' : ''}}">
+    <view class="contact-actions">
+      <button class="contact-button {{permissions.wechat.available ? '' : 'unavailable'}}" aria-disabled="{{!permissions.wechat.available}}" bindtap="onWechat"><image class="contact-icon" src="../../images/chat-wechat.svg" /><text>微信</text></button>
+      <button class="contact-button {{permissions.phone.available ? '' : 'unavailable'}}" aria-disabled="{{!permissions.phone.available}}" bindtap="onPhone"><image class="contact-icon" src="../../images/chat-phone.svg" /><text>电话</text></button>
+      <button class="contact-button" bindtap="onReport"><image class="contact-icon" src="../../images/chat-report.svg" /><text>举报</text></button>
+    </view>
+    <view wx:if="{{!permissions.canSend}}" class="readonly">{{permissions.sendReason}}</view>
+    <view class="input-bar">
+      <input class="input" placeholder="看对眼就聊天，沟通更多细节～" value="{{input}}" maxlength="-1" disabled="{{!permissions.canSend}}" adjust-position="{{false}}" confirm-type="send" confirm-hold="{{true}}" bindinput="onInput" bindconfirm="onSend" bindkeyboardheightchange="onKeyboardHeight" />
+      <button class="image-button {{permissions.canSend ? '' : 'unavailable'}}" aria-label="发送图片" aria-disabled="{{!permissions.canSend}}" loading="{{picking}}" disabled="{{picking}}" bindtap="onChooseImages"><image wx:if="{{!picking}}" class="image-icon" src="../../images/chat-image.svg" /></button>
+    </view>
   </view>
 </view>
+<page-container show="{{contactOpen}}" position="center" bindbeforeleave="onCloseContact" custom-style="background: transparent;">
+  <view class="contact-dialog">
+    <view class="dialog-title">交换微信</view>
+    <view class="warning"><image src="../../images/chat-shield.svg" /><text>请优先选择当面验货交易，不要提前转账、支付定金或押金；私下交易转账付款造成的纠纷、损失及不法侵害本平台概不负责。</text></view>
+    <view class="dialog-label">对方微信号</view>
+    <view class="wechat-value">{{maskedWechat || contactReason}}</view>
+    <view class="dialog-actions"><button class="cancel" bindtap="onCloseContact">取消</button><button class="copy" disabled="{{contactBusy || !!contactReason}}" loading="{{contactBusy}}" bindtap="onCopyWechat">复制微信号</button></view>
+  </view>
+</page-container>

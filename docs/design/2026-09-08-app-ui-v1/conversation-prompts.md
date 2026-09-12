@@ -1,0 +1,54 @@
+# 消息、聊天与 AI 助手图稿提示词
+
+使用内置 ImageGen，以已确认首页和详情 PNG 作为同产品页面变体参考；交换微信弹窗使用本轮聊天图作为底图。
+
+## 交换微信弹窗
+
+```text
+Use case: precise-object-edit / ui-mockup. The provided image is the accepted CampusX CHAT SCREEN and is the edit target. Preserve its exact portrait size, overall layout, book strip, Chinese messages, colors, navbar, composer and safe area. Create the existing "交换微信" modal-open state over this same chat screen. Add an even translucent dark gray scrim over the whole background; background chat stays recognizable but subdued. Center a single refined white rounded dialog about 300 logical px wide (the screen is360px wide). This modal belongs to the same sky-blue/white design system; clean PingFang-style typography, generous24px inner padding, 14px radius, subtle shadow.
+Exact content in dialog, top to bottom:
+- Centered semibold heading "交换微信".
+- Pale warm cream caution panel with a SMALL line shield icon, readable dark amber body text EXACTLY: "请优先选择当面验货交易，不要提前转账、支付定金或押金；私下交易转账付款造成的纠纷、损失及不法侵害本平台概不负责。"
+Render all text completely, no paraphrase, omission or repetition. It can wrap naturally into 6-7 lines and may use comfortably readable12px equivalent.
+- Left aligned muted label "对方微信号".
+- Wide pale cool-gray rounded value field containing only "ca****o" centered or left aligned. This is a read-only MASKED preview. Do not expose a complete username or add input cursor.
+- Bottom two equal-height buttons side by side with16px gap: light-gray "取消" on left, blue primary "复制微信号" on right. Both text perfectly legible. No close icon, consent checkbox, confirm exchange, extra buttons, logo or new promises.
+Preserve background content; no new business functionality. Ensure entire modal fits without overlapping its contents. Produce only the final full mobile screenshot.
+```
+
+
+## message
+
+```text
+Use case: ui-mockup / style-transfer. Transform the supplied CampusX screenshot design into another screen of the SAME app. Image 1 is approved HOME VISUAL REFERENCE, image 2 approved DETAIL VISUAL REFERENCE, not content to repeat. Output ONE complete flat portrait mobile screen at the SAME 864x1821 proportions, no device frame, perspective, surrounding board, labels or watermark. Preserve the approved visual identity: sky blue #3B82F6, pale #EFF6FF, near-white #F8FAFC, white rounded surfaces, dark #111827 type, readable #6B7280 secondary text, PingFang-style Chinese, same typography scale, thin rounded line icons, restrained shadows and natural spacing. Exact Chinese text, no gibberish. Standard 9:41 status bar, WeChat native navbar with right capsule ellipsis/circle; complete bottom safe area/home indicator. This is an illustrative mockup, all example data is fictional. Keep all specified source-supported features; do not add orders, payments, shopping carts, reviews, trust or verification badges, promotional labels, shipping, voice, video, new search or filters, or decorative controls. Avoid unnecessary giant headers/illustrations on functional pages. Retain comfortable whitespace and realistically readable mobile text.
+Shared referenced product: pale sky-blue high-mathematics paperback with thin abstract mathematical lines, darker blue spine, title "高等数学" and subtitle "上册", gently worn corners, on sunlit pale oak desk, identical to Image 2. Listing title "高等数学上下册", price "¥25", seller "小林同学", campus "荣昌校区", 128 views. Where needed use the same blue-white botanical circle avatar of 小林同学 from Image 2.
+SCREEN: MESSAGES LIST. Navbar title "消息", NO back button. Below navbar a modest pale-blue background fading to white and left aligned heading "私信"; no hero, no new subtitle, no system-notice section because selected example state has no notices. A white rounded list surface with 5 elegant generously padded conversation rows divided by fine hairlines. Each row: circular avatar left; on right first line semibold nickname + faint right-aligned time; second line smaller blue product title; third line gray message preview + optional red unread badge. Use exact rows:
+1 blue-white botanical avatar; "小林同学", "10:24", "高等数学上下册", "今天下午可以在图书馆门口见。", small unread badge "2".
+2 simple abstract sage botanical avatar; "阿禾", "昨天", "无线蓝牙耳机", "耳机还在，功能正常。", no badge.
+3 warm cream letter "陈" avatar; "小陈", "昨天", "宿舍护眼台灯", "好的，谢谢！", no badge.
+4 blue abstract leaf avatar; "阿青", "星期一", "轻便双肩包", "可以，明天下午见。", no badge.
+5 cream simple letter "余" avatar; "小余", "星期一", "考研英语资料", "资料都在，方便的时候来拿。", no badge.
+All rows same geometry; no row arrows, swipe icons, product thumbnails or new filters. Light remaining blank area is normal. Bottom fixed white TabBar exactly 首页/分类/发布/消息/我的; 消息 is blue selected, other icons gray, 发布 blue outlined plus consistent with reference. No extra global unread badge. Full safe area.
+```
+
+## chat
+
+```text
+Use case: ui-mockup / style-transfer. Transform the supplied CampusX screenshot design into another screen of the SAME app. Image 1 is approved HOME VISUAL REFERENCE, image 2 approved DETAIL VISUAL REFERENCE, not content to repeat. Output ONE complete flat portrait mobile screen at the SAME 864x1821 proportions, no device frame, perspective, surrounding board, labels or watermark. Preserve the approved visual identity: sky blue #3B82F6, pale #EFF6FF, near-white #F8FAFC, white rounded surfaces, dark #111827 type, readable #6B7280 secondary text, PingFang-style Chinese, same typography scale, thin rounded line icons, restrained shadows and natural spacing. Exact Chinese text, no gibberish. Standard 9:41 status bar, WeChat native navbar with right capsule ellipsis/circle; complete bottom safe area/home indicator. This is an illustrative mockup, all example data is fictional. Keep all specified source-supported features; do not add orders, payments, shopping carts, reviews, trust or verification badges, promotional labels, shipping, voice, video, new search or filters, or decorative controls. Avoid unnecessary giant headers/illustrations on functional pages. Retain comfortable whitespace and realistically readable mobile text.
+Shared referenced product: pale sky-blue high-mathematics paperback with thin abstract mathematical lines, darker blue spine, title "高等数学" and subtitle "上册", gently worn corners, on sunlit pale oak desk, identical to Image 2. Listing title "高等数学上下册", price "¥25", seller "小林同学", campus "荣昌校区", 128 views. Where needed use the same blue-white botanical circle avatar of 小林同学 from Image 2.
+SCREEN: existing one-to-one PRODUCT CHAT. Navbar centered "小林同学", left back chevron, right WeChat capsule. NO global TabBar. Directly below navbar, a compact white product strip with small matching blue textbook cover, title "高等数学上下册", secondary "围绕该商品的沟通". Chat area pale cool #F8FAFC; no giant photo/hero. Rounded white received bubbles LEFT and blue #3B82F6 sent bubbles RIGHT; consistent padding, text fits, no floating avatars (current chat has no avatars), no timestamps or read receipts. Show this exact exchange, one message per bubble: right "你好，这套书还在吗？"; left "还在的，只有少量铅笔笔记。"; right "方便看一下里面的情况吗？"; left a PHOTO MESSAGE, medium-size rectangular thumbnail showing the same textbook open to two pages of mathematics notes in daylight; left "这是内页，整体保存得挺好。"; right "好的，今天下午可以面交吗？"; left "可以，图书馆门口见。". Leave some airy space between content and composer, no placeholder/unread/history hints. Fixed bottom white composer, top two compact outlined buttons with consistent icons labelled "微信" and "电话". Below those one rounded pale input with exact placeholder "看对眼就聊天，沟通更多细节～" and one round blue-tinted image attachment button showing an outlined landscape icon on its right. Keyboard closed. NO visible send button (sending uses keyboard), NO microphone, plus menu or Emoji keyboard button. Safe area fully visible; compose controls never overlap messages.
+```
+
+## assistant
+
+```text
+Use case: ui-mockup / style-transfer. Transform the supplied CampusX screenshot design into another screen of the SAME app. Image 1 is approved HOME VISUAL REFERENCE, image 2 approved DETAIL VISUAL REFERENCE, not content to repeat. Output ONE complete flat portrait mobile screen at the SAME 864x1821 proportions, no device frame, perspective, surrounding board, labels or watermark. Preserve the approved visual identity: sky blue #3B82F6, pale #EFF6FF, near-white #F8FAFC, white rounded surfaces, dark #111827 type, readable #6B7280 secondary text, PingFang-style Chinese, same typography scale, thin rounded line icons, restrained shadows and natural spacing. Exact Chinese text, no gibberish. Standard 9:41 status bar, WeChat native navbar with right capsule ellipsis/circle; complete bottom safe area/home indicator. This is an illustrative mockup, all example data is fictional. Keep all specified source-supported features; do not add orders, payments, shopping carts, reviews, trust or verification badges, promotional labels, shipping, voice, video, new search or filters, or decorative controls. Avoid unnecessary giant headers/illustrations on functional pages. Retain comfortable whitespace and realistically readable mobile text.
+Shared referenced product: pale sky-blue high-mathematics paperback with thin abstract mathematical lines, darker blue spine, title "高等数学" and subtitle "上册", gently worn corners, on sunlit pale oak desk, identical to Image 2. Listing title "高等数学上下册", price "¥25", seller "小林同学", campus "荣昌校区", 128 views. Where needed use the same blue-white botanical circle avatar of 小林同学 from Image 2.
+SCREEN: EXISTING HOME WITH AI ASSISTANT BOTTOM SHEET OPEN. Use Image 1 home as backdrop visible ONLY in top approximately30% of screen, preserve its header and sky campus scene, dim it with translucent black overlay. An elegant sheet fills lower70%, with large20px top corners, a small gray drag handle at top center, pale background. No additional page-navbar inside the sheet, no category suggestion chips. Hide the floating AI button while sheet open. Bottom sheet covers home's tab bar.
+Within sheet, conversational layout: small blue circular CampusX AI monogram/avatar preceding left white bubble, right blue user bubbles. Text exactly:
+left assistant welcome: "你好，我是 CampusX AI 助手。可以向我咨询平台规则，也可以让我查找在售校园资源。"
+right user: "帮我找 30 元以内的高数教材"
+left assistant: "找到一件符合条件的在售资源："
+Below assistant response a compact horizontal clickable-looking product card with matching blue textbook thumbnail, title "高等数学上下册", coral "¥25" and smaller "荣昌校区 · 图书馆门口". No buy/contact CTA, no sources row (this is product search, not rule QA), no invented success badge.
+Place a fixed white input footer inside sheet above home indicator, rounded light-gray input exact placeholder "问问校园资源相关问题"; right blue rounded "发送" button. Keep conversation airy and content legible, enough blank space is intentional. NO microphone, camera, suggestions, model selector or extra buttons. The original site's top navbar should remain visible under scrim; full-height screenshot. Only render the screenshot.
+```

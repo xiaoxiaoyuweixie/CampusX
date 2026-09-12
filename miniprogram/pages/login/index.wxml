@@ -1,0 +1,39 @@
+<view class="login-page">
+  <image class="login-page__bg" src="./background-unified-blue-slogan-dot.jpg" mode="aspectFill" />
+  <view class="login-page__overlay">
+    <view class="login-page__avatar-wrap">
+      <image class="login-page__avatar" src="./avatar.jpg" mode="aspectFill" />
+    </view>
+
+    <view class="login-page__panel">
+      <view class="login-page__input-box">
+        <input class="login-page__input" placeholder="请输入账号" placeholder-class="login-page__placeholder" value="{{account}}" bindinput="onAccountInput" />
+      </view>
+
+      <view class="login-page__input-box login-page__input-box--password">
+        <input class="login-page__input login-page__input--password" password="{{!showPassword}}" placeholder="请输入密码" placeholder-class="login-page__placeholder" value="{{password}}" bindinput="onPasswordInput" />
+        <view class="login-page__password-toggle" bindtap="onTogglePasswordVisible" aria-label="{{showPassword ? '隐藏密码' : '显示密码'}}">
+          <image class="login-page__eye-icon {{showPassword ? 'login-page__eye-icon--visible' : ''}}" src="../../images/icon-eye.svg" mode="aspectFit" />
+          <image class="login-page__eye-icon {{showPassword ? '' : 'login-page__eye-icon--visible'}}" src="../../images/icon-eye-off.svg" mode="aspectFit" />
+        </view>
+      </view>
+    </view>
+
+    <view class="login-page__agreement" bindtap="onToggleAgreed">
+      <view class="login-page__check {{agreed ? 'login-page__check--checked' : ''}}">
+        <text wx:if="{{agreed}}" class="login-page__check-icon">✓</text>
+      </view>
+      <text class="login-page__agreement-text">我已详细阅读并同意<text class="login-page__agreement-link">用户协议</text></text>
+    </view>
+
+    <button
+      class="login-page__submit {{loginLoading ? 'login-page__submit--loading' : ''}}"
+      hover-class="login-page__submit--pressed"
+      aria-disabled="{{loginLoading}}"
+      bindtap="handleLogin"
+    >
+      <text wx:if="{{!loginLoading}}" class="login-page__submit-icon">›</text>
+      <view wx:else class="login-page__submit-loading"></view>
+    </button>
+  </view>
+</view>

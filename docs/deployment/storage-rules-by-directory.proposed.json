@@ -1,0 +1,4 @@
+{
+  "read": "/^avatar\\/|^product\\/|^products\\/|^system\\//.test(resource.path) == true || auth != null && auth.openid != null && resource.openid == auth.openid && /^chat-staging\\/|^report-staging\\//.test(resource.path) == true",
+  "write": "auth != null && auth.openid != null && resource.openid == auth.openid && /^avatar\\/|^product\\/|^products\\/|^system\\/|^chat-staging\\/|^report-staging\\//.test(resource.path) == true"
+}

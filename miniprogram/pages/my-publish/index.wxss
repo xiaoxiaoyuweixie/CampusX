@@ -201,6 +201,9 @@
   flex-direction: column;
   align-items: center;
 }
+.empty--plain {
+  margin-top: 96rpx;
+}
 .empty-art {
   width: 200rpx;
   height: 200rpx;

@@ -1,0 +1,26 @@
+<view class="contacts-page">
+  <view class="notice">微信和手机信息用于其他用户直接联系你时使用，若不希望提供可关闭，关闭后所有功能均不会向其他用户展示该信息。</view>
+  <view wx:if="{{loading}}" class="state">加载中...</view>
+  <view wx:if="{{loadFailed}}" class="state">联系方式加载失败<button class="retry" bindtap="loadContacts">重试</button></view>
+  <block wx:if="{{contacts}}">
+    <view class="contact-section" wx:for="{{['wechat', 'phone']}}" wx:key="*this">
+      <view class="toggle-row">
+        <text>{{item === 'wechat' ? '微信' : '手机'}}</text>
+        <switch color="#005CC1" checked="{{contacts[item].enabled}}" disabled="{{loading || loadFailed || busy[item]}}" data-type="{{item}}" bindchange="onToggle" />
+      </view>
+      <view wx:if="{{contacts[item].enabled}}" class="info-row">
+        <text class="field-label">{{item === 'wechat' ? '微信号' : '手机号'}}</text>
+        <text class="field-value">{{contacts[item].value}}</text>
+        <button class="modify" disabled="{{loading || loadFailed || busy[item]}}" data-type="{{item}}" bindtap="onEdit">修改号码</button>
+      </view>
+    </view>
+  </block>
+</view>
+<page-container show="{{!!editingType}}" position="bottom" round="{{true}}" close-on-slide-down="{{!saving}}" bindbeforeleave="onEditorClose">
+  <view class="editor" style="padding-bottom: {{keyboardHeight ? keyboardHeight + 'px' : 'max(34px, env(safe-area-inset-bottom))'}};">
+    <view class="editor-title"><text>{{editingType === 'phone' ? '设置手机号' : '设置微信号'}}</text><button class="close" disabled="{{saving}}" aria-label="关闭" bindtap="onEditorClose">×</button></view>
+    <view class="editor-label">{{editingType === 'phone' ? '手机号' : '微信号'}}</view>
+    <input class="editor-input" type="text" maxlength="-1" value="{{editValue}}" disabled="{{saving}}" adjust-position="{{false}}" bindinput="onEditInput" bindkeyboardheightchange="onKeyboardHeight" confirm-type="done" bindconfirm="onSave" />
+    <button class="confirm" loading="{{saving}}" disabled="{{saving || loading || loadFailed}}" bindtap="onSave">确定</button>
+  </view>
+</page-container>

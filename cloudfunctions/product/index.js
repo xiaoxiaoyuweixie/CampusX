@@ -65,7 +65,8 @@ function resolveCategory(data = {}) {
 
 function validateProductInput(data = {}) {
   const title = String(data.title || '').trim();
-  const price = Number(data.price);
+  const priceText = String(data.price == null ? '' : data.price).trim();
+  const price = Number(priceText);
   const location = String(data.location || '').trim();
   const description = String(data.description || data.desc || '').trim();
   const images = Array.isArray(data.images) ? data.images.filter(Boolean) : [];
@@ -73,6 +74,7 @@ function validateProductInput(data = {}) {
 
   if (!title) return '请输入商品标题';
   if (!categoryId && !categoryName) return '请选择商品分类';
+  if (!priceText) return '请输入商品价格';
   if (!Number.isFinite(price) || price < 0) return '请输入正确的价格';
   if (!location) return '请输入交易地点';
   if (!images.length) return '请至少上传一张商品图片';
@@ -88,6 +90,50 @@ function formatTime(value) {
   if (Number.isNaN(date.getTime())) return '';
   const pad = n => String(n).padStart(2, '0');
   return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+}
+
+function toTimestamp(value) {
+  if (!value) return 0;
+  if (value instanceof Date) return value.getTime();
+  if (typeof value === 'number') return value;
+  const timestamp = new Date(value).getTime();
+  return Number.isNaN(timestamp) ? 0 : timestamp;
+}
+
+function getRecommendationScore(product, currentTime = Date.now()) {
+  const createdAt = toTimestamp(product.createdAt) || currentTime;
+  const ageDays = Math.max((currentTime - createdAt) / 86400000, 0);
+  const favoriteCount = Math.max(Number(product.favoriteCount || product.favorites || 0), 0);
+  const viewCount = Math.max(Number(product.viewCount || product.views || 0), 0);
+  const images = Array.isArray(product.images) ? product.images.filter(Boolean) : [];
+  const description = String(product.description || product.desc || '').trim();
+
+  const freshnessScore = 55 * Math.exp(-ageDays / 14);
+  const favoriteScore = Math.min((Math.log1p(favoriteCount) / Math.log(11)) * 25, 25);
+  const viewScore = Math.min((Math.log1p(viewCount) / Math.log(101)) * 15, 15);
+  const qualityScore = (images.length ? 3 : 0) + (description.length >= 20 ? 2 : 0);
+
+  return freshnessScore + favoriteScore + viewScore + qualityScore;
+}
+
+function diversifyRecommendations(productList = []) {
+  const remaining = [...productList];
+  const result = [];
+
+  while (remaining.length) {
+    const lastTwo = result.slice(-2);
+    const repeatedCategory = lastTwo.length === 2
+      && lastTwo[0].categoryId
+      && lastTwo[0].categoryId === lastTwo[1].categoryId
+      ? lastTwo[0].categoryId
+      : '';
+    const nextIndex = repeatedCategory
+      ? remaining.findIndex(item => item.categoryId !== repeatedCategory)
+      : 0;
+    result.push(remaining.splice(nextIndex >= 0 ? nextIndex : 0, 1)[0]);
+  }
+
+  return result;
 }
 
 function normalizeProduct(product = {}, seller = null) {
@@ -204,6 +250,39 @@ exports.main = async (event = {}) => {
       return ok({ list, page, pageSize, total });
     }
 
+    if (action === 'getRecommendedProducts') {
+      const { page, pageSize, skip } = parsePagination(data);
+      const query = { status: PRODUCT_STATUS.ON_SALE };
+      const candidateLimit = Math.min(Math.max(pageSize * 5, 50), 100);
+      const total = (await products.where(query).count()).total;
+      const candidateRes = await products.where(query)
+        .orderBy('createdAt', 'desc')
+        .limit(candidateLimit)
+        .get();
+      const currentTime = Date.now();
+      const ranked = (candidateRes.data || [])
+        .map(item => ({
+          ...item,
+          recommendationScore: getRecommendationScore(item, currentTime),
+        }))
+        .sort((a, b) => {
+          const scoreDiff = b.recommendationScore - a.recommendationScore;
+          if (Math.abs(scoreDiff) > 0.001) return scoreDiff;
+          return toTimestamp(b.createdAt) - toTimestamp(a.createdAt);
+        });
+      const diversified = diversifyRecommendations(ranked);
+      const pageItems = diversified.slice(skip, skip + pageSize);
+      const list = await normalizeProductsWithLatestSellers(pageItems);
+
+      return ok({
+        list,
+        page,
+        pageSize,
+        total,
+        strategy: 'freshness_engagement_diversity',
+      });
+    }
+
     if (action === 'getProductDetail') {
       const productId = data.productId || data.id;
       if (!productId) return fail('缺少商品ID', 40001);
@@ -220,7 +299,12 @@ exports.main = async (event = {}) => {
       }
 
       const normalized = normalizeProduct({ ...product, viewCount: (product.viewCount || 0) + 1 }, seller);
-      return ok({ ...normalized, product: normalized, seller });
+      // Only public seller fields may leave the product API.
+      const publicSeller = seller ? {
+        openid: seller.openid, nickname: seller.nickname || '', avatar: seller.avatar || '',
+        school: seller.school || '', verified: !!seller.verified, status: seller.status,
+      } : null;
+      return ok({ ...normalized, product: normalized, seller: publicSeller });
     }
 
     if (action === 'getMyProducts') {

@@ -1,0 +1,4 @@
+{
+  "read": "(/^chat-staging\\//.test(resource.path) == false && /^chat-media\\//.test(resource.path) == false && /^report-staging\\//.test(resource.path) == false && /^report-evidence\\//.test(resource.path) == false) || (auth != null && auth.openid != null && resource.openid == auth.openid && (/^chat-staging\\//.test(resource.path) == true || /^report-staging\\//.test(resource.path) == true))",
+  "write": "auth != null && /^chat-media\\//.test(resource.path) == false && /^report-evidence\\//.test(resource.path) == false && ((/^chat-staging\\//.test(resource.path) == false && /^report-staging\\//.test(resource.path) == false) || (auth.openid != null && resource.openid == auth.openid))"
+}

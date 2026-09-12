@@ -1,0 +1,9 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="image-icon">
+<rect id="image-frame" x="5.625" y="5.625" width="28.75" height="28.75" rx="5.875" fill="white" stroke="#005CC1" stroke-width="2.25"/>
+<circle id="sun" cx="13.75" cy="13.75" r="2.25" fill="#005CC1"/>
+<g id="landscape">
+<path id="mountain-path" d="M10 27.5L16.9 20.3C17.4 19.8 18.2 19.8 18.7 20.4L23 25.1L25.2 22.4C25.8 21.7 26.9 21.7 27.4 22.5L30.5 27.5" stroke="#005CC1" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</svg>

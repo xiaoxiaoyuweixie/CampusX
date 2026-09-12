@@ -1,0 +1,30 @@
+<view class="report-page">
+  <view wx:if="{{loading}}" class="page-hint">举报信息加载中...</view>
+  <view wx:if="{{contextError && !succeeded}}" class="context-error">
+    <text>{{contextError}}</text><button class="retry-button" bindtap="onRetryLoad" disabled="{{busy || picking}}">重试</button>
+  </view>
+  <view wx:if="{{unknown && !succeeded}}" class="pending-hint">提交结果暂未确认，请重试。确认前保留本次填写内容。</view>
+  <view class="section-title">举报原因<text class="required">*</text></view>
+  <view class="reason-list">
+    <button wx:for="{{reasons}}" wx:key="code" class="reason-row {{reasonCode === item.code ? 'selected' : ''}}" data-code="{{item.code}}" bindtap="onReason" disabled="{{locked || picking}}" aria-role="radio" aria-checked="{{reasonCode === item.code}}">
+      <view class="radio-dot"><view wx:if="{{reasonCode === item.code}}" class="radio-inner" /></view>
+      <text class="reason-label">{{item.label}}</text>
+    </button>
+  </view>
+  <view class="section-title detail-title">详细信息<text class="required">*</text></view>
+  <view class="detail-box {{count > 100 ? 'over-limit' : ''}}">
+    <textarea class="detail-input" value="{{detail}}" placeholder="请详细描述举报原因" maxlength="-1" disabled="{{locked || picking}}" bindinput="onDetailInput" show-confirm-bar="{{false}}" />
+    <view class="counter">{{count}}/100</view>
+  </view>
+  <view class="section-title image-title">上传截图<text class="optional">（选填，最多9张）</text></view>
+  <view class="image-grid">
+    <view wx:for="{{images}}" wx:key="imageId" class="image-tile">
+      <image wx:if="{{!item.missing}}" class="evidence-image" src="{{item.localPath}}" mode="aspectFill" data-id="{{item.imageId}}" bindtap="onPreviewImage" binderror="onImageError" />
+      <view wx:else class="missing-image">截图已失效，请删除后重选</view>
+      <button class="remove-image" data-id="{{item.imageId}}" bindtap="onRemoveImage" disabled="{{locked || picking}}" aria-label="删除第{{index + 1}}张截图">×</button>
+    </view>
+    <button wx:if="{{images.length < 9}}" class="add-image" bindtap="onChooseImages" disabled="{{locked || picking}}" loading="{{picking}}" aria-label="添加举报截图"><text wx:if="{{!picking}}">+</text></button>
+  </view>
+  <view class="image-help">支持 JPG、PNG、静态 WebP，单张不超过10MB</view>
+  <button class="submit-button" bindtap="onSubmit" loading="{{busy}}" disabled="{{busy || picking || succeeded}}">{{succeeded ? '提交成功' : (busy ? '提交中...' : (unknown ? '核实并重试' : '提交'))}}</button>
+</view>
