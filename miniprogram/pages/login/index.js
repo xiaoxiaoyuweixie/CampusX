@@ -1,5 +1,6 @@
 const storage = require('../../utils/storage.js');
 const { api } = require('../../api/index.js');
+const unread = require('../../utils/unread.js');
 
 const LOGIN_RETRY_DELAYS = [0, 500];
 
@@ -107,6 +108,7 @@ Page({
       };
       storage.set('token', payload.data.token);
       storage.set('userInfo', userInfo);
+      unread.accountChanged();
       wx.showToast({ title: '登录成功', icon: 'success' });
       this.redirectTimer = setTimeout(() => {
         this.redirectTimer = null;

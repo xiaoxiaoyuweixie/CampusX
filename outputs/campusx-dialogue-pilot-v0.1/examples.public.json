@@ -1,0 +1,164 @@
+{
+  "metadata": {
+    "datasetId": "campusx-dialogue-pilot-v0.1",
+    "warning": "Do not send this whole file as a prompt. Reveal only current/past turns; interactive tasks expose initial utterance only."
+  },
+  "tasks": [
+    {
+      "id": "R01",
+      "track": "replay",
+      "initialUserUtterance": "找耳机，300元以内。",
+      "userTurns": [
+        {
+          "turn": 1,
+          "userUtterance": "找耳机，300元以内。"
+        },
+        {
+          "turn": 2,
+          "userUtterance": "只看南区。"
+        },
+        {
+          "turn": 3,
+          "userUtterance": "预算改成200元以内。"
+        },
+        {
+          "turn": 4,
+          "userUtterance": "地点不限了。"
+        }
+      ]
+    },
+    {
+      "id": "R02",
+      "track": "replay",
+      "initialUserUtterance": "找有线连接的键盘，120元以内。",
+      "userTurns": [
+        {
+          "turn": 1,
+          "userUtterance": "找有线连接的键盘，120元以内。"
+        },
+        {
+          "turn": 2,
+          "userUtterance": "不要青轴。"
+        },
+        {
+          "turn": 3,
+          "userUtterance": "撤销刚才不要青轴这条条件。"
+        },
+        {
+          "turn": 4,
+          "userUtterance": "再只看北区。"
+        }
+      ]
+    },
+    {
+      "id": "R03",
+      "track": "replay",
+      "initialUserUtterance": "找坐垫，只看0元赠送且在南区的。",
+      "userTurns": [
+        {
+          "turn": 1,
+          "userUtterance": "找坐垫，只看0元赠送且在南区的。"
+        },
+        {
+          "turn": 2,
+          "userUtterance": "改为只在北区取，仍然只要0元的坐垫。"
+        },
+        {
+          "turn": 3,
+          "userUtterance": "可以付费了，预算放宽到10元以内。"
+        },
+        {
+          "turn": 4,
+          "userUtterance": "坐垫不要了，改找高等数学教材；仍然北区、10元以内。"
+        }
+      ]
+    },
+    {
+      "id": "R04",
+      "track": "replay",
+      "initialUserUtterance": "找高等数学教材，25元以内。优先无笔记，但有笔记也能接受。",
+      "userTurns": [
+        {
+          "turn": 1,
+          "userUtterance": "找高等数学教材，25元以内。优先无笔记，但有笔记也能接受。"
+        },
+        {
+          "turn": 2,
+          "userUtterance": "版本必须是样例标签里的基础版。"
+        },
+        {
+          "turn": 3,
+          "userUtterance": "版本不限了。"
+        },
+        {
+          "turn": 4,
+          "userUtterance": "无笔记改为必须，预算仍然25元以内。"
+        }
+      ]
+    },
+    {
+      "id": "R05",
+      "track": "replay",
+      "initialUserUtterance": "找考研数学笔记，40元以内，内容要覆盖线性代数。",
+      "userTurns": [
+        {
+          "turn": 1,
+          "userUtterance": "找考研数学笔记，40元以内，内容要覆盖线性代数。"
+        },
+        {
+          "turn": 2,
+          "userUtterance": "还得覆盖高等数学。"
+        },
+        {
+          "turn": 3,
+          "userUtterance": "预算改成30元以内。"
+        },
+        {
+          "turn": 4,
+          "userUtterance": "撤销刚才增加的高等数学要求，线性代数仍要覆盖。"
+        },
+        {
+          "turn": 5,
+          "userUtterance": "预算再改为10元以内。"
+        }
+      ]
+    },
+    {
+      "id": "R06",
+      "track": "replay",
+      "initialUserUtterance": "找台灯，60元以内。",
+      "userTurns": [
+        {
+          "turn": 1,
+          "userUtterance": "找台灯，60元以内。"
+        },
+        {
+          "turn": 2,
+          "userUtterance": "只看宿舍用品分类。"
+        },
+        {
+          "turn": 3,
+          "userUtterance": "要能明确支持三档亮度的。"
+        },
+        {
+          "turn": 4,
+          "userUtterance": "预算收紧到30元以内。"
+        },
+        {
+          "turn": 5,
+          "userUtterance": "预算再收紧到18元以内。"
+        }
+      ]
+    },
+    {
+      "id": "I01",
+      "track": "interactive",
+      "initialUserUtterance": "找鼠标，40元以内。"
+    },
+    {
+      "id": "I02",
+      "track": "interactive",
+      "initialUserUtterance": "找30升、带盖的收纳箱。"
+    }
+  ]
+}

@@ -2,7 +2,10 @@
 
 <view class="page">
   <view class="header">
-    <view class="school">📍 {{school}}</view>
+    <view class="school">
+      <image class="school-icon" src="/images/home/location.svg" mode="aspectFit" />
+      <text>{{school}}</text>
+    </view>
     <view class="search-wrap">
       <search-bar value="{{keyword}}" bind:input="onSearchInput" bind:confirm="onSearchConfirm" />
     </view>
@@ -10,13 +13,17 @@
   </view>
 
   <view class="banner">
-    <view class="banner-title">校园资源 · 同学之间</view>
-    <view class="banner-sub">闲置 / 教材 / 资料 / 技能，一键发布</view>
+    <image class="banner-image" src="/images/home/banner.png" mode="aspectFill" />
+    <view class="banner-content">
+      <view class="banner-title">校园资源 · 同学之间</view>
+      <view class="banner-sub">闲置 / 教材 / 资料 / 技能</view>
+    </view>
   </view>
 
   <view class="cat-grid">
     <view class="cat-item" wx:for="{{categories}}" wx:key="id" data-id="{{item.id}}" bindtap="onCategoryTap">
-      <view class="cat-icon">{{item.icon}}</view>
+      <image wx:if="{{item.iconSrc}}" class="cat-icon" src="{{item.iconSrc}}" mode="aspectFit" />
+      <view wx:else class="cat-icon cat-icon-fallback">{{item.icon}}</view>
       <view class="cat-name">{{item.name}}</view>
     </view>
   </view>
@@ -24,7 +31,7 @@
   <view class="section-title">推荐资源</view>
   <view class="grid">
     <view class="grid-col" wx:for="{{products}}" wx:key="id">
-      <product-card product="{{item}}" bind:producttap="onProductTap" />
+      <product-card product="{{item}}" variant="home" bind:producttap="onProductTap" />
     </view>
   </view>
 </view>

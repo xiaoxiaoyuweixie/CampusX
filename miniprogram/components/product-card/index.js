@@ -1,6 +1,7 @@
 Component({
   properties: {
     product: { type: Object, value: {} },
+    variant: { type: String, value: 'default' },
   },
   methods: {
     onTap() {

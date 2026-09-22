@@ -27,13 +27,14 @@ function pageFixture(t, name = 'chat', stored = []) {
   const file = require.resolve(`../miniprogram/pages/${name}/index.js`);
   delete require.cache[file]; require(file);
   const page = { ...definition, data: structuredClone(definition.data),
-    setData(updates) {
+    setData(updates, callback) {
       for (const [key, value] of Object.entries(updates)) {
         const parts = key.replace(/\[(\d+)\]/g, '.$1').split('.');
         let target = this.data;
         for (const part of parts.slice(0, -1)) target = target[part] || (target[part] = {});
         target[parts[parts.length - 1]] = value;
       }
+      if (callback) callback();
     },
   };
   api.getChatState = async () => ok(state());
@@ -82,6 +83,100 @@ test('copy uses current value only as clipboard input and does not report failur
   await page.onCopyWechat(); assert.deepEqual(notices, ['复制失败，请重试']);
   api.getChatContact = async () => ({ result: { code: 40003, message: '对方暂未开放微信联系方式' } });
   await page.onCopyWechat(); assert.equal(page.data.maskedWechat, '');
+});
+
+test('opening WeChat with the keyboard up restores the viewport and preserves the draft through closing and typing', async t => {
+  const { page, storage } = pageFixture(t);
+  page.onInput({ detail: { value: '未发送的聊天草稿' } });
+  page.onKeyboardHeight({ detail: { height: 336 } });
+  const saved = structuredClone(storage.get('chat:v1:buyer:S1'));
+  const hidden = deferred(); let hides = 0;
+  global.wx.hideKeyboard = () => { hides += 1; return hidden.promise; };
+  api.getChatContact = async () => ok({ masked: 'ab****f' });
+  const opening = page.onWechat();
+  await tick();
+  assert.equal(page.data.contactOpen, false);
+  assert.equal(page.data.contactBusy, true);
+  hidden.resolve({});
+  await opening;
+  assert.equal(hides, 1);
+  assert.equal(page.data.keyboardHeight, 0);
+  assert.equal(page.data.contactOpen, true);
+  assert.equal(page.data.maskedWechat, 'ab****f');
+  assert.equal(page.data.input, saved.draft);
+  assert.deepEqual(storage.get('chat:v1:buyer:S1'), saved);
+  page.onKeyboardHeight({ detail: { height: 0 } });
+  page.onCloseContact();
+  assert.equal(page.data.contactOpen, false);
+  assert.equal(page.data.maskedWechat, '');
+  assert.equal(page.data.input, saved.draft);
+  await page.onWechat();
+  assert.equal(page.data.contactOpen, true);
+  assert.equal(hides, 1);
+  page.onCloseContact();
+  page.onKeyboardHeight({ detail: { height: 300 } });
+  page.onInput({ detail: { value: '关闭弹窗后继续输入' } });
+  assert.equal(page.data.keyboardHeight, 300);
+  assert.equal(storage.get('chat:v1:buyer:S1').draft, '关闭弹窗后继续输入');
+  assert.deepEqual(page.outbox, []);
+});
+
+test('closed-keyboard WeChat opening and native leave keep drafts, history and scroll intact', async t => {
+  const { page, storage } = pageFixture(t);
+  await page.loadMessages();
+  page.onInput({ detail: { value: '保留文字' } });
+  page.setData({ scrollToView: 'msg-current' });
+  const before = { draft: structuredClone(storage.get('chat:v1:buyer:S1')), messages: structuredClone(page.data.messages) };
+  let hides = 0;
+  global.wx.hideKeyboard = async () => { hides += 1; };
+  api.getChatContact = async () => ok({ masked: '12****6' });
+  for (let index = 0; index < 3; index += 1) {
+    await page.onWechat();
+    assert.equal(page.data.contactOpen, true);
+    // Cancel and page-container beforeleave share this handler.
+    page.onCloseContact();
+    assert.equal(page.data.contactOpen, false);
+    assert.equal(page.data.maskedWechat, '');
+    assert.equal(page.data.contactReason, '');
+    assert.equal(page.data.scrollToView, 'msg-current');
+  }
+  assert.equal(hides, 0);
+  assert.deepEqual(page.data.messages, before.messages);
+  assert.deepEqual(storage.get('chat:v1:buyer:S1'), before.draft);
+});
+
+test('an account switch during keyboard dismissal cannot open the old contact dialog or read its number', async t => {
+  const { page, storage } = pageFixture(t);
+  page.onInput({ detail: { value: '旧账号草稿' } });
+  page.onKeyboardHeight({ detail: { height: 336 } });
+  const hidden = deferred();
+  global.wx.hideKeyboard = () => hidden.promise;
+  let contacts = 0;
+  api.getChatContact = async () => { contacts += 1; return ok({ masked: 'ol****d' }); };
+  const opening = page.onWechat();
+  const before = structuredClone(page.data);
+  storage.set('userInfo', { logged: true, openid: 'seller' });
+  hidden.resolve({});
+  await opening;
+  assert.deepEqual(page.data, before);
+  assert.equal(page.data.contactOpen, false);
+  assert.equal(contacts, 0);
+  assert.equal(storage.has('chat:v1:seller:S1'), false);
+});
+
+test('closing the dialog while copy is in flight does not write the clipboard or restore its content', async t => {
+  const { page, copies } = pageFixture(t);
+  api.getChatContact = async () => ok({ masked: 'ab****f' });
+  await page.onWechat();
+  const copy = deferred();
+  api.getChatContact = () => copy.promise;
+  const copying = page.onCopyWechat();
+  page.onCloseContact();
+  copy.resolve(ok({ value: 'secret', masked: 'se****t' }));
+  await copying;
+  assert.deepEqual(copies, []);
+  assert.equal(page.data.contactOpen, false);
+  assert.equal(page.data.maskedWechat, '');
 });
 
 test('native cancellation does not create messages, report errors or clear drafts', async t => {

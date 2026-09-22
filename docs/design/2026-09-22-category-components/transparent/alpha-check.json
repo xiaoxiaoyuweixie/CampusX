@@ -1,0 +1,82 @@
+[
+  {
+    "file": "01-electronics.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "centralRegionMinimumAlpha": 252,
+    "transparentPercent": 32.56,
+    "opaquePercent": 0.1,
+    "pass": false
+  },
+  {
+    "file": "02-exam-materials.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "centralRegionMinimumAlpha": 253,
+    "transparentPercent": 33.05,
+    "opaquePercent": 0.14,
+    "pass": false
+  },
+  {
+    "file": "03-textbooks.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "centralRegionMinimumAlpha": 253,
+    "transparentPercent": 32.79,
+    "opaquePercent": 0.11,
+    "pass": false
+  },
+  {
+    "file": "04-skill-services.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "centralRegionMinimumAlpha": 253,
+    "transparentPercent": 33.1,
+    "opaquePercent": 0.13,
+    "pass": false
+  },
+  {
+    "file": "05-dorm-essentials.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "centralRegionMinimumAlpha": 252,
+    "transparentPercent": 32.41,
+    "opaquePercent": 0.19,
+    "pass": false
+  }
+]

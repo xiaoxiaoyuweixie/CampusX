@@ -1,3 +1,5 @@
+const unread = require('./utils/unread.js');
+
 // 全局 App
 App({
   onLaunch() {
@@ -22,6 +24,8 @@ App({
       wx.setStorageSync('token', '');
     }
   },
+  onShow() { unread.start(); },
+  onHide() { unread.pause(); },
   globalData: {
     school: '西南大学',
     envId: 'cloud1-d6g5stkeb92288dee',

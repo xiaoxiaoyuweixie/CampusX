@@ -1,0 +1,107 @@
+[
+  {
+    "file": "01-home.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "cornersAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "fullyTransparentPercent": 86.7,
+    "opaquePixels": 189222,
+    "whiteOpaquePixels": 0,
+    "visibleBounds": {
+      "minX": 191,
+      "minY": 243,
+      "maxX": 1063,
+      "maxY": 1016
+    }
+  },
+  {
+    "file": "02-category.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "cornersAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "fullyTransparentPercent": 84.92,
+    "opaquePixels": 203487,
+    "whiteOpaquePixels": 0,
+    "visibleBounds": {
+      "minX": 236,
+      "minY": 265,
+      "maxX": 1018,
+      "maxY": 1018
+    }
+  },
+  {
+    "file": "03-publish.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "cornersAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "fullyTransparentPercent": 89.3,
+    "opaquePixels": 150609,
+    "whiteOpaquePixels": 0,
+    "visibleBounds": {
+      "minX": 260,
+      "minY": 271,
+      "maxX": 992,
+      "maxY": 1003
+    }
+  },
+  {
+    "file": "04-message.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "cornersAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "fullyTransparentPercent": 89.23,
+    "opaquePixels": 149345,
+    "whiteOpaquePixels": 0,
+    "visibleBounds": {
+      "minX": 206,
+      "minY": 322,
+      "maxX": 1047,
+      "maxY": 986
+    }
+  },
+  {
+    "file": "05-profile.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "cornersAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "fullyTransparentPercent": 91.96,
+    "opaquePixels": 111587,
+    "whiteOpaquePixels": 0,
+    "visibleBounds": {
+      "minX": 293,
+      "minY": 225,
+      "maxX": 960,
+      "maxY": 1054
+    }
+  }
+]

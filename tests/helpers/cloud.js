@@ -17,10 +17,11 @@ function fixture() {
       participants: ['buyer', 'seller'], status: 'active', unreadCount: { buyer: 0, seller: 0 }, lastMessage: {} } },
     chat_messages: {},
   };
-  const state = { openid: 'buyer', beforeTransaction: null, failWrites: false, files: new Map() };
+  const state = { openid: 'buyer', beforeTransaction: null, failWrites: false, failReads: '', files: new Map() };
   const command = {
     inc: value => ({ op: 'inc', value }), set: value => ({ op: 'set', value }),
     all: value => ({ op: 'all', value }), in: value => ({ op: 'in', value }), or: value => ({ op: 'or', value }),
+    gt: value => ({ op: 'gt', value }),
   };
   const field = (obj, key) => key.split('.').reduce((value, part) => value && value[part], obj);
   function matches(item, query) {
@@ -29,6 +30,7 @@ function fixture() {
       const actual = field(item, key);
       if (expected && expected.op === 'all') return expected.value.every(value => (actual || []).includes(value));
       if (expected && expected.op === 'in') return expected.value.includes(actual);
+      if (expected && expected.op === 'gt') return actual > expected.value;
       return actual === expected;
     });
   }
@@ -62,7 +64,10 @@ function fixture() {
         const api = {
           where(value) { query = value; return api; }, orderBy(key, dir) { orders.push([key, dir]); return api; },
           skip(value) { skip = value; return api; }, limit(value) { limit = value; return api; },
-          async get() { return { data: clone(selected()) }; },
+          async get() {
+            if (state.failReads === name) throw new Error('simulated database read failure');
+            return { data: clone(selected()) };
+          },
           async count() { return { total: Object.values(rows()).filter(item => matches(item, query)).length }; },
           async update({ data }) { selected().forEach(item => update(item, data)); return {}; },
           async add({ data }) { const id = `auto-${Object.keys(rows()).length}`; rows()[id] = { ...clone(data), _id: id }; return { _id: id }; },

@@ -33,6 +33,7 @@ const api = {
   openChatSession: (productId) => callFunction('chatService', { action: 'openSession', data: { productId } }),
   createSession: (data) => callFunction('chatService', { action: 'openSession', data }),
   getSessionList: (data) => callFunction('chatService', { action: 'getSessionList', data }),
+  getUnreadState: () => callFunction('chatService', { action: 'getUnreadState', data: {} }),
   getMessages: (data) => {
     const payload = typeof data === 'string' ? { sessionId: data } : data;
     return callFunction('chatService', { action: 'getMessages', data: payload });
@@ -52,7 +53,6 @@ const api = {
   aiAssistantChat: (data) => callFunction('aiAssistant', { action: 'chat', data }),
 
   systemNoticeList: () => callFunction('message', { action: 'systemNoticeList' }),
-  unreadCount: () => callFunction('message', { action: 'unreadCount' }),
 
   getUploadPath: (ext) => callFunction('upload', { action: 'getUploadPath', data: { ext } }),
 

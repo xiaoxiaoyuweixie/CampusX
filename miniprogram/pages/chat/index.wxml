@@ -41,7 +41,7 @@
     </view>
   </view>
 </view>
-<page-container show="{{contactOpen}}" position="center" bindbeforeleave="onCloseContact" custom-style="background: transparent;">
+<page-container show="{{contactOpen}}" position="center" bindbeforeleave="onCloseContact" custom-style="top: 0; left: 0; width: 100%; height: 100%; background: transparent; display: flex; align-items: center; justify-content: center; pointer-events: none;">
   <view class="contact-dialog">
     <view class="dialog-title">交换微信</view>
     <view class="warning"><image src="../../images/chat-shield.svg" /><text>请优先选择当面验货交易，不要提前转账、支付定金或押金；私下交易转账付款造成的纠纷、损失及不法侵害本平台概不负责。</text></view>

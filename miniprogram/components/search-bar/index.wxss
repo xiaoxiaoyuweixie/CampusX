@@ -1,11 +1,11 @@
 .search-bar {
   display: flex;
   align-items: center;
-  background: #fff;
-  border-radius: 999rpx;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 34rpx;
   padding: 0 24rpx;
-  height: 72rpx;
-  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.04);
+  height: 66rpx;
 }
-.icon { font-size: 28rpx; margin-right: 12rpx; }
-.input { flex: 1; font-size: 28rpx; color: #111827; }
+.icon { width: 32rpx; height: 32rpx; flex-shrink: 0; margin-right: 12rpx; }
+.input { flex: 1; min-width: 0; font-size: 24rpx; color: #111827; }
+.placeholder { color: #6B7280; }

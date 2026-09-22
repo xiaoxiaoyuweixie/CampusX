@@ -37,7 +37,8 @@
 .image-icon { width: 40rpx; height: 40rpx; }
 .readonly { color: #808080; font-size: 24rpx; margin: 0 0 16rpx; }
 button::after { border: 0; }
-.contact-dialog { box-sizing: border-box; width: 640rpx; max-width: calc(100vw - 48rpx); margin: auto; padding: 48rpx; background: #fff; border-radius: 24rpx; }
+/* center fills the native popup; flex centers its child, while blank space passes taps to the native overlay. */
+.contact-dialog { box-sizing: border-box; width: 640rpx; max-width: calc(100% - 48rpx); max-height: calc(100% - 48rpx); margin: 0; flex-shrink: 0; overflow-y: auto; pointer-events: auto; padding: 48rpx; background: #fff; border-radius: 24rpx; }
 .dialog-title { text-align: center; font-size: 36rpx; font-weight: 600; color: #1f2937; }
 .warning { display: flex; gap: 16rpx; margin: 28rpx 0 20rpx; padding: 20rpx; background: #fffdf0; border: 1rpx solid #fef3c7; border-radius: 12rpx; color: #b45309; font-size: 22rpx; line-height: 1.4; }
 .warning image { width: 28rpx; height: 28rpx; flex-shrink: 0; }

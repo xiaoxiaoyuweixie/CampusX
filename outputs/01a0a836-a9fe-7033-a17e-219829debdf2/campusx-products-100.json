@@ -1,0 +1,5328 @@
+{
+  "metadata": {
+    "datasetId": "campusx-synthetic-products-100-v1",
+    "schemaVersion": 1,
+    "generatedOn": "2026-09-17",
+    "language": "zh-CN",
+    "currency": "CNY",
+    "sourceType": "synthetic",
+    "intendedUse": "校园商品多轮需求澄清与约束保持检索的离线开发示例",
+    "statement": "全部商品、价格、规格、成色、发布时间和点位均为合成示例，不代表真实商品、市场行情或真实校园地图。",
+    "imagePolicy": "images 为空数组，cover 为空字符串。由用户自行补充图片。",
+    "identityPolicy": "不含真实卖家、openid、联系方式或账户信息。",
+    "unknownPolicy": "annotations.attributes 中 null 表示描述未提供信息，不能视作已满足约束。",
+    "annotationPolicy": "属性为合成目录的参考标注。与商品描述逐字校验不等于独立人工标注或真实世界验证。评测系统应明确是否可访问这些标注，并对各方法保持一致。",
+    "evidenceOffsets": "start/end 是 description 的 JavaScript UTF-16 索引，end 不含末尾字符。",
+    "importPolicy": "这是离线数据包，不是生产数据库导入脚本。当前发布接口要求至少一张图片和有效登录身份。",
+    "stats": {
+      "total": 100,
+      "categories": {
+        "数码电子": 40,
+        "宿舍用品": 30,
+        "教材书籍": 20,
+        "考研资料": 10
+      },
+      "statuses": {
+        "on_sale": 90,
+        "sold": 5,
+        "off_shelf": 5
+      },
+      "priceMin": 0,
+      "priceMax": 1800,
+      "zeroPriceCount": 2,
+      "productsWithUnknownAttributes": 15
+    }
+  },
+  "products": [
+    {
+      "productId": "SYN-P001",
+      "title": "黑色头戴式蓝牙降噪耳机",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 199,
+      "campus": "示例校区",
+      "location": "南区·图书馆门口",
+      "description": "九成新的黑色头戴式耳机，支持蓝牙连接和主动降噪。耳罩边缘有轻微压痕，头梁没有开裂，两侧发声正常。附收纳袋和充电线，不含包装盒，适合图书馆自习时使用。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-01T01:00:00.000Z",
+      "updatedAt": "2026-09-01T01:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P002",
+      "title": "黑色头戴式蓝牙降噪耳机",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 200,
+      "campus": "示例校区",
+      "location": "北区·图书馆门口",
+      "description": "这副黑色头戴式耳机为九成新，蓝牙连接正常，带主动降噪。耳罩表面有少量使用褶皱，没有破皮或异响；随耳机提供收纳袋和充电线，包装盒已丢失，可以现场试听。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-01T04:00:00.000Z",
+      "updatedAt": "2026-09-01T04:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P003",
+      "title": "黑色头戴式蓝牙降噪耳机",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 201,
+      "campus": "示例校区",
+      "location": "南区·图书馆门口",
+      "description": "九成新黑色头戴式耳机，采用蓝牙连接，支持主动降噪。外壳有一条不明显的细划痕，耳罩完整，按键和充电接口正常；配收纳袋、充电线，没有纸盒，闲置后一直收在柜中。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-01T07:00:00.000Z",
+      "updatedAt": "2026-09-01T07:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P004",
+      "title": "白色入耳式无线降噪耳机",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 299,
+      "campus": "示例校区",
+      "location": "南区·一食堂门口",
+      "description": "白色入耳式耳机九成新，蓝牙配对和主动降噪均可正常使用。充电盒底部有细小擦痕，耳机本体没有磕碰；附充电线及两副未使用的替换耳塞，已清洁接触部位，无原包装。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-01T10:00:00.000Z",
+      "updatedAt": "2026-09-01T10:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P005",
+      "title": "白色入耳式无线降噪耳机",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 300,
+      "campus": "示例校区",
+      "location": "北区·二食堂门口",
+      "description": "九成新的白色入耳式蓝牙耳机，带主动降噪功能。充电盒开合顺畅，表面有轻微摩擦痕，左右耳发声正常；包含充电线、两副未使用的替换耳塞，盒内已清洁，不附包装纸盒。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-01T13:00:00.000Z",
+      "updatedAt": "2026-09-01T13:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P006",
+      "title": "白色入耳式无线降噪耳机",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 301,
+      "campus": "示例校区",
+      "location": "南区·一食堂门口",
+      "description": "这套白色入耳式蓝牙耳机为九成新，支持主动降噪。充电盒背面有小划痕，耳机触控和连接正常，适合日常听课；配充电线与两副未使用的替换耳塞，没有原包装，可当面检查。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-01T16:00:00.000Z",
+      "updatedAt": "2026-09-01T16:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P007",
+      "title": "白色半入耳式蓝牙耳机",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 129,
+      "campus": "示例校区",
+      "location": "南区·宿舍公共区",
+      "description": "白色半入耳式耳机八成新，使用蓝牙连接，不支持主动降噪。充电盒表面有较明显的细划痕，但盒盖和充电功能正常；只附一根充电线，没有包装，耳机外部已经清洁。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-01T19:00:00.000Z",
+      "updatedAt": "2026-09-01T19:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P008",
+      "title": "黑色有线头戴式耳机",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 65,
+      "campus": "示例校区",
+      "location": "北区·宿舍公共区",
+      "description": "黑色头戴式有线耳机七成新，采用3.5毫米接口。左右声道正常，耳罩有掉皮，建议自行更换后使用，线材没有裸露或断裂；附可拆麦克风，不带转接头和包装，可现场试听。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-01T22:00:00.000Z",
+      "updatedAt": "2026-09-01T22:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P009",
+      "title": "灰色开放式运动蓝牙耳机",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 180,
+      "campus": "示例校区",
+      "location": "北区·图书馆门口",
+      "description": "灰色开放式蓝牙耳机，全新未拆封，适合不喜欢耳塞进入耳道的人。外包装角落有轻微挤压，封条完整；盒面标注内含耳机、充电盒和充电线，因为没有拆封，未进行试听测试。",
+      "status": "sold",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-02T01:00:00.000Z",
+      "updatedAt": "2026-09-02T01:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P010",
+      "title": "蓝色头戴式无线耳机",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 88,
+      "campus": "示例校区",
+      "location": "南区·图书馆门口",
+      "description": "蓝色头戴式耳机，蓝牙可以正常配对，具体新旧程度没有评级。耳罩轻微起毛，头梁完好，附充电线和布袋；是否带降噪功能没有确认，单次续航未测量，建议现场检查后再决定。",
+      "status": "off_shelf",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-02T04:00:00.000Z",
+      "updatedAt": "2026-09-02T04:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P011",
+      "title": "黑色静音无线鼠标",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 35,
+      "campus": "示例校区",
+      "location": "南区·图书馆门口",
+      "description": "九成新黑色鼠标，采用无线接收器连接，静音按键适合自习使用，属于电池供电。外壳没有明显划痕，滚轮顺畅；接收器收在底部仓内，出手时不带电池，也没有包装盒。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-02T07:00:00.000Z",
+      "updatedAt": "2026-09-02T07:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P012",
+      "title": "黑色静音无线鼠标",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 35,
+      "campus": "示例校区",
+      "location": "北区·图书馆门口",
+      "description": "黑色鼠标九成新，配有无线接收器，使用静音按键和电池供电。左侧外壳有轻微磨亮，点击、移动和滚轮正常；包含接收器，不含电池与包装，平时放在电脑包内备用。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-02T10:00:00.000Z",
+      "updatedAt": "2026-09-02T10:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P013",
+      "title": "灰色双模便携鼠标",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 59,
+      "campus": "示例校区",
+      "location": "南区·宿舍公共区",
+      "description": "八成新的灰色便携鼠标，支持蓝牙与无线接收器双模，采用充电式供电。掌心接触处有轻微磨损，模式切换正常，适合随电脑携带；附接收器和充电线，包装盒已经丢弃。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-02T13:00:00.000Z",
+      "updatedAt": "2026-09-02T13:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P014",
+      "title": "白色有线鼠标",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 20,
+      "campus": "示例校区",
+      "location": "北区·二食堂门口",
+      "description": "白色有线鼠标七成新，USB-A接口即插即用。外壳有泛黄和可见划痕，左右按键与滚轮目前正常，线材表层完整；只有鼠标本体，没有包装，可用于宿舍备用电脑或临时办公。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-02T16:00:00.000Z",
+      "updatedAt": "2026-09-02T16:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P015",
+      "title": "黑色无线办公鼠标",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 28,
+      "campus": "示例校区",
+      "location": "南区·一食堂门口",
+      "description": "黑色办公鼠标八成新，使用无线接收器和电池供电。按键与滚轮可以使用，底部脚贴有磨损；附原有接收器，不带电池。没有确认是否属于静音款，适合现场试按后判断手感。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-02T19:00:00.000Z",
+      "updatedAt": "2026-09-02T19:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P016",
+      "title": "白色有线机械键盘",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 120,
+      "campus": "示例校区",
+      "location": "南区·图书馆门口",
+      "description": "白色机械键盘九成新，采用87键布局和红轴，有线连接。键帽表面干净，常用键没有明显打油，全部按键测试正常；附连接线和拔键器，没有备用轴体及包装盒，桌面占用较小。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-02T22:00:00.000Z",
+      "updatedAt": "2026-09-02T22:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P017",
+      "title": "黑色有线机械键盘",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 120,
+      "campus": "示例校区",
+      "location": "北区·图书馆门口",
+      "description": "九成新黑色机械键盘，87键布局，青轴，有线连接。敲击声音比较明显，适合能够接受声音的使用环境；外框有一道浅划痕，各键正常，配连接线与拔键器，不带原包装。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-03T01:00:00.000Z",
+      "updatedAt": "2026-09-03T01:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P018",
+      "title": "灰色无线薄膜键盘",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 49,
+      "campus": "示例校区",
+      "location": "北区·宿舍公共区",
+      "description": "灰色薄膜键盘八成新，104键布局包含数字区，通过无线接收器连接。空格键表面稍有磨亮，支脚完好，按键无卡住情况；附接收器，不提供电池，没有纸盒，适合日常录入资料。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-03T04:00:00.000Z",
+      "updatedAt": "2026-09-03T04:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P019",
+      "title": "白色便携蓝牙键盘",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 69,
+      "campus": "示例校区",
+      "location": "南区·宿舍公共区",
+      "description": "白色便携键盘全新未拆封，包装标注78键布局和蓝牙连接，适合搭配平板录入文字。纸盒表面有轻微运输压痕，封口完整；盒内清单含键盘和充电线，未拆封测试按键及连接。",
+      "status": "sold",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-03T07:00:00.000Z",
+      "updatedAt": "2026-09-03T07:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P020",
+      "title": "黑色紧凑机械键盘",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 75,
+      "campus": "示例校区",
+      "location": "北区·二食堂门口",
+      "description": "黑色机械键盘七成新，68键紧凑布局，支持有线连接。个别键帽字符有磨损，但输入测试未见连击，附连接线；轴体名称没有记录，不附拔键器和包装，建议现场感受敲击手感。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-03T10:00:00.000Z",
+      "updatedAt": "2026-09-03T10:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P021",
+      "title": "银色轻薄学习笔记本电脑",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 1499,
+      "campus": "示例校区",
+      "location": "南区·图书馆门口",
+      "description": "银色学习笔记本电脑八成新，配16GB内存、512GB固态硬盘和14英寸屏幕。顶盖有细划痕，键盘输入和无线网络正常；附电源适配器，系统已清空个人资料，电池实际续航没有测量。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-03T13:00:00.000Z",
+      "updatedAt": "2026-09-03T13:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P022",
+      "title": "银色轻薄学习笔记本电脑",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 1499,
+      "campus": "示例校区",
+      "location": "北区·图书馆门口",
+      "description": "八成新银色笔记本电脑，8GB内存搭配512GB固态硬盘，屏幕为14英寸。底壳有使用擦痕，转轴松紧正常，适合文档和课件处理；提供电源适配器，无电脑包，电池续航未专门测试。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-03T16:00:00.000Z",
+      "updatedAt": "2026-09-03T16:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P023",
+      "title": "黑色大屏学习笔记本电脑",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 1800,
+      "campus": "示例校区",
+      "location": "南区·一食堂门口",
+      "description": "黑色笔记本电脑九成新，具备16GB内存、1TB固态硬盘及15.6英寸屏幕。掌托有轻微磨亮，屏幕无明显裂痕，键盘与接口可用；附电源适配器和电脑包，已清除个人文件，未保留原包装。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-03T19:00:00.000Z",
+      "updatedAt": "2026-09-03T19:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P024",
+      "title": "灰色入门办公笔记本电脑",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 899,
+      "campus": "示例校区",
+      "location": "北区·宿舍公共区",
+      "description": "七成新灰色笔记本电脑，8GB内存、256GB固态硬盘，屏幕13.3英寸。边角有磕痕，电池使用时间较短，建议靠近电源使用；键盘与触控板正常，配电源适配器，无包装和便携包。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-03T22:00:00.000Z",
+      "updatedAt": "2026-09-03T22:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P025",
+      "title": "银色便携笔记本电脑",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 1100,
+      "campus": "示例校区",
+      "location": "南区·宿舍公共区",
+      "description": "银色便携笔记本电脑八成新，16GB内存与256GB固态硬盘，14英寸屏幕。机身底部有几条划痕，开机和文字录入正常；附电源适配器，电池健康度未读取，实际续航不作判断，可现场检查。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-04T01:00:00.000Z",
+      "updatedAt": "2026-09-04T01:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P026",
+      "title": "灰色学习平板电脑",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 699,
+      "campus": "示例校区",
+      "location": "南区·图书馆门口",
+      "description": "灰色学习平板电脑九成新，存储容量128GB，屏幕10.1英寸，网络类型为仅Wi-Fi。背壳有一道浅擦痕，触摸与扬声器正常；带保护套和充电线，不含触控笔及充电头，已清空个人数据。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-04T04:00:00.000Z",
+      "updatedAt": "2026-09-04T04:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P027",
+      "title": "灰色学习平板电脑",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 599,
+      "campus": "示例校区",
+      "location": "北区·图书馆门口",
+      "description": "九成新的灰色学习平板电脑，64GB存储、10.1英寸屏幕，属于仅Wi-Fi版本。边框有轻微使用痕，屏幕触摸正常；附保护套和充电线，不附触控笔或充电头，适合阅读课件与观看网课。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-04T07:00:00.000Z",
+      "updatedAt": "2026-09-04T07:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P028",
+      "title": "银色大屏笔记平板电脑",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 1200,
+      "campus": "示例校区",
+      "location": "南区·一食堂门口",
+      "description": "银色平板电脑八成新，256GB存储，11英寸屏幕，仅Wi-Fi连接，附带触控笔。保护膜上有划痕，机身侧边轻微磕碰，书写和触摸正常；配充电线及保护套，触控笔笔尖略有磨损，无包装。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-04T10:00:00.000Z",
+      "updatedAt": "2026-09-04T10:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P029",
+      "title": "黑色便携阅读平板电脑",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 350,
+      "campus": "示例校区",
+      "location": "北区·二食堂门口",
+      "description": "黑色阅读平板电脑七成新，64GB存储配8英寸屏幕，仅Wi-Fi版本。背面有可见划痕，保护套边缘磨损，触摸和联网正常；只含平板、旧保护套和充电线，不配触控笔及充电头。",
+      "status": "off_shelf",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-04T13:00:00.000Z",
+      "updatedAt": "2026-09-04T13:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P030",
+      "title": "蓝色学习平板电脑",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 480,
+      "campus": "示例校区",
+      "location": "南区·宿舍公共区",
+      "description": "蓝色学习平板电脑八成新，存储128GB，屏幕10.1英寸。边角有小磕痕，手指触摸和视频播放正常；附保护套、充电线，没有触控笔，是否兼容主动式触控笔未经确认，不承诺书写效果。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-04T16:00:00.000Z",
+      "updatedAt": "2026-09-04T16:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P031",
+      "title": "黑色办公显示器",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 299,
+      "campus": "示例校区",
+      "location": "南区·图书馆门口",
+      "description": "八成新黑色办公显示器，23.8英寸屏幕，分辨率1920×1080，刷新率60Hz，支持HDMI。底座有擦痕，日常显示正常；附电源线、底座和信号线，没有包装箱，搬运时建议自备软垫。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-04T19:00:00.000Z",
+      "updatedAt": "2026-09-04T19:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P032",
+      "title": "黑色办公显示器",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 300,
+      "campus": "示例校区",
+      "location": "北区·图书馆门口",
+      "description": "黑色办公显示器八成新，23.8英寸，1920×1080分辨率和60Hz刷新率，提供HDMI接口。外框有浅划痕，屏幕没有明显裂纹；包含底座、电源线与信号线，无纸箱，可以通电检查显示。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-04T22:00:00.000Z",
+      "updatedAt": "2026-09-04T22:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P033",
+      "title": "黑色高分辨率显示器",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 680,
+      "campus": "示例校区",
+      "location": "南区·一食堂门口",
+      "description": "九成新黑色显示器，27英寸屏幕，分辨率2560×1440、刷新率75Hz，带HDMI接口。支架有轻微擦痕，屏幕显示正常，适合并排阅读资料；附底座、电源线和信号线，没有原包装箱。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-05T01:00:00.000Z",
+      "updatedAt": "2026-09-05T01:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P034",
+      "title": "灰色小尺寸显示器",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 180,
+      "campus": "示例校区",
+      "location": "北区·宿舍公共区",
+      "description": "灰色显示器七成新，21.5英寸屏幕，分辨率1920×1080，带HDMI接口。外框有明显划痕，底座稳固，通电能显示图像；刷新率没有核对，附电源线与底座，不附信号线和包装箱。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-05T04:00:00.000Z",
+      "updatedAt": "2026-09-05T04:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P035",
+      "title": "银色多接口拓展坞",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 89,
+      "campus": "示例校区",
+      "location": "南区·图书馆门口",
+      "description": "银色拓展坞九成新，上行接口为USB-C，带HDMI视频接口和2个USB-A数据接口。外壳有一处浅划痕，各接口已用现有设备测试；连接短线固定在本体上，不附电源适配器，无包装盒。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-05T07:00:00.000Z",
+      "updatedAt": "2026-09-05T07:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P036",
+      "title": "灰色小型桌面音箱",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 55,
+      "campus": "示例校区",
+      "location": "北区·二食堂门口",
+      "description": "灰色桌面音箱八成新，采用有线连接，音频接口为3.5毫米，通过USB供电。布面边缘稍有起毛，两侧可正常发声，音量旋钮顺畅；音频线和供电线固定在本体，不带电源适配器或包装。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-05T10:00:00.000Z",
+      "updatedAt": "2026-09-05T10:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P037",
+      "title": "黑色外接网络摄像头",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 78,
+      "campus": "示例校区",
+      "location": "北区·图书馆门口",
+      "description": "黑色外接摄像头九成新，视频规格1080P，使用USB-A接口，带内置麦克风。夹具和转动支架正常，镜片无明显划痕，适合线上课程；线材与机身固定连接，不含三脚架，包装已经丢失。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-05T13:00:00.000Z",
+      "updatedAt": "2026-09-05T13:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P038",
+      "title": "银色折叠笔记本电脑支架",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 39,
+      "campus": "示例校区",
+      "location": "南区·宿舍公共区",
+      "description": "银色电脑支架九成新，铝合金材质，折叠式结构，支持六档调节。防滑垫完整，底部有轻微桌面摩擦痕，展开后支撑稳定；附布质收纳袋，没有包装盒，不含散热风扇或其他电子部件。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-05T16:00:00.000Z",
+      "updatedAt": "2026-09-05T16:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P039",
+      "title": "白色可调光桌面台灯",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 60,
+      "campus": "示例校区",
+      "location": "南区·一食堂门口",
+      "description": "白色桌面台灯八成新，插电式供电，支持三色温和无级调光。灯臂关节稳固，底座表面有细划痕，照明和触控按键正常；附配套电源适配器，没有包装，不带内置电池，需接电使用。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-05T19:00:00.000Z",
+      "updatedAt": "2026-09-05T19:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P040",
+      "title": "黑色便携蓝牙音箱",
+      "categoryId": "digital",
+      "categoryName": "数码电子",
+      "price": 99,
+      "campus": "示例校区",
+      "location": "北区·宿舍公共区",
+      "description": "黑色便携音箱九成新，蓝牙连接，充电式供电。网罩有轻微落灰，外壳无明显磕碰，按键与播放功能正常；附充电线和挂绳，不附充电头，防水等级未核实，未做涉水测试，无包装盒。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-05T22:00:00.000Z",
+      "updatedAt": "2026-09-05T22:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P041",
+      "title": "白色插电三档台灯",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 29,
+      "campus": "示例校区",
+      "location": "南区·图书馆门口",
+      "description": "白色台灯，八成新，采用插电供电，支持三档亮度，附电源线。灯臂能够转动，底座有一处浅划痕，开关及照明正常，适合放在宿舍书桌上看书，收纳时需保留底座空间。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-06T01:00:00.000Z",
+      "updatedAt": "2026-09-06T01:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P042",
+      "title": "白色插电三档台灯",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 30,
+      "campus": "示例校区",
+      "location": "北区·图书馆门口",
+      "description": "白色台灯，九成新，使用插电方式，支持三档亮度，附电源线。灯罩和底座没有明显磕碰，灯臂可调整角度，按键正常，适合书桌阅读；底座下方有轻微使用痕迹，没有原包装。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-06T04:00:00.000Z",
+      "updatedAt": "2026-09-06T04:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P043",
+      "title": "白色插电三档台灯",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 31,
+      "campus": "示例校区",
+      "location": "南区·一食堂门口",
+      "description": "白色台灯，九成新，使用插电方式，支持三档亮度，附电源线和收纳盒。灯臂活动正常，底座有很浅的擦痕，灯罩完整，适合日常阅读；搬运时可以装入收纳盒，盒角略有压痕。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-06T07:00:00.000Z",
+      "updatedAt": "2026-09-06T07:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P044",
+      "title": "黑色夹式单档台灯",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 25,
+      "campus": "示例校区",
+      "location": "北区·二食堂门口",
+      "description": "黑色台灯，八成新，采用USB供电，夹式结构可固定在桌边，只有单档亮度。灯臂调节和开关正常，夹口垫片有轻微磨损，附连接线但不含电源适配器，使用前需要确认桌边能夹稳。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-06T10:00:00.000Z",
+      "updatedAt": "2026-09-06T10:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P045",
+      "title": "米色充电折叠台灯",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 49,
+      "campus": "示例校区",
+      "location": "南区·宿舍公共区",
+      "description": "米色台灯，八成新，充电式设计，灯臂可折叠，支持三档亮度。外壳有细小划痕，照明与充电功能正常，随附充电线，不带电源适配器；没有做过连续亮灯计时，因此不提供续航时长。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-06T13:00:00.000Z",
+      "updatedAt": "2026-09-06T13:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P046",
+      "title": "米色充电折叠台灯",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 50,
+      "campus": "示例校区",
+      "location": "北区·宿舍公共区",
+      "description": "米色台灯，九成新，采用充电式设计，灯臂可折叠，支持三档亮度。底部有轻微摩擦痕，充电口和按键正常，附充电线及原包装；未记录连续使用时长，适合需要经常挪动灯具的书桌。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-06T16:00:00.000Z",
+      "updatedAt": "2026-09-06T16:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P047",
+      "title": "米色充电折叠台灯",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 51,
+      "campus": "示例校区",
+      "location": "南区·图书馆门口",
+      "description": "米色台灯，全新未拆封，外盒标注为充电式、可折叠，并支持三档亮度。包装封口完整，盒角略有压痕；供电与结构信息来自包装说明，尚未开盒测试，内部配件按盒上清单标注包含充电线。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-06T19:00:00.000Z",
+      "updatedAt": "2026-09-06T19:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P048",
+      "title": "蓝色桌面台灯",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 18,
+      "campus": "示例校区",
+      "location": "北区·图书馆门口",
+      "description": "蓝色桌面台灯，使用插电方式，附电源线。灯臂可以调整位置，底座边缘有划痕，按开关后可以正常亮灯，没有原包装。未提供成色等级和调光档位信息，仅含台灯本体与电源线，具体功能可现场检查。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-06T22:00:00.000Z",
+      "updatedAt": "2026-09-06T22:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P049",
+      "title": "透明带盖收纳箱20升",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 15,
+      "campus": "示例校区",
+      "location": "南区·一食堂门口",
+      "description": "透明收纳箱，八成新，容量20升，带盖且不可折叠。箱体可以直接看到内部物品，底部有少量摩擦痕，盖子两侧扣合正常，无开裂，适合收纳书本或零碎用品；仅出售空箱，不含演示物品。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-07T01:00:00.000Z",
+      "updatedAt": "2026-09-07T01:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P050",
+      "title": "透明带盖收纳箱30升",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 20,
+      "campus": "示例校区",
+      "location": "北区·二食堂门口",
+      "description": "透明收纳箱，九成新，容量30升，带盖且不可折叠。箱体侧面有轻微擦痕，两侧卡扣完整，空箱无明显异味，适合整理换季衣物；需要预留整箱摆放空间，交付时不包含箱内收纳物。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-07T04:00:00.000Z",
+      "updatedAt": "2026-09-07T04:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P051",
+      "title": "灰色折叠收纳箱30升",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 29,
+      "campus": "示例校区",
+      "location": "南区·宿舍公共区",
+      "description": "灰色收纳箱，八成新，容量30升，带盖并且可折叠。折叠连接处开合正常，箱盖有一道浅擦痕，撑开后能够稳定放置，适合搬宿舍时收纳衣物；不使用时可以折起，箱内不附分隔板。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-07T07:00:00.000Z",
+      "updatedAt": "2026-09-07T07:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P052",
+      "title": "灰色折叠收纳箱45升",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 35,
+      "campus": "示例校区",
+      "location": "北区·宿舍公共区",
+      "description": "灰色收纳箱，九成新，容量45升，带盖且可折叠。四角连接完好，折叠与展开正常，箱底有轻微拖动痕，适合存放被套和换季衣物；没有内部隔层，交付空箱，搬运前可以先折起。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-07T10:00:00.000Z",
+      "updatedAt": "2026-09-07T10:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P053",
+      "title": "米色敞口收纳篮",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 8,
+      "campus": "示例校区",
+      "location": "南区·图书馆门口",
+      "description": "米色收纳篮，七成新，塑料材质，采用敞口结构，没有箱盖。两侧提手完整，边缘有磨损，底部有明显使用痕迹但未开裂，适合整理洗护用品或清洁工具；未测量容量，物品需自行摆放固定。",
+      "status": "sold",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-07T13:00:00.000Z",
+      "updatedAt": "2026-09-07T13:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P054",
+      "title": "原木色两层桌面书架",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 28,
+      "campus": "示例校区",
+      "location": "北区·图书馆门口",
+      "description": "原木色桌面书架，八成新，两层结构，宽度40厘米，为固定宽度款。侧板边缘有少量磕痕，连接件完整，放置平稳，适合整理教材和笔记本；保持组装状态交付，不附书籍与桌面装饰。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-07T16:00:00.000Z",
+      "updatedAt": "2026-09-07T16:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P055",
+      "title": "原木色两层桌面书架",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 38,
+      "campus": "示例校区",
+      "location": "南区·一食堂门口",
+      "description": "原木色桌面书架，九成新，两层结构，宽度60厘米，采用固定宽度设计。顶板有轻微擦痕，背板和连接件完整，适合较宽的书桌，交付时保持组装状态；摆放前需要确认桌面留有足够空间。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-07T19:00:00.000Z",
+      "updatedAt": "2026-09-07T19:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P056",
+      "title": "白色伸缩桌面书架",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 45,
+      "campus": "示例校区",
+      "location": "北区·二食堂门口",
+      "description": "白色桌面书架，八成新，两层结构，可伸缩，宽度40至70厘米。伸缩位置活动正常，底板有轻微刮痕，适合根据教材数量调整宽度；不含展示书籍，移动时建议先取下物品，避免两部分滑开。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-07T22:00:00.000Z",
+      "updatedAt": "2026-09-07T22:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P057",
+      "title": "黑色单层金属书架",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 18,
+      "campus": "示例校区",
+      "location": "南区·宿舍公共区",
+      "description": "黑色桌面书架，九成新，单层结构，金属材质，宽度35厘米。边缘没有明显弯折，底部防滑垫齐全，表面有细小擦痕，适合整理常用教材；不带抽屉或封闭隔层，随架不附书籍及文具。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-08T01:00:00.000Z",
+      "updatedAt": "2026-09-08T01:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P058",
+      "title": "白色USB桌面小风扇",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 19,
+      "campus": "示例校区",
+      "location": "北区·宿舍公共区",
+      "description": "白色小风扇，八成新，USB供电，桌面底座式，支持两档风速。前网罩有轻微擦痕，扇叶与开关正常，可以调整俯仰角度，附连接线，不含电源适配器；没有内置电池，需要接线使用。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-08T04:00:00.000Z",
+      "updatedAt": "2026-09-08T04:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P059",
+      "title": "白色充电桌面小风扇",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 35,
+      "campus": "示例校区",
+      "location": "南区·图书馆门口",
+      "description": "白色小风扇，九成新，充电式，桌面底座式，支持三档风速。网罩完整，底座有轻微使用痕迹，充电和调速正常，附充电线，不带电源适配器；未进行续航计时，使用时可自行调整朝向。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-08T07:00:00.000Z",
+      "updatedAt": "2026-09-08T07:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P060",
+      "title": "绿色夹式充电小风扇",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 42,
+      "campus": "示例校区",
+      "location": "北区·图书馆门口",
+      "description": "绿色小风扇，八成新，充电式，夹式结构，支持三档风速。夹口垫片完整，网罩有小面积划痕，调速正常，附充电线但不含适配器；可夹在稳固桌边，未测量连续运行时间，使用前需夹紧。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-08T10:00:00.000Z",
+      "updatedAt": "2026-09-08T10:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P061",
+      "title": "蓝色桌面小风扇",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 12,
+      "campus": "示例校区",
+      "location": "南区·一食堂门口",
+      "description": "蓝色小风扇，七成新，USB供电，桌面底座式。机身有明显擦痕，网罩完整，通电后可以转动，随附连接线，不含电源适配器。未提供风速档位信息，也没有电池续航信息，需连接外部电源。",
+      "status": "off_shelf",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-08T13:00:00.000Z",
+      "updatedAt": "2026-09-08T13:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P062",
+      "title": "浅木色床上折叠桌",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 29,
+      "campus": "示例校区",
+      "location": "北区·二食堂门口",
+      "description": "浅木色床上折叠桌，八成新，桌面尺寸60×40厘米，桌腿可折叠，无杯槽。桌面有细微刮痕，桌腿展开后锁定正常，适合放笔记本和书本；交付仅含桌子，不附桌垫，收起时注意夹手。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-08T16:00:00.000Z",
+      "updatedAt": "2026-09-08T16:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P063",
+      "title": "浅木色带杯槽折叠桌",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 30,
+      "campus": "示例校区",
+      "location": "南区·宿舍公共区",
+      "description": "浅木色床上折叠桌，八成新，桌面尺寸60×40厘米，桌腿可折叠，有杯槽。杯槽边缘有轻微磨损，桌板无开裂，支撑正常；适合在床上临时摆放学习用品，不含水杯，移动前需先拿走物品。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-08T19:00:00.000Z",
+      "updatedAt": "2026-09-08T19:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P064",
+      "title": "白色带杯槽折叠桌",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 31,
+      "campus": "示例校区",
+      "location": "北区·宿舍公共区",
+      "description": "白色床上折叠桌，九成新，桌面尺寸60×40厘米，桌腿可折叠，有杯槽。桌面有浅擦痕，四处脚垫齐全，展开和收纳正常，适合临时阅读或写字；没有原包装，不附水杯、坐垫或其他配件。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-08T22:00:00.000Z",
+      "updatedAt": "2026-09-08T22:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P065",
+      "title": "灰色可折叠椅",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 45,
+      "campus": "示例校区",
+      "location": "南区·图书馆门口",
+      "description": "灰色折叠椅，八成新，可折叠，有靠背，座面为布面。椅架开合正常，座面边缘有轻微磨损，无破洞，脚垫完整；适合书桌旁临时使用，不提供承重数值，搬运时可折起，保持干燥存放。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-09T01:00:00.000Z",
+      "updatedAt": "2026-09-09T01:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P066",
+      "title": "黑色固定靠背椅",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 50,
+      "campus": "示例校区",
+      "location": "北区·图书馆门口",
+      "description": "黑色椅子，九成新，不可折叠，有靠背，座面为塑料材质。椅脚平稳，座面有细小擦痕，靠背没有开裂，适合固定放在书桌旁；整椅交付，不附坐垫，搬运前应确认门道和运输空间。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-09T04:00:00.000Z",
+      "updatedAt": "2026-09-09T04:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P067",
+      "title": "灰色方形坐垫赠送",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 0,
+      "campus": "示例校区",
+      "location": "南区·一食堂门口",
+      "description": "灰色坐垫，七成新，方形，尺寸40×40厘米，外套可拆洗。表面有轻微起球，拉链正常，边角缝线完整，已经清洁晾干；因搬宿舍零元赠送，仅含一只坐垫，不包含椅子和其他配件。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-09T07:00:00.000Z",
+      "updatedAt": "2026-09-09T07:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P068",
+      "title": "米色圆形坐垫",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 10,
+      "campus": "示例校区",
+      "location": "北区·二食堂门口",
+      "description": "米色坐垫，九成新，圆形，直径38厘米，外套不可拆。表面有轻微使用痕迹，缝线完整，没有破洞，适合放在尺寸匹配的椅面；仅出售一只坐垫，不含椅子，清洁方式需按布面情况选择。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-09T10:00:00.000Z",
+      "updatedAt": "2026-09-09T10:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P069",
+      "title": "白色落地折叠晾衣架",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 35,
+      "campus": "示例校区",
+      "location": "南区·宿舍公共区",
+      "description": "白色晾衣架，八成新，落地式，可折叠。关节开合正常，部分杆件表面有擦痕，脚垫齐全，适合在允许晾晒的公共区域使用；未测量展开尺寸，不附衣架和夹子，收起后需要靠稳放置。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-09T13:00:00.000Z",
+      "updatedAt": "2026-09-09T13:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P070",
+      "title": "灰色塑料衣架十只装",
+      "categoryId": "dorm",
+      "categoryName": "宿舍用品",
+      "price": 9,
+      "campus": "示例校区",
+      "location": "北区·宿舍公共区",
+      "description": "灰色衣架，九成新，塑料材质，共十只，肩部带防滑凹槽。挂钩完整，表面有轻微摩擦痕，没有开裂，适合日常晾晒上衣；按整组出售，不拆卖，不包含晾衣杆、衣夹或其他晾晒用品。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-09T16:00:00.000Z",
+      "updatedAt": "2026-09-09T16:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P071",
+      "title": "高等数学教材上册·基础版",
+      "categoryId": "book",
+      "categoryName": "教材书籍",
+      "price": 18,
+      "campus": "示例校区",
+      "location": "南区·图书馆门口",
+      "description": "高等数学教材上册共1册，样例版本标签为基础版，八成新。页内有少量铅笔笔记，检查无缺页，封面四角有轻微折痕，适合配合课程复习函数与微积分基础内容。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-09T19:00:00.000Z",
+      "updatedAt": "2026-09-09T19:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P072",
+      "title": "高等数学教材上册·基础版无笔记",
+      "categoryId": "book",
+      "categoryName": "教材书籍",
+      "price": 25,
+      "campus": "示例校区",
+      "location": "北区·图书馆门口",
+      "description": "高等数学教材上册共1册，样例版本标签为基础版，九成新。内页无笔记且无缺页，封面有很浅的书架压痕，内容用于课程基础学习，适合想自行整理重点的同学。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-09T22:00:00.000Z",
+      "updatedAt": "2026-09-09T22:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P073",
+      "title": "高等数学上下册·进阶版",
+      "categoryId": "book",
+      "categoryName": "教材书籍",
+      "price": 35,
+      "campus": "示例校区",
+      "location": "南区·一食堂门口",
+      "description": "高等数学上下册合计2册，样例版本标签为进阶版，八成新。有多处荧光笔标记，纸页齐全且无缺页，部分例题旁留有解题提示，适合不介意已有重点标记的同学。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-10T01:00:00.000Z",
+      "updatedAt": "2026-09-10T01:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P074",
+      "title": "高等数学教材下册·版本待确认",
+      "categoryId": "book",
+      "categoryName": "教材书籍",
+      "price": 0,
+      "campus": "示例校区",
+      "location": "北区·宿舍公共区",
+      "description": "高等数学教材下册共1册，七成新，版本标签暂未确认。内页有较多手写笔记，逐页检查无缺页，封面磨损明显，作为零元赠书供课程复习使用，领取前可查看笔记程度。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-10T04:00:00.000Z",
+      "updatedAt": "2026-09-10T04:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P075",
+      "title": "线性代数教材·基础版",
+      "categoryId": "book",
+      "categoryName": "教材书籍",
+      "price": 15,
+      "campus": "示例校区",
+      "location": "南区·宿舍公共区",
+      "description": "线性代数教材共1册，样例版本标签为基础版，八成新。矩阵章节有少量铅笔笔记，全书无缺页，封底有轻微折痕，适合学习矩阵运算、向量和线性方程组的同学。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-10T07:00:00.000Z",
+      "updatedAt": "2026-09-10T07:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P076",
+      "title": "线性代数教材·基础版无笔记",
+      "categoryId": "book",
+      "categoryName": "教材书籍",
+      "price": 22,
+      "campus": "示例校区",
+      "location": "北区·二食堂门口",
+      "description": "线性代数教材共1册，样例版本标签为基础版，九成新。翻阅次数较少，内页无笔记也无缺页，书脊有轻微使用痕迹，适合需要干净教材进行课程学习或期末复习的同学。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-10T10:00:00.000Z",
+      "updatedAt": "2026-09-10T10:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P077",
+      "title": "概率统计教材·基础版",
+      "categoryId": "book",
+      "categoryName": "教材书籍",
+      "price": 20,
+      "campus": "示例校区",
+      "location": "南区·图书馆门口",
+      "description": "概率统计教材共1册，样例版本标签为基础版，八成新。内页有少量签字笔笔记，检查无缺页，封面边缘略有磨损，涉及概率分布与统计基础内容，笔记不能直接擦除。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-10T13:00:00.000Z",
+      "updatedAt": "2026-09-10T13:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P078",
+      "title": "概率统计教材·进阶版",
+      "categoryId": "book",
+      "categoryName": "教材书籍",
+      "price": 28,
+      "campus": "示例校区",
+      "location": "北区·图书馆门口",
+      "description": "概率统计教材共1册，样例版本标签为进阶版，九成新。内页无笔记、无缺页，仅扉页有轻微压痕，包含较多推导与练习内容，适合已有基础并希望补充练习的同学。",
+      "status": "sold",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-10T16:00:00.000Z",
+      "updatedAt": "2026-09-10T16:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P079",
+      "title": "Python程序设计教材·入门版",
+      "categoryId": "book",
+      "categoryName": "教材书籍",
+      "price": 24,
+      "campus": "示例校区",
+      "location": "南区·一食堂门口",
+      "description": "Python程序设计教材共1册，样例版本标签为入门版，九成新。内页无笔记且无缺页，书口有轻微灰痕，内容以变量、循环和函数基础为主，仅包含纸质书，不附电子资源。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-10T19:00:00.000Z",
+      "updatedAt": "2026-09-10T19:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P080",
+      "title": "Python程序设计教材·进阶版",
+      "categoryId": "book",
+      "categoryName": "教材书籍",
+      "price": 30,
+      "campus": "示例校区",
+      "location": "北区·宿舍公共区",
+      "description": "Python程序设计教材共1册，样例版本标签为进阶版，八成新。页内有少量铅笔笔记且无缺页，部分页角折起，内容涉及文件处理和面向对象基础，仅出售纸质教材。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-10T22:00:00.000Z",
+      "updatedAt": "2026-09-10T22:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P081",
+      "title": "C语言程序设计教材·入门版",
+      "categoryId": "book",
+      "categoryName": "教材书籍",
+      "price": 16,
+      "campus": "示例校区",
+      "location": "南区·宿舍公共区",
+      "description": "C语言程序设计教材共1册，样例版本标签为入门版，八成新。循环与指针章节有较多手写笔记，全书无缺页，封面略有卷边，仅含纸质书，适合能接受已有批注的同学。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-11T01:00:00.000Z",
+      "updatedAt": "2026-09-11T01:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P082",
+      "title": "数据结构教材·基础版",
+      "categoryId": "book",
+      "categoryName": "教材书籍",
+      "price": 26,
+      "campus": "示例校区",
+      "location": "北区·二食堂门口",
+      "description": "数据结构教材共1册，样例版本标签为基础版，九成新。链表与树章节有少量铅笔笔记，检查无缺页，封面完整，适合课程复习与基础练习，不附账号或在线课程访问权限。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-11T04:00:00.000Z",
+      "updatedAt": "2026-09-11T04:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P083",
+      "title": "数据库基础教材·版本待确认",
+      "categoryId": "book",
+      "categoryName": "教材书籍",
+      "price": 18,
+      "campus": "示例校区",
+      "location": "南区·图书馆门口",
+      "description": "数据库基础教材共1册，八成新，具体版本标签暂未确认。内页无笔记且无缺页，封底有一处折痕，包含关系模型和查询基础内容，可先核对目录是否与所学课程匹配。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-11T07:00:00.000Z",
+      "updatedAt": "2026-09-11T07:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P084",
+      "title": "大学英语阅读教材·基础版",
+      "categoryId": "book",
+      "categoryName": "教材书籍",
+      "price": 12,
+      "campus": "示例校区",
+      "location": "北区·图书馆门口",
+      "description": "大学英语阅读教材共1册，样例版本标签为基础版，八成新。部分练习已填写，正文有少量划线，全书无缺页，封面略有磨损，适合阅读复习使用，不适合需要空白习题的同学。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-11T10:00:00.000Z",
+      "updatedAt": "2026-09-11T10:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P085",
+      "title": "大学英语阅读教材·基础版空白习题",
+      "categoryId": "book",
+      "categoryName": "教材书籍",
+      "price": 20,
+      "campus": "示例校区",
+      "location": "南区·一食堂门口",
+      "description": "大学英语阅读教材共1册，样例版本标签为基础版，九成新。课文和习题均无笔记，检查无缺页，封面有轻微存放压痕，可用于阅读训练与自行作答，仅包含纸质教材。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-11T13:00:00.000Z",
+      "updatedAt": "2026-09-11T13:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P086",
+      "title": "大学物理教材上下册·基础版",
+      "categoryId": "book",
+      "categoryName": "教材书籍",
+      "price": 32,
+      "campus": "示例校区",
+      "location": "北区·宿舍公共区",
+      "description": "大学物理教材上下册共2册，样例版本标签为基础版，八成新。力学部分有少量签字笔笔记，两册均无缺页，下册封底略有折痕，适合需要整套纸质教材复习的同学。",
+      "status": "off_shelf",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-11T16:00:00.000Z",
+      "updatedAt": "2026-09-11T16:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P087",
+      "title": "管理学基础教材·入门版",
+      "categoryId": "book",
+      "categoryName": "教材书籍",
+      "price": 17,
+      "campus": "示例校区",
+      "location": "南区·宿舍公共区",
+      "description": "管理学基础教材共1册，样例版本标签为入门版，九成新。内页无笔记、无缺页，封面边缘略有摩擦痕迹，内容用于基础课程学习与概念复习，仅出售教材本身，不附练习册。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-11T19:00:00.000Z",
+      "updatedAt": "2026-09-11T19:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P088",
+      "title": "经济学基础教材·基础版",
+      "categoryId": "book",
+      "categoryName": "教材书籍",
+      "price": 19,
+      "campus": "示例校区",
+      "location": "北区·二食堂门口",
+      "description": "经济学基础教材共1册，样例版本标签为基础版，八成新。供需与成本章节有多处荧光笔标记，全书无缺页，封面四角有使用痕迹，适合不介意彩色标记的同学复习概念。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-11T22:00:00.000Z",
+      "updatedAt": "2026-09-11T22:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P089",
+      "title": "设计基础教材·入门版",
+      "categoryId": "book",
+      "categoryName": "教材书籍",
+      "price": 28,
+      "campus": "示例校区",
+      "location": "南区·图书馆门口",
+      "description": "设计基础教材共1册，样例版本标签为入门版，九成新。内页无笔记、无缺页，书脊下方略有摩擦，内容涉及构图与色彩基础，适合课程入门参考，不含画材或配套工具。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-12T01:00:00.000Z",
+      "updatedAt": "2026-09-12T01:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P090",
+      "title": "教育学基础教材·版本待确认",
+      "categoryId": "book",
+      "categoryName": "教材书籍",
+      "price": 14,
+      "campus": "示例校区",
+      "location": "北区·图书馆门口",
+      "description": "教育学基础教材共1册，具体版本标签暂未确认，整体成色尚未分级。内页有少量铅笔笔记，检查无缺页，封面保存情况需现场查看，适合先核对目录后再决定是否购买。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-12T04:00:00.000Z",
+      "updatedAt": "2026-09-12T04:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P091",
+      "title": "自编考研数学基础复习笔记",
+      "categoryId": "kaoyan",
+      "categoryName": "考研资料",
+      "price": 15,
+      "campus": "示例校区",
+      "location": "南区·一食堂门口",
+      "description": "这份自编纸质笔记共1册，样例版本标签为基础整理版，八成新，内容范围为高等数学。全部内容为个人手写整理，检查无缺页，含少量勘误批注，仅作复习参考，不是官方资料。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-12T07:00:00.000Z",
+      "updatedAt": "2026-09-12T07:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P092",
+      "title": "自编考研数学强化复习笔记",
+      "categoryId": "kaoyan",
+      "categoryName": "考研资料",
+      "price": 23,
+      "campus": "示例校区",
+      "location": "北区·二食堂门口",
+      "description": "这份自编纸质笔记共1册，样例版本标签为强化整理版，九成新，内容范围为高等数学。内页均为个人整理的手写内容，检查无缺页，侧重常见方法对比，不附课程或电子文件。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-12T10:00:00.000Z",
+      "updatedAt": "2026-09-12T10:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P093",
+      "title": "自编考研线性代数复习笔记",
+      "categoryId": "kaoyan",
+      "categoryName": "考研资料",
+      "price": 12,
+      "campus": "示例校区",
+      "location": "南区·宿舍公共区",
+      "description": "这份自编纸质笔记共1册，样例版本标签为基础整理版，八成新，内容范围为线性代数。手写整理中保留少量修改痕迹，检查无缺页，适合辅助回顾概念，内容准确性可现场核对。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-12T13:00:00.000Z",
+      "updatedAt": "2026-09-12T13:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P094",
+      "title": "自编考研概率统计复习卡片",
+      "categoryId": "kaoyan",
+      "categoryName": "考研资料",
+      "price": 10,
+      "campus": "示例校区",
+      "location": "北区·图书馆门口",
+      "description": "这套自编纸质复习卡片共40张，样例版本标签为基础整理版，九成新，内容范围为概率统计。卡片齐全，正反面均为个人手写要点，没有额外使用批注，装在普通纸盒中便于携带。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-12T16:00:00.000Z",
+      "updatedAt": "2026-09-12T16:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P095",
+      "title": "自编考研英语词汇复习卡片",
+      "categoryId": "kaoyan",
+      "categoryName": "考研资料",
+      "price": 18,
+      "campus": "示例校区",
+      "location": "南区·图书馆门口",
+      "description": "这套自编纸质复习卡片共100张，样例版本标签为词汇整理版，八成新，内容范围为英语词汇。卡片齐全，正反面是个人手写释义和例句，少量卡片边缘有折痕，无额外涂改。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-12T19:00:00.000Z",
+      "updatedAt": "2026-09-12T19:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P096",
+      "title": "自编考研英语阅读方法笔记",
+      "categoryId": "kaoyan",
+      "categoryName": "考研资料",
+      "price": 16,
+      "campus": "示例校区",
+      "location": "北区·宿舍公共区",
+      "description": "这份自编纸质笔记共1册，样例版本标签为阅读方法版，九成新，内容范围为英语阅读。内页为个人手写的方法总结，无额外使用批注且无缺页，不含真题原文或在线课程资源。",
+      "status": "sold",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-12T22:00:00.000Z",
+      "updatedAt": "2026-09-12T22:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P097",
+      "title": "自编考研英语写作复习笔记",
+      "categoryId": "kaoyan",
+      "categoryName": "考研资料",
+      "price": 13,
+      "campus": "示例校区",
+      "location": "南区·一食堂门口",
+      "description": "这份自编纸质笔记共1册，八成新，版本标签暂未确认，内容范围为英语写作。内页为个人手写表达与结构总结，检查无缺页，保留部分修改标记，仅供复习参考，不承诺考试效果。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-13T01:00:00.000Z",
+      "updatedAt": "2026-09-13T01:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P098",
+      "title": "自编考研政治概念复习卡片",
+      "categoryId": "kaoyan",
+      "categoryName": "考研资料",
+      "price": 14,
+      "campus": "示例校区",
+      "location": "北区·二食堂门口",
+      "description": "这套自编纸质复习卡片共60张，样例版本标签为概念整理版，九成新，内容范围为政治基础概念。卡片齐全，均为个人手写摘记且无额外批注，未核对最新考试范围，使用前需自行确认。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-13T04:00:00.000Z",
+      "updatedAt": "2026-09-13T04:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P099",
+      "title": "自编考研计算机数据结构笔记",
+      "categoryId": "kaoyan",
+      "categoryName": "考研资料",
+      "price": 20,
+      "campus": "示例校区",
+      "location": "南区·宿舍公共区",
+      "description": "这份自编纸质笔记共1册，样例版本标签为基础整理版，八成新，内容范围为数据结构。包含个人手写概念图和方法对比，检查无缺页，部分页角折起，不含官方题库或电子资源。",
+      "status": "off_shelf",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-13T07:00:00.000Z",
+      "updatedAt": "2026-09-13T07:00:00.000Z"
+    },
+    {
+      "productId": "SYN-P100",
+      "title": "自编考研数学三科复习笔记",
+      "categoryId": "kaoyan",
+      "categoryName": "考研资料",
+      "price": 38,
+      "campus": "示例校区",
+      "location": "北区·图书馆门口",
+      "description": "这套自编纸质笔记共3册，样例版本标签为综合整理版，八成新，内容范围为高等数学、线性代数与概率统计。三册均为个人手写总结，检查无缺页，有少量勘误批注，不属于官方资料。",
+      "status": "on_sale",
+      "images": [],
+      "cover": "",
+      "createdAt": "2026-09-13T10:00:00.000Z",
+      "updatedAt": "2026-09-13T10:00:00.000Z"
+    }
+  ],
+  "annotations": [
+    {
+      "productId": "SYN-P001",
+      "itemType": "耳机",
+      "condition": "九成新",
+      "locationZone": "南区",
+      "attributes": {
+        "佩戴方式": "头戴式",
+        "连接方式": "蓝牙",
+        "降噪能力": "主动降噪",
+        "颜色": "黑色"
+      },
+      "evidence": {
+        "佩戴方式": {
+          "field": "description",
+          "quote": "头戴式",
+          "start": 6,
+          "end": 9
+        },
+        "连接方式": {
+          "field": "description",
+          "quote": "蓝牙",
+          "start": 14,
+          "end": 16
+        },
+        "降噪能力": {
+          "field": "description",
+          "quote": "主动降噪",
+          "start": 19,
+          "end": 23
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "黑色",
+          "start": 4,
+          "end": 6
+        }
+      }
+    },
+    {
+      "productId": "SYN-P002",
+      "itemType": "耳机",
+      "condition": "九成新",
+      "locationZone": "北区",
+      "attributes": {
+        "佩戴方式": "头戴式",
+        "连接方式": "蓝牙",
+        "降噪能力": "主动降噪",
+        "颜色": "黑色"
+      },
+      "evidence": {
+        "佩戴方式": {
+          "field": "description",
+          "quote": "头戴式",
+          "start": 4,
+          "end": 7
+        },
+        "连接方式": {
+          "field": "description",
+          "quote": "蓝牙",
+          "start": 14,
+          "end": 16
+        },
+        "降噪能力": {
+          "field": "description",
+          "quote": "主动降噪",
+          "start": 22,
+          "end": 26
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "黑色",
+          "start": 2,
+          "end": 4
+        }
+      }
+    },
+    {
+      "productId": "SYN-P003",
+      "itemType": "耳机",
+      "condition": "九成新",
+      "locationZone": "南区",
+      "attributes": {
+        "佩戴方式": "头戴式",
+        "连接方式": "蓝牙",
+        "降噪能力": "主动降噪",
+        "颜色": "黑色"
+      },
+      "evidence": {
+        "佩戴方式": {
+          "field": "description",
+          "quote": "头戴式",
+          "start": 5,
+          "end": 8
+        },
+        "连接方式": {
+          "field": "description",
+          "quote": "蓝牙",
+          "start": 13,
+          "end": 15
+        },
+        "降噪能力": {
+          "field": "description",
+          "quote": "主动降噪",
+          "start": 20,
+          "end": 24
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "黑色",
+          "start": 3,
+          "end": 5
+        }
+      }
+    },
+    {
+      "productId": "SYN-P004",
+      "itemType": "耳机",
+      "condition": "九成新",
+      "locationZone": "南区",
+      "attributes": {
+        "佩戴方式": "入耳式",
+        "连接方式": "蓝牙",
+        "降噪能力": "主动降噪",
+        "颜色": "白色"
+      },
+      "evidence": {
+        "佩戴方式": {
+          "field": "description",
+          "quote": "入耳式",
+          "start": 2,
+          "end": 5
+        },
+        "连接方式": {
+          "field": "description",
+          "quote": "蓝牙",
+          "start": 11,
+          "end": 13
+        },
+        "降噪能力": {
+          "field": "description",
+          "quote": "主动降噪",
+          "start": 16,
+          "end": 20
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "白色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P005",
+      "itemType": "耳机",
+      "condition": "九成新",
+      "locationZone": "北区",
+      "attributes": {
+        "佩戴方式": "入耳式",
+        "连接方式": "蓝牙",
+        "降噪能力": "主动降噪",
+        "颜色": "白色"
+      },
+      "evidence": {
+        "佩戴方式": {
+          "field": "description",
+          "quote": "入耳式",
+          "start": 6,
+          "end": 9
+        },
+        "连接方式": {
+          "field": "description",
+          "quote": "蓝牙",
+          "start": 9,
+          "end": 11
+        },
+        "降噪能力": {
+          "field": "description",
+          "quote": "主动降噪",
+          "start": 15,
+          "end": 19
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "白色",
+          "start": 4,
+          "end": 6
+        }
+      }
+    },
+    {
+      "productId": "SYN-P006",
+      "itemType": "耳机",
+      "condition": "九成新",
+      "locationZone": "南区",
+      "attributes": {
+        "佩戴方式": "入耳式",
+        "连接方式": "蓝牙",
+        "降噪能力": "主动降噪",
+        "颜色": "白色"
+      },
+      "evidence": {
+        "佩戴方式": {
+          "field": "description",
+          "quote": "入耳式",
+          "start": 4,
+          "end": 7
+        },
+        "连接方式": {
+          "field": "description",
+          "quote": "蓝牙",
+          "start": 7,
+          "end": 9
+        },
+        "降噪能力": {
+          "field": "description",
+          "quote": "主动降噪",
+          "start": 18,
+          "end": 22
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "白色",
+          "start": 2,
+          "end": 4
+        }
+      }
+    },
+    {
+      "productId": "SYN-P007",
+      "itemType": "耳机",
+      "condition": "八成新",
+      "locationZone": "南区",
+      "attributes": {
+        "佩戴方式": "半入耳式",
+        "连接方式": "蓝牙",
+        "降噪能力": "不支持主动降噪",
+        "颜色": "白色"
+      },
+      "evidence": {
+        "佩戴方式": {
+          "field": "description",
+          "quote": "半入耳式",
+          "start": 2,
+          "end": 6
+        },
+        "连接方式": {
+          "field": "description",
+          "quote": "蓝牙",
+          "start": 14,
+          "end": 16
+        },
+        "降噪能力": {
+          "field": "description",
+          "quote": "不支持主动降噪",
+          "start": 19,
+          "end": 26
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "白色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P008",
+      "itemType": "耳机",
+      "condition": "七成新",
+      "locationZone": "北区",
+      "attributes": {
+        "佩戴方式": "头戴式",
+        "连接方式": "有线",
+        "接口": "3.5毫米",
+        "颜色": "黑色"
+      },
+      "evidence": {
+        "佩戴方式": {
+          "field": "description",
+          "quote": "头戴式",
+          "start": 2,
+          "end": 5
+        },
+        "连接方式": {
+          "field": "description",
+          "quote": "有线",
+          "start": 5,
+          "end": 7
+        },
+        "接口": {
+          "field": "description",
+          "quote": "3.5毫米",
+          "start": 15,
+          "end": 20
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "黑色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P009",
+      "itemType": "耳机",
+      "condition": "全新未拆封",
+      "locationZone": "北区",
+      "attributes": {
+        "佩戴方式": "开放式",
+        "连接方式": "蓝牙",
+        "颜色": "灰色"
+      },
+      "evidence": {
+        "佩戴方式": {
+          "field": "description",
+          "quote": "开放式",
+          "start": 2,
+          "end": 5
+        },
+        "连接方式": {
+          "field": "description",
+          "quote": "蓝牙",
+          "start": 5,
+          "end": 7
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "灰色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P010",
+      "itemType": "耳机",
+      "condition": "未说明",
+      "locationZone": "南区",
+      "attributes": {
+        "佩戴方式": "头戴式",
+        "连接方式": "蓝牙",
+        "降噪能力": null,
+        "颜色": "蓝色"
+      },
+      "evidence": {
+        "佩戴方式": {
+          "field": "description",
+          "quote": "头戴式",
+          "start": 2,
+          "end": 5
+        },
+        "连接方式": {
+          "field": "description",
+          "quote": "蓝牙",
+          "start": 8,
+          "end": 10
+        },
+        "降噪能力": null,
+        "颜色": {
+          "field": "description",
+          "quote": "蓝色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P011",
+      "itemType": "鼠标",
+      "condition": "九成新",
+      "locationZone": "南区",
+      "attributes": {
+        "连接方式": "无线接收器",
+        "按键特点": "静音按键",
+        "供电方式": "电池供电",
+        "颜色": "黑色"
+      },
+      "evidence": {
+        "连接方式": {
+          "field": "description",
+          "quote": "无线接收器",
+          "start": 10,
+          "end": 15
+        },
+        "按键特点": {
+          "field": "description",
+          "quote": "静音按键",
+          "start": 18,
+          "end": 22
+        },
+        "供电方式": {
+          "field": "description",
+          "quote": "电池供电",
+          "start": 31,
+          "end": 35
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "黑色",
+          "start": 3,
+          "end": 5
+        }
+      }
+    },
+    {
+      "productId": "SYN-P012",
+      "itemType": "鼠标",
+      "condition": "九成新",
+      "locationZone": "北区",
+      "attributes": {
+        "连接方式": "无线接收器",
+        "按键特点": "静音按键",
+        "供电方式": "电池供电",
+        "颜色": "黑色"
+      },
+      "evidence": {
+        "连接方式": {
+          "field": "description",
+          "quote": "无线接收器",
+          "start": 10,
+          "end": 15
+        },
+        "按键特点": {
+          "field": "description",
+          "quote": "静音按键",
+          "start": 18,
+          "end": 22
+        },
+        "供电方式": {
+          "field": "description",
+          "quote": "电池供电",
+          "start": 23,
+          "end": 27
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "黑色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P013",
+      "itemType": "鼠标",
+      "condition": "八成新",
+      "locationZone": "南区",
+      "attributes": {
+        "连接方式": "蓝牙与无线接收器双模",
+        "供电方式": "充电式",
+        "颜色": "灰色"
+      },
+      "evidence": {
+        "连接方式": {
+          "field": "description",
+          "quote": "蓝牙与无线接收器双模",
+          "start": 13,
+          "end": 23
+        },
+        "供电方式": {
+          "field": "description",
+          "quote": "充电式",
+          "start": 26,
+          "end": 29
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "灰色",
+          "start": 4,
+          "end": 6
+        }
+      }
+    },
+    {
+      "productId": "SYN-P014",
+      "itemType": "鼠标",
+      "condition": "七成新",
+      "locationZone": "北区",
+      "attributes": {
+        "连接方式": "有线",
+        "接口": "USB-A",
+        "颜色": "白色"
+      },
+      "evidence": {
+        "连接方式": {
+          "field": "description",
+          "quote": "有线",
+          "start": 2,
+          "end": 4
+        },
+        "接口": {
+          "field": "description",
+          "quote": "USB-A",
+          "start": 10,
+          "end": 15
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "白色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P015",
+      "itemType": "鼠标",
+      "condition": "八成新",
+      "locationZone": "南区",
+      "attributes": {
+        "连接方式": "无线接收器",
+        "供电方式": "电池供电",
+        "按键特点": null,
+        "颜色": "黑色"
+      },
+      "evidence": {
+        "连接方式": {
+          "field": "description",
+          "quote": "无线接收器",
+          "start": 12,
+          "end": 17
+        },
+        "供电方式": {
+          "field": "description",
+          "quote": "电池供电",
+          "start": 18,
+          "end": 22
+        },
+        "按键特点": null,
+        "颜色": {
+          "field": "description",
+          "quote": "黑色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P016",
+      "itemType": "键盘",
+      "condition": "九成新",
+      "locationZone": "南区",
+      "attributes": {
+        "键位布局": "87键",
+        "轴体": "红轴",
+        "连接方式": "有线",
+        "颜色": "白色"
+      },
+      "evidence": {
+        "键位布局": {
+          "field": "description",
+          "quote": "87键",
+          "start": 12,
+          "end": 15
+        },
+        "轴体": {
+          "field": "description",
+          "quote": "红轴",
+          "start": 18,
+          "end": 20
+        },
+        "连接方式": {
+          "field": "description",
+          "quote": "有线",
+          "start": 21,
+          "end": 23
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "白色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P017",
+      "itemType": "键盘",
+      "condition": "九成新",
+      "locationZone": "北区",
+      "attributes": {
+        "键位布局": "87键",
+        "轴体": "青轴",
+        "连接方式": "有线",
+        "颜色": "黑色"
+      },
+      "evidence": {
+        "键位布局": {
+          "field": "description",
+          "quote": "87键",
+          "start": 10,
+          "end": 13
+        },
+        "轴体": {
+          "field": "description",
+          "quote": "青轴",
+          "start": 16,
+          "end": 18
+        },
+        "连接方式": {
+          "field": "description",
+          "quote": "有线",
+          "start": 19,
+          "end": 21
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "黑色",
+          "start": 3,
+          "end": 5
+        }
+      }
+    },
+    {
+      "productId": "SYN-P018",
+      "itemType": "键盘",
+      "condition": "八成新",
+      "locationZone": "北区",
+      "attributes": {
+        "键位布局": "104键",
+        "键盘结构": "薄膜",
+        "连接方式": "无线接收器",
+        "颜色": "灰色"
+      },
+      "evidence": {
+        "键位布局": {
+          "field": "description",
+          "quote": "104键",
+          "start": 10,
+          "end": 14
+        },
+        "键盘结构": {
+          "field": "description",
+          "quote": "薄膜",
+          "start": 2,
+          "end": 4
+        },
+        "连接方式": {
+          "field": "description",
+          "quote": "无线接收器",
+          "start": 24,
+          "end": 29
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "灰色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P019",
+      "itemType": "键盘",
+      "condition": "全新未拆封",
+      "locationZone": "南区",
+      "attributes": {
+        "键位布局": "78键",
+        "连接方式": "蓝牙",
+        "颜色": "白色"
+      },
+      "evidence": {
+        "键位布局": {
+          "field": "description",
+          "quote": "78键",
+          "start": 16,
+          "end": 19
+        },
+        "连接方式": {
+          "field": "description",
+          "quote": "蓝牙",
+          "start": 22,
+          "end": 24
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "白色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P020",
+      "itemType": "键盘",
+      "condition": "七成新",
+      "locationZone": "北区",
+      "attributes": {
+        "键位布局": "68键",
+        "轴体": null,
+        "连接方式": "有线",
+        "颜色": "黑色"
+      },
+      "evidence": {
+        "键位布局": {
+          "field": "description",
+          "quote": "68键",
+          "start": 10,
+          "end": 13
+        },
+        "轴体": null,
+        "连接方式": {
+          "field": "description",
+          "quote": "有线",
+          "start": 20,
+          "end": 22
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "黑色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P021",
+      "itemType": "笔记本电脑",
+      "condition": "八成新",
+      "locationZone": "南区",
+      "attributes": {
+        "内存": "16GB",
+        "存储": "512GB固态硬盘",
+        "屏幕尺寸": "14英寸",
+        "颜色": "银色"
+      },
+      "evidence": {
+        "内存": {
+          "field": "description",
+          "quote": "16GB",
+          "start": 14,
+          "end": 18
+        },
+        "存储": {
+          "field": "description",
+          "quote": "512GB固态硬盘",
+          "start": 21,
+          "end": 30
+        },
+        "屏幕尺寸": {
+          "field": "description",
+          "quote": "14英寸",
+          "start": 31,
+          "end": 35
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "银色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P022",
+      "itemType": "笔记本电脑",
+      "condition": "八成新",
+      "locationZone": "北区",
+      "attributes": {
+        "内存": "8GB",
+        "存储": "512GB固态硬盘",
+        "屏幕尺寸": "14英寸",
+        "颜色": "银色"
+      },
+      "evidence": {
+        "内存": {
+          "field": "description",
+          "quote": "8GB",
+          "start": 11,
+          "end": 14
+        },
+        "存储": {
+          "field": "description",
+          "quote": "512GB固态硬盘",
+          "start": 18,
+          "end": 27
+        },
+        "屏幕尺寸": {
+          "field": "description",
+          "quote": "14英寸",
+          "start": 31,
+          "end": 35
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "银色",
+          "start": 3,
+          "end": 5
+        }
+      }
+    },
+    {
+      "productId": "SYN-P023",
+      "itemType": "笔记本电脑",
+      "condition": "九成新",
+      "locationZone": "南区",
+      "attributes": {
+        "内存": "16GB",
+        "存储": "1TB固态硬盘",
+        "屏幕尺寸": "15.6英寸",
+        "颜色": "黑色"
+      },
+      "evidence": {
+        "内存": {
+          "field": "description",
+          "quote": "16GB",
+          "start": 13,
+          "end": 17
+        },
+        "存储": {
+          "field": "description",
+          "quote": "1TB固态硬盘",
+          "start": 20,
+          "end": 27
+        },
+        "屏幕尺寸": {
+          "field": "description",
+          "quote": "15.6英寸",
+          "start": 28,
+          "end": 34
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "黑色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P024",
+      "itemType": "笔记本电脑",
+      "condition": "七成新",
+      "locationZone": "北区",
+      "attributes": {
+        "内存": "8GB",
+        "存储": "256GB固态硬盘",
+        "屏幕尺寸": "13.3英寸",
+        "颜色": "灰色"
+      },
+      "evidence": {
+        "内存": {
+          "field": "description",
+          "quote": "8GB",
+          "start": 11,
+          "end": 14
+        },
+        "存储": {
+          "field": "description",
+          "quote": "256GB固态硬盘",
+          "start": 17,
+          "end": 26
+        },
+        "屏幕尺寸": {
+          "field": "description",
+          "quote": "13.3英寸",
+          "start": 29,
+          "end": 35
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "灰色",
+          "start": 3,
+          "end": 5
+        }
+      }
+    },
+    {
+      "productId": "SYN-P025",
+      "itemType": "笔记本电脑",
+      "condition": "八成新",
+      "locationZone": "南区",
+      "attributes": {
+        "内存": "16GB",
+        "存储": "256GB固态硬盘",
+        "屏幕尺寸": "14英寸",
+        "电池健康度": null
+      },
+      "evidence": {
+        "内存": {
+          "field": "description",
+          "quote": "16GB",
+          "start": 13,
+          "end": 17
+        },
+        "存储": {
+          "field": "description",
+          "quote": "256GB固态硬盘",
+          "start": 20,
+          "end": 29
+        },
+        "屏幕尺寸": {
+          "field": "description",
+          "quote": "14英寸",
+          "start": 30,
+          "end": 34
+        },
+        "电池健康度": null
+      }
+    },
+    {
+      "productId": "SYN-P026",
+      "itemType": "平板电脑",
+      "condition": "九成新",
+      "locationZone": "南区",
+      "attributes": {
+        "存储容量": "128GB",
+        "屏幕尺寸": "10.1英寸",
+        "网络类型": "仅Wi-Fi",
+        "颜色": "灰色"
+      },
+      "evidence": {
+        "存储容量": {
+          "field": "description",
+          "quote": "128GB",
+          "start": 16,
+          "end": 21
+        },
+        "屏幕尺寸": {
+          "field": "description",
+          "quote": "10.1英寸",
+          "start": 24,
+          "end": 30
+        },
+        "网络类型": {
+          "field": "description",
+          "quote": "仅Wi-Fi",
+          "start": 36,
+          "end": 42
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "灰色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P027",
+      "itemType": "平板电脑",
+      "condition": "九成新",
+      "locationZone": "北区",
+      "attributes": {
+        "存储容量": "64GB",
+        "屏幕尺寸": "10.1英寸",
+        "网络类型": "仅Wi-Fi",
+        "颜色": "灰色"
+      },
+      "evidence": {
+        "存储容量": {
+          "field": "description",
+          "quote": "64GB",
+          "start": 13,
+          "end": 17
+        },
+        "屏幕尺寸": {
+          "field": "description",
+          "quote": "10.1英寸",
+          "start": 20,
+          "end": 26
+        },
+        "网络类型": {
+          "field": "description",
+          "quote": "仅Wi-Fi",
+          "start": 31,
+          "end": 37
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "灰色",
+          "start": 4,
+          "end": 6
+        }
+      }
+    },
+    {
+      "productId": "SYN-P028",
+      "itemType": "平板电脑",
+      "condition": "八成新",
+      "locationZone": "南区",
+      "attributes": {
+        "存储容量": "256GB",
+        "屏幕尺寸": "11英寸",
+        "网络类型": "仅Wi-Fi",
+        "触控笔": "附带触控笔"
+      },
+      "evidence": {
+        "存储容量": {
+          "field": "description",
+          "quote": "256GB",
+          "start": 10,
+          "end": 15
+        },
+        "屏幕尺寸": {
+          "field": "description",
+          "quote": "11英寸",
+          "start": 18,
+          "end": 22
+        },
+        "网络类型": {
+          "field": "description",
+          "quote": "仅Wi-Fi",
+          "start": 25,
+          "end": 31
+        },
+        "触控笔": {
+          "field": "description",
+          "quote": "附带触控笔",
+          "start": 34,
+          "end": 39
+        }
+      }
+    },
+    {
+      "productId": "SYN-P029",
+      "itemType": "平板电脑",
+      "condition": "七成新",
+      "locationZone": "北区",
+      "attributes": {
+        "存储容量": "64GB",
+        "屏幕尺寸": "8英寸",
+        "网络类型": "仅Wi-Fi",
+        "颜色": "黑色"
+      },
+      "evidence": {
+        "存储容量": {
+          "field": "description",
+          "quote": "64GB",
+          "start": 12,
+          "end": 16
+        },
+        "屏幕尺寸": {
+          "field": "description",
+          "quote": "8英寸",
+          "start": 19,
+          "end": 22
+        },
+        "网络类型": {
+          "field": "description",
+          "quote": "仅Wi-Fi",
+          "start": 25,
+          "end": 31
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "黑色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P030",
+      "itemType": "平板电脑",
+      "condition": "八成新",
+      "locationZone": "南区",
+      "attributes": {
+        "存储容量": "128GB",
+        "屏幕尺寸": "10.1英寸",
+        "触控笔兼容性": null,
+        "颜色": "蓝色"
+      },
+      "evidence": {
+        "存储容量": {
+          "field": "description",
+          "quote": "128GB",
+          "start": 14,
+          "end": 19
+        },
+        "屏幕尺寸": {
+          "field": "description",
+          "quote": "10.1英寸",
+          "start": 22,
+          "end": 28
+        },
+        "触控笔兼容性": null,
+        "颜色": {
+          "field": "description",
+          "quote": "蓝色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P031",
+      "itemType": "显示器",
+      "condition": "八成新",
+      "locationZone": "南区",
+      "attributes": {
+        "屏幕尺寸": "23.8英寸",
+        "分辨率": "1920×1080",
+        "刷新率": "60Hz",
+        "接口": "HDMI"
+      },
+      "evidence": {
+        "屏幕尺寸": {
+          "field": "description",
+          "quote": "23.8英寸",
+          "start": 11,
+          "end": 17
+        },
+        "分辨率": {
+          "field": "description",
+          "quote": "1920×1080",
+          "start": 23,
+          "end": 32
+        },
+        "刷新率": {
+          "field": "description",
+          "quote": "60Hz",
+          "start": 36,
+          "end": 40
+        },
+        "接口": {
+          "field": "description",
+          "quote": "HDMI",
+          "start": 43,
+          "end": 47
+        }
+      }
+    },
+    {
+      "productId": "SYN-P032",
+      "itemType": "显示器",
+      "condition": "八成新",
+      "locationZone": "北区",
+      "attributes": {
+        "屏幕尺寸": "23.8英寸",
+        "分辨率": "1920×1080",
+        "刷新率": "60Hz",
+        "接口": "HDMI"
+      },
+      "evidence": {
+        "屏幕尺寸": {
+          "field": "description",
+          "quote": "23.8英寸",
+          "start": 11,
+          "end": 17
+        },
+        "分辨率": {
+          "field": "description",
+          "quote": "1920×1080",
+          "start": 18,
+          "end": 27
+        },
+        "刷新率": {
+          "field": "description",
+          "quote": "60Hz",
+          "start": 31,
+          "end": 35
+        },
+        "接口": {
+          "field": "description",
+          "quote": "HDMI",
+          "start": 41,
+          "end": 45
+        }
+      }
+    },
+    {
+      "productId": "SYN-P033",
+      "itemType": "显示器",
+      "condition": "九成新",
+      "locationZone": "南区",
+      "attributes": {
+        "屏幕尺寸": "27英寸",
+        "分辨率": "2560×1440",
+        "刷新率": "75Hz",
+        "接口": "HDMI"
+      },
+      "evidence": {
+        "屏幕尺寸": {
+          "field": "description",
+          "quote": "27英寸",
+          "start": 9,
+          "end": 13
+        },
+        "分辨率": {
+          "field": "description",
+          "quote": "2560×1440",
+          "start": 19,
+          "end": 28
+        },
+        "刷新率": {
+          "field": "description",
+          "quote": "75Hz",
+          "start": 32,
+          "end": 36
+        },
+        "接口": {
+          "field": "description",
+          "quote": "HDMI",
+          "start": 38,
+          "end": 42
+        }
+      }
+    },
+    {
+      "productId": "SYN-P034",
+      "itemType": "显示器",
+      "condition": "七成新",
+      "locationZone": "北区",
+      "attributes": {
+        "屏幕尺寸": "21.5英寸",
+        "分辨率": "1920×1080",
+        "刷新率": null,
+        "接口": "HDMI"
+      },
+      "evidence": {
+        "屏幕尺寸": {
+          "field": "description",
+          "quote": "21.5英寸",
+          "start": 9,
+          "end": 15
+        },
+        "分辨率": {
+          "field": "description",
+          "quote": "1920×1080",
+          "start": 21,
+          "end": 30
+        },
+        "刷新率": null,
+        "接口": {
+          "field": "description",
+          "quote": "HDMI",
+          "start": 32,
+          "end": 36
+        }
+      }
+    },
+    {
+      "productId": "SYN-P035",
+      "itemType": "拓展坞",
+      "condition": "九成新",
+      "locationZone": "南区",
+      "attributes": {
+        "上行接口": "USB-C",
+        "视频接口": "HDMI",
+        "数据接口": "2个USB-A",
+        "颜色": "银色"
+      },
+      "evidence": {
+        "上行接口": {
+          "field": "description",
+          "quote": "USB-C",
+          "start": 14,
+          "end": 19
+        },
+        "视频接口": {
+          "field": "description",
+          "quote": "HDMI",
+          "start": 21,
+          "end": 25
+        },
+        "数据接口": {
+          "field": "description",
+          "quote": "2个USB-A",
+          "start": 30,
+          "end": 37
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "银色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P036",
+      "itemType": "音箱",
+      "condition": "八成新",
+      "locationZone": "北区",
+      "attributes": {
+        "连接方式": "有线",
+        "音频接口": "3.5毫米",
+        "供电方式": "USB供电",
+        "颜色": "灰色"
+      },
+      "evidence": {
+        "连接方式": {
+          "field": "description",
+          "quote": "有线",
+          "start": 12,
+          "end": 14
+        },
+        "音频接口": {
+          "field": "description",
+          "quote": "3.5毫米",
+          "start": 22,
+          "end": 27
+        },
+        "供电方式": {
+          "field": "description",
+          "quote": "USB供电",
+          "start": 30,
+          "end": 35
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "灰色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P037",
+      "itemType": "摄像头",
+      "condition": "九成新",
+      "locationZone": "北区",
+      "attributes": {
+        "视频规格": "1080P",
+        "接口": "USB-A",
+        "麦克风": "内置麦克风",
+        "颜色": "黑色"
+      },
+      "evidence": {
+        "视频规格": {
+          "field": "description",
+          "quote": "1080P",
+          "start": 15,
+          "end": 20
+        },
+        "接口": {
+          "field": "description",
+          "quote": "USB-A",
+          "start": 23,
+          "end": 28
+        },
+        "麦克风": {
+          "field": "description",
+          "quote": "内置麦克风",
+          "start": 32,
+          "end": 37
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "黑色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P038",
+      "itemType": "电脑支架",
+      "condition": "九成新",
+      "locationZone": "南区",
+      "attributes": {
+        "材质": "铝合金",
+        "结构": "折叠式",
+        "调节方式": "六档调节",
+        "颜色": "银色"
+      },
+      "evidence": {
+        "材质": {
+          "field": "description",
+          "quote": "铝合金",
+          "start": 10,
+          "end": 13
+        },
+        "结构": {
+          "field": "description",
+          "quote": "折叠式",
+          "start": 16,
+          "end": 19
+        },
+        "调节方式": {
+          "field": "description",
+          "quote": "六档调节",
+          "start": 24,
+          "end": 28
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "银色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P039",
+      "itemType": "台灯",
+      "condition": "八成新",
+      "locationZone": "南区",
+      "attributes": {
+        "供电方式": "插电式",
+        "色温模式": "三色温",
+        "亮度调节": "无级调光",
+        "颜色": "白色"
+      },
+      "evidence": {
+        "供电方式": {
+          "field": "description",
+          "quote": "插电式",
+          "start": 10,
+          "end": 13
+        },
+        "色温模式": {
+          "field": "description",
+          "quote": "三色温",
+          "start": 18,
+          "end": 21
+        },
+        "亮度调节": {
+          "field": "description",
+          "quote": "无级调光",
+          "start": 22,
+          "end": 26
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "白色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P040",
+      "itemType": "音箱",
+      "condition": "九成新",
+      "locationZone": "北区",
+      "attributes": {
+        "连接方式": "蓝牙",
+        "供电方式": "充电式",
+        "防水等级": null,
+        "颜色": "黑色"
+      },
+      "evidence": {
+        "连接方式": {
+          "field": "description",
+          "quote": "蓝牙",
+          "start": 10,
+          "end": 12
+        },
+        "供电方式": {
+          "field": "description",
+          "quote": "充电式",
+          "start": 15,
+          "end": 18
+        },
+        "防水等级": null,
+        "颜色": {
+          "field": "description",
+          "quote": "黑色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P041",
+      "itemType": "台灯",
+      "condition": "八成新",
+      "locationZone": "南区",
+      "attributes": {
+        "供电方式": "插电",
+        "调光方式": "三档亮度",
+        "颜色": "白色",
+        "配件": "附电源线"
+      },
+      "evidence": {
+        "供电方式": {
+          "field": "description",
+          "quote": "插电",
+          "start": 11,
+          "end": 13
+        },
+        "调光方式": {
+          "field": "description",
+          "quote": "三档亮度",
+          "start": 18,
+          "end": 22
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "白色",
+          "start": 0,
+          "end": 2
+        },
+        "配件": {
+          "field": "description",
+          "quote": "附电源线",
+          "start": 23,
+          "end": 27
+        }
+      }
+    },
+    {
+      "productId": "SYN-P042",
+      "itemType": "台灯",
+      "condition": "九成新",
+      "locationZone": "北区",
+      "attributes": {
+        "供电方式": "插电",
+        "调光方式": "三档亮度",
+        "颜色": "白色",
+        "配件": "附电源线"
+      },
+      "evidence": {
+        "供电方式": {
+          "field": "description",
+          "quote": "插电",
+          "start": 11,
+          "end": 13
+        },
+        "调光方式": {
+          "field": "description",
+          "quote": "三档亮度",
+          "start": 18,
+          "end": 22
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "白色",
+          "start": 0,
+          "end": 2
+        },
+        "配件": {
+          "field": "description",
+          "quote": "附电源线",
+          "start": 23,
+          "end": 27
+        }
+      }
+    },
+    {
+      "productId": "SYN-P043",
+      "itemType": "台灯",
+      "condition": "九成新",
+      "locationZone": "南区",
+      "attributes": {
+        "供电方式": "插电",
+        "调光方式": "三档亮度",
+        "颜色": "白色",
+        "配件": "附电源线和收纳盒"
+      },
+      "evidence": {
+        "供电方式": {
+          "field": "description",
+          "quote": "插电",
+          "start": 11,
+          "end": 13
+        },
+        "调光方式": {
+          "field": "description",
+          "quote": "三档亮度",
+          "start": 18,
+          "end": 22
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "白色",
+          "start": 0,
+          "end": 2
+        },
+        "配件": {
+          "field": "description",
+          "quote": "附电源线和收纳盒",
+          "start": 23,
+          "end": 31
+        }
+      }
+    },
+    {
+      "productId": "SYN-P044",
+      "itemType": "台灯",
+      "condition": "八成新",
+      "locationZone": "北区",
+      "attributes": {
+        "供电方式": "USB供电",
+        "安装方式": "夹式",
+        "调光方式": "单档亮度",
+        "颜色": "黑色"
+      },
+      "evidence": {
+        "供电方式": {
+          "field": "description",
+          "quote": "USB供电",
+          "start": 11,
+          "end": 16
+        },
+        "安装方式": {
+          "field": "description",
+          "quote": "夹式",
+          "start": 17,
+          "end": 19
+        },
+        "调光方式": {
+          "field": "description",
+          "quote": "单档亮度",
+          "start": 30,
+          "end": 34
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "黑色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P045",
+      "itemType": "台灯",
+      "condition": "八成新",
+      "locationZone": "南区",
+      "attributes": {
+        "供电方式": "充电式",
+        "结构": "可折叠",
+        "调光方式": "三档亮度",
+        "颜色": "米色"
+      },
+      "evidence": {
+        "供电方式": {
+          "field": "description",
+          "quote": "充电式",
+          "start": 9,
+          "end": 12
+        },
+        "结构": {
+          "field": "description",
+          "quote": "可折叠",
+          "start": 17,
+          "end": 20
+        },
+        "调光方式": {
+          "field": "description",
+          "quote": "三档亮度",
+          "start": 23,
+          "end": 27
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "米色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P046",
+      "itemType": "台灯",
+      "condition": "九成新",
+      "locationZone": "北区",
+      "attributes": {
+        "供电方式": "充电式",
+        "结构": "可折叠",
+        "调光方式": "三档亮度",
+        "颜色": "米色"
+      },
+      "evidence": {
+        "供电方式": {
+          "field": "description",
+          "quote": "充电式",
+          "start": 11,
+          "end": 14
+        },
+        "结构": {
+          "field": "description",
+          "quote": "可折叠",
+          "start": 19,
+          "end": 22
+        },
+        "调光方式": {
+          "field": "description",
+          "quote": "三档亮度",
+          "start": 25,
+          "end": 29
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "米色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P047",
+      "itemType": "台灯",
+      "condition": "全新未拆封",
+      "locationZone": "南区",
+      "attributes": {
+        "供电方式": "充电式",
+        "结构": "可折叠",
+        "调光方式": "三档亮度",
+        "颜色": "米色"
+      },
+      "evidence": {
+        "供电方式": {
+          "field": "description",
+          "quote": "充电式",
+          "start": 16,
+          "end": 19
+        },
+        "结构": {
+          "field": "description",
+          "quote": "可折叠",
+          "start": 20,
+          "end": 23
+        },
+        "调光方式": {
+          "field": "description",
+          "quote": "三档亮度",
+          "start": 27,
+          "end": 31
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "米色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P048",
+      "itemType": "台灯",
+      "condition": "未说明",
+      "locationZone": "北区",
+      "attributes": {
+        "供电方式": "插电",
+        "颜色": "蓝色",
+        "调光方式": null,
+        "配件": "附电源线"
+      },
+      "evidence": {
+        "供电方式": {
+          "field": "description",
+          "quote": "插电",
+          "start": 9,
+          "end": 11
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "蓝色",
+          "start": 0,
+          "end": 2
+        },
+        "调光方式": null,
+        "配件": {
+          "field": "description",
+          "quote": "附电源线",
+          "start": 14,
+          "end": 18
+        }
+      }
+    },
+    {
+      "productId": "SYN-P049",
+      "itemType": "收纳箱",
+      "condition": "八成新",
+      "locationZone": "南区",
+      "attributes": {
+        "容量": "20升",
+        "颜色": "透明",
+        "结构": "带盖",
+        "是否可折叠": "不可折叠"
+      },
+      "evidence": {
+        "容量": {
+          "field": "description",
+          "quote": "20升",
+          "start": 12,
+          "end": 15
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "透明",
+          "start": 0,
+          "end": 2
+        },
+        "结构": {
+          "field": "description",
+          "quote": "带盖",
+          "start": 16,
+          "end": 18
+        },
+        "是否可折叠": {
+          "field": "description",
+          "quote": "不可折叠",
+          "start": 19,
+          "end": 23
+        }
+      }
+    },
+    {
+      "productId": "SYN-P050",
+      "itemType": "收纳箱",
+      "condition": "九成新",
+      "locationZone": "北区",
+      "attributes": {
+        "容量": "30升",
+        "颜色": "透明",
+        "结构": "带盖",
+        "是否可折叠": "不可折叠"
+      },
+      "evidence": {
+        "容量": {
+          "field": "description",
+          "quote": "30升",
+          "start": 12,
+          "end": 15
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "透明",
+          "start": 0,
+          "end": 2
+        },
+        "结构": {
+          "field": "description",
+          "quote": "带盖",
+          "start": 16,
+          "end": 18
+        },
+        "是否可折叠": {
+          "field": "description",
+          "quote": "不可折叠",
+          "start": 19,
+          "end": 23
+        }
+      }
+    },
+    {
+      "productId": "SYN-P051",
+      "itemType": "收纳箱",
+      "condition": "八成新",
+      "locationZone": "南区",
+      "attributes": {
+        "容量": "30升",
+        "颜色": "灰色",
+        "结构": "带盖",
+        "是否可折叠": "可折叠"
+      },
+      "evidence": {
+        "容量": {
+          "field": "description",
+          "quote": "30升",
+          "start": 12,
+          "end": 15
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "灰色",
+          "start": 0,
+          "end": 2
+        },
+        "结构": {
+          "field": "description",
+          "quote": "带盖",
+          "start": 16,
+          "end": 18
+        },
+        "是否可折叠": {
+          "field": "description",
+          "quote": "可折叠",
+          "start": 20,
+          "end": 23
+        }
+      }
+    },
+    {
+      "productId": "SYN-P052",
+      "itemType": "收纳箱",
+      "condition": "九成新",
+      "locationZone": "北区",
+      "attributes": {
+        "容量": "45升",
+        "颜色": "灰色",
+        "结构": "带盖",
+        "是否可折叠": "可折叠"
+      },
+      "evidence": {
+        "容量": {
+          "field": "description",
+          "quote": "45升",
+          "start": 12,
+          "end": 15
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "灰色",
+          "start": 0,
+          "end": 2
+        },
+        "结构": {
+          "field": "description",
+          "quote": "带盖",
+          "start": 16,
+          "end": 18
+        },
+        "是否可折叠": {
+          "field": "description",
+          "quote": "可折叠",
+          "start": 19,
+          "end": 22
+        }
+      }
+    },
+    {
+      "productId": "SYN-P053",
+      "itemType": "收纳篮",
+      "condition": "七成新",
+      "locationZone": "南区",
+      "attributes": {
+        "容量": null,
+        "颜色": "米色",
+        "结构": "敞口",
+        "材质": "塑料"
+      },
+      "evidence": {
+        "容量": null,
+        "颜色": {
+          "field": "description",
+          "quote": "米色",
+          "start": 0,
+          "end": 2
+        },
+        "结构": {
+          "field": "description",
+          "quote": "敞口",
+          "start": 17,
+          "end": 19
+        },
+        "材质": {
+          "field": "description",
+          "quote": "塑料",
+          "start": 10,
+          "end": 12
+        }
+      }
+    },
+    {
+      "productId": "SYN-P054",
+      "itemType": "桌面书架",
+      "condition": "八成新",
+      "locationZone": "北区",
+      "attributes": {
+        "层数": "两层",
+        "颜色": "原木色",
+        "宽度": "40厘米",
+        "结构": "固定宽度"
+      },
+      "evidence": {
+        "层数": {
+          "field": "description",
+          "quote": "两层",
+          "start": 12,
+          "end": 14
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "原木色",
+          "start": 0,
+          "end": 3
+        },
+        "宽度": {
+          "field": "description",
+          "quote": "40厘米",
+          "start": 19,
+          "end": 23
+        },
+        "结构": {
+          "field": "description",
+          "quote": "固定宽度",
+          "start": 25,
+          "end": 29
+        }
+      }
+    },
+    {
+      "productId": "SYN-P055",
+      "itemType": "桌面书架",
+      "condition": "九成新",
+      "locationZone": "南区",
+      "attributes": {
+        "层数": "两层",
+        "颜色": "原木色",
+        "宽度": "60厘米",
+        "结构": "固定宽度"
+      },
+      "evidence": {
+        "层数": {
+          "field": "description",
+          "quote": "两层",
+          "start": 12,
+          "end": 14
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "原木色",
+          "start": 0,
+          "end": 3
+        },
+        "宽度": {
+          "field": "description",
+          "quote": "60厘米",
+          "start": 19,
+          "end": 23
+        },
+        "结构": {
+          "field": "description",
+          "quote": "固定宽度",
+          "start": 26,
+          "end": 30
+        }
+      }
+    },
+    {
+      "productId": "SYN-P056",
+      "itemType": "桌面书架",
+      "condition": "八成新",
+      "locationZone": "北区",
+      "attributes": {
+        "层数": "两层",
+        "颜色": "白色",
+        "宽度": "40至70厘米",
+        "结构": "可伸缩"
+      },
+      "evidence": {
+        "层数": {
+          "field": "description",
+          "quote": "两层",
+          "start": 11,
+          "end": 13
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "白色",
+          "start": 0,
+          "end": 2
+        },
+        "宽度": {
+          "field": "description",
+          "quote": "40至70厘米",
+          "start": 22,
+          "end": 29
+        },
+        "结构": {
+          "field": "description",
+          "quote": "可伸缩",
+          "start": 16,
+          "end": 19
+        }
+      }
+    },
+    {
+      "productId": "SYN-P057",
+      "itemType": "桌面书架",
+      "condition": "九成新",
+      "locationZone": "南区",
+      "attributes": {
+        "层数": "单层",
+        "颜色": "黑色",
+        "材质": "金属",
+        "宽度": "35厘米"
+      },
+      "evidence": {
+        "层数": {
+          "field": "description",
+          "quote": "单层",
+          "start": 11,
+          "end": 13
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "黑色",
+          "start": 0,
+          "end": 2
+        },
+        "材质": {
+          "field": "description",
+          "quote": "金属",
+          "start": 16,
+          "end": 18
+        },
+        "宽度": {
+          "field": "description",
+          "quote": "35厘米",
+          "start": 23,
+          "end": 27
+        }
+      }
+    },
+    {
+      "productId": "SYN-P058",
+      "itemType": "小风扇",
+      "condition": "八成新",
+      "locationZone": "北区",
+      "attributes": {
+        "供电方式": "USB供电",
+        "安装方式": "桌面底座式",
+        "档位": "两档风速",
+        "颜色": "白色"
+      },
+      "evidence": {
+        "供电方式": {
+          "field": "description",
+          "quote": "USB供电",
+          "start": 10,
+          "end": 15
+        },
+        "安装方式": {
+          "field": "description",
+          "quote": "桌面底座式",
+          "start": 16,
+          "end": 21
+        },
+        "档位": {
+          "field": "description",
+          "quote": "两档风速",
+          "start": 24,
+          "end": 28
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "白色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P059",
+      "itemType": "小风扇",
+      "condition": "九成新",
+      "locationZone": "南区",
+      "attributes": {
+        "供电方式": "充电式",
+        "安装方式": "桌面底座式",
+        "档位": "三档风速",
+        "颜色": "白色"
+      },
+      "evidence": {
+        "供电方式": {
+          "field": "description",
+          "quote": "充电式",
+          "start": 10,
+          "end": 13
+        },
+        "安装方式": {
+          "field": "description",
+          "quote": "桌面底座式",
+          "start": 14,
+          "end": 19
+        },
+        "档位": {
+          "field": "description",
+          "quote": "三档风速",
+          "start": 22,
+          "end": 26
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "白色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P060",
+      "itemType": "小风扇",
+      "condition": "八成新",
+      "locationZone": "北区",
+      "attributes": {
+        "供电方式": "充电式",
+        "安装方式": "夹式",
+        "档位": "三档风速",
+        "颜色": "绿色"
+      },
+      "evidence": {
+        "供电方式": {
+          "field": "description",
+          "quote": "充电式",
+          "start": 10,
+          "end": 13
+        },
+        "安装方式": {
+          "field": "description",
+          "quote": "夹式",
+          "start": 14,
+          "end": 16
+        },
+        "档位": {
+          "field": "description",
+          "quote": "三档风速",
+          "start": 21,
+          "end": 25
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "绿色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P061",
+      "itemType": "小风扇",
+      "condition": "七成新",
+      "locationZone": "南区",
+      "attributes": {
+        "供电方式": "USB供电",
+        "安装方式": "桌面底座式",
+        "档位": null,
+        "颜色": "蓝色"
+      },
+      "evidence": {
+        "供电方式": {
+          "field": "description",
+          "quote": "USB供电",
+          "start": 10,
+          "end": 15
+        },
+        "安装方式": {
+          "field": "description",
+          "quote": "桌面底座式",
+          "start": 16,
+          "end": 21
+        },
+        "档位": null,
+        "颜色": {
+          "field": "description",
+          "quote": "蓝色",
+          "start": 0,
+          "end": 2
+        }
+      }
+    },
+    {
+      "productId": "SYN-P062",
+      "itemType": "床上折叠桌",
+      "condition": "八成新",
+      "locationZone": "北区",
+      "attributes": {
+        "尺寸": "60×40厘米",
+        "颜色": "浅木色",
+        "桌腿": "可折叠",
+        "杯槽": "无杯槽"
+      },
+      "evidence": {
+        "尺寸": {
+          "field": "description",
+          "quote": "60×40厘米",
+          "start": 17,
+          "end": 24
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "浅木色",
+          "start": 0,
+          "end": 3
+        },
+        "桌腿": {
+          "field": "description",
+          "quote": "可折叠",
+          "start": 27,
+          "end": 30
+        },
+        "杯槽": {
+          "field": "description",
+          "quote": "无杯槽",
+          "start": 31,
+          "end": 34
+        }
+      }
+    },
+    {
+      "productId": "SYN-P063",
+      "itemType": "床上折叠桌",
+      "condition": "八成新",
+      "locationZone": "南区",
+      "attributes": {
+        "尺寸": "60×40厘米",
+        "颜色": "浅木色",
+        "桌腿": "可折叠",
+        "杯槽": "有杯槽"
+      },
+      "evidence": {
+        "尺寸": {
+          "field": "description",
+          "quote": "60×40厘米",
+          "start": 17,
+          "end": 24
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "浅木色",
+          "start": 0,
+          "end": 3
+        },
+        "桌腿": {
+          "field": "description",
+          "quote": "可折叠",
+          "start": 27,
+          "end": 30
+        },
+        "杯槽": {
+          "field": "description",
+          "quote": "有杯槽",
+          "start": 31,
+          "end": 34
+        }
+      }
+    },
+    {
+      "productId": "SYN-P064",
+      "itemType": "床上折叠桌",
+      "condition": "九成新",
+      "locationZone": "北区",
+      "attributes": {
+        "尺寸": "60×40厘米",
+        "颜色": "白色",
+        "桌腿": "可折叠",
+        "杯槽": "有杯槽"
+      },
+      "evidence": {
+        "尺寸": {
+          "field": "description",
+          "quote": "60×40厘米",
+          "start": 16,
+          "end": 23
+        },
+        "颜色": {
+          "field": "description",
+          "quote": "白色",
+          "start": 0,
+          "end": 2
+        },
+        "桌腿": {
+          "field": "description",
+          "quote": "可折叠",
+          "start": 26,
+          "end": 29
+        },
+        "杯槽": {
+          "field": "description",
+          "quote": "有杯槽",
+          "start": 30,
+          "end": 33
+        }
+      }
+    },
+    {
+      "productId": "SYN-P065",
+      "itemType": "折叠椅",
+      "condition": "八成新",
+      "locationZone": "南区",
+      "attributes": {
+        "颜色": "灰色",
+        "结构": "可折叠",
+        "靠背": "有靠背",
+        "座面材质": "布面"
+      },
+      "evidence": {
+        "颜色": {
+          "field": "description",
+          "quote": "灰色",
+          "start": 0,
+          "end": 2
+        },
+        "结构": {
+          "field": "description",
+          "quote": "可折叠",
+          "start": 10,
+          "end": 13
+        },
+        "靠背": {
+          "field": "description",
+          "quote": "有靠背",
+          "start": 14,
+          "end": 17
+        },
+        "座面材质": {
+          "field": "description",
+          "quote": "布面",
+          "start": 21,
+          "end": 23
+        }
+      }
+    },
+    {
+      "productId": "SYN-P066",
+      "itemType": "椅子",
+      "condition": "九成新",
+      "locationZone": "北区",
+      "attributes": {
+        "颜色": "黑色",
+        "结构": "不可折叠",
+        "靠背": "有靠背",
+        "座面材质": "塑料"
+      },
+      "evidence": {
+        "颜色": {
+          "field": "description",
+          "quote": "黑色",
+          "start": 0,
+          "end": 2
+        },
+        "结构": {
+          "field": "description",
+          "quote": "不可折叠",
+          "start": 9,
+          "end": 13
+        },
+        "靠背": {
+          "field": "description",
+          "quote": "有靠背",
+          "start": 14,
+          "end": 17
+        },
+        "座面材质": {
+          "field": "description",
+          "quote": "塑料",
+          "start": 21,
+          "end": 23
+        }
+      }
+    },
+    {
+      "productId": "SYN-P067",
+      "itemType": "坐垫",
+      "condition": "七成新",
+      "locationZone": "南区",
+      "attributes": {
+        "颜色": "灰色",
+        "形状": "方形",
+        "尺寸": "40×40厘米",
+        "清洗方式": "外套可拆洗"
+      },
+      "evidence": {
+        "颜色": {
+          "field": "description",
+          "quote": "灰色",
+          "start": 0,
+          "end": 2
+        },
+        "形状": {
+          "field": "description",
+          "quote": "方形",
+          "start": 9,
+          "end": 11
+        },
+        "尺寸": {
+          "field": "description",
+          "quote": "40×40厘米",
+          "start": 14,
+          "end": 21
+        },
+        "清洗方式": {
+          "field": "description",
+          "quote": "外套可拆洗",
+          "start": 22,
+          "end": 27
+        }
+      }
+    },
+    {
+      "productId": "SYN-P068",
+      "itemType": "坐垫",
+      "condition": "九成新",
+      "locationZone": "北区",
+      "attributes": {
+        "颜色": "米色",
+        "形状": "圆形",
+        "尺寸": "直径38厘米",
+        "清洗方式": "外套不可拆"
+      },
+      "evidence": {
+        "颜色": {
+          "field": "description",
+          "quote": "米色",
+          "start": 0,
+          "end": 2
+        },
+        "形状": {
+          "field": "description",
+          "quote": "圆形",
+          "start": 9,
+          "end": 11
+        },
+        "尺寸": {
+          "field": "description",
+          "quote": "直径38厘米",
+          "start": 12,
+          "end": 18
+        },
+        "清洗方式": {
+          "field": "description",
+          "quote": "外套不可拆",
+          "start": 19,
+          "end": 24
+        }
+      }
+    },
+    {
+      "productId": "SYN-P069",
+      "itemType": "晾衣架",
+      "condition": "八成新",
+      "locationZone": "南区",
+      "attributes": {
+        "颜色": "白色",
+        "安装方式": "落地式",
+        "结构": "可折叠",
+        "展开尺寸": null
+      },
+      "evidence": {
+        "颜色": {
+          "field": "description",
+          "quote": "白色",
+          "start": 0,
+          "end": 2
+        },
+        "安装方式": {
+          "field": "description",
+          "quote": "落地式",
+          "start": 10,
+          "end": 13
+        },
+        "结构": {
+          "field": "description",
+          "quote": "可折叠",
+          "start": 14,
+          "end": 17
+        },
+        "展开尺寸": null
+      }
+    },
+    {
+      "productId": "SYN-P070",
+      "itemType": "衣架",
+      "condition": "九成新",
+      "locationZone": "北区",
+      "attributes": {
+        "颜色": "灰色",
+        "材质": "塑料",
+        "数量": "十只",
+        "肩部结构": "防滑凹槽"
+      },
+      "evidence": {
+        "颜色": {
+          "field": "description",
+          "quote": "灰色",
+          "start": 0,
+          "end": 2
+        },
+        "材质": {
+          "field": "description",
+          "quote": "塑料",
+          "start": 9,
+          "end": 11
+        },
+        "数量": {
+          "field": "description",
+          "quote": "十只",
+          "start": 15,
+          "end": 17
+        },
+        "肩部结构": {
+          "field": "description",
+          "quote": "防滑凹槽",
+          "start": 21,
+          "end": 25
+        }
+      }
+    },
+    {
+      "productId": "SYN-P071",
+      "itemType": "高等数学教材",
+      "condition": "八成新",
+      "locationZone": "南区",
+      "attributes": {
+        "册数": "1册",
+        "版本标签": "基础版",
+        "笔记情况": "少量铅笔笔记",
+        "缺页情况": "无缺页"
+      },
+      "evidence": {
+        "册数": {
+          "field": "description",
+          "quote": "1册",
+          "start": 9,
+          "end": 11
+        },
+        "版本标签": {
+          "field": "description",
+          "quote": "基础版",
+          "start": 19,
+          "end": 22
+        },
+        "笔记情况": {
+          "field": "description",
+          "quote": "少量铅笔笔记",
+          "start": 30,
+          "end": 36
+        },
+        "缺页情况": {
+          "field": "description",
+          "quote": "无缺页",
+          "start": 39,
+          "end": 42
+        }
+      }
+    },
+    {
+      "productId": "SYN-P072",
+      "itemType": "高等数学教材",
+      "condition": "九成新",
+      "locationZone": "北区",
+      "attributes": {
+        "册数": "1册",
+        "版本标签": "基础版",
+        "笔记情况": "无笔记",
+        "缺页情况": "无缺页"
+      },
+      "evidence": {
+        "册数": {
+          "field": "description",
+          "quote": "1册",
+          "start": 9,
+          "end": 11
+        },
+        "版本标签": {
+          "field": "description",
+          "quote": "基础版",
+          "start": 19,
+          "end": 22
+        },
+        "笔记情况": {
+          "field": "description",
+          "quote": "无笔记",
+          "start": 29,
+          "end": 32
+        },
+        "缺页情况": {
+          "field": "description",
+          "quote": "无缺页",
+          "start": 33,
+          "end": 36
+        }
+      }
+    },
+    {
+      "productId": "SYN-P073",
+      "itemType": "高等数学教材",
+      "condition": "八成新",
+      "locationZone": "南区",
+      "attributes": {
+        "册数": "2册",
+        "版本标签": "进阶版",
+        "笔记情况": "多处荧光笔标记",
+        "缺页情况": "无缺页"
+      },
+      "evidence": {
+        "册数": {
+          "field": "description",
+          "quote": "2册",
+          "start": 9,
+          "end": 11
+        },
+        "版本标签": {
+          "field": "description",
+          "quote": "进阶版",
+          "start": 19,
+          "end": 22
+        },
+        "笔记情况": {
+          "field": "description",
+          "quote": "多处荧光笔标记",
+          "start": 28,
+          "end": 35
+        },
+        "缺页情况": {
+          "field": "description",
+          "quote": "无缺页",
+          "start": 41,
+          "end": 44
+        }
+      }
+    },
+    {
+      "productId": "SYN-P074",
+      "itemType": "高等数学教材",
+      "condition": "七成新",
+      "locationZone": "北区",
+      "attributes": {
+        "册数": "1册",
+        "版本标签": null,
+        "笔记情况": "较多手写笔记",
+        "缺页情况": "无缺页"
+      },
+      "evidence": {
+        "册数": {
+          "field": "description",
+          "quote": "1册",
+          "start": 9,
+          "end": 11
+        },
+        "版本标签": null,
+        "笔记情况": {
+          "field": "description",
+          "quote": "较多手写笔记",
+          "start": 28,
+          "end": 34
+        },
+        "缺页情况": {
+          "field": "description",
+          "quote": "无缺页",
+          "start": 39,
+          "end": 42
+        }
+      }
+    },
+    {
+      "productId": "SYN-P075",
+      "itemType": "线性代数教材",
+      "condition": "八成新",
+      "locationZone": "南区",
+      "attributes": {
+        "册数": "1册",
+        "版本标签": "基础版",
+        "笔记情况": "少量铅笔笔记",
+        "缺页情况": "无缺页"
+      },
+      "evidence": {
+        "册数": {
+          "field": "description",
+          "quote": "1册",
+          "start": 7,
+          "end": 9
+        },
+        "版本标签": {
+          "field": "description",
+          "quote": "基础版",
+          "start": 17,
+          "end": 20
+        },
+        "笔记情况": {
+          "field": "description",
+          "quote": "少量铅笔笔记",
+          "start": 30,
+          "end": 36
+        },
+        "缺页情况": {
+          "field": "description",
+          "quote": "无缺页",
+          "start": 39,
+          "end": 42
+        }
+      }
+    },
+    {
+      "productId": "SYN-P076",
+      "itemType": "线性代数教材",
+      "condition": "九成新",
+      "locationZone": "北区",
+      "attributes": {
+        "册数": "1册",
+        "版本标签": "基础版",
+        "笔记情况": "无笔记",
+        "缺页情况": "无缺页"
+      },
+      "evidence": {
+        "册数": {
+          "field": "description",
+          "quote": "1册",
+          "start": 7,
+          "end": 9
+        },
+        "版本标签": {
+          "field": "description",
+          "quote": "基础版",
+          "start": 17,
+          "end": 20
+        },
+        "笔记情况": {
+          "field": "description",
+          "quote": "无笔记",
+          "start": 34,
+          "end": 37
+        },
+        "缺页情况": {
+          "field": "description",
+          "quote": "无缺页",
+          "start": 38,
+          "end": 41
+        }
+      }
+    },
+    {
+      "productId": "SYN-P077",
+      "itemType": "概率统计教材",
+      "condition": "八成新",
+      "locationZone": "南区",
+      "attributes": {
+        "册数": "1册",
+        "版本标签": "基础版",
+        "笔记情况": "少量签字笔笔记",
+        "缺页情况": "无缺页"
+      },
+      "evidence": {
+        "册数": {
+          "field": "description",
+          "quote": "1册",
+          "start": 7,
+          "end": 9
+        },
+        "版本标签": {
+          "field": "description",
+          "quote": "基础版",
+          "start": 17,
+          "end": 20
+        },
+        "笔记情况": {
+          "field": "description",
+          "quote": "少量签字笔笔记",
+          "start": 28,
+          "end": 35
+        },
+        "缺页情况": {
+          "field": "description",
+          "quote": "无缺页",
+          "start": 38,
+          "end": 41
+        }
+      }
+    },
+    {
+      "productId": "SYN-P078",
+      "itemType": "概率统计教材",
+      "condition": "九成新",
+      "locationZone": "北区",
+      "attributes": {
+        "册数": "1册",
+        "版本标签": "进阶版",
+        "笔记情况": "无笔记",
+        "缺页情况": "无缺页"
+      },
+      "evidence": {
+        "册数": {
+          "field": "description",
+          "quote": "1册",
+          "start": 7,
+          "end": 9
+        },
+        "版本标签": {
+          "field": "description",
+          "quote": "进阶版",
+          "start": 17,
+          "end": 20
+        },
+        "笔记情况": {
+          "field": "description",
+          "quote": "无笔记",
+          "start": 27,
+          "end": 30
+        },
+        "缺页情况": {
+          "field": "description",
+          "quote": "无缺页",
+          "start": 31,
+          "end": 34
+        }
+      }
+    },
+    {
+      "productId": "SYN-P079",
+      "itemType": "程序设计教材",
+      "condition": "九成新",
+      "locationZone": "南区",
+      "attributes": {
+        "册数": "1册",
+        "版本标签": "入门版",
+        "编程语言": "Python",
+        "笔记情况": "无笔记",
+        "缺页情况": "无缺页"
+      },
+      "evidence": {
+        "册数": {
+          "field": "description",
+          "quote": "1册",
+          "start": 13,
+          "end": 15
+        },
+        "版本标签": {
+          "field": "description",
+          "quote": "入门版",
+          "start": 23,
+          "end": 26
+        },
+        "编程语言": {
+          "field": "description",
+          "quote": "Python",
+          "start": 0,
+          "end": 6
+        },
+        "笔记情况": {
+          "field": "description",
+          "quote": "无笔记",
+          "start": 33,
+          "end": 36
+        },
+        "缺页情况": {
+          "field": "description",
+          "quote": "无缺页",
+          "start": 37,
+          "end": 40
+        }
+      }
+    },
+    {
+      "productId": "SYN-P080",
+      "itemType": "程序设计教材",
+      "condition": "八成新",
+      "locationZone": "北区",
+      "attributes": {
+        "册数": "1册",
+        "版本标签": "进阶版",
+        "编程语言": "Python",
+        "笔记情况": "少量铅笔笔记",
+        "缺页情况": "无缺页"
+      },
+      "evidence": {
+        "册数": {
+          "field": "description",
+          "quote": "1册",
+          "start": 13,
+          "end": 15
+        },
+        "版本标签": {
+          "field": "description",
+          "quote": "进阶版",
+          "start": 23,
+          "end": 26
+        },
+        "编程语言": {
+          "field": "description",
+          "quote": "Python",
+          "start": 0,
+          "end": 6
+        },
+        "笔记情况": {
+          "field": "description",
+          "quote": "少量铅笔笔记",
+          "start": 34,
+          "end": 40
+        },
+        "缺页情况": {
+          "field": "description",
+          "quote": "无缺页",
+          "start": 41,
+          "end": 44
+        }
+      }
+    },
+    {
+      "productId": "SYN-P081",
+      "itemType": "程序设计教材",
+      "condition": "八成新",
+      "locationZone": "南区",
+      "attributes": {
+        "册数": "1册",
+        "版本标签": "入门版",
+        "编程语言": "C语言",
+        "笔记情况": "较多手写笔记",
+        "缺页情况": "无缺页"
+      },
+      "evidence": {
+        "册数": {
+          "field": "description",
+          "quote": "1册",
+          "start": 10,
+          "end": 12
+        },
+        "版本标签": {
+          "field": "description",
+          "quote": "入门版",
+          "start": 20,
+          "end": 23
+        },
+        "编程语言": {
+          "field": "description",
+          "quote": "C语言",
+          "start": 0,
+          "end": 3
+        },
+        "笔记情况": {
+          "field": "description",
+          "quote": "较多手写笔记",
+          "start": 36,
+          "end": 42
+        },
+        "缺页情况": {
+          "field": "description",
+          "quote": "无缺页",
+          "start": 45,
+          "end": 48
+        }
+      }
+    },
+    {
+      "productId": "SYN-P082",
+      "itemType": "数据结构教材",
+      "condition": "九成新",
+      "locationZone": "北区",
+      "attributes": {
+        "册数": "1册",
+        "版本标签": "基础版",
+        "笔记情况": "少量铅笔笔记",
+        "缺页情况": "无缺页"
+      },
+      "evidence": {
+        "册数": {
+          "field": "description",
+          "quote": "1册",
+          "start": 7,
+          "end": 9
+        },
+        "版本标签": {
+          "field": "description",
+          "quote": "基础版",
+          "start": 17,
+          "end": 20
+        },
+        "笔记情况": {
+          "field": "description",
+          "quote": "少量铅笔笔记",
+          "start": 32,
+          "end": 38
+        },
+        "缺页情况": {
+          "field": "description",
+          "quote": "无缺页",
+          "start": 41,
+          "end": 44
+        }
+      }
+    },
+    {
+      "productId": "SYN-P083",
+      "itemType": "数据库教材",
+      "condition": "八成新",
+      "locationZone": "南区",
+      "attributes": {
+        "册数": "1册",
+        "版本标签": null,
+        "笔记情况": "无笔记",
+        "缺页情况": "无缺页"
+      },
+      "evidence": {
+        "册数": {
+          "field": "description",
+          "quote": "1册",
+          "start": 8,
+          "end": 10
+        },
+        "版本标签": null,
+        "笔记情况": {
+          "field": "description",
+          "quote": "无笔记",
+          "start": 28,
+          "end": 31
+        },
+        "缺页情况": {
+          "field": "description",
+          "quote": "无缺页",
+          "start": 32,
+          "end": 35
+        }
+      }
+    },
+    {
+      "productId": "SYN-P084",
+      "itemType": "大学英语教材",
+      "condition": "八成新",
+      "locationZone": "北区",
+      "attributes": {
+        "册数": "1册",
+        "版本标签": "基础版",
+        "笔记情况": "部分练习已填写",
+        "缺页情况": "无缺页"
+      },
+      "evidence": {
+        "册数": {
+          "field": "description",
+          "quote": "1册",
+          "start": 9,
+          "end": 11
+        },
+        "版本标签": {
+          "field": "description",
+          "quote": "基础版",
+          "start": 19,
+          "end": 22
+        },
+        "笔记情况": {
+          "field": "description",
+          "quote": "部分练习已填写",
+          "start": 27,
+          "end": 34
+        },
+        "缺页情况": {
+          "field": "description",
+          "quote": "无缺页",
+          "start": 45,
+          "end": 48
+        }
+      }
+    },
+    {
+      "productId": "SYN-P085",
+      "itemType": "大学英语教材",
+      "condition": "九成新",
+      "locationZone": "南区",
+      "attributes": {
+        "册数": "1册",
+        "版本标签": "基础版",
+        "笔记情况": "无笔记",
+        "缺页情况": "无缺页"
+      },
+      "evidence": {
+        "册数": {
+          "field": "description",
+          "quote": "1册",
+          "start": 9,
+          "end": 11
+        },
+        "版本标签": {
+          "field": "description",
+          "quote": "基础版",
+          "start": 19,
+          "end": 22
+        },
+        "笔记情况": {
+          "field": "description",
+          "quote": "无笔记",
+          "start": 33,
+          "end": 36
+        },
+        "缺页情况": {
+          "field": "description",
+          "quote": "无缺页",
+          "start": 39,
+          "end": 42
+        }
+      }
+    },
+    {
+      "productId": "SYN-P086",
+      "itemType": "大学物理教材",
+      "condition": "八成新",
+      "locationZone": "北区",
+      "attributes": {
+        "册数": "2册",
+        "版本标签": "基础版",
+        "笔记情况": "少量签字笔笔记",
+        "缺页情况": "无缺页"
+      },
+      "evidence": {
+        "册数": {
+          "field": "description",
+          "quote": "2册",
+          "start": 10,
+          "end": 12
+        },
+        "版本标签": {
+          "field": "description",
+          "quote": "基础版",
+          "start": 20,
+          "end": 23
+        },
+        "笔记情况": {
+          "field": "description",
+          "quote": "少量签字笔笔记",
+          "start": 33,
+          "end": 40
+        },
+        "缺页情况": {
+          "field": "description",
+          "quote": "无缺页",
+          "start": 44,
+          "end": 47
+        }
+      }
+    },
+    {
+      "productId": "SYN-P087",
+      "itemType": "管理学教材",
+      "condition": "九成新",
+      "locationZone": "南区",
+      "attributes": {
+        "册数": "1册",
+        "版本标签": "入门版",
+        "笔记情况": "无笔记",
+        "缺页情况": "无缺页"
+      },
+      "evidence": {
+        "册数": {
+          "field": "description",
+          "quote": "1册",
+          "start": 8,
+          "end": 10
+        },
+        "版本标签": {
+          "field": "description",
+          "quote": "入门版",
+          "start": 18,
+          "end": 21
+        },
+        "笔记情况": {
+          "field": "description",
+          "quote": "无笔记",
+          "start": 28,
+          "end": 31
+        },
+        "缺页情况": {
+          "field": "description",
+          "quote": "无缺页",
+          "start": 32,
+          "end": 35
+        }
+      }
+    },
+    {
+      "productId": "SYN-P088",
+      "itemType": "经济学教材",
+      "condition": "八成新",
+      "locationZone": "北区",
+      "attributes": {
+        "册数": "1册",
+        "版本标签": "基础版",
+        "笔记情况": "多处荧光笔标记",
+        "缺页情况": "无缺页"
+      },
+      "evidence": {
+        "册数": {
+          "field": "description",
+          "quote": "1册",
+          "start": 8,
+          "end": 10
+        },
+        "版本标签": {
+          "field": "description",
+          "quote": "基础版",
+          "start": 18,
+          "end": 21
+        },
+        "笔记情况": {
+          "field": "description",
+          "quote": "多处荧光笔标记",
+          "start": 34,
+          "end": 41
+        },
+        "缺页情况": {
+          "field": "description",
+          "quote": "无缺页",
+          "start": 44,
+          "end": 47
+        }
+      }
+    },
+    {
+      "productId": "SYN-P089",
+      "itemType": "设计基础教材",
+      "condition": "九成新",
+      "locationZone": "南区",
+      "attributes": {
+        "册数": "1册",
+        "版本标签": "入门版",
+        "笔记情况": "无笔记",
+        "缺页情况": "无缺页"
+      },
+      "evidence": {
+        "册数": {
+          "field": "description",
+          "quote": "1册",
+          "start": 7,
+          "end": 9
+        },
+        "版本标签": {
+          "field": "description",
+          "quote": "入门版",
+          "start": 17,
+          "end": 20
+        },
+        "笔记情况": {
+          "field": "description",
+          "quote": "无笔记",
+          "start": 27,
+          "end": 30
+        },
+        "缺页情况": {
+          "field": "description",
+          "quote": "无缺页",
+          "start": 31,
+          "end": 34
+        }
+      }
+    },
+    {
+      "productId": "SYN-P090",
+      "itemType": "教育学教材",
+      "condition": "未说明",
+      "locationZone": "北区",
+      "attributes": {
+        "册数": "1册",
+        "版本标签": null,
+        "笔记情况": "少量铅笔笔记",
+        "缺页情况": "无缺页"
+      },
+      "evidence": {
+        "册数": {
+          "field": "description",
+          "quote": "1册",
+          "start": 8,
+          "end": 10
+        },
+        "版本标签": null,
+        "笔记情况": {
+          "field": "description",
+          "quote": "少量铅笔笔记",
+          "start": 34,
+          "end": 40
+        },
+        "缺页情况": {
+          "field": "description",
+          "quote": "无缺页",
+          "start": 43,
+          "end": 46
+        }
+      }
+    },
+    {
+      "productId": "SYN-P091",
+      "itemType": "考研数学笔记",
+      "condition": "八成新",
+      "locationZone": "南区",
+      "attributes": {
+        "册数": "1册",
+        "版本标签": "基础整理版",
+        "资料形式": "自编纸质笔记",
+        "内容范围": "高等数学",
+        "缺页情况": "无缺页"
+      },
+      "evidence": {
+        "册数": {
+          "field": "description",
+          "quote": "1册",
+          "start": 9,
+          "end": 11
+        },
+        "版本标签": {
+          "field": "description",
+          "quote": "基础整理版",
+          "start": 19,
+          "end": 24
+        },
+        "资料形式": {
+          "field": "description",
+          "quote": "自编纸质笔记",
+          "start": 2,
+          "end": 8
+        },
+        "内容范围": {
+          "field": "description",
+          "quote": "高等数学",
+          "start": 34,
+          "end": 38
+        },
+        "缺页情况": {
+          "field": "description",
+          "quote": "无缺页",
+          "start": 53,
+          "end": 56
+        }
+      }
+    },
+    {
+      "productId": "SYN-P092",
+      "itemType": "考研数学笔记",
+      "condition": "九成新",
+      "locationZone": "北区",
+      "attributes": {
+        "册数": "1册",
+        "版本标签": "强化整理版",
+        "资料形式": "自编纸质笔记",
+        "内容范围": "高等数学",
+        "缺页情况": "无缺页"
+      },
+      "evidence": {
+        "册数": {
+          "field": "description",
+          "quote": "1册",
+          "start": 9,
+          "end": 11
+        },
+        "版本标签": {
+          "field": "description",
+          "quote": "强化整理版",
+          "start": 19,
+          "end": 24
+        },
+        "资料形式": {
+          "field": "description",
+          "quote": "自编纸质笔记",
+          "start": 2,
+          "end": 8
+        },
+        "内容范围": {
+          "field": "description",
+          "quote": "高等数学",
+          "start": 34,
+          "end": 38
+        },
+        "缺页情况": {
+          "field": "description",
+          "quote": "无缺页",
+          "start": 55,
+          "end": 58
+        }
+      }
+    },
+    {
+      "productId": "SYN-P093",
+      "itemType": "考研数学笔记",
+      "condition": "八成新",
+      "locationZone": "南区",
+      "attributes": {
+        "册数": "1册",
+        "版本标签": "基础整理版",
+        "资料形式": "自编纸质笔记",
+        "内容范围": "线性代数",
+        "缺页情况": "无缺页"
+      },
+      "evidence": {
+        "册数": {
+          "field": "description",
+          "quote": "1册",
+          "start": 9,
+          "end": 11
+        },
+        "版本标签": {
+          "field": "description",
+          "quote": "基础整理版",
+          "start": 19,
+          "end": 24
+        },
+        "资料形式": {
+          "field": "description",
+          "quote": "自编纸质笔记",
+          "start": 2,
+          "end": 8
+        },
+        "内容范围": {
+          "field": "description",
+          "quote": "线性代数",
+          "start": 34,
+          "end": 38
+        },
+        "缺页情况": {
+          "field": "description",
+          "quote": "无缺页",
+          "start": 55,
+          "end": 58
+        }
+      }
+    },
+    {
+      "productId": "SYN-P094",
+      "itemType": "考研数学复习卡片",
+      "condition": "九成新",
+      "locationZone": "北区",
+      "attributes": {
+        "数量": "40张",
+        "版本标签": "基础整理版",
+        "资料形式": "自编纸质复习卡片",
+        "内容范围": "概率统计",
+        "完整情况": "卡片齐全"
+      },
+      "evidence": {
+        "数量": {
+          "field": "description",
+          "quote": "40张",
+          "start": 11,
+          "end": 14
+        },
+        "版本标签": {
+          "field": "description",
+          "quote": "基础整理版",
+          "start": 22,
+          "end": 27
+        },
+        "资料形式": {
+          "field": "description",
+          "quote": "自编纸质复习卡片",
+          "start": 2,
+          "end": 10
+        },
+        "内容范围": {
+          "field": "description",
+          "quote": "概率统计",
+          "start": 37,
+          "end": 41
+        },
+        "完整情况": {
+          "field": "description",
+          "quote": "卡片齐全",
+          "start": 42,
+          "end": 46
+        }
+      }
+    },
+    {
+      "productId": "SYN-P095",
+      "itemType": "考研英语复习卡片",
+      "condition": "八成新",
+      "locationZone": "南区",
+      "attributes": {
+        "数量": "100张",
+        "版本标签": "词汇整理版",
+        "资料形式": "自编纸质复习卡片",
+        "内容范围": "英语词汇",
+        "完整情况": "卡片齐全"
+      },
+      "evidence": {
+        "数量": {
+          "field": "description",
+          "quote": "100张",
+          "start": 11,
+          "end": 15
+        },
+        "版本标签": {
+          "field": "description",
+          "quote": "词汇整理版",
+          "start": 23,
+          "end": 28
+        },
+        "资料形式": {
+          "field": "description",
+          "quote": "自编纸质复习卡片",
+          "start": 2,
+          "end": 10
+        },
+        "内容范围": {
+          "field": "description",
+          "quote": "英语词汇",
+          "start": 38,
+          "end": 42
+        },
+        "完整情况": {
+          "field": "description",
+          "quote": "卡片齐全",
+          "start": 43,
+          "end": 47
+        }
+      }
+    },
+    {
+      "productId": "SYN-P096",
+      "itemType": "考研英语笔记",
+      "condition": "九成新",
+      "locationZone": "北区",
+      "attributes": {
+        "册数": "1册",
+        "版本标签": "阅读方法版",
+        "资料形式": "自编纸质笔记",
+        "内容范围": "英语阅读",
+        "缺页情况": "无缺页"
+      },
+      "evidence": {
+        "册数": {
+          "field": "description",
+          "quote": "1册",
+          "start": 9,
+          "end": 11
+        },
+        "版本标签": {
+          "field": "description",
+          "quote": "阅读方法版",
+          "start": 19,
+          "end": 24
+        },
+        "资料形式": {
+          "field": "description",
+          "quote": "自编纸质笔记",
+          "start": 2,
+          "end": 8
+        },
+        "内容范围": {
+          "field": "description",
+          "quote": "英语阅读",
+          "start": 34,
+          "end": 38
+        },
+        "缺页情况": {
+          "field": "description",
+          "quote": "无缺页",
+          "start": 60,
+          "end": 63
+        }
+      }
+    },
+    {
+      "productId": "SYN-P097",
+      "itemType": "考研英语笔记",
+      "condition": "八成新",
+      "locationZone": "南区",
+      "attributes": {
+        "册数": "1册",
+        "版本标签": null,
+        "资料形式": "自编纸质笔记",
+        "内容范围": "英语写作",
+        "缺页情况": "无缺页"
+      },
+      "evidence": {
+        "册数": {
+          "field": "description",
+          "quote": "1册",
+          "start": 9,
+          "end": 11
+        },
+        "版本标签": null,
+        "资料形式": {
+          "field": "description",
+          "quote": "自编纸质笔记",
+          "start": 2,
+          "end": 8
+        },
+        "内容范围": {
+          "field": "description",
+          "quote": "英语写作",
+          "start": 30,
+          "end": 34
+        },
+        "缺页情况": {
+          "field": "description",
+          "quote": "无缺页",
+          "start": 52,
+          "end": 55
+        }
+      }
+    },
+    {
+      "productId": "SYN-P098",
+      "itemType": "考研政治复习卡片",
+      "condition": "九成新",
+      "locationZone": "北区",
+      "attributes": {
+        "数量": "60张",
+        "版本标签": "概念整理版",
+        "资料形式": "自编纸质复习卡片",
+        "内容范围": "政治基础概念",
+        "完整情况": "卡片齐全"
+      },
+      "evidence": {
+        "数量": {
+          "field": "description",
+          "quote": "60张",
+          "start": 11,
+          "end": 14
+        },
+        "版本标签": {
+          "field": "description",
+          "quote": "概念整理版",
+          "start": 22,
+          "end": 27
+        },
+        "资料形式": {
+          "field": "description",
+          "quote": "自编纸质复习卡片",
+          "start": 2,
+          "end": 10
+        },
+        "内容范围": {
+          "field": "description",
+          "quote": "政治基础概念",
+          "start": 37,
+          "end": 43
+        },
+        "完整情况": {
+          "field": "description",
+          "quote": "卡片齐全",
+          "start": 44,
+          "end": 48
+        }
+      }
+    },
+    {
+      "productId": "SYN-P099",
+      "itemType": "考研计算机笔记",
+      "condition": "八成新",
+      "locationZone": "南区",
+      "attributes": {
+        "册数": "1册",
+        "版本标签": "基础整理版",
+        "资料形式": "自编纸质笔记",
+        "内容范围": "数据结构",
+        "缺页情况": "无缺页"
+      },
+      "evidence": {
+        "册数": {
+          "field": "description",
+          "quote": "1册",
+          "start": 9,
+          "end": 11
+        },
+        "版本标签": {
+          "field": "description",
+          "quote": "基础整理版",
+          "start": 19,
+          "end": 24
+        },
+        "资料形式": {
+          "field": "description",
+          "quote": "自编纸质笔记",
+          "start": 2,
+          "end": 8
+        },
+        "内容范围": {
+          "field": "description",
+          "quote": "数据结构",
+          "start": 34,
+          "end": 38
+        },
+        "缺页情况": {
+          "field": "description",
+          "quote": "无缺页",
+          "start": 56,
+          "end": 59
+        }
+      }
+    },
+    {
+      "productId": "SYN-P100",
+      "itemType": "考研数学笔记",
+      "condition": "八成新",
+      "locationZone": "北区",
+      "attributes": {
+        "册数": "3册",
+        "版本标签": "综合整理版",
+        "资料形式": "自编纸质笔记",
+        "内容范围": "高等数学、线性代数与概率统计",
+        "缺页情况": "无缺页"
+      },
+      "evidence": {
+        "册数": {
+          "field": "description",
+          "quote": "3册",
+          "start": 9,
+          "end": 11
+        },
+        "版本标签": {
+          "field": "description",
+          "quote": "综合整理版",
+          "start": 19,
+          "end": 24
+        },
+        "资料形式": {
+          "field": "description",
+          "quote": "自编纸质笔记",
+          "start": 2,
+          "end": 8
+        },
+        "内容范围": {
+          "field": "description",
+          "quote": "高等数学、线性代数与概率统计",
+          "start": 34,
+          "end": 48
+        },
+        "缺页情况": {
+          "field": "description",
+          "quote": "无缺页",
+          "start": 62,
+          "end": 65
+        }
+      }
+    }
+  ]
+}

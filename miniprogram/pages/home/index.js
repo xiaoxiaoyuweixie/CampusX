@@ -1,11 +1,27 @@
 const router = require('../../utils/router.js');
 const { api } = require('../../api/index.js');
+const unread = require('../../utils/unread.js');
 const { categories: fallbackCategories } = require('../../mock/products.js');
 
 const FALLBACK_COVER = 'https://upload.wikimedia.org/wikipedia/commons/3/3f/Fronalpstock_big.jpg';
 const ASSISTANT_BUTTON_SIZE_RPX = 112;
 const ASSISTANT_MARGIN_RPX = 28;
 const ASSISTANT_DRAG_THRESHOLD_PX = 8;
+const CATEGORY_ICONS = {
+  digital: '/images/home/category-digital.png',
+  kaoyan: '/images/home/category-kaoyan.png',
+  book: '/images/home/category-book.png',
+  skill: '/images/home/category-skill.png',
+  dorm: '/images/home/category-dorm.png',
+};
+
+function withCategoryIcons(categories) {
+  return categories.map(item => {
+    const id = item.categoryId || item.id;
+    const iconSrc = Object.prototype.hasOwnProperty.call(CATEGORY_ICONS, id) ? CATEGORY_ICONS[id] : '';
+    return { ...item, id, iconSrc };
+  });
+}
 
 function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
@@ -47,6 +63,7 @@ Page({
     await Promise.all([this.loadCategories(), this.loadProducts()]);
   },
   async onShow() {
+    unread.refresh();
     await this.loadProducts(this.data.keyword);
   },
   onHide() {
@@ -64,12 +81,12 @@ Page({
       const res = await api.getCategories();
       const payload = res.result || {};
       if (payload.code === 0 && payload.data && payload.data.length) {
-        this.setData({ categories: payload.data });
+        this.setData({ categories: withCategoryIcons(payload.data) });
         return;
       }
     } catch (err) {}
 
-    this.setData({ categories: fallbackCategories });
+    this.setData({ categories: withCategoryIcons(fallbackCategories) });
   },
   async loadProducts(keyword = '') {
     const request = keyword

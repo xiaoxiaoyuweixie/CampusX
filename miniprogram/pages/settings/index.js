@@ -1,4 +1,5 @@
 const { api } = require("../../api/index.js");
+const unread = require('../../utils/unread.js');
 
 const DEFAULT_AVATAR = "";
 
@@ -40,7 +41,10 @@ Page({
   },
 
   async syncProfileFromCloud() {
+    const account = unread.captureAccount();
+    if (!account) return;
     const res = await api.getUserInfo();
+    if (!unread.isCurrentAccount(account)) return;
     const payload = res.result || {};
     if (payload.code !== 0 || !payload.data) return;
 
@@ -135,19 +139,21 @@ Page({
   },
 
   async updateAvatar(avatarUrl) {
+    const account = unread.captureAccount();
+    if (!account) return;
     wx.showLoading({ title: "上传中" });
     try {
-      const userInfo = wx.getStorageSync("userInfo") || {};
-      const openid = userInfo.openid || userInfo.token || wx.getStorageSync("token") || "unknown";
       const ext = this.getFileExt(avatarUrl);
-      const uploadRes = await this.uploadAvatar(avatarUrl, `avatar/${openid}-${Date.now()}.${ext}`);
-      await this.saveProfile({ avatar: uploadRes.fileID }, { silent: true });
+      const uploadRes = await this.uploadAvatar(avatarUrl, `avatar/${account.owner}-${Date.now()}.${ext}`);
+      if (!unread.isCurrentAccount(account)) return;
+      const saved = await this.saveProfile({ avatar: uploadRes.fileID }, { silent: true, account });
+      if (!saved || !unread.isCurrentAccount(account)) return;
       wx.showToast({
         title: "头像已更新",
         icon: "success"
       });
     } catch (err) {
-      wx.showToast({
+      if (unread.isCurrentAccount(account)) wx.showToast({
         title: err.message || "头像更新失败",
         icon: "none"
       });
@@ -185,14 +191,17 @@ Page({
   },
 
   async saveProfile(data, options = {}) {
+    const account = options.account || unread.captureAccount();
+    if (!unread.isCurrentAccount(account)) return false;
     const res = await api.updateUserInfo(data);
+    if (!unread.isCurrentAccount(account)) return false;
     const payload = res.result || {};
     if (payload.code !== 0) {
       wx.showToast({
         title: payload.message || "更新失败",
         icon: "none"
       });
-      return;
+      return false;
     }
 
     const userInfo = {
@@ -209,6 +218,7 @@ Page({
         icon: "success"
       });
     }
+    return true;
   },
 
   onLogout() {
@@ -228,6 +238,7 @@ Page({
     const userInfo = wx.getStorageSync("userInfo") || {};
     userInfo.logged = false;
     wx.setStorageSync("userInfo", userInfo);
+    unread.accountChanged();
     wx.reLaunch({ url: "/pages/login/index" });
   }
 });

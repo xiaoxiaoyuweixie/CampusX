@@ -1,0 +1,3518 @@
+{
+  "metadata": {
+    "datasetId": "campusx-dialogue-pilot-v0.1",
+    "schemaVersion": "0.1",
+    "createdOn": "2026-09-17",
+    "status": "synthetic_annotation_draft_not_model_results",
+    "sourceSnapshot": {
+      "path": "../01a0a836-a9fe-7033-a17e-219829debdf2/campusx-products-100.json",
+      "sha256": "afc9b01239c340a7050ab10cbc856fea80aa7f5b764a5f4c7ea8953a8fa8f68d",
+      "datasetId": "campusx-synthetic-products-100-v1"
+    },
+    "taskCount": 8,
+    "annotatedTurnCount": 30,
+    "humanReviewed": false,
+    "modelExperimentsRun": false,
+    "informationPolicy": "Gold and private cards are evaluator-only. Public catalog access is identical across methods."
+  },
+  "tasks": [
+    {
+      "id": "R01",
+      "familyId": "F-headphone-budget-zone",
+      "track": "replay",
+      "categoryStratum": "digital",
+      "title": "耳机预算替换与地点不限",
+      "phenomena": [
+        "add",
+        "replace",
+        "unrestrict",
+        "boundary"
+      ],
+      "split": "pilot_dev_only",
+      "annotationStatus": "draft_pending_independent_human_review",
+      "turns": [
+        {
+          "turn": 1,
+          "userUtterance": "找耳机，300元以内。",
+          "events": [
+            {
+              "eventId": "R01:t1:e1",
+              "action": "add",
+              "field": "itemType",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "R01:c1",
+                "op": "eq",
+                "value": "耳机",
+                "strength": "hard",
+                "sourceTurn": 1,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "耳机",
+                "start": 1,
+                "end": 3
+              }
+            },
+            {
+              "eventId": "R01:t1:e2",
+              "action": "add",
+              "field": "price",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "R01:c2",
+                "op": "lte",
+                "value": 300,
+                "strength": "hard",
+                "sourceTurn": 1,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "300元以内",
+                "start": 4,
+                "end": 10
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R01:c1",
+                    "op": "eq",
+                    "value": "耳机",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R01:t1:e1"
+              },
+              "categoryId": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R01:c2",
+                    "op": "lte",
+                    "value": 300,
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R01:t1:e2"
+              },
+              "locationZone": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [
+              "SYN-P001",
+              "SYN-P002",
+              "SYN-P003",
+              "SYN-P004",
+              "SYN-P005",
+              "SYN-P007",
+              "SYN-P008"
+            ],
+            "undeterminedProductIds": [],
+            "resultKind": "nonempty",
+            "acceptableActions": [
+              "search_and_recommend"
+            ],
+            "note": "完整合格集合为7件，展示最多5件；SYN-P006为301元，SYN-P009已售出，SYN-P010已下架。"
+          },
+          "referenceAssistantText": "符合当前条件的在售耳机有7件，可先查看SYN-P001、SYN-P002、SYN-P003、SYN-P004、SYN-P005。"
+        },
+        {
+          "turn": 2,
+          "userUtterance": "只看南区。",
+          "events": [
+            {
+              "eventId": "R01:t2:e1",
+              "action": "add",
+              "field": "locationZone",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "R01:c3",
+                "op": "eq",
+                "value": "南区",
+                "strength": "hard",
+                "sourceTurn": 2,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "只看南区",
+                "start": 0,
+                "end": 4
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R01:c1",
+                    "op": "eq",
+                    "value": "耳机",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R01:t1:e1"
+              },
+              "categoryId": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R01:c2",
+                    "op": "lte",
+                    "value": 300,
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R01:t1:e2"
+              },
+              "locationZone": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R01:c3",
+                    "op": "eq",
+                    "value": "南区",
+                    "strength": "hard",
+                    "sourceTurn": 2,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R01:t2:e1"
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [
+              "SYN-P001",
+              "SYN-P003",
+              "SYN-P004",
+              "SYN-P007"
+            ],
+            "undeterminedProductIds": [],
+            "resultKind": "nonempty",
+            "acceptableActions": [
+              "search_and_recommend"
+            ],
+            "note": "物品类型与预算来源仍是第1轮。"
+          },
+          "referenceAssistantText": "保留300元以内的预算，南区符合条件的是SYN-P001、SYN-P003、SYN-P004、SYN-P007。"
+        },
+        {
+          "turn": 3,
+          "userUtterance": "预算改成200元以内。",
+          "events": [
+            {
+              "eventId": "R01:t3:e1",
+              "action": "replace",
+              "field": "price",
+              "targetConstraintIds": [
+                "R01:c2"
+              ],
+              "clause": {
+                "id": "R01:c4",
+                "op": "lte",
+                "value": 200,
+                "strength": "hard",
+                "sourceTurn": 3,
+                "supersedes": [
+                  "R01:c2"
+                ]
+              },
+              "evidence": {
+                "quote": "预算改成200元以内",
+                "start": 0,
+                "end": 10
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R01:c1",
+                    "op": "eq",
+                    "value": "耳机",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R01:t1:e1"
+              },
+              "categoryId": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R01:c4",
+                    "op": "lte",
+                    "value": 200,
+                    "strength": "hard",
+                    "sourceTurn": 3,
+                    "supersedes": [
+                      "R01:c2"
+                    ]
+                  }
+                ],
+                "lastEventId": "R01:t3:e1"
+              },
+              "locationZone": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R01:c3",
+                    "op": "eq",
+                    "value": "南区",
+                    "strength": "hard",
+                    "sourceTurn": 2,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R01:t2:e1"
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [
+              "SYN-P001",
+              "SYN-P007"
+            ],
+            "undeterminedProductIds": [],
+            "resultKind": "nonempty",
+            "acceptableActions": [
+              "search_and_recommend"
+            ],
+            "note": "替换上限，不与原上限并列；SYN-P003为201元。"
+          },
+          "referenceAssistantText": "南区200元以内的耳机有SYN-P001（199元）和SYN-P007（129元）。"
+        },
+        {
+          "turn": 4,
+          "userUtterance": "地点不限了。",
+          "events": [
+            {
+              "eventId": "R01:t4:e1",
+              "action": "unrestrict",
+              "field": "locationZone",
+              "targetConstraintIds": [
+                "R01:c3"
+              ],
+              "clause": null,
+              "evidence": {
+                "quote": "地点不限了",
+                "start": 0,
+                "end": 5
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R01:c1",
+                    "op": "eq",
+                    "value": "耳机",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R01:t1:e1"
+              },
+              "categoryId": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R01:c4",
+                    "op": "lte",
+                    "value": 200,
+                    "strength": "hard",
+                    "sourceTurn": 3,
+                    "supersedes": [
+                      "R01:c2"
+                    ]
+                  }
+                ],
+                "lastEventId": "R01:t3:e1"
+              },
+              "locationZone": {
+                "status": "unrestricted",
+                "clauses": [],
+                "lastEventId": "R01:t4:e1"
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [
+              "SYN-P001",
+              "SYN-P002",
+              "SYN-P007",
+              "SYN-P008"
+            ],
+            "undeterminedProductIds": [],
+            "resultKind": "nonempty",
+            "acceptableActions": [
+              "search_and_recommend"
+            ],
+            "note": "200元整的SYN-P002重新进入，不能丢掉预算。"
+          },
+          "referenceAssistantText": "地点改为不限，预算仍为200元以内，可看SYN-P001、SYN-P002、SYN-P007、SYN-P008。"
+        }
+      ]
+    },
+    {
+      "id": "R02",
+      "familyId": "F-keyboard-negative-axis",
+      "track": "replay",
+      "categoryStratum": "digital",
+      "title": "排除青轴、未知轴体与撤销",
+      "phenomena": [
+        "exclude",
+        "unknown",
+        "withdraw"
+      ],
+      "split": "pilot_dev_only",
+      "annotationStatus": "draft_pending_independent_human_review",
+      "turns": [
+        {
+          "turn": 1,
+          "userUtterance": "找有线连接的键盘，120元以内。",
+          "events": [
+            {
+              "eventId": "R02:t1:e1",
+              "action": "add",
+              "field": "itemType",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "R02:c1",
+                "op": "eq",
+                "value": "键盘",
+                "strength": "hard",
+                "sourceTurn": 1,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "键盘",
+                "start": 6,
+                "end": 8
+              }
+            },
+            {
+              "eventId": "R02:t1:e2",
+              "action": "add",
+              "field": "attributes.连接方式",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "R02:c2",
+                "op": "eq",
+                "value": "有线",
+                "strength": "hard",
+                "sourceTurn": 1,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "有线连接",
+                "start": 1,
+                "end": 5
+              }
+            },
+            {
+              "eventId": "R02:t1:e3",
+              "action": "add",
+              "field": "price",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "R02:c3",
+                "op": "lte",
+                "value": 120,
+                "strength": "hard",
+                "sourceTurn": 1,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "120元以内",
+                "start": 9,
+                "end": 15
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R02:c1",
+                    "op": "eq",
+                    "value": "键盘",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R02:t1:e1"
+              },
+              "categoryId": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R02:c3",
+                    "op": "lte",
+                    "value": 120,
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R02:t1:e3"
+              },
+              "locationZone": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "attributes.连接方式": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R02:c2",
+                    "op": "eq",
+                    "value": "有线",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R02:t1:e2"
+              },
+              "attributes.轴体": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [
+              "SYN-P016",
+              "SYN-P017",
+              "SYN-P020"
+            ],
+            "undeterminedProductIds": [],
+            "resultKind": "nonempty",
+            "acceptableActions": [
+              "search_and_recommend"
+            ],
+            "note": "只按明确连接方式筛选，不推断按键噪声。"
+          },
+          "referenceAssistantText": "可看SYN-P016、SYN-P017、SYN-P020，均为120元以内的有线键盘。"
+        },
+        {
+          "turn": 2,
+          "userUtterance": "不要青轴。",
+          "events": [
+            {
+              "eventId": "R02:t2:e1",
+              "action": "add",
+              "field": "attributes.轴体",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "R02:c4",
+                "op": "not_in",
+                "value": [
+                  "青轴"
+                ],
+                "strength": "hard",
+                "sourceTurn": 2,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "不要青轴",
+                "start": 0,
+                "end": 4
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R02:c1",
+                    "op": "eq",
+                    "value": "键盘",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R02:t1:e1"
+              },
+              "categoryId": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R02:c3",
+                    "op": "lte",
+                    "value": 120,
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R02:t1:e3"
+              },
+              "locationZone": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "attributes.连接方式": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R02:c2",
+                    "op": "eq",
+                    "value": "有线",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R02:t1:e2"
+              },
+              "attributes.轴体": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R02:c4",
+                    "op": "not_in",
+                    "value": [
+                      "青轴"
+                    ],
+                    "strength": "hard",
+                    "sourceTurn": 2,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R02:t2:e1"
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [
+              "SYN-P016"
+            ],
+            "undeterminedProductIds": [
+              "SYN-P020"
+            ],
+            "resultKind": "nonempty",
+            "acceptableActions": [
+              "search_and_recommend"
+            ],
+            "note": "缺失属性不能通过否定条件；不将待核验候选列为合格推荐。"
+          },
+          "referenceAssistantText": "SYN-P016的轴体标为红轴；SYN-P017是青轴，已排除。SYN-P020未说明轴体，暂不能保证符合。"
+        },
+        {
+          "turn": 3,
+          "userUtterance": "撤销刚才不要青轴这条条件。",
+          "events": [
+            {
+              "eventId": "R02:t3:e1",
+              "action": "withdraw",
+              "field": "attributes.轴体",
+              "targetConstraintIds": [
+                "R02:c4"
+              ],
+              "clause": null,
+              "evidence": {
+                "quote": "撤销刚才不要青轴这条条件",
+                "start": 0,
+                "end": 12
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R02:c1",
+                    "op": "eq",
+                    "value": "键盘",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R02:t1:e1"
+              },
+              "categoryId": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R02:c3",
+                    "op": "lte",
+                    "value": 120,
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R02:t1:e3"
+              },
+              "locationZone": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "attributes.连接方式": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R02:c2",
+                    "op": "eq",
+                    "value": "有线",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R02:t1:e2"
+              },
+              "attributes.轴体": {
+                "status": "withdrawn",
+                "clauses": [],
+                "lastEventId": "R02:t3:e1"
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [
+              "SYN-P016",
+              "SYN-P017",
+              "SYN-P020"
+            ],
+            "undeterminedProductIds": [],
+            "resultKind": "nonempty",
+            "acceptableActions": [
+              "search_and_recommend"
+            ],
+            "note": "撤销后为withdrawn，不是从未提及，不复活更旧约束。"
+          },
+          "referenceAssistantText": "已撤销轴体排除条件，120元以内的有线键盘恢复为SYN-P016、SYN-P017、SYN-P020。"
+        },
+        {
+          "turn": 4,
+          "userUtterance": "再只看北区。",
+          "events": [
+            {
+              "eventId": "R02:t4:e1",
+              "action": "add",
+              "field": "locationZone",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "R02:c5",
+                "op": "eq",
+                "value": "北区",
+                "strength": "hard",
+                "sourceTurn": 4,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "只看北区",
+                "start": 1,
+                "end": 5
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R02:c1",
+                    "op": "eq",
+                    "value": "键盘",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R02:t1:e1"
+              },
+              "categoryId": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R02:c3",
+                    "op": "lte",
+                    "value": 120,
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R02:t1:e3"
+              },
+              "locationZone": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R02:c5",
+                    "op": "eq",
+                    "value": "北区",
+                    "strength": "hard",
+                    "sourceTurn": 4,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R02:t4:e1"
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "attributes.连接方式": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R02:c2",
+                    "op": "eq",
+                    "value": "有线",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R02:t1:e2"
+              },
+              "attributes.轴体": {
+                "status": "withdrawn",
+                "clauses": [],
+                "lastEventId": "R02:t3:e1"
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [
+              "SYN-P017",
+              "SYN-P020"
+            ],
+            "undeterminedProductIds": [],
+            "resultKind": "nonempty",
+            "acceptableActions": [
+              "search_and_recommend"
+            ],
+            "note": "轴体条件已经撤销，SYN-P020可进入合格集合。"
+          },
+          "referenceAssistantText": "北区符合现有条件的是SYN-P017和SYN-P020。"
+        }
+      ]
+    },
+    {
+      "id": "R03",
+      "familyId": "F-zero-cushion-type-switch",
+      "track": "replay",
+      "categoryStratum": "dorm",
+      "title": "零元、无结果恢复与显式切换物品",
+      "phenomena": [
+        "zero",
+        "empty",
+        "relaxation",
+        "type_switch"
+      ],
+      "split": "pilot_dev_only",
+      "annotationStatus": "draft_pending_independent_human_review",
+      "turns": [
+        {
+          "turn": 1,
+          "userUtterance": "找坐垫，只看0元赠送且在南区的。",
+          "events": [
+            {
+              "eventId": "R03:t1:e1",
+              "action": "add",
+              "field": "itemType",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "R03:c1",
+                "op": "eq",
+                "value": "坐垫",
+                "strength": "hard",
+                "sourceTurn": 1,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "坐垫",
+                "start": 1,
+                "end": 3
+              }
+            },
+            {
+              "eventId": "R03:t1:e2",
+              "action": "add",
+              "field": "price",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "R03:c2",
+                "op": "eq",
+                "value": 0,
+                "strength": "hard",
+                "sourceTurn": 1,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "只看0元赠送",
+                "start": 4,
+                "end": 10
+              }
+            },
+            {
+              "eventId": "R03:t1:e3",
+              "action": "add",
+              "field": "locationZone",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "R03:c3",
+                "op": "eq",
+                "value": "南区",
+                "strength": "hard",
+                "sourceTurn": 1,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "在南区",
+                "start": 11,
+                "end": 14
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R03:c1",
+                    "op": "eq",
+                    "value": "坐垫",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R03:t1:e1"
+              },
+              "categoryId": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R03:c2",
+                    "op": "eq",
+                    "value": 0,
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R03:t1:e2"
+              },
+              "locationZone": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R03:c3",
+                    "op": "eq",
+                    "value": "南区",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R03:t1:e3"
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [
+              "SYN-P067"
+            ],
+            "undeterminedProductIds": [],
+            "resultKind": "nonempty",
+            "acceptableActions": [
+              "search_and_recommend"
+            ],
+            "note": "0是有效价格，不能当成无预算。"
+          },
+          "referenceAssistantText": "SYN-P067是南区0元赠送的坐垫。"
+        },
+        {
+          "turn": 2,
+          "userUtterance": "改为只在北区取，仍然只要0元的坐垫。",
+          "events": [
+            {
+              "eventId": "R03:t2:e1",
+              "action": "replace",
+              "field": "locationZone",
+              "targetConstraintIds": [
+                "R03:c3"
+              ],
+              "clause": {
+                "id": "R03:c4",
+                "op": "eq",
+                "value": "北区",
+                "strength": "hard",
+                "sourceTurn": 2,
+                "supersedes": [
+                  "R03:c3"
+                ]
+              },
+              "evidence": {
+                "quote": "改为只在北区取",
+                "start": 0,
+                "end": 7
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R03:c1",
+                    "op": "eq",
+                    "value": "坐垫",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R03:t1:e1"
+              },
+              "categoryId": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R03:c2",
+                    "op": "eq",
+                    "value": 0,
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R03:t1:e2"
+              },
+              "locationZone": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R03:c4",
+                    "op": "eq",
+                    "value": "北区",
+                    "strength": "hard",
+                    "sourceTurn": 2,
+                    "supersedes": [
+                      "R03:c3"
+                    ]
+                  }
+                ],
+                "lastEventId": "R03:t2:e1"
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [],
+            "undeterminedProductIds": [],
+            "resultKind": "conclusive_empty",
+            "acceptableActions": [
+              "explain_no_match",
+              "propose_relaxation"
+            ],
+            "note": "SYN-P068在北区但售价10元；不得自动放宽。"
+          },
+          "referenceAssistantText": "当前目录没有北区0元的在售坐垫。"
+        },
+        {
+          "turn": 3,
+          "userUtterance": "可以付费了，预算放宽到10元以内。",
+          "events": [
+            {
+              "eventId": "R03:t3:e1",
+              "action": "replace",
+              "field": "price",
+              "targetConstraintIds": [
+                "R03:c2"
+              ],
+              "clause": {
+                "id": "R03:c5",
+                "op": "lte",
+                "value": 10,
+                "strength": "hard",
+                "sourceTurn": 3,
+                "supersedes": [
+                  "R03:c2"
+                ]
+              },
+              "evidence": {
+                "quote": "可以付费了，预算放宽到10元以内",
+                "start": 0,
+                "end": 16
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R03:c1",
+                    "op": "eq",
+                    "value": "坐垫",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R03:t1:e1"
+              },
+              "categoryId": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R03:c5",
+                    "op": "lte",
+                    "value": 10,
+                    "strength": "hard",
+                    "sourceTurn": 3,
+                    "supersedes": [
+                      "R03:c2"
+                    ]
+                  }
+                ],
+                "lastEventId": "R03:t3:e1"
+              },
+              "locationZone": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R03:c4",
+                    "op": "eq",
+                    "value": "北区",
+                    "strength": "hard",
+                    "sourceTurn": 2,
+                    "supersedes": [
+                      "R03:c3"
+                    ]
+                  }
+                ],
+                "lastEventId": "R03:t2:e1"
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [
+              "SYN-P068"
+            ],
+            "undeterminedProductIds": [],
+            "resultKind": "nonempty",
+            "acceptableActions": [
+              "search_and_recommend"
+            ],
+            "note": "只有收到本轮授权才放宽。"
+          },
+          "referenceAssistantText": "保留北区条件后，可看10元的SYN-P068。"
+        },
+        {
+          "turn": 4,
+          "userUtterance": "坐垫不要了，改找高等数学教材；仍然北区、10元以内。",
+          "events": [
+            {
+              "eventId": "R03:t4:e1",
+              "action": "replace",
+              "field": "itemType",
+              "targetConstraintIds": [
+                "R03:c1"
+              ],
+              "clause": {
+                "id": "R03:c6",
+                "op": "eq",
+                "value": "高等数学教材",
+                "strength": "hard",
+                "sourceTurn": 4,
+                "supersedes": [
+                  "R03:c1"
+                ]
+              },
+              "evidence": {
+                "quote": "坐垫不要了，改找高等数学教材",
+                "start": 0,
+                "end": 14
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R03:c6",
+                    "op": "eq",
+                    "value": "高等数学教材",
+                    "strength": "hard",
+                    "sourceTurn": 4,
+                    "supersedes": [
+                      "R03:c1"
+                    ]
+                  }
+                ],
+                "lastEventId": "R03:t4:e1"
+              },
+              "categoryId": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R03:c5",
+                    "op": "lte",
+                    "value": 10,
+                    "strength": "hard",
+                    "sourceTurn": 3,
+                    "supersedes": [
+                      "R03:c2"
+                    ]
+                  }
+                ],
+                "lastEventId": "R03:t3:e1"
+              },
+              "locationZone": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R03:c4",
+                    "op": "eq",
+                    "value": "北区",
+                    "strength": "hard",
+                    "sourceTurn": 2,
+                    "supersedes": [
+                      "R03:c3"
+                    ]
+                  }
+                ],
+                "lastEventId": "R03:t2:e1"
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [
+              "SYN-P074"
+            ],
+            "undeterminedProductIds": [],
+            "resultKind": "nonempty",
+            "acceptableActions": [
+              "search_and_recommend"
+            ],
+            "note": "原话明确保留区域和预算。没要求版本时，未知版本不阻止匹配。"
+          },
+          "referenceAssistantText": "北区10元以内的高等数学教材有SYN-P074，为0元赠书，版本尚未说明。"
+        }
+      ]
+    },
+    {
+      "id": "R04",
+      "familyId": "F-math-book-version-notes",
+      "track": "replay",
+      "categoryStratum": "book",
+      "title": "版本未知与软偏好升级",
+      "phenomena": [
+        "soft_preference",
+        "unknown",
+        "unrestrict",
+        "hardening"
+      ],
+      "split": "pilot_dev_only",
+      "annotationStatus": "draft_pending_independent_human_review",
+      "turns": [
+        {
+          "turn": 1,
+          "userUtterance": "找高等数学教材，25元以内。优先无笔记，但有笔记也能接受。",
+          "events": [
+            {
+              "eventId": "R04:t1:e1",
+              "action": "add",
+              "field": "itemType",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "R04:c1",
+                "op": "eq",
+                "value": "高等数学教材",
+                "strength": "hard",
+                "sourceTurn": 1,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "高等数学教材",
+                "start": 1,
+                "end": 7
+              }
+            },
+            {
+              "eventId": "R04:t1:e2",
+              "action": "add",
+              "field": "price",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "R04:c2",
+                "op": "lte",
+                "value": 25,
+                "strength": "hard",
+                "sourceTurn": 1,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "25元以内",
+                "start": 8,
+                "end": 13
+              }
+            },
+            {
+              "eventId": "R04:t1:e3",
+              "action": "add",
+              "field": "attributes.笔记情况",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "R04:c3",
+                "op": "eq",
+                "value": "无笔记",
+                "strength": "soft",
+                "sourceTurn": 1,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "优先无笔记，但有笔记也能接受",
+                "start": 14,
+                "end": 28
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R04:c1",
+                    "op": "eq",
+                    "value": "高等数学教材",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R04:t1:e1"
+              },
+              "categoryId": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R04:c2",
+                    "op": "lte",
+                    "value": 25,
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R04:t1:e2"
+              },
+              "locationZone": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "attributes.笔记情况": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R04:c3",
+                    "op": "eq",
+                    "value": "无笔记",
+                    "strength": "soft",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R04:t1:e3"
+              },
+              "attributes.版本标签": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [
+              "SYN-P071",
+              "SYN-P072",
+              "SYN-P074"
+            ],
+            "undeterminedProductIds": [],
+            "resultKind": "nonempty",
+            "acceptableActions": [
+              "search_and_recommend"
+            ],
+            "note": "有笔记不是硬违反；版本未提及。"
+          },
+          "referenceAssistantText": "SYN-P071、SYN-P072、SYN-P074都符合预算；其中SYN-P072标明无笔记，优先展示。"
+        },
+        {
+          "turn": 2,
+          "userUtterance": "版本必须是样例标签里的基础版。",
+          "events": [
+            {
+              "eventId": "R04:t2:e1",
+              "action": "add",
+              "field": "attributes.版本标签",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "R04:c4",
+                "op": "eq",
+                "value": "基础版",
+                "strength": "hard",
+                "sourceTurn": 2,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "版本必须是样例标签里的基础版",
+                "start": 0,
+                "end": 14
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R04:c1",
+                    "op": "eq",
+                    "value": "高等数学教材",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R04:t1:e1"
+              },
+              "categoryId": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R04:c2",
+                    "op": "lte",
+                    "value": 25,
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R04:t1:e2"
+              },
+              "locationZone": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "attributes.笔记情况": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R04:c3",
+                    "op": "eq",
+                    "value": "无笔记",
+                    "strength": "soft",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R04:t1:e3"
+              },
+              "attributes.版本标签": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R04:c4",
+                    "op": "eq",
+                    "value": "基础版",
+                    "strength": "hard",
+                    "sourceTurn": 2,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R04:t2:e1"
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [
+              "SYN-P071",
+              "SYN-P072"
+            ],
+            "undeterminedProductIds": [
+              "SYN-P074"
+            ],
+            "resultKind": "nonempty",
+            "acceptableActions": [
+              "search_and_recommend"
+            ],
+            "note": "未知不能推断成基础版；本任务不要求上册或下册。"
+          },
+          "referenceAssistantText": "SYN-P071和SYN-P072可确认是基础版；SYN-P074版本未说明，暂不能确认。无笔记的SYN-P072仍可优先。"
+        },
+        {
+          "turn": 3,
+          "userUtterance": "版本不限了。",
+          "events": [
+            {
+              "eventId": "R04:t3:e1",
+              "action": "unrestrict",
+              "field": "attributes.版本标签",
+              "targetConstraintIds": [
+                "R04:c4"
+              ],
+              "clause": null,
+              "evidence": {
+                "quote": "版本不限了",
+                "start": 0,
+                "end": 5
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R04:c1",
+                    "op": "eq",
+                    "value": "高等数学教材",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R04:t1:e1"
+              },
+              "categoryId": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R04:c2",
+                    "op": "lte",
+                    "value": 25,
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R04:t1:e2"
+              },
+              "locationZone": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "attributes.笔记情况": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R04:c3",
+                    "op": "eq",
+                    "value": "无笔记",
+                    "strength": "soft",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R04:t1:e3"
+              },
+              "attributes.版本标签": {
+                "status": "unrestricted",
+                "clauses": [],
+                "lastEventId": "R04:t3:e1"
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [
+              "SYN-P071",
+              "SYN-P072",
+              "SYN-P074"
+            ],
+            "undeterminedProductIds": [],
+            "resultKind": "nonempty",
+            "acceptableActions": [
+              "search_and_recommend"
+            ],
+            "note": "明确不限清除版本硬条件。"
+          },
+          "referenceAssistantText": "版本不限后，SYN-P074重新符合硬条件；无笔记仍只是优先项。"
+        },
+        {
+          "turn": 4,
+          "userUtterance": "无笔记改为必须，预算仍然25元以内。",
+          "events": [
+            {
+              "eventId": "R04:t4:e1",
+              "action": "replace",
+              "field": "attributes.笔记情况",
+              "targetConstraintIds": [
+                "R04:c3"
+              ],
+              "clause": {
+                "id": "R04:c5",
+                "op": "eq",
+                "value": "无笔记",
+                "strength": "hard",
+                "sourceTurn": 4,
+                "supersedes": [
+                  "R04:c3"
+                ]
+              },
+              "evidence": {
+                "quote": "无笔记改为必须",
+                "start": 0,
+                "end": 7
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R04:c1",
+                    "op": "eq",
+                    "value": "高等数学教材",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R04:t1:e1"
+              },
+              "categoryId": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R04:c2",
+                    "op": "lte",
+                    "value": 25,
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R04:t1:e2"
+              },
+              "locationZone": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "attributes.笔记情况": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R04:c5",
+                    "op": "eq",
+                    "value": "无笔记",
+                    "strength": "hard",
+                    "sourceTurn": 4,
+                    "supersedes": [
+                      "R04:c3"
+                    ]
+                  }
+                ],
+                "lastEventId": "R04:t4:e1"
+              },
+              "attributes.版本标签": {
+                "status": "unrestricted",
+                "clauses": [],
+                "lastEventId": "R04:t3:e1"
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [
+              "SYN-P072"
+            ],
+            "undeterminedProductIds": [],
+            "resultKind": "nonempty",
+            "acceptableActions": [
+              "search_and_recommend"
+            ],
+            "note": "替换soft为hard，保留原预算与版本不限状态。"
+          },
+          "referenceAssistantText": "按必须无笔记、25元以内筛选，可看SYN-P072。"
+        }
+      ]
+    },
+    {
+      "id": "R05",
+      "familyId": "F-kaoyan-scope-conjunction",
+      "track": "replay",
+      "categoryStratum": "kaoyan",
+      "title": "知识范围合取与部分撤销",
+      "phenomena": [
+        "contains_all",
+        "empty",
+        "partial_withdraw"
+      ],
+      "split": "pilot_dev_only",
+      "annotationStatus": "draft_pending_independent_human_review",
+      "turns": [
+        {
+          "turn": 1,
+          "userUtterance": "找考研数学笔记，40元以内，内容要覆盖线性代数。",
+          "events": [
+            {
+              "eventId": "R05:t1:e1",
+              "action": "add",
+              "field": "itemType",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "R05:c1",
+                "op": "eq",
+                "value": "考研数学笔记",
+                "strength": "hard",
+                "sourceTurn": 1,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "考研数学笔记",
+                "start": 1,
+                "end": 7
+              }
+            },
+            {
+              "eventId": "R05:t1:e2",
+              "action": "add",
+              "field": "price",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "R05:c2",
+                "op": "lte",
+                "value": 40,
+                "strength": "hard",
+                "sourceTurn": 1,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "40元以内",
+                "start": 8,
+                "end": 13
+              }
+            },
+            {
+              "eventId": "R05:t1:e3",
+              "action": "add",
+              "field": "attributes.内容范围",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "R05:c3",
+                "op": "contains_all",
+                "value": [
+                  "线性代数"
+                ],
+                "strength": "hard",
+                "sourceTurn": 1,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "内容要覆盖线性代数",
+                "start": 14,
+                "end": 23
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R05:c1",
+                    "op": "eq",
+                    "value": "考研数学笔记",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R05:t1:e1"
+              },
+              "categoryId": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R05:c2",
+                    "op": "lte",
+                    "value": 40,
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R05:t1:e2"
+              },
+              "locationZone": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "attributes.内容范围": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R05:c3",
+                    "op": "contains_all",
+                    "value": [
+                      "线性代数"
+                    ],
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R05:t1:e3"
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [
+              "SYN-P093",
+              "SYN-P100"
+            ],
+            "undeterminedProductIds": [],
+            "resultKind": "nonempty",
+            "acceptableActions": [
+              "search_and_recommend"
+            ],
+            "note": "覆盖是概念包含；综合三科笔记也能满足，不要求字段完全相等。"
+          },
+          "referenceAssistantText": "SYN-P093和SYN-P100均包含线性代数，价格在40元以内。"
+        },
+        {
+          "turn": 2,
+          "userUtterance": "还得覆盖高等数学。",
+          "events": [
+            {
+              "eventId": "R05:t2:e1",
+              "action": "add",
+              "field": "attributes.内容范围",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "R05:c4",
+                "op": "contains_all",
+                "value": [
+                  "高等数学"
+                ],
+                "strength": "hard",
+                "sourceTurn": 2,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "还得覆盖高等数学",
+                "start": 0,
+                "end": 8
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R05:c1",
+                    "op": "eq",
+                    "value": "考研数学笔记",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R05:t1:e1"
+              },
+              "categoryId": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R05:c2",
+                    "op": "lte",
+                    "value": 40,
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R05:t1:e2"
+              },
+              "locationZone": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "attributes.内容范围": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R05:c3",
+                    "op": "contains_all",
+                    "value": [
+                      "线性代数"
+                    ],
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  },
+                  {
+                    "id": "R05:c4",
+                    "op": "contains_all",
+                    "value": [
+                      "高等数学"
+                    ],
+                    "strength": "hard",
+                    "sourceTurn": 2,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R05:t2:e1"
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [
+              "SYN-P100"
+            ],
+            "undeterminedProductIds": [],
+            "resultKind": "nonempty",
+            "acceptableActions": [
+              "search_and_recommend"
+            ],
+            "note": "新增范围与前轮范围求交集；不是替换。"
+          },
+          "referenceAssistantText": "同时覆盖线性代数和高等数学的有SYN-P100，38元。"
+        },
+        {
+          "turn": 3,
+          "userUtterance": "预算改成30元以内。",
+          "events": [
+            {
+              "eventId": "R05:t3:e1",
+              "action": "replace",
+              "field": "price",
+              "targetConstraintIds": [
+                "R05:c2"
+              ],
+              "clause": {
+                "id": "R05:c5",
+                "op": "lte",
+                "value": 30,
+                "strength": "hard",
+                "sourceTurn": 3,
+                "supersedes": [
+                  "R05:c2"
+                ]
+              },
+              "evidence": {
+                "quote": "预算改成30元以内",
+                "start": 0,
+                "end": 9
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R05:c1",
+                    "op": "eq",
+                    "value": "考研数学笔记",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R05:t1:e1"
+              },
+              "categoryId": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R05:c5",
+                    "op": "lte",
+                    "value": 30,
+                    "strength": "hard",
+                    "sourceTurn": 3,
+                    "supersedes": [
+                      "R05:c2"
+                    ]
+                  }
+                ],
+                "lastEventId": "R05:t3:e1"
+              },
+              "locationZone": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "attributes.内容范围": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R05:c3",
+                    "op": "contains_all",
+                    "value": [
+                      "线性代数"
+                    ],
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  },
+                  {
+                    "id": "R05:c4",
+                    "op": "contains_all",
+                    "value": [
+                      "高等数学"
+                    ],
+                    "strength": "hard",
+                    "sourceTurn": 2,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R05:t2:e1"
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [],
+            "undeterminedProductIds": [],
+            "resultKind": "conclusive_empty",
+            "acceptableActions": [
+              "explain_no_match",
+              "propose_relaxation"
+            ],
+            "note": "已知范围只为高等数学的P091/P092不满足线性代数，不能因为较便宜推荐。"
+          },
+          "referenceAssistantText": "当前目录没有30元以内且同时覆盖这两个范围的在售考研数学笔记。"
+        },
+        {
+          "turn": 4,
+          "userUtterance": "撤销刚才增加的高等数学要求，线性代数仍要覆盖。",
+          "events": [
+            {
+              "eventId": "R05:t4:e1",
+              "action": "withdraw",
+              "field": "attributes.内容范围",
+              "targetConstraintIds": [
+                "R05:c4"
+              ],
+              "clause": null,
+              "evidence": {
+                "quote": "撤销刚才增加的高等数学要求",
+                "start": 0,
+                "end": 13
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R05:c1",
+                    "op": "eq",
+                    "value": "考研数学笔记",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R05:t1:e1"
+              },
+              "categoryId": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R05:c5",
+                    "op": "lte",
+                    "value": 30,
+                    "strength": "hard",
+                    "sourceTurn": 3,
+                    "supersedes": [
+                      "R05:c2"
+                    ]
+                  }
+                ],
+                "lastEventId": "R05:t3:e1"
+              },
+              "locationZone": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "attributes.内容范围": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R05:c3",
+                    "op": "contains_all",
+                    "value": [
+                      "线性代数"
+                    ],
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R05:t4:e1"
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [
+              "SYN-P093"
+            ],
+            "undeterminedProductIds": [],
+            "resultKind": "nonempty",
+            "acceptableActions": [
+              "search_and_recommend"
+            ],
+            "note": "同槽位只移除c4，保留c3；slot仍为constrained。"
+          },
+          "referenceAssistantText": "保留线性代数和30元以内条件，可看SYN-P093，12元。"
+        },
+        {
+          "turn": 5,
+          "userUtterance": "预算再改为10元以内。",
+          "events": [
+            {
+              "eventId": "R05:t5:e1",
+              "action": "replace",
+              "field": "price",
+              "targetConstraintIds": [
+                "R05:c5"
+              ],
+              "clause": {
+                "id": "R05:c6",
+                "op": "lte",
+                "value": 10,
+                "strength": "hard",
+                "sourceTurn": 5,
+                "supersedes": [
+                  "R05:c5"
+                ]
+              },
+              "evidence": {
+                "quote": "预算再改为10元以内",
+                "start": 0,
+                "end": 10
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R05:c1",
+                    "op": "eq",
+                    "value": "考研数学笔记",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R05:t1:e1"
+              },
+              "categoryId": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R05:c6",
+                    "op": "lte",
+                    "value": 10,
+                    "strength": "hard",
+                    "sourceTurn": 5,
+                    "supersedes": [
+                      "R05:c5"
+                    ]
+                  }
+                ],
+                "lastEventId": "R05:t5:e1"
+              },
+              "locationZone": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "attributes.内容范围": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R05:c3",
+                    "op": "contains_all",
+                    "value": [
+                      "线性代数"
+                    ],
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R05:t4:e1"
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [],
+            "undeterminedProductIds": [],
+            "resultKind": "conclusive_empty",
+            "acceptableActions": [
+              "explain_no_match",
+              "propose_relaxation"
+            ],
+            "note": "最终确定无解。P094虽为10元，但属于概率统计复习卡片，不是要求的线代笔记。"
+          },
+          "referenceAssistantText": "当前目录没有10元以内且覆盖线性代数的在售考研数学笔记。"
+        }
+      ]
+    },
+    {
+      "id": "R06",
+      "familyId": "F-lamp-category-dimming",
+      "track": "replay",
+      "categoryStratum": "dorm",
+      "title": "物品类型跨分类与功能未说明",
+      "phenomena": [
+        "category",
+        "unknown",
+        "boundary"
+      ],
+      "split": "pilot_dev_only",
+      "annotationStatus": "draft_pending_independent_human_review",
+      "turns": [
+        {
+          "turn": 1,
+          "userUtterance": "找台灯，60元以内。",
+          "events": [
+            {
+              "eventId": "R06:t1:e1",
+              "action": "add",
+              "field": "itemType",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "R06:c1",
+                "op": "eq",
+                "value": "台灯",
+                "strength": "hard",
+                "sourceTurn": 1,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "台灯",
+                "start": 1,
+                "end": 3
+              }
+            },
+            {
+              "eventId": "R06:t1:e2",
+              "action": "add",
+              "field": "price",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "R06:c2",
+                "op": "lte",
+                "value": 60,
+                "strength": "hard",
+                "sourceTurn": 1,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "60元以内",
+                "start": 4,
+                "end": 9
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R06:c1",
+                    "op": "eq",
+                    "value": "台灯",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R06:t1:e1"
+              },
+              "categoryId": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R06:c2",
+                    "op": "lte",
+                    "value": 60,
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R06:t1:e2"
+              },
+              "locationZone": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "attributes.调光方式": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [
+              "SYN-P039",
+              "SYN-P041",
+              "SYN-P042",
+              "SYN-P043",
+              "SYN-P044",
+              "SYN-P045",
+              "SYN-P046",
+              "SYN-P047",
+              "SYN-P048"
+            ],
+            "undeterminedProductIds": [],
+            "resultKind": "nonempty",
+            "acceptableActions": [
+              "search_and_recommend"
+            ],
+            "note": "P039属于digital但也是台灯，此轮不能默认排除。"
+          },
+          "referenceAssistantText": "当前有9件符合预算的在售台灯，可先查看SYN-P039、SYN-P041、SYN-P042、SYN-P043、SYN-P044。"
+        },
+        {
+          "turn": 2,
+          "userUtterance": "只看宿舍用品分类。",
+          "events": [
+            {
+              "eventId": "R06:t2:e1",
+              "action": "add",
+              "field": "categoryId",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "R06:c3",
+                "op": "eq",
+                "value": "dorm",
+                "strength": "hard",
+                "sourceTurn": 2,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "只看宿舍用品分类",
+                "start": 0,
+                "end": 8
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R06:c1",
+                    "op": "eq",
+                    "value": "台灯",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R06:t1:e1"
+              },
+              "categoryId": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R06:c3",
+                    "op": "eq",
+                    "value": "dorm",
+                    "strength": "hard",
+                    "sourceTurn": 2,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R06:t2:e1"
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R06:c2",
+                    "op": "lte",
+                    "value": 60,
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R06:t1:e2"
+              },
+              "locationZone": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "attributes.调光方式": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [
+              "SYN-P041",
+              "SYN-P042",
+              "SYN-P043",
+              "SYN-P044",
+              "SYN-P045",
+              "SYN-P046",
+              "SYN-P047",
+              "SYN-P048"
+            ],
+            "undeterminedProductIds": [],
+            "resultKind": "nonempty",
+            "acceptableActions": [
+              "search_and_recommend"
+            ],
+            "note": "用户明确要求分类后才排除P039。"
+          },
+          "referenceAssistantText": "宿舍用品分类有8件符合预算的台灯，可先查看SYN-P041至SYN-P045。"
+        },
+        {
+          "turn": 3,
+          "userUtterance": "要能明确支持三档亮度的。",
+          "events": [
+            {
+              "eventId": "R06:t3:e1",
+              "action": "add",
+              "field": "attributes.调光方式",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "R06:c4",
+                "op": "eq",
+                "value": "三档亮度",
+                "strength": "hard",
+                "sourceTurn": 3,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "要能明确支持三档亮度",
+                "start": 0,
+                "end": 10
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R06:c1",
+                    "op": "eq",
+                    "value": "台灯",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R06:t1:e1"
+              },
+              "categoryId": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R06:c3",
+                    "op": "eq",
+                    "value": "dorm",
+                    "strength": "hard",
+                    "sourceTurn": 2,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R06:t2:e1"
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R06:c2",
+                    "op": "lte",
+                    "value": 60,
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R06:t1:e2"
+              },
+              "locationZone": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "attributes.调光方式": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R06:c4",
+                    "op": "eq",
+                    "value": "三档亮度",
+                    "strength": "hard",
+                    "sourceTurn": 3,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R06:t3:e1"
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [
+              "SYN-P041",
+              "SYN-P042",
+              "SYN-P043",
+              "SYN-P045",
+              "SYN-P046",
+              "SYN-P047"
+            ],
+            "undeterminedProductIds": [
+              "SYN-P048"
+            ],
+            "resultKind": "nonempty",
+            "acceptableActions": [
+              "search_and_recommend"
+            ],
+            "note": "P044为单档，不是unknown；P048为unknown。"
+          },
+          "referenceAssistantText": "可确认三档亮度的有6件，可先查看SYN-P041、SYN-P042、SYN-P043、SYN-P045、SYN-P046；SYN-P048未说明调光档位。"
+        },
+        {
+          "turn": 4,
+          "userUtterance": "预算收紧到30元以内。",
+          "events": [
+            {
+              "eventId": "R06:t4:e1",
+              "action": "replace",
+              "field": "price",
+              "targetConstraintIds": [
+                "R06:c2"
+              ],
+              "clause": {
+                "id": "R06:c5",
+                "op": "lte",
+                "value": 30,
+                "strength": "hard",
+                "sourceTurn": 4,
+                "supersedes": [
+                  "R06:c2"
+                ]
+              },
+              "evidence": {
+                "quote": "预算收紧到30元以内",
+                "start": 0,
+                "end": 10
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R06:c1",
+                    "op": "eq",
+                    "value": "台灯",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R06:t1:e1"
+              },
+              "categoryId": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R06:c3",
+                    "op": "eq",
+                    "value": "dorm",
+                    "strength": "hard",
+                    "sourceTurn": 2,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R06:t2:e1"
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R06:c5",
+                    "op": "lte",
+                    "value": 30,
+                    "strength": "hard",
+                    "sourceTurn": 4,
+                    "supersedes": [
+                      "R06:c2"
+                    ]
+                  }
+                ],
+                "lastEventId": "R06:t4:e1"
+              },
+              "locationZone": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "attributes.调光方式": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R06:c4",
+                    "op": "eq",
+                    "value": "三档亮度",
+                    "strength": "hard",
+                    "sourceTurn": 3,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R06:t3:e1"
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [
+              "SYN-P041",
+              "SYN-P042"
+            ],
+            "undeterminedProductIds": [
+              "SYN-P048"
+            ],
+            "resultKind": "nonempty",
+            "acceptableActions": [
+              "search_and_recommend"
+            ],
+            "note": "P043为31元被排除，P048仍不进入合格推荐。"
+          },
+          "referenceAssistantText": "可确认满足的有SYN-P041（29元）和SYN-P042（30元）；SYN-P048虽便宜，但三档亮度尚不能确认。"
+        },
+        {
+          "turn": 5,
+          "userUtterance": "预算再收紧到18元以内。",
+          "events": [
+            {
+              "eventId": "R06:t5:e1",
+              "action": "replace",
+              "field": "price",
+              "targetConstraintIds": [
+                "R06:c5"
+              ],
+              "clause": {
+                "id": "R06:c6",
+                "op": "lte",
+                "value": 18,
+                "strength": "hard",
+                "sourceTurn": 5,
+                "supersedes": [
+                  "R06:c5"
+                ]
+              },
+              "evidence": {
+                "quote": "预算再收紧到18元以内",
+                "start": 0,
+                "end": 11
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R06:c1",
+                    "op": "eq",
+                    "value": "台灯",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R06:t1:e1"
+              },
+              "categoryId": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R06:c3",
+                    "op": "eq",
+                    "value": "dorm",
+                    "strength": "hard",
+                    "sourceTurn": 2,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R06:t2:e1"
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R06:c6",
+                    "op": "lte",
+                    "value": 18,
+                    "strength": "hard",
+                    "sourceTurn": 5,
+                    "supersedes": [
+                      "R06:c5"
+                    ]
+                  }
+                ],
+                "lastEventId": "R06:t5:e1"
+              },
+              "locationZone": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "attributes.调光方式": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "R06:c4",
+                    "op": "eq",
+                    "value": "三档亮度",
+                    "strength": "hard",
+                    "sourceTurn": 3,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "R06:t3:e1"
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [],
+            "undeterminedProductIds": [
+              "SYN-P048"
+            ],
+            "resultKind": "undetermined_only",
+            "acceptableActions": [
+              "explain_no_confirmed_match",
+              "propose_relaxation"
+            ],
+            "note": "最终仅资料不足候选，不能声称目录已经证明无满足项。"
+          },
+          "referenceAssistantText": "当前没有能确认满足全部条件的商品。SYN-P048为18元，但未说明调光档位，不能确认支持三档亮度。"
+        }
+      ]
+    },
+    {
+      "id": "I01",
+      "familyId": "F-mouse-hidden-silent-zone",
+      "track": "interactive",
+      "categoryStratum": "digital",
+      "title": "按问题披露静音和区域要求",
+      "phenomena": [
+        "hidden_goal",
+        "clarification",
+        "unknown"
+      ],
+      "privateCardId": "CARD-I01",
+      "traceType": "one_valid_branch_not_fixed_replay",
+      "split": "pilot_dev_only",
+      "annotationStatus": "draft_pending_independent_human_review",
+      "turns": [
+        {
+          "turn": 1,
+          "userUtterance": "找鼠标，40元以内。",
+          "events": [
+            {
+              "eventId": "I01:t1:e1",
+              "action": "add",
+              "field": "itemType",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "I01:c1",
+                "op": "eq",
+                "value": "鼠标",
+                "strength": "hard",
+                "sourceTurn": 1,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "鼠标",
+                "start": 1,
+                "end": 3
+              }
+            },
+            {
+              "eventId": "I01:t1:e2",
+              "action": "add",
+              "field": "price",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "I01:c2",
+                "op": "lte",
+                "value": 40,
+                "strength": "hard",
+                "sourceTurn": 1,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "40元以内",
+                "start": 4,
+                "end": 9
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "I01:c1",
+                    "op": "eq",
+                    "value": "鼠标",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "I01:t1:e1"
+              },
+              "categoryId": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "I01:c2",
+                    "op": "lte",
+                    "value": 40,
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "I01:t1:e2"
+              },
+              "locationZone": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "attributes.按键特点": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [
+              "SYN-P011",
+              "SYN-P012",
+              "SYN-P014",
+              "SYN-P015"
+            ],
+            "undeterminedProductIds": [],
+            "resultKind": "nonempty",
+            "acceptableActions": [
+              "ask_user",
+              "search_and_recommend"
+            ],
+            "note": "这是一个允许的追问，也可检索或询问区域；未披露条件不写入本轮需求状态。"
+          },
+          "referenceAssistantText": "对鼠标按键是否静音有要求吗？"
+        },
+        {
+          "turn": 2,
+          "userUtterance": "必须是静音按键。",
+          "events": [
+            {
+              "eventId": "I01:t2:e1",
+              "action": "add",
+              "field": "attributes.按键特点",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "I01:c3",
+                "op": "eq",
+                "value": "静音按键",
+                "strength": "hard",
+                "sourceTurn": 2,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "必须是静音按键",
+                "start": 0,
+                "end": 7
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "I01:c1",
+                    "op": "eq",
+                    "value": "鼠标",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "I01:t1:e1"
+              },
+              "categoryId": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "I01:c2",
+                    "op": "lte",
+                    "value": 40,
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "I01:t1:e2"
+              },
+              "locationZone": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "attributes.按键特点": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "I01:c3",
+                    "op": "eq",
+                    "value": "静音按键",
+                    "strength": "hard",
+                    "sourceTurn": 2,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "I01:t2:e1"
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [
+              "SYN-P011",
+              "SYN-P012"
+            ],
+            "undeterminedProductIds": [
+              "SYN-P014",
+              "SYN-P015"
+            ],
+            "resultKind": "nonempty",
+            "acceptableActions": [
+              "ask_user",
+              "search_and_recommend"
+            ],
+            "note": "前一轮询问按键特点才返回本句；商品P014缺少按键特点键，与P015显式null均是未知。"
+          },
+          "referenceAssistantText": "可接受南区或北区交易吗？"
+        },
+        {
+          "turn": 3,
+          "userUtterance": "只能在南区交易。",
+          "events": [
+            {
+              "eventId": "I01:t3:e1",
+              "action": "add",
+              "field": "locationZone",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "I01:c4",
+                "op": "eq",
+                "value": "南区",
+                "strength": "hard",
+                "sourceTurn": 3,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "只能在南区交易",
+                "start": 0,
+                "end": 7
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "I01:c1",
+                    "op": "eq",
+                    "value": "鼠标",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "I01:t1:e1"
+              },
+              "categoryId": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "price": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "I01:c2",
+                    "op": "lte",
+                    "value": 40,
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "I01:t1:e2"
+              },
+              "locationZone": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "I01:c4",
+                    "op": "eq",
+                    "value": "南区",
+                    "strength": "hard",
+                    "sourceTurn": 3,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "I01:t3:e1"
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "attributes.按键特点": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "I01:c3",
+                    "op": "eq",
+                    "value": "静音按键",
+                    "strength": "hard",
+                    "sourceTurn": 2,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "I01:t2:e1"
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [
+              "SYN-P011"
+            ],
+            "undeterminedProductIds": [
+              "SYN-P015"
+            ],
+            "resultKind": "nonempty",
+            "acceptableActions": [
+              "search_and_recommend"
+            ],
+            "note": "只能确认P011；P015的静音事实不能由用户补出。"
+          },
+          "referenceAssistantText": "SYN-P011为南区35元鼠标，描述明确写有静音按键，符合已说明的条件。"
+        }
+      ]
+    },
+    {
+      "id": "I02",
+      "familyId": "F-storage-no-clarification",
+      "track": "interactive",
+      "categoryStratum": "dorm",
+      "title": "不缺关键条件时直接检索",
+      "phenomena": [
+        "no_clarification_needed",
+        "unmentioned"
+      ],
+      "privateCardId": "CARD-I02",
+      "traceType": "immediate_completion_control",
+      "split": "pilot_dev_only",
+      "annotationStatus": "draft_pending_independent_human_review",
+      "turns": [
+        {
+          "turn": 1,
+          "userUtterance": "找30升、带盖的收纳箱。",
+          "events": [
+            {
+              "eventId": "I02:t1:e1",
+              "action": "add",
+              "field": "itemType",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "I02:c1",
+                "op": "eq",
+                "value": "收纳箱",
+                "strength": "hard",
+                "sourceTurn": 1,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "收纳箱",
+                "start": 8,
+                "end": 11
+              }
+            },
+            {
+              "eventId": "I02:t1:e2",
+              "action": "add",
+              "field": "attributes.容量",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "I02:c2",
+                "op": "eq",
+                "value": "30升",
+                "strength": "hard",
+                "sourceTurn": 1,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "30升",
+                "start": 1,
+                "end": 4
+              }
+            },
+            {
+              "eventId": "I02:t1:e3",
+              "action": "add",
+              "field": "attributes.结构",
+              "targetConstraintIds": [],
+              "clause": {
+                "id": "I02:c3",
+                "op": "eq",
+                "value": "带盖",
+                "strength": "hard",
+                "sourceTurn": 1,
+                "supersedes": []
+              },
+              "evidence": {
+                "quote": "带盖",
+                "start": 5,
+                "end": 7
+              }
+            }
+          ],
+          "state": {
+            "slots": {
+              "itemType": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "I02:c1",
+                    "op": "eq",
+                    "value": "收纳箱",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "I02:t1:e1"
+              },
+              "categoryId": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "price": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "locationZone": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "condition": {
+                "status": "unmentioned",
+                "clauses": [],
+                "lastEventId": null
+              },
+              "attributes.容量": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "I02:c2",
+                    "op": "eq",
+                    "value": "30升",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "I02:t1:e2"
+              },
+              "attributes.结构": {
+                "status": "constrained",
+                "clauses": [
+                  {
+                    "id": "I02:c3",
+                    "op": "eq",
+                    "value": "带盖",
+                    "strength": "hard",
+                    "sourceTurn": 1,
+                    "supersedes": []
+                  }
+                ],
+                "lastEventId": "I02:t1:e3"
+              }
+            }
+          },
+          "gold": {
+            "eligibleProductIds": [
+              "SYN-P050",
+              "SYN-P051"
+            ],
+            "undeterminedProductIds": [],
+            "resultKind": "nonempty",
+            "acceptableActions": [
+              "search_and_recommend"
+            ],
+            "note": "无需强制询问预算和地点；需求卡没有隐藏的硬限制。"
+          },
+          "referenceAssistantText": "可看SYN-P050（透明、20元、北区）和SYN-P051（灰色、29元、南区），均为30升带盖收纳箱。"
+        }
+      ]
+    }
+  ]
+}

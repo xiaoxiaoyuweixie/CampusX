@@ -1,0 +1,166 @@
+{
+  "metadata": {
+    "datasetId": "campusx-dialogue-pilot-v0.1",
+    "status": "draft_not_a_running_user_simulator",
+    "warning": "Never expose private cards, hidden IDs, or evaluator labels to the assistant under test."
+  },
+  "cards": [
+    {
+      "schemaVersion": "0.1",
+      "audience": "USER_SIMULATOR_AND_EVALUATOR_ONLY",
+      "scope": "synthetic_catalog_only",
+      "maxClarificationQuestions": 3,
+      "maxAssistantDecisions": 4,
+      "maxDistinctFieldsPerQuestion": 2,
+      "terminationPolicy": "Every reply declares one primary action and final. A legal final recommendation or final no-match/unknown-only explanation ends the task. Questions and relaxation proposals are nonterminal; no automatic rejection/retry. Budget exhaustion without a legal terminal answer is incomplete failure.",
+      "questionPolicy": {
+        "direct": "Answer only explicitly asked fields, at most two. If more are asked, answer first two in their textual order.",
+        "general": "For a general question such as 还有其他要求吗, reveal the highest-priority undisclosed hidden field, or say 没有其他要求了.",
+        "repeat": "Return the same fact; do not invent a new preference.",
+        "unknownField": "这个方面没有其他要求。 This supplies no product fact and adds no supported product attribute.",
+        "sellerFact": "我也不知道商品未说明的属性，请以目录为准。",
+        "relaxation": "Use allowedRelaxations only; denied requests do not update any constraint."
+      },
+      "id": "CARD-I01",
+      "taskId": "I01",
+      "fullGoal": {
+        "itemType": "鼠标",
+        "maxPrice": 40,
+        "locationZone": "南区",
+        "requiredAttributes": {
+          "按键特点": "静音按键"
+        },
+        "softPreferences": [],
+        "otherRequirements": null
+      },
+      "initialDisclosure": "找鼠标，40元以内。",
+      "hiddenFieldsInDisclosurePriority": [
+        "attributes.按键特点",
+        "locationZone"
+      ],
+      "answersByField": {
+        "itemType": "要鼠标。",
+        "price": "40元以内，不再提高。",
+        "locationZone": "只能在南区交易。",
+        "attributes.按键特点": "必须是静音按键。"
+      },
+      "allowedRelaxations": [],
+      "relaxationResponse": "这些条件都不能放宽。",
+      "otherFieldResponse": "这个方面没有其他要求。",
+      "hiddenGoalEligibleProductIds": [
+        "SYN-P011"
+      ],
+      "hiddenGoalUndeterminedProductIds": [
+        "SYN-P015"
+      ],
+      "terminalAcceptance": "A nonempty final list of at most 5 distinct catalog IDs, all in hiddenGoalEligibleProductIds, with no unsupported factual claims. Correct lucky first-turn recommendation is accepted; clarification is not mandatory.",
+      "referenceQuestionFields": [
+        [
+          "attributes.按键特点"
+        ],
+        [
+          "locationZone"
+        ]
+      ],
+      "referenceGoldTaskId": "I01",
+      "outputProtocol": {
+        "fields": [
+          "action",
+          "final",
+          "recommendedProductIds",
+          "undeterminedProductIds",
+          "excludedProductIds",
+          "questionFields",
+          "text"
+        ],
+        "actions": [
+          "ask_user",
+          "propose_relaxation",
+          "recommend",
+          "explain_no_match",
+          "explain_no_confirmed_match"
+        ],
+        "nonterminal": "ask_user/propose_relaxation require final=false and nonempty questionFields. They may mention currently eligible recommendations, which are checked against visible constraints but do not terminate or count as final goal success.",
+        "terminal": "recommend requires final=true, no questionFields and 1..5 distinct recommendedProductIds. Final explanations require final=true, no questionFields and an empty recommendedProductIds list, evaluated against the corresponding no-match category.",
+        "mixed": "A reply containing a question is nonterminal. final=true with questionFields is malformed and cannot pass. Text/fields inconsistencies are reviewed; inferred extra questions consume budget.",
+        "budget": "At most 3 question messages and 4 assistant decisions. On decision 4 only a legal terminal reply can succeed. Extra questions or missing terminal output count as incomplete failure; do not reveal answers after the limit.",
+        "malformed": "An unclassifiable/malformed reply consumes a decision and receives a fixed format-error notice without private facts; no unlimited free retries.",
+        "mentions": "IDs explicitly described as excluded or undetermined are not recommendations. Real recommendations in prose must agree with recommendedProductIds; contradictory prose is a factual/format error."
+      }
+    },
+    {
+      "schemaVersion": "0.1",
+      "audience": "USER_SIMULATOR_AND_EVALUATOR_ONLY",
+      "scope": "synthetic_catalog_only",
+      "maxClarificationQuestions": 3,
+      "maxAssistantDecisions": 4,
+      "maxDistinctFieldsPerQuestion": 2,
+      "terminationPolicy": "Every reply declares one primary action and final. A legal final recommendation or final no-match/unknown-only explanation ends the task. Questions and relaxation proposals are nonterminal; no automatic rejection/retry. Budget exhaustion without a legal terminal answer is incomplete failure.",
+      "questionPolicy": {
+        "direct": "Answer only explicitly asked fields, at most two. If more are asked, answer first two in their textual order.",
+        "general": "For a general question such as 还有其他要求吗, reveal the highest-priority undisclosed hidden field, or say 没有其他要求了.",
+        "repeat": "Return the same fact; do not invent a new preference.",
+        "unknownField": "这个方面没有其他要求。 This supplies no product fact and adds no supported product attribute.",
+        "sellerFact": "我也不知道商品未说明的属性，请以目录为准。",
+        "relaxation": "Use allowedRelaxations only; denied requests do not update any constraint."
+      },
+      "id": "CARD-I02",
+      "taskId": "I02",
+      "fullGoal": {
+        "itemType": "收纳箱",
+        "requiredAttributes": {
+          "容量": "30升",
+          "结构": "带盖"
+        },
+        "maxPrice": null,
+        "locationZone": null,
+        "softPreferences": [],
+        "otherRequirements": null
+      },
+      "initialDisclosure": "找30升、带盖的收纳箱。",
+      "hiddenFieldsInDisclosurePriority": [],
+      "answersByField": {
+        "itemType": "要收纳箱。",
+        "price": "预算不限。",
+        "locationZone": "南区、北区都可以。",
+        "attributes.容量": "必须30升。",
+        "attributes.结构": "必须带盖。"
+      },
+      "allowedRelaxations": [],
+      "relaxationResponse": "30升和带盖这两条不能放宽。",
+      "otherFieldResponse": "这个方面没有其他要求。",
+      "hiddenGoalEligibleProductIds": [
+        "SYN-P050",
+        "SYN-P051"
+      ],
+      "hiddenGoalUndeterminedProductIds": [],
+      "terminalAcceptance": "A nonempty final list of at most 5 distinct catalog IDs, all in hiddenGoalEligibleProductIds, with no unsupported factual claims. Extra budget or location questions do not improve eligibility and count toward unnecessary clarification.",
+      "referenceQuestionFields": [],
+      "referenceGoldTaskId": "I02",
+      "outputProtocol": {
+        "fields": [
+          "action",
+          "final",
+          "recommendedProductIds",
+          "undeterminedProductIds",
+          "excludedProductIds",
+          "questionFields",
+          "text"
+        ],
+        "actions": [
+          "ask_user",
+          "propose_relaxation",
+          "recommend",
+          "explain_no_match",
+          "explain_no_confirmed_match"
+        ],
+        "nonterminal": "ask_user/propose_relaxation require final=false and nonempty questionFields. They may mention currently eligible recommendations, which are checked against visible constraints but do not terminate or count as final goal success.",
+        "terminal": "recommend requires final=true, no questionFields and 1..5 distinct recommendedProductIds. Final explanations require final=true, no questionFields and an empty recommendedProductIds list, evaluated against the corresponding no-match category.",
+        "mixed": "A reply containing a question is nonterminal. final=true with questionFields is malformed and cannot pass. Text/fields inconsistencies are reviewed; inferred extra questions consume budget.",
+        "budget": "At most 3 question messages and 4 assistant decisions. On decision 4 only a legal terminal reply can succeed. Extra questions or missing terminal output count as incomplete failure; do not reveal answers after the limit.",
+        "malformed": "An unclassifiable/malformed reply consumes a decision and receives a fixed format-error notice without private facts; no unlimited free retries.",
+        "mentions": "IDs explicitly described as excluded or undetermined are not recommendations. Real recommendations in prose must agree with recommendedProductIds; contradictory prose is a factual/format error."
+      }
+    }
+  ]
+}

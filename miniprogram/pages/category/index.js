@@ -1,5 +1,6 @@
 const router = require('../../utils/router.js');
 const { api } = require('../../api/index.js');
+const unread = require('../../utils/unread.js');
 const { categories: fallbackCategories } = require('../../mock/products.js');
 
 Page({
@@ -11,6 +12,7 @@ Page({
   },
 
   async onShow() {
+    unread.refresh();
     const g = getApp().globalData;
     await this.loadCategories();
     if (g.selectedCategory) {

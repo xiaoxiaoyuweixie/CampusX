@@ -1,4 +1,5 @@
 const { api } = require('../../api/index.js');
+const unread = require('../../utils/unread.js');
 const { categories: fallbackCategories } = require('../../mock/products.js');
 
 Page({
@@ -16,6 +17,8 @@ Page({
   async onLoad() {
     await this.loadCategories();
   },
+
+  onShow() { unread.refresh(); },
 
   async loadCategories() {
     try {

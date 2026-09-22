@@ -4,5 +4,7 @@
     "product-card": "/components/product-card/index"
   },
   "navigationBarTitleText": "校易通",
+  "navigationBarBackgroundColor": "#EFF6FF",
+  "backgroundColor": "#EFF6FF",
   "enablePullDownRefresh": true
 }

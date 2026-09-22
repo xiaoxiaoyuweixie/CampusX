@@ -4,6 +4,7 @@ const storage = require('../../utils/storage.js');
 const chatState = require('../../utils/chat-state.js');
 const { withMessageTimes } = require('../../utils/chat-presentation.js');
 const media = require('../../utils/chat-media.js');
+const unread = require('../../utils/unread.js');
 
 function unavailable(reason = '正在确认聊天权限') {
   return { canSend: false, sendReason: reason, wechat: { available: false, reason }, phone: { available: false, reason } };
@@ -152,6 +153,7 @@ Page({
       this.applyPermissions(result.permissions);
       if (result.session && result.session.name) wx.setNavigationBarTitle({ title: result.session.name });
       this.renderMessages(showLoading && !older);
+      unread.refresh();
     } catch (err) {
       if (this.isCurrent()) {
         this.applyPermissions(unavailable(err.business ? err.message : '暂时无法确认聊天权限，请重试'));
@@ -272,6 +274,14 @@ Page({
     if (this.data.contactBusy || !this.isCurrent()) return;
     this.setData({ contactBusy: true });
     try {
+      // Restore the full visible page before opening; keep the input and stored draft untouched.
+      if (this.data.keyboardHeight && wx.hideKeyboard) {
+        try {
+          await wx.hideKeyboard();
+          if (this.isCurrent()) this.setData({ keyboardHeight: 0 }, () => this.measureList());
+        } catch (err) { /* A keyboard dismissal failure must not bypass contact permission checks. */ }
+      }
+      if (!this.isCurrent()) return;
       const result = payload(await api.getChatContact({ sessionId: this.sessionId, type: 'wechat', purpose: 'preview' }));
       if (this.isCurrent()) this.setData({ contactOpen: true, maskedWechat: result.masked, contactReason: '' });
     } catch (err) { if (this.isCurrent()) { this.toast(err.message); this.loadMessages(false); } }

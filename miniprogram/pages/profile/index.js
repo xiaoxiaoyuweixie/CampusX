@@ -1,5 +1,6 @@
 const storage = require('../../utils/storage.js');
 const { api } = require('../../api/index.js');
+const unread = require('../../utils/unread.js');
 
 Page({
   data: {
@@ -9,9 +10,13 @@ Page({
   },
 
   async onShow() {
+    unread.refresh();
     const user = storage.get('userInfo', {});
     this.setData({ user });
+    const account = unread.captureAccount();
+    if (!account) return;
     const res = await api.getDashboard();
+    if (!unread.isCurrentAccount(account)) return;
     const payload = res.result || {};
     if (payload.code === 0) {
       const latestUser = payload.data.user ? { ...user, ...payload.data.user, logged: true } : user;

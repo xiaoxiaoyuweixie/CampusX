@@ -53,6 +53,16 @@ async function getSessionList(data, openid) {
   }
   return { list, page, pageSize, total };
 }
+async function getUnreadState(data, openid) {
+  assertUser(await find('users', 'openid', openid));
+  // Query for existence across all conversations, independently of the list page.
+  const query = command.or(['buyer', 'seller'].map(role => ({
+    participants: command.all([openid]), status: 'active',
+    [`${role}Openid`]: openid, [`unreadCount.${role}`]: command.gt(0),
+  })));
+  const result = await db.collection('chat_sessions').where(query).limit(1).get();
+  return { hasUnread: result.data.length > 0 };
+}
 async function markRead(data, openid) {
   assertUser(await find('users', 'openid', openid));
   const session = await find('chat_sessions', 'sessionId', data.sessionId);
@@ -61,4 +71,4 @@ async function markRead(data, openid) {
   await db.collection('chat_sessions').doc(session._id).update({ data: { [`unreadCount.${role}`]: 0 } });
   return true;
 }
-module.exports = { openSession, getSessionList, markRead };
+module.exports = { openSession, getSessionList, getUnreadState, markRead };

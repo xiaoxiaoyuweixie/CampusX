@@ -6,7 +6,7 @@ const images = require('./services/images');
 
 const actions = {
   openSession: sessions.openSession, createSession: sessions.openSession,
-  getSessionList: sessions.getSessionList, markRead: sessions.markRead,
+  getSessionList: sessions.getSessionList, getUnreadState: sessions.getUnreadState, markRead: sessions.markRead,
   getMessages: messages.getMessages, sendMessage: messages.sendMessage,
   getChatState: contacts.getChatState, getContact: contacts.getContact,
   prepareImage: images.prepareImage, getImage: images.getImage,

@@ -20,6 +20,12 @@ dist-ssr
 .wrangler/
 .dev.vars
 
+# Local environment and WeChat developer-tool settings
+.env
+.env.*
+!.env.example
+/project.private.config.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
