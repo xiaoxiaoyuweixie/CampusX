@@ -1,6 +1,7 @@
 const router = require('../../utils/router.js');
 const { api } = require('../../api/index.js');
 const unread = require('../../utils/unread.js');
+const { withCategoryIcons } = require('../../utils/category-presentation.js');
 const { categories: fallbackCategories } = require('../../mock/products.js');
 
 Page({
@@ -29,11 +30,11 @@ Page({
       const res = await api.getCategories();
       const payload = res.result || {};
       if (payload.code === 0 && payload.data && payload.data.length) {
-        this.setData({ categories: payload.data });
+        this.setData({ categories: withCategoryIcons(payload.data, 'category') });
         return;
       }
     } catch (err) {}
-    this.setData({ categories: fallbackCategories });
+    this.setData({ categories: withCategoryIcons(fallbackCategories, 'category') });
   },
 
   onCatTap(e) {

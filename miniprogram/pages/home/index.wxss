@@ -257,7 +257,6 @@ page { background: #EFF6FF; }
 .assistant-input-bar {
   display: flex;
   align-items: center;
-  gap: 16rpx;
   padding: 16rpx 24rpx calc(16rpx + env(safe-area-inset-bottom));
   background: #FFFFFF;
   border-top: 1rpx solid #E5E7EB;
@@ -272,26 +271,4 @@ page { background: #EFF6FF; }
   background: #F1F5F9;
   font-size: 27rpx;
   color: #111827;
-}
-
-.assistant-send {
-  width: 128rpx;
-  min-width: 128rpx;
-  height: 72rpx;
-  margin: 0;
-  padding: 0;
-  border-radius: 999rpx;
-  background: #3B82F6;
-  color: #FFFFFF;
-  font-size: 27rpx;
-  line-height: 72rpx;
-}
-
-.assistant-send[disabled] {
-  background: #BFDBFE;
-  color: #FFFFFF;
-}
-
-.assistant-send::after {
-  border: 0;
 }

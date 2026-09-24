@@ -121,12 +121,6 @@
         bindinput="onAssistantInput"
         bindconfirm="onAssistantSend"
       />
-      <button
-        class="assistant-send"
-        disabled="{{!assistantInput || assistantReplying}}"
-        loading="{{assistantReplying}}"
-        bindtap="onAssistantSend"
-      >发送</button>
     </view>
   </view>
 </view>

@@ -1,12 +1,13 @@
-.wrap { display: flex; height: 100vh; background: #F8FAFC; overflow: hidden; }
+page { background: #EFF6FF; }
+.wrap { display: flex; height: 100vh; background: #EFF6FF; overflow: hidden; }
 .side {
   width: 180rpx;
-  background: #fff;
+  background: #EFF6FF;
   border-right: 1rpx solid #E5E7EB;
   padding-top: 12rpx;
 }
 .side-item {
-  padding: 28rpx 12rpx;
+  padding: 20rpx 12rpx;
   text-align: center;
   font-size: 24rpx;
   color: #6B7280;
@@ -18,10 +19,11 @@
 }
 .side-item.active {
   color: #3B82F6;
-  background: #F8FAFC;
+  background: #EFF6FF;
   border-left-color: #3B82F6;
   font-weight: 600;
 }
+.category-icon { width: 64rpx; height: 64rpx; flex-shrink: 0; }
 .emoji { font-size: 32rpx; }
 .main {
   flex: 1;

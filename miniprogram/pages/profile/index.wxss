@@ -1,3 +1,4 @@
+page { background: #EFF6FF; }
 .page { padding: 24rpx; }
 .header {
   display: flex; align-items: flex-start; gap: 24rpx;
@@ -78,7 +79,7 @@
   font-size: 28rpx; color: #111827;
 }
 .menu-item + .menu-item { border-top: 1rpx solid #F1F5F9; }
-.m-icon { font-size: 32rpx; }
+.m-icon { width: 40rpx; height: 40rpx; flex-shrink: 0; align-self: center; }
 .m-text { flex: 1; }
 .arrow { color: #9CA3AF; font-size: 32rpx; }
 

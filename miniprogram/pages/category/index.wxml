@@ -7,7 +7,8 @@
       data-id="{{item.id}}"
       bindtap="onCatTap"
     >
-      <text class="emoji">{{item.icon}}</text>
+      <image wx:if="{{item.iconSrc}}" class="category-icon" src="{{item.iconSrc}}" mode="aspectFit" />
+      <text wx:else class="emoji">{{item.icon}}</text>
       <text>{{item.name}}</text>
     </view>
   </view>

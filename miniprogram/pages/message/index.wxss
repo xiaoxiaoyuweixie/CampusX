@@ -1,3 +1,4 @@
+page { background: #EFF6FF; }
 .page {
   padding: 24rpx;
 }
@@ -11,6 +12,10 @@
 .list {
   padding: 8rpx 0;
   margin-bottom: 24rpx;
+}
+
+.card.list {
+  background: #EFF6FF;
 }
 
 .item {

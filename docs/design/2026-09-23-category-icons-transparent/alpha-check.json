@@ -1,0 +1,249 @@
+[
+  {
+    "file": "01-electronics.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "transparentPercent": 64.52,
+    "backgroundSamples": [
+      {
+        "x": 0,
+        "y": 0,
+        "alpha": 0
+      },
+      {
+        "x": 1253,
+        "y": 0,
+        "alpha": 0
+      },
+      {
+        "x": 0,
+        "y": 1253,
+        "alpha": 0
+      },
+      {
+        "x": 1253,
+        "y": 1253,
+        "alpha": 0
+      },
+      {
+        "x": 627,
+        "y": 62,
+        "alpha": 0
+      },
+      {
+        "x": 62,
+        "y": 627,
+        "alpha": 0
+      },
+      {
+        "x": 1191,
+        "y": 627,
+        "alpha": 0
+      },
+      {
+        "x": 627,
+        "y": 1191,
+        "alpha": 0
+      }
+    ]
+  },
+  {
+    "file": "02-exam-materials.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "transparentPercent": 60.93,
+    "backgroundSamples": [
+      {
+        "x": 0,
+        "y": 0,
+        "alpha": 0
+      },
+      {
+        "x": 1253,
+        "y": 0,
+        "alpha": 0
+      },
+      {
+        "x": 0,
+        "y": 1253,
+        "alpha": 0
+      },
+      {
+        "x": 1253,
+        "y": 1253,
+        "alpha": 0
+      },
+      {
+        "x": 627,
+        "y": 62,
+        "alpha": 0
+      },
+      {
+        "x": 62,
+        "y": 627,
+        "alpha": 0
+      },
+      {
+        "x": 1191,
+        "y": 627,
+        "alpha": 0
+      },
+      {
+        "x": 627,
+        "y": 1191,
+        "alpha": 0
+      }
+    ],
+    "loopCenterAlpha": 0
+  },
+  {
+    "file": "03-textbooks.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "transparentPercent": 58.46,
+    "backgroundSamples": [
+      {
+        "x": 0,
+        "y": 0,
+        "alpha": 0
+      },
+      {
+        "x": 1253,
+        "y": 0,
+        "alpha": 0
+      },
+      {
+        "x": 0,
+        "y": 1253,
+        "alpha": 0
+      },
+      {
+        "x": 1253,
+        "y": 1253,
+        "alpha": 0
+      },
+      {
+        "x": 627,
+        "y": 62,
+        "alpha": 0
+      },
+      {
+        "x": 62,
+        "y": 627,
+        "alpha": 0
+      },
+      {
+        "x": 1191,
+        "y": 627,
+        "alpha": 0
+      },
+      {
+        "x": 627,
+        "y": 1191,
+        "alpha": 0
+      }
+    ]
+  },
+  {
+    "file": "04-skill-services.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "transparentPercent": 68.2,
+    "backgroundSamples": [
+      {
+        "x": 0,
+        "y": 0,
+        "alpha": 0
+      },
+      {
+        "x": 1253,
+        "y": 0,
+        "alpha": 0
+      },
+      {
+        "x": 0,
+        "y": 1253,
+        "alpha": 0
+      },
+      {
+        "x": 1253,
+        "y": 1253,
+        "alpha": 0
+      },
+      {
+        "x": 627,
+        "y": 62,
+        "alpha": 0
+      },
+      {
+        "x": 62,
+        "y": 627,
+        "alpha": 0
+      },
+      {
+        "x": 1191,
+        "y": 627,
+        "alpha": 0
+      },
+      {
+        "x": 627,
+        "y": 1191,
+        "alpha": 0
+      }
+    ]
+  },
+  {
+    "file": "05-dorm-essentials.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "transparentPercent": 81.45,
+    "backgroundSamples": [
+      {
+        "x": 0,
+        "y": 0,
+        "alpha": 0
+      },
+      {
+        "x": 1253,
+        "y": 0,
+        "alpha": 0
+      },
+      {
+        "x": 0,
+        "y": 1253,
+        "alpha": 0
+      },
+      {
+        "x": 1253,
+        "y": 1253,
+        "alpha": 0
+      },
+      {
+        "x": 627,
+        "y": 62,
+        "alpha": 0
+      },
+      {
+        "x": 62,
+        "y": 627,
+        "alpha": 0
+      },
+      {
+        "x": 1191,
+        "y": 627,
+        "alpha": 0
+      },
+      {
+        "x": 627,
+        "y": 1191,
+        "alpha": 0
+      }
+    ],
+    "lampNegativeSpaceAlpha": 0
+  }
+]

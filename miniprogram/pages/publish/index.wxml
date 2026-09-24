@@ -1,14 +1,20 @@
 <view class="page">
-  <view class="card section">
-    <view class="label">图片（最多 9 张）</view>
+  <view class="card section upload-section">
+    <view class="upload-heading">
+      <text class="upload-title">图片</text>
+      <text class="upload-count">{{images.length}}/9</text>
+    </view>
     <view class="img-list">
       <view class="img-item" wx:for="{{images}}" wx:key="*this">
         <image src="{{item}}" mode="aspectFill" />
         <view class="img-del" data-index="{{index}}" catchtap="onRemoveImage">×</view>
       </view>
-      <view class="img-add" bindtap="onChooseImage" wx:if="{{images.length < 9}}">
-        <view class="plus">+</view>
-        <view class="add-text">添加图片</view>
+      <view class="img-add {{images.length === 0 ? 'img-add-empty' : ''}}" bindtap="onChooseImage" wx:if="{{images.length < 9}}">
+        <image class="upload-camera" src="/images/publish/camera-add.png" mode="aspectFit" />
+        <view class="upload-copy">
+          <view class="add-text">添加图片</view>
+          <view class="upload-hint" wx:if="{{images.length === 0}}">最多上传 9 张，实拍图更清晰。</view>
+        </view>
       </view>
     </view>
   </view>

@@ -1,0 +1,108 @@
+[
+  {
+    "file": "01-my-posts.png",
+    "label": "我的发布",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "cornersAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "fullyTransparentPercent": 69.09,
+    "visibleBoundsAtAlpha128": {
+      "x": 237,
+      "y": 251,
+      "width": 782,
+      "height": 797
+    },
+    "suggestedImageEdgeFor20pxSubject": 31.5
+  },
+  {
+    "file": "02-favorites.png",
+    "label": "我的收藏",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "cornersAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "fullyTransparentPercent": 67.42,
+    "visibleBoundsAtAlpha128": {
+      "x": 128,
+      "y": 141,
+      "width": 996,
+      "height": 930
+    },
+    "suggestedImageEdgeFor20pxSubject": 25.2
+  },
+  {
+    "file": "03-contact.png",
+    "label": "联系方式",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "cornersAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "fullyTransparentPercent": 57.69,
+    "visibleBoundsAtAlpha128": {
+      "x": 97,
+      "y": 222,
+      "width": 1060,
+      "height": 814
+    },
+    "suggestedImageEdgeFor20pxSubject": 23.7
+  },
+  {
+    "file": "04-settings.png",
+    "label": "设置",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "cornersAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "fullyTransparentPercent": 63.6,
+    "visibleBoundsAtAlpha128": {
+      "x": 141,
+      "y": 160,
+      "width": 972,
+      "height": 935
+    },
+    "suggestedImageEdgeFor20pxSubject": 25.8,
+    "centerHoleAlpha": 0
+  },
+  {
+    "file": "05-about.png",
+    "label": "关于我们",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "cornersAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "fullyTransparentPercent": 58.72,
+    "visibleBoundsAtAlpha128": {
+      "x": 220,
+      "y": 229,
+      "width": 815,
+      "height": 796
+    },
+    "suggestedImageEdgeFor20pxSubject": 30.8
+  }
+]

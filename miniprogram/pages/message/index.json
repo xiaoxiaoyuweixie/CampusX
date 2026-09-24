@@ -2,5 +2,7 @@
   "usingComponents": {
     "empty-state": "/components/empty-state/index"
   },
-  "navigationBarTitleText": "消息"
+  "navigationBarTitleText": "消息",
+  "navigationBarBackgroundColor": "#EFF6FF",
+  "backgroundColor": "#EFF6FF"
 }

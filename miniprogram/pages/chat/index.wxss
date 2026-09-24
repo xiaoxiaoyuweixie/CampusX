@@ -1,4 +1,5 @@
-.page { display: flex; flex-direction: column; height: 100vh; box-sizing: border-box; background: #f8fafc; }
+page { background: #EFF6FF; }
+.page { display: flex; flex-direction: column; height: 100vh; box-sizing: border-box; background: #EFF6FF; }
 .product-strip { display: flex; align-items: center; gap: 16rpx; padding: 18rpx 24rpx; background: #fff; border-bottom: 1rpx solid #eef2f7; flex-shrink: 0; }
 .product-strip--active { background: #f8fafc; }
 .product-cover { width: 84rpx; height: 84rpx; border-radius: 8rpx; background: #e5e7eb; flex-shrink: 0; }
@@ -13,7 +14,7 @@
 .avatar-image { background: #e5e7eb; }
 .message-content { max-width: 80%; min-width: 0; }
 .bubble { padding: 18rpx 24rpx; border-radius: 16rpx; font-size: 28rpx; line-height: 1.5; word-break: break-all; white-space: pre-wrap; }
-.other .bubble { background: #fff; color: #111827; border-top-left-radius: 6rpx; }
+.other .bubble { background: #FFFFFF; color: #1F2937; border-top-left-radius: 6rpx; }
 .me .bubble { background: #3b82f6; color: #fff; border-top-right-radius: 6rpx; }
 .message-state { color: #9ca3af; font-size: 22rpx; margin-top: 8rpx; text-align: right; }
 .failed { color: #b91c1c; display: flex; align-items: center; justify-content: flex-end; gap: 12rpx; }

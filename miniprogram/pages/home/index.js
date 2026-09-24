@@ -1,27 +1,13 @@
 const router = require('../../utils/router.js');
 const { api } = require('../../api/index.js');
 const unread = require('../../utils/unread.js');
+const { withCategoryIcons } = require('../../utils/category-presentation.js');
 const { categories: fallbackCategories } = require('../../mock/products.js');
 
 const FALLBACK_COVER = 'https://upload.wikimedia.org/wikipedia/commons/3/3f/Fronalpstock_big.jpg';
 const ASSISTANT_BUTTON_SIZE_RPX = 112;
 const ASSISTANT_MARGIN_RPX = 28;
 const ASSISTANT_DRAG_THRESHOLD_PX = 8;
-const CATEGORY_ICONS = {
-  digital: '/images/home/category-digital.png',
-  kaoyan: '/images/home/category-kaoyan.png',
-  book: '/images/home/category-book.png',
-  skill: '/images/home/category-skill.png',
-  dorm: '/images/home/category-dorm.png',
-};
-
-function withCategoryIcons(categories) {
-  return categories.map(item => {
-    const id = item.categoryId || item.id;
-    const iconSrc = Object.prototype.hasOwnProperty.call(CATEGORY_ICONS, id) ? CATEGORY_ICONS[id] : '';
-    return { ...item, id, iconSrc };
-  });
-}
 
 function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
